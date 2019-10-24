@@ -1,6 +1,7 @@
 # Project Mirror(Peili) - proof of concept
 
 ### Quick links
+* [**Latest passing build release**](http://joonasmkauppinen.github.io/project-mirror/)
 * [**Kanban**](https://github.com/joonasmkauppinen/project-mirror/projects/1?fullscreen=true)
 * [**Sprint plans**](https://github.com/joonasmkauppinen/project-mirror/milestones?direction=asc&sort=due_date&state=open)
 * [**Full backlog**](https://github.com/joonasmkauppinen/project-mirror/issues?utf8=%E2%9C%93&q=is%3Aissue)
