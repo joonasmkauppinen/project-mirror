@@ -11,7 +11,7 @@
 
 ## Material for Stakeholders (these links will be updated often)
 * [**Daily Scrum Videos List**](https://docs.google.com/document/d/1__l_ZxOBLQp5N3cHHhmThdeDdoR4ktiGyK_YlXbLWb0)
-* [**Material Archive**](https://docs.google.com/document/d/1XZDfn1oCtyAoLhLWbhw6wWXXDRgUCIxYqWpPYfCemtE)
+* [**Material Archive (Documents, Memos, PDF's...)**](https://docs.google.com/document/d/1XZDfn1oCtyAoLhLWbhw6wWXXDRgUCIxYqWpPYfCemtE)
 
 ## About Mirror(Peili)
 
