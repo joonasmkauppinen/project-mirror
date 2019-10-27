@@ -1,10 +1,9 @@
-import React from 'react';
-import './App.css';
+import React, { FC } from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import LandingPage from '../pages/LandingPage';
 import MainAppPage from '../pages/MainAppPage';
 
-const App = (): JSX.Element => (
+const App: FC = () => (
   <Router>
     <div>
       {/* TODO: remove sample navigation */}
