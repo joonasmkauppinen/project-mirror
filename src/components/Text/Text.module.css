@@ -1,0 +1,6 @@
+.text {
+  color: white;
+  font-family: 'Catamaran', sans-serif;
+  font-weight: var(--regular);
+  font-size: 16px;
+}
