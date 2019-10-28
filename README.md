@@ -1,6 +1,8 @@
 # Project Mirror(Peili) - proof of concept
 [![Build Status](https://travis-ci.com/joonasmkauppinen/project-mirror.svg?branch=master)](https://travis-ci.com/joonasmkauppinen/project-mirror)
 
+![Download banner](https://user-images.githubusercontent.com/28673805/67712583-f294e680-f9cc-11e9-8875-3093debbbbe2.png)
+
 ### Quick links
 * [**Latest passing build release**](http://joonasmkauppinen.github.io/project-mirror/)
 * [**Kanban**](https://github.com/joonasmkauppinen/project-mirror/projects/1?fullscreen=true)
