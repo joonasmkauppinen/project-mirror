@@ -4,7 +4,7 @@ import LandingPage from '../pages/LandingPage';
 import MainAppPage from '../pages/MainAppPage';
 
 const App: FC = () => (
-  <Router>
+  <Router basename="/project-mirror">
     <div>
       {/* TODO: remove sample navigation */}
       <nav>
