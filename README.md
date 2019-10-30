@@ -12,6 +12,7 @@
 * [**Backend API URL**](http://tucloud.fi/metropolia/peiliapi/)
 * [**Backend API Documentation**](http://tucloud.fi/metropolia/peiliapi/apidoc)
 * [**Backend API Code Browser**](http://tucloud.fi/metropolia/peiliapi/backend-code-browser.php)
+* [**Travis CI Test Results**](https://travis-ci.com/joonasmkauppinen/project-mirror/)
 
 ## Material for Stakeholders (these links will be updated often)
 * [**Daily Scrum Videos List**](https://docs.google.com/document/d/1__l_ZxOBLQp5N3cHHhmThdeDdoR4ktiGyK_YlXbLWb0)
