@@ -22,6 +22,8 @@
 
 [**Official info site (FIN)**](https://www.metropolia.fi/tutkimus-kehittaminen-ja-innovaatiot/hankkeet/peili-loydavahvuutesi/)
 
+Language: [**FIN**](https://github.com/joonasmkauppinen/project-mirror#about-project-mirror-peili) | [EN](https://github.com/joonasmkauppinen/project-mirror/blob/master/README-en.md#about-project-mirror-peili)
+
 ### Syrjäytymisvaarassa olevien nuorten miesten elämänhallintaa tukeva hanke
 
 Tekoäly yhdistettynä nuorten miesten todellisiin tarpeisiin ja kiinnostuksen kohteisiin löydämme kohdennettuja yksilölle sopivia uudenlaisia tulevaisuuden mahdollisuuksia.
