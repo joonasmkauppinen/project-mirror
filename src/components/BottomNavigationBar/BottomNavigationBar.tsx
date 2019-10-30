@@ -4,7 +4,7 @@ import { ReactComponent as HomeIcon } from '../../assets/home.svg';
 import { ReactComponent as DiscoverIcon } from '../../assets/discover.svg';
 import { ReactComponent as ChatIcon } from '../../assets/chat.svg';
 import { ReactComponent as ProfileIcon } from '../../assets/profile.svg';
-import { Link, NavLink, useRouteMatch } from 'react-router-dom';
+import { NavLink, useRouteMatch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const BottomNavigationBar: React.FC = () => {
