@@ -33,15 +33,15 @@
 
 .bottomNavigationBar button svg {
   font-size: 2rem;
-  max-height: 18px;
-  max-width: 18px;
+  max-height: 20px;
+  max-width: 20px;
 }
 .bottomNavigationBar svg path {
   fill: var(--tab-inactive-color);
 }
 
 .bottomNavigationBar .active svg path {
-  stroke: var(--tab-inactive-color);
+  stroke: var(--tab-bar-color);
   fill: var(--tab-active-color);
 }
 
@@ -49,6 +49,7 @@
   display: block;
 }
 
+/* Possible accessibility problem */
 .bottomNavigationBar button {
   outline: 0; /* hide outline when pressed the button */
 }
