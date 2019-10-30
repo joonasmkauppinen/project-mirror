@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
 import styles from '../PageContainer.module.css';
 import { Route, Switch, useRouteMatch } from 'react-router';
-import HomeTab from '../HomeTab';
-import DiscoverTab from '../DiscoverTab';
-import ChatTab from '../ChatTab';
-import ProfileTab from '../ProfileTab';
+import HomeTab from './HomeTab';
+import DiscoverTab from './DiscoverTab';
+import ChatTab from './ChatTab';
+import ProfileTab from './ProfileTab';
 import { Link } from 'react-router-dom';
 
 const MainAppPage: FC = () => {
@@ -17,7 +17,7 @@ const MainAppPage: FC = () => {
       <nav>
         <ul>
           <li>
-            <Link to={`${match.url}/home`}>Home</Link>
+            <Link to={`${match.url}`}>Home</Link>
           </li>
           <li>
             <Link to={`${match.url}/discover`}>Discover</Link>
@@ -31,9 +31,6 @@ const MainAppPage: FC = () => {
         </ul>
       </nav>
       <Switch>
-        <Route path={`${match.path}/home`}>
-          <HomeTab />
-        </Route>
         <Route path={`${match.url}/discover`}>
           <DiscoverTab />
         </Route>
@@ -42,6 +39,9 @@ const MainAppPage: FC = () => {
         </Route>
         <Route path={`${match.url}/profile`}>
           <ProfileTab />
+        </Route>
+        <Route path={`${match.path}`}>
+          <HomeTab />
         </Route>
       </Switch>
     </div>
