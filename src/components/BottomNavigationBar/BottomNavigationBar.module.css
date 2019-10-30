@@ -48,3 +48,7 @@
 .bottomNavigationBar .active p {
   display: block;
 }
+
+.bottomNavigationBar button {
+  outline: 0; /* hide outline when pressed the button */
+}
