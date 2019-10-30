@@ -1,4 +1,4 @@
-# Project Mirror(Peili) - proof of concept
+# Project Mirror (Peili) - Proof of Concept
 [![Build Status](https://travis-ci.com/joonasmkauppinen/project-mirror.svg?branch=master)](https://travis-ci.com/joonasmkauppinen/project-mirror)
 
 ![Download banner](https://user-images.githubusercontent.com/28673805/67712583-f294e680-f9cc-11e9-8875-3093debbbbe2.png)
@@ -18,9 +18,9 @@
 * [**Daily Scrum Videos List**](https://docs.google.com/document/d/1__l_ZxOBLQp5N3cHHhmThdeDdoR4ktiGyK_YlXbLWb0)
 * [**Material Archive (Documents, Memos, PDF's...)**](https://docs.google.com/document/d/1XZDfn1oCtyAoLhLWbhw6wWXXDRgUCIxYqWpPYfCemtE)
 
-## About Mirror(Peili)
+## About "Project Mirror" (Peili)
 
-[Official info site](https://www.metropolia.fi/tutkimus-kehittaminen-ja-innovaatiot/hankkeet/peili-loydavahvuutesi/)
+[Official info site (FIN)](https://www.metropolia.fi/tutkimus-kehittaminen-ja-innovaatiot/hankkeet/peili-loydavahvuutesi/)
 
 ## Syrjäytymisvaarassa olevien nuorten miesten elämänhallintaa tukeva hanke ##
 
