@@ -1,33 +1,51 @@
 import React, { FC } from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Link, Redirect } from 'react-router-dom';
 import LandingPage from '../pages/LandingPage';
 import MainAppPage from '../pages/MainAppPage';
 
-const App: FC = () => (
-  <Router basename="/project-mirror">
-    <div>
-      {/* TODO: remove sample navigation */}
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Landing Page</Link>
-          </li>
-          <li>
-            <Link to="/main">Main App</Link>
-          </li>
-        </ul>
-      </nav>
+import {isSession} from '../utils/apicall'
 
-      <Switch>
-        <Route path="/main">
-          <MainAppPage />
-        </Route>
-        <Route path="/">
-          <LandingPage />
-        </Route>
-      </Switch>
-    </div>
-  </Router>
-);
+const App: FC = () => {
+  console.log(`session: ${isSession()}`)
+  return (
+    <Router basename="/project-mirror">
+      <div>
+        {/* TODO: remove sample navigation */}
+        {/* <nav>
+          <ul>
+            <li>
+              <Link to="/">Landing Page</Link>
+            </li>
+            <li>
+              <Link to="/main">Main App</Link>
+            </li>
+          </ul>
+        </nav> */}
+  
+        <Switch>
+          
+          <Route path="/main" render={(props) => (
+            isSession() === true
+            ? <MainAppPage />
+            : <Redirect to={{
+              pathname: '',
+              state: { from: props.location }
+            }} />
+          )} />
+          
+          <Route path="/" render={(props) => (
+            isSession() === false
+            ? <LandingPage />
+            : <Redirect to={{
+              pathname: '/main',
+              state: { from: props.location}
+            }} />
+          )} />
+          
+        </Switch>
+      </div>
+    </Router>
+  )
+};
 
 export default App;
