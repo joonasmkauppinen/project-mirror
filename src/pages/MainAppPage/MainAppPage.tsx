@@ -5,7 +5,7 @@ import HomeTab from './HomeTab';
 import DiscoverTab from './DiscoverTab';
 import ChatTab from './ChatTab';
 import ProfileTab from './ProfileTab';
-import { Link } from 'react-router-dom';
+import BottomNavigationBar from '../../components/BottomNavigationBar';
 
 const MainAppPage: FC = () => {
   const match = useRouteMatch();
@@ -14,22 +14,7 @@ const MainAppPage: FC = () => {
   }
   return (
     <div className={styles.container}>
-      <nav>
-        <ul>
-          <li>
-            <Link to={`${match.url}`}>Home</Link>
-          </li>
-          <li>
-            <Link to={`${match.url}/discover`}>Discover</Link>
-          </li>
-          <li>
-            <Link to={`${match.url}/chat`}>Chat</Link>
-          </li>
-          <li>
-            <Link to={`${match.url}/profile`}>Profile</Link>
-          </li>
-        </ul>
-      </nav>
+      <BottomNavigationBar />
       <Switch>
         <Route path={`${match.url}/discover`}>
           <DiscoverTab />
@@ -40,7 +25,7 @@ const MainAppPage: FC = () => {
         <Route path={`${match.url}/profile`}>
           <ProfileTab />
         </Route>
-        <Route path={`${match.path}`}>
+        <Route path={`${match.url}`}>
           <HomeTab />
         </Route>
       </Switch>
