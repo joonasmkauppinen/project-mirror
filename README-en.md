@@ -22,7 +22,7 @@
 
 [**Official info site (FIN)**](https://www.metropolia.fi/tutkimus-kehittaminen-ja-innovaatiot/hankkeet/peili-loydavahvuutesi/)
 
-Language: [FIN](https://github.com/joonasmkauppinen/project-mirror#about-project-mirror-peili) | [**EN**](https://github.com/joonasmkauppinen/project-mirror/README-en.md#about-project-mirror-peili)
+Language: [FIN](https://github.com/joonasmkauppinen/project-mirror#about-project-mirror-peili) | [**EN**](https://github.com/joonasmkauppinen/project-mirror/blob/master/README-en.md#about-project-mirror-peili)
 
 ### A project to support the life management of young men at risk of exclusion
 Artificial intelligence coupled with the real needs and interests of young men, we find targeted new opportunities for the future that are tailored to the individual.
