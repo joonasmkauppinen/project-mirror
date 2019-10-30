@@ -16,18 +16,10 @@ const MainAppPage: FC = () => {
     <div className={styles.container}>
       <BottomNavigationBar />
       <Switch>
-        <Route path={`${match.url}/discover`}>
-          <DiscoverTab />
-        </Route>
-        <Route path={`${match.url}/chat`}>
-          <ChatTab />
-        </Route>
-        <Route path={`${match.url}/profile`}>
-          <ProfileTab />
-        </Route>
-        <Route path={`${match.url}`}>
-          <HomeTab />
-        </Route>
+        <Route exact path={`${match.url}`} component={HomeTab} />
+        <Route path={`${match.url}/discover`} component={DiscoverTab} />
+        <Route path={`${match.url}/chat`} component={ChatTab} />
+        <Route path={`${match.url}/profile`} component={ProfileTab} />
       </Switch>
     </div>
   );
