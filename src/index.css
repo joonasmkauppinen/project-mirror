@@ -1,6 +1,9 @@
 :root {
   --primary-color: #ffef9b;
   --main-bg-color: #16171a;
+  --tab-bar-color: #1A1B1F;
+  --tab-inactive-color: #616366;
+  --tab-active-color: #FFEF9B;
 
   /* Font weights */
   --regular: 400;
