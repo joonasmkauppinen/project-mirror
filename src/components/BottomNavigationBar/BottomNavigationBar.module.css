@@ -13,6 +13,7 @@
 .bottomNavigationBar a {
   width: 25%;
   text-align: center;
+  outline: 0; /* hide outline when pressed the button */
 }
 .bottomNavigationBar button {
   padding: 0;
@@ -41,7 +42,6 @@
 }
 
 .bottomNavigationBar .active svg path {
-  stroke: var(--tab-bar-color);
   fill: var(--tab-active-color);
 }
 
