@@ -17,7 +17,7 @@
 */
 
 import JSONReqponse from '../interfaces/jsonresponse';
-import LoginSuccess from '../interfaces/loginsuccess';
+import JSONRLoginSuccess from '../interfaces/jsonrloginsuccess';
 
 const BACKEND_API_URL = 'https://tucloud.fi/metropolia/peiliapi/';
 
@@ -109,13 +109,13 @@ const apiCall = async (operation: string, params: any = {}): Promise<any> => {
 const login = async (
   username: string,
   password: string,
-): Promise<LoginSuccess> => {
+): Promise<JSONRLoginSuccess> => {
   return new Promise(resolve => {
     apiCall('login', { username: username, password: password }).then(
-      (r: LoginSuccess) => {
+      (r: JSONRLoginSuccess) => {
         if (r.success) {
           sessionToken = r.token;
-          sessionID = r.sessionID;
+          sessionID = r.session_id;
           sessionChecked = true;
           setCookie('sessionToken', sessionToken);
           setCookie('sessionID', sessionID.toString());
@@ -135,7 +135,7 @@ const logout = async (): Promise<JSONReqponse> => {
         sessionID = 0;
         sessionChecked = true;
         setCookie('sessionToken', sessionToken);
-        setCookie('sessionID', sessionID.toString());
+        setCookie('sessionID', '0');
       }
       resolve(r);
     });
