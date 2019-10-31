@@ -15,18 +15,6 @@ const App: FC = () => {
   return (
     <Router basename="/project-mirror">
       <div>
-        {/* TODO: remove sample navigation */}
-        {/* <nav>
-          <ul>
-            <li>
-              <Link to="/">Landing Page</Link>
-            </li>
-            <li>
-              <Link to="/main">Main App</Link>
-            </li>
-          </ul>
-        </nav> */}
-
         <Switch>
           <Route
             path="/main"
