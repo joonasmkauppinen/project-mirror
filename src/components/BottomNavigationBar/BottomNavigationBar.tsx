@@ -54,7 +54,12 @@ const ButtonLink: FunctionComponent<LinkProps> = ({
   children,
 }: LinkProps) => {
   return (
-    <NavLink exact={true} activeClassName={styles.active} to={to}>
+    <NavLink
+      exact={true}
+      activeClassName={styles.active}
+      to={to}
+      replace={true}
+    >
       <button>
         {children}
         <p>{label}</p>
