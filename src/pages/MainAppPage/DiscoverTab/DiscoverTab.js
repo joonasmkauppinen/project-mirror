@@ -1,13 +1,13 @@
-import React, { FC } from 'react';
+import React from 'react';
 import Header from '../../../components/Header';
 import Text from '../../../components/Text';
 import styles from '../../PageContainer.module.css';
 
-const HomeTab: FC = () => (
+const DiscoverTab = () => (
   <div className={styles.container}>
-    <Header>Home tab</Header>
-    <Text>This is the home tab</Text>
+    <Header>Discover tab</Header>
+    <Text>This is the discover tab</Text>
   </div>
 );
 
-export default HomeTab;
+export default DiscoverTab;

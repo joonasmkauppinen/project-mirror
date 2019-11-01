@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 import styles from '../PageContainer.module.css';
 import { Route, Switch, useRouteMatch } from 'react-router';
 import HomeTab from './HomeTab';
@@ -7,7 +7,7 @@ import ChatTab from './ChatTab';
 import ProfileTab from './ProfileTab';
 import BottomNavigationBar from '../../components/BottomNavigationBar';
 
-const MainAppPage: FC = () => {
+const MainAppPage = () => {
   const match = useRouteMatch();
   if (!match) {
     return <div>Error</div>;
