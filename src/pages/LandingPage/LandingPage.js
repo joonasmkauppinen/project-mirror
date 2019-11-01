@@ -3,6 +3,7 @@ import styles from '../PageContainer.module.scss';
 import Header from '../../components/Header';
 import Text from '../../components/Text';
 
+import t from '../../utils/translate';
 import { login } from '../../utils/apicall';
 
 const setButtonStateEnabled = state => {
@@ -27,11 +28,11 @@ const btnLoginClick = () => {
 const LandingPage = () => (
   <div className={styles.container}>
     <Header>Landing page</Header>
-    <Text>This will be the landing page.</Text>
-    <input id="un" type="text" placeholder="username" />
-    <input id="pw" type="password" placeholder="password" />
-    <button id="btn" type="button" value="Lågga in" onClick={btnLoginClick}>
-      Lågga in
+    <Text>Bayern Ipsum Dolor Sit Amet.</Text>
+    <input id="un" type="text" placeholder={t('username')} />
+    <input id="pw" type="password" placeholder={t('password')} />
+    <button id="btn" type="button" onClick={btnLoginClick}>
+      {t('login')}
     </button>
   </div>
 );
