@@ -16,9 +16,6 @@
                                           
 */
 
-import JSONReqponse from '../interfaces/jsonresponse';
-import JSONRLoginSuccess from '../interfaces/jsonrloginsuccess';
-
 const BACKEND_API_URL = 'https://tucloud.fi/metropolia/peiliapi/';
 
 let sessionChecked = false;
