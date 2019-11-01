@@ -49,10 +49,10 @@ const ButtonLink = ({ label, to, children }) => {
       to={to}
       replace={true}
     >
-      <button>
+      <div>
         {children}
         <p>{label}</p>
-      </button>
+      </div>
     </NavLink>
   );
 };
