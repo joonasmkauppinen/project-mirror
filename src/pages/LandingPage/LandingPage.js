@@ -3,18 +3,18 @@ import styles from '../PageContainer.module.css';
 import Header from '../../components/Header';
 import Text from '../../components/Text';
 
-import {login} from '../../utils/apicall'
+import { login } from '../../utils/apicall';
 
-const setButtonStateEnabled = (state: boolean) => {
-  let b : any = document.getElementById('btn');
+const setButtonStateEnabled = state => {
+  let b = document.getElementById('btn');
   b.disabled = !state;
-}
+};
 
 const btnLoginClick = () => {
   setButtonStateEnabled(false);
-  let un: any = document.getElementById('un');
-  let pw: any = document.getElementById('pw');
-  login(un.value, pw.value).then((response: any) => {
+  let un = document.getElementById('un');
+  let pw = document.getElementById('pw');
+  login(un.value, pw.value).then(response => {
     if (response.success) {
       window.location.reload(true);
     } else {
@@ -22,9 +22,9 @@ const btnLoginClick = () => {
       setButtonStateEnabled(true);
     }
   });
-}
+};
 
-const LandingPage: React.FC = (): JSX.Element => (
+const LandingPage = () => (
   <div className={styles.container}>
     <Header>Landing page</Header>
     <Text>This will be the landing page.</Text>

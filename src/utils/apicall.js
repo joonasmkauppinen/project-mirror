@@ -26,7 +26,7 @@ let sessionToken = '';
 let sessionID = 0;
 
 /* Save a Browser Cookie */
-const setCookie = (cname: string, cvalue: string): void => {
+const setCookie = (cname, cvalue) => {
   const d = new Date();
   d.setTime(d.getTime() + 30 * 24 * 60 * 60 * 1000);
   const expires = 'expires=' + d.toUTCString();
@@ -34,7 +34,7 @@ const setCookie = (cname: string, cvalue: string): void => {
 };
 
 /* Clear Browser Cookie */
-const getCookie = (cname: string): string => {
+const getCookie = cname => {
   const name = cname + '=';
   const decodedCookie = decodeURIComponent(document.cookie);
   const ca = decodedCookie.split(';');
@@ -51,7 +51,7 @@ const getCookie = (cname: string): string => {
 };
 
 /* Get isSession value Boolean */
-const isSession = (): boolean => {
+const isSession = () => {
   if (!sessionChecked) {
     sessionID = parseInt(getCookie('sessionID'), 10);
     sessionToken = getCookie('sessionToken');
@@ -60,8 +60,7 @@ const isSession = (): boolean => {
 };
 
 /* Convert ("Serialize") Object(any) {} to string. */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const serialize = (obj: any): string => {
+const serialize = obj => {
   const str = [];
   for (const p in obj)
     if (obj.hasOwnProperty(p)) {
@@ -71,10 +70,9 @@ const serialize = (obj: any): string => {
 };
 
 /* Perform a Backend API Call */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const apiCall = async (operation: string, params: any = {}): Promise<any> => {
+const apiCall = async (operation, params = {}) => {
   return new Promise(resolve => {
-    const dataParams: RequestInit = {
+    const dataParams = {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     };
@@ -91,7 +89,7 @@ const apiCall = async (operation: string, params: any = {}): Promise<any> => {
     try {
       fetch(BACKEND_API_URL + operation, dataParams)
         .then(r => r.json())
-        .then((r: JSONReqponse) => {
+        .then(r => {
           if (r.success === false) {
             console.log(
               `[apiCall] WARNING: Call ${operation} failed. Error: ${r.error}`,
@@ -106,30 +104,25 @@ const apiCall = async (operation: string, params: any = {}): Promise<any> => {
 };
 
 /* Login Backend API Call with Cookie Storing automation */
-const login = async (
-  username: string,
-  password: string,
-): Promise<JSONRLoginSuccess> => {
+const login = async (username, password) => {
   return new Promise(resolve => {
-    apiCall('login', { username: username, password: password }).then(
-      (r: JSONRLoginSuccess) => {
-        if (r.success) {
-          sessionToken = r.token;
-          sessionID = r.session_id;
-          sessionChecked = true;
-          setCookie('sessionToken', sessionToken);
-          setCookie('sessionID', sessionID.toString());
-        }
-        resolve(r);
-      },
-    );
+    apiCall('login', { username: username, password: password }).then(r => {
+      if (r.success) {
+        sessionToken = r.token;
+        sessionID = r.session_id;
+        sessionChecked = true;
+        setCookie('sessionToken', sessionToken);
+        setCookie('sessionID', sessionID.toString());
+      }
+      resolve(r);
+    });
   });
 };
 
 /* Logout Backend API Call with Cookie Clearing automation */
-const logout = async (): Promise<JSONReqponse> => {
+const logout = async () => {
   return new Promise(resolve => {
-    apiCall('logout').then((r: JSONReqponse) => {
+    apiCall('logout').then(r => {
       if (r.success) {
         sessionToken = '';
         sessionID = 0;

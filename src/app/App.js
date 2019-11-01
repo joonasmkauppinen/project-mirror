@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 import {
   BrowserRouter as Router,
   Route,
@@ -10,7 +10,7 @@ import MainAppPage from '../pages/MainAppPage';
 
 import { isSession } from '../utils/apicall';
 
-const App: FC = () => {
+const App = () => {
   console.log(`session: ${isSession()}`);
   return (
     <Router basename="/project-mirror">
@@ -31,7 +31,6 @@ const App: FC = () => {
               )
             }
           />
-
           <Route
             path="/"
             render={props =>

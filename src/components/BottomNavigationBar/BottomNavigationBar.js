@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import styles from './BottomNavigationBar.module.css';
 import { ReactComponent as HomeIcon } from '../../assets/outlined/home.svg';
 import { ReactComponent as HomeIconActive } from '../../assets/filled/home-filled.svg';
@@ -9,9 +9,8 @@ import { ReactComponent as ChatIconActive } from '../../assets/filled/chat-fille
 import { ReactComponent as ProfileIcon } from '../../assets/outlined/profile.svg';
 import { ReactComponent as ProfileIconActive } from '../../assets/filled/profile-filled.svg';
 import { NavLink, useRouteMatch } from 'react-router-dom';
-import PropTypes from 'prop-types';
 
-const BottomNavigationBar: React.FC = () => {
+const BottomNavigationBar = () => {
   return (
     <div className={styles.bottomNavigationBar}>
       <ButtonLink label="Home" to="/main">
@@ -42,17 +41,7 @@ const BottomNavigationBar: React.FC = () => {
   );
 };
 
-type LinkProps = {
-  label: string;
-  to: string;
-  children: PropTypes.ReactNodeLike;
-};
-
-const ButtonLink: FunctionComponent<LinkProps> = ({
-  label,
-  to,
-  children,
-}: LinkProps) => {
+const ButtonLink = ({ label, to, children }) => {
   return (
     <NavLink
       exact={true}
