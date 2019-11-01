@@ -1,11 +1,35 @@
-@import "../variables";
+@import '../variables';
 
 .container {
   display: flex;
   flex-direction: column;
   flex: 1;
   align-items: center;
-  justify-content: center;
   background-color: $main-bg-color;
+  height: 100%;
+}
+
+.tabContainer {
+  background-color: $main-bg-color;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
   min-height: 100vh;
+
+  .subContainer {
+    display: grid;
+    width: 100%;
+    .bottom {
+      grid-row: 2;
+    }
+
+    .content {
+      grid-row: 1;
+      overflow: auto;
+      position: relative;
+      height: calc(100vh - 56px);
+    }
+  }
 }

@@ -7,6 +7,20 @@ const HomeTab = () => (
   <div className={styles.container}>
     <Header>Home tab</Header>
     <Text>This is the home tab</Text>
+    <Text>This is the home tab</Text>
+    <Text>This is the home tab</Text>
+    <Text>This is the home tab</Text>
+    <Text>This is the home tab</Text>
+    <Text>This is the home tab</Text>
+    <Text>This is the home tab</Text>
+    <Text>This is the home tab</Text>
+    <Text>This is the home tab</Text>
+    <Text>This is the home tab</Text>
+    <Text>This is the home tab</Text>
+    <Text>This is the home tab</Text>
+    <Text>This is the home tab</Text>
+    <Text>This is the home tab</Text>
+    <Text>This is the home tab</Text>
   </div>
 );
 
