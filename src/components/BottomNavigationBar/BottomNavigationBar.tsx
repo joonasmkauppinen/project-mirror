@@ -60,10 +60,10 @@ const ButtonLink: FunctionComponent<LinkProps> = ({
       to={to}
       replace={true}
     >
-      <button>
+      <div>
         {children}
         <p>{label}</p>
-      </button>
+      </div>
     </NavLink>
   );
 };
