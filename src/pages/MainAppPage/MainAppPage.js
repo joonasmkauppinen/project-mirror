@@ -13,14 +13,18 @@ const MainAppPage = () => {
     return <div>Error</div>;
   }
   return (
-    <div className={styles.container}>
-      <BottomNavigationBar />
-      <Switch>
-        <Route exact path={`${match.url}`} component={HomeTab} />
-        <Route path={`${match.url}/discover`} component={DiscoverTab} />
-        <Route path={`${match.url}/chat`} component={ChatTab} />
-        <Route path={`${match.url}/profile`} component={ProfileTab} />
-      </Switch>
+    <div className={styles.tabContainer}>
+      <div className={styles.subContainer}>
+        <BottomNavigationBar className={styles.bottom} />
+        <div className={styles.content}>
+          <Switch>
+            <Route exact path={`${match.url}`} component={HomeTab} />
+            <Route path={`${match.url}/discover`} component={DiscoverTab} />
+            <Route path={`${match.url}/chat`} component={ChatTab} />
+            <Route path={`${match.url}/profile`} component={ProfileTab} />
+          </Switch>
+        </div>
+      </div>
     </div>
   );
 };
