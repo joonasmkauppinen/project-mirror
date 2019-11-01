@@ -16,80 +16,29 @@
                                           
 */
 
-interface JSONReqponse {
-  success: boolean,
-  error?: string,
-}
+import JSONReqponse from '../interfaces/jsonresponse';
+import JSONRLoginSuccess from '../interfaces/jsonrloginsuccess';
 
 const BACKEND_API_URL = 'https://tucloud.fi/metropolia/peiliapi/';
 
-var session_checked = false;
-var session_token = '';
-var session_id = '';
-
-
-/* Convert ("Serialize") Object(any) {} to string. */
-const serialize = (obj: any) : string => {
-  var str = [];
-  for (var p in obj)
-    if (obj.hasOwnProperty(p)) {
-      str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
-    }
-  return str.join("&");
-}
-
-
-/* Perform a Backend API Call */
-const apiCall = async (operation: string, params: any = {}) => {
-
-  return new Promise((resolve, reject) => {
-
-    const dataParams : RequestInit = {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" }
-    };
-
-    if (isSession()) {
-      params.session_id = session_id;
-      params.token = session_token;
-    }
-
-    if (params !== {}) {
-      dataParams.body = serialize(params);
-    }
-
-    try {
-      fetch(BACKEND_API_URL + operation, dataParams)
-      .then((r) => r.json())
-      .then((r: JSONReqponse) => {
-        if (r.success === false) {
-          console.log(`[apiCall] WARNING: Call ${operation} failed. Error: ${r.error}`);
-        }
-        resolve(r);
-      });
-    } catch (e) {
-      resolve({error: e, success: false});
-    }
-
-  });
-
-}
+let sessionChecked = false;
+let sessionToken = '';
+let sessionID = 0;
 
 /* Save a Browser Cookie */
-const setCookie = (cname: string, cvalue: string) => {
-  var d = new Date();
-  d.setTime(d.getTime() + (30*24*60*60*1000));
-  var expires = "expires="+ d.toUTCString();
-  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
-
+const setCookie = (cname: string, cvalue: string): void => {
+  const d = new Date();
+  d.setTime(d.getTime() + 30 * 24 * 60 * 60 * 1000);
+  const expires = 'expires=' + d.toUTCString();
+  document.cookie = cname + '=' + cvalue + ';' + expires + ';path=/';
+};
 
 /* Clear Browser Cookie */
-const getCookie = (cname: string) : string => {
-  let name = cname + "=";
-  let decodedCookie = decodeURIComponent(document.cookie);
-  let ca = decodedCookie.split(';');
-  for(let i = 0; i <ca.length; i++) {
+const getCookie = (cname: string): string => {
+  const name = cname + '=';
+  const decodedCookie = decodeURIComponent(document.cookie);
+  const ca = decodedCookie.split(';');
+  for (let i = 0; i < ca.length; i++) {
     let c = ca[i];
     while (c.charAt(0) === ' ') {
       c = c.substring(1);
@@ -99,49 +48,98 @@ const getCookie = (cname: string) : string => {
     }
   }
   return '';
-  }
-
-
-/* Login Backend API Call with Cookie Storing automation */
-const login = async (username: string, password: string) => {
-  return new Promise((resolve, reject) => {
-    apiCall('login', {username: username, password: password}).then((r: any) => {
-      if (r.success) {
-        session_token = r.token;
-        session_id = r.session_id;
-        session_checked = true;
-        setCookie('session_token', session_token);
-        setCookie('session_id', session_id);        
-      }
-      resolve(r);
-    })
-  });
-}
-
-/* Logout Backend API Call with Cookie Clearing automation */
-const logout = async () => {
-  return new Promise((resolve, reject) => {
-    apiCall('logout').then((r: any) => {
-      if (r.success) {
-        session_token = '';
-        session_id = '';
-        session_checked = true;
-        setCookie('session_token', session_token);
-        setCookie('session_id', session_id);
-      }
-      resolve(r);
-    })
-  });
-}
-
+};
 
 /* Get isSession value Boolean */
-const isSession = () : boolean => {
-  if (!session_checked) {
-    session_id    = getCookie('session_id');
-    session_token = getCookie('session_token');
+const isSession = (): boolean => {
+  if (!sessionChecked) {
+    sessionID = parseInt(getCookie('sessionID'), 10);
+    sessionToken = getCookie('sessionToken');
   }
-  return (session_token !== '' ? true : false);
-}
+  return sessionToken !== '' ? true : false;
+};
 
-export {apiCall, isSession, login, logout};
+/* Convert ("Serialize") Object(any) {} to string. */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const serialize = (obj: any): string => {
+  const str = [];
+  for (const p in obj)
+    if (obj.hasOwnProperty(p)) {
+      str.push(encodeURIComponent(p) + '=' + encodeURIComponent(obj[p]));
+    }
+  return str.join('&');
+};
+
+/* Perform a Backend API Call */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const apiCall = async (operation: string, params: any = {}): Promise<any> => {
+  return new Promise(resolve => {
+    const dataParams: RequestInit = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    };
+
+    if (isSession()) {
+      params.sessionID = sessionID;
+      params.token = sessionToken;
+    }
+
+    if (params !== {}) {
+      dataParams.body = serialize(params);
+    }
+
+    try {
+      fetch(BACKEND_API_URL + operation, dataParams)
+        .then(r => r.json())
+        .then((r: JSONReqponse) => {
+          if (r.success === false) {
+            console.log(
+              `[apiCall] WARNING: Call ${operation} failed. Error: ${r.error}`,
+            );
+          }
+          resolve(r);
+        });
+    } catch (e) {
+      resolve({ error: e, success: false });
+    }
+  });
+};
+
+/* Login Backend API Call with Cookie Storing automation */
+const login = async (
+  username: string,
+  password: string,
+): Promise<JSONRLoginSuccess> => {
+  return new Promise(resolve => {
+    apiCall('login', { username: username, password: password }).then(
+      (r: JSONRLoginSuccess) => {
+        if (r.success) {
+          sessionToken = r.token;
+          sessionID = r.session_id;
+          sessionChecked = true;
+          setCookie('sessionToken', sessionToken);
+          setCookie('sessionID', sessionID.toString());
+        }
+        resolve(r);
+      },
+    );
+  });
+};
+
+/* Logout Backend API Call with Cookie Clearing automation */
+const logout = async (): Promise<JSONReqponse> => {
+  return new Promise(resolve => {
+    apiCall('logout').then((r: JSONReqponse) => {
+      if (r.success) {
+        sessionToken = '';
+        sessionID = 0;
+        sessionChecked = true;
+        setCookie('sessionToken', sessionToken);
+        setCookie('sessionID', '0');
+      }
+      resolve(r);
+    });
+  });
+};
+
+export { apiCall, isSession, login, logout };
