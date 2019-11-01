@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../PageContainer.module.css';
+import styles from '../PageContainer.module.scss';
 import Header from '../../components/Header';
 import Text from '../../components/Text';
 

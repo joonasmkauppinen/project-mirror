@@ -1,8 +1,10 @@
+@import "../../variables";
+
 .bottomNavigationBar {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  background-color: var(--tab-bar-color);
+  background-color: $tab-bar-color;
   width: 100%;
   height: 56px;
   position: fixed;
@@ -38,11 +40,11 @@
 
 .bottomNavigationBar p {
   display: none;
-  color: var(--tab-active-color);
+  color: $tab-active-color;
   margin: 0 2px 0 0;
   text-transform: uppercase;
   font-family: 'Catamaran', sans-serif;
-  font-weight: var(--bold);
+  font-weight: $bold;
   font-size: 11px;
 }
 
@@ -52,11 +54,11 @@
   max-width: 20px;
 }
 .bottomNavigationBar svg path {
-  fill: var(--tab-inactive-color);
+  fill: $tab-inactive-color;
 }
 
 .bottomNavigationBar .active svg path {
-  fill: var(--tab-active-color);
+  fill: $tab-active-color;
 }
 
 .bottomNavigationBar .active p {
