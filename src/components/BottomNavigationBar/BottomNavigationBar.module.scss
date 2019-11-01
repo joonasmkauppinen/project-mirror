@@ -10,66 +10,61 @@
   position: fixed;
   left: 0;
   bottom: 0;
-}
 
-.bottomNavigationBar a {
-  width: 25%;
-  text-align: center;
-  outline: 0; /* hide outline when pressed the button */
-  text-decoration: none;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  -webkit-tap-highlight-color: transparent;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-.bottomNavigationBar button {
-  padding: 0;
-  cursor: pointer;
-  background: none;
-  border: none;
-  outline: 0; /* hide outline when pressed the button */
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  -webkit-tap-highlight-color: transparent;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
+  .active {
+    p {
+      display: block;
+    }
 
-.bottomNavigationBar p {
-  display: none;
-  color: $tab-active-color;
-  margin: 0 2px 0 0;
-  text-transform: uppercase;
-  font-family: 'Catamaran', sans-serif;
-  font-weight: $bold;
-  font-size: 11px;
-}
+    svg path {
+      fill: $tab-active-color;
+    }
+  }
 
-.bottomNavigationBar button svg {
-  font-size: 2rem;
-  max-height: 20px;
-  max-width: 20px;
-}
-.bottomNavigationBar svg path {
-  fill: $tab-inactive-color;
-}
+  a {
+    width: 25%;
+    text-align: center;
+    outline: 0; /* hide outline when pressed the button */
+    text-decoration: none;
 
-.bottomNavigationBar .active svg path {
-  fill: $tab-active-color;
-}
+    &:active {
+      background: transparent;
+    }
+  }
 
-.bottomNavigationBar .active p {
-  display: block;
-}
+  button {
+    padding: 0;
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline: 0; /* hide outline when pressed the button */
+    svg {
+      font-size: 2rem;
+      max-height: 20px;
+      max-width: 20px;
+    }
+  }
 
-.bottomNavigationBar a:active{
-  background:transparent;
-}
+  p {
+    display: none;
+    color: $tab-active-color;
+    margin: -4px 0 0;
+    text-transform: uppercase;
+    font-family: 'Catamaran', sans-serif;
+    font-weight: $bold;
+    font-size: 11px;
+  }
 
-/* Possible accessibility problem */
-.bottomNavigationBar button {
-  outline: 0; /* hide outline when pressed the button */
+  svg path {
+    fill: $tab-inactive-color;
+  }
+
+  a, button {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
 }
