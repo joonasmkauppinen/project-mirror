@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../PageContainer.module.css';
+import styles from '../PageContainer.module.scss';
 import { Route, Switch, useRouteMatch } from 'react-router';
 import HomeTab from './HomeTab';
 import DiscoverTab from './DiscoverTab';

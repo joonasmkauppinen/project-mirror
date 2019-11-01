@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './BottomNavigationBar.module.css';
+import styles from './BottomNavigationBar.module.scss';
 import { ReactComponent as HomeIcon } from '../../assets/outlined/home.svg';
 import { ReactComponent as HomeIconActive } from '../../assets/filled/home-filled.svg';
 import { ReactComponent as DiscoverIcon } from '../../assets/outlined/discover.svg';
