@@ -1,10 +1,25 @@
+import translations from './translations';
+import { getCookie, setCookie } from './cookies';
+
 let language = 'en';
 
-const translations = {
-  username: { en: 'User Name', fi: 'Käyttäjänimi' },
-  password: { en: 'Password', fi: 'Salasana' },
-  login: { en: 'Login', fi: 'Kirjaudu' },
+language = getCookie('site_language');
+
+const getLanguages = () => {
+  let lang = [];
+  lang['en'] = 'English';
+  lang['fi'] = 'Suomi (Finnish)';
+  return lang;
 };
+
+const setLanguage = newLanguage => {
+  language = newLanguage;
+  setCookie('site_language', newLanguage);
+};
+
+if (!getLanguages().includes(language)) {
+  language = 'en';
+}
 
 const t = text => {
   if (typeof translations[text] !== 'undefined') {
@@ -22,4 +37,4 @@ const t = text => {
   }
 };
 
-export default t;
+export { t, setLanguage, getLanguages };

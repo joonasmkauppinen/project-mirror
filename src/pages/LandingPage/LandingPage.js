@@ -3,7 +3,7 @@ import styles from '../PageContainer.module.scss';
 import Header from '../../components/Header';
 import Text from '../../components/Text';
 
-import t from '../../utils/translate';
+import { t } from '../../utils/translate';
 import { login } from '../../utils/apicall';
 
 const setButtonStateEnabled = state => {
