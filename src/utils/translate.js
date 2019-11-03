@@ -34,20 +34,30 @@ if (!getLanguages().includes(language)) {
   language = 'en';
 }
 
-const t = text => {
-  if (typeof translations[text] !== 'undefined') {
-    if (typeof translations[text][language] !== 'undefined') {
-      return translations[text][language];
+const getTranslation = (path, data = [], inpath = 0) => {
+  let element = data[path[inpath]];
+  if (typeof element === 'undefined') {
+    let wordpath = path.join('.');
+    console.log(`Translation of word {${wordpath}} is missing completely.`);
+    return `{${wordpath}}`;
+  }
+  if (path.length - 1 === inpath) {
+    if (typeof element[language] !== 'undefined') {
+      return element[language];
     } else {
+      let wordpath = path.join('.');
       console.log(
-        `Translation of word [${text}] is missing in language [${language}]`,
+        `Translation of word [${wordpath}] is missing in language version [${language}]`,
       );
-      return '?' + text + '?';
+      return `{${wordpath}}`;
     }
   } else {
-    console.log(`Translation of word [${text}] is missing completely.`);
-    return '??' + text + '??';
+    return getTranslation(path, element, inpath + 1);
   }
+};
+
+const t = text => {
+  return getTranslation(text.split('.'), translations, 0);
 };
 
 export { t, setLanguage, getLanguages };
