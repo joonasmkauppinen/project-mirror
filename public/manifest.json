@@ -1,9 +1,9 @@
 {
+  "name": "Peili",
   "short_name": "Peili",
   "description": "Löydä vahvuutesi tekoälyllä.",
   "lang": "fi-FI",
   "start_url": "/",
-  "scope": ".",
   "display": "standalone",
   "theme_color": "#16171A",
   "background_color": "#16171A",
