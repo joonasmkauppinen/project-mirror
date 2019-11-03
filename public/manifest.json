@@ -1,6 +1,13 @@
 {
   "short_name": "Peili",
-  "name": "Peili",
+  "description": "Löydä vahvuutesi tekoälyllä.",
+  "lang": "fi-FI",
+  "start_url": "/",
+  "scope": ".",
+  "display": "standalone",
+  "theme_color": "#16171A",
+  "background_color": "#16171A",
+  "orientation": "portrait-primary",
   "icons": [
     {
       "src": "favicon.ico",
@@ -17,9 +24,5 @@
       "type": "image/png",
       "sizes": "512x512"
     }
-  ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#1A1B1F",
-  "background_color": "#16171A"
+  ]
 }
