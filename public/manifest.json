@@ -3,7 +3,7 @@
   "short_name": "Peili",
   "description": "Löydä vahvuutesi tekoälyllä.",
   "lang": "fi-FI",
-  "start_url": "/",
+  "start_url": "https://joonasmkauppinen.github.io/project-mirror/",
   "display": "standalone",
   "theme_color": "#16171A",
   "background_color": "#16171A",
