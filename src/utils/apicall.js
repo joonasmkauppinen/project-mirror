@@ -32,7 +32,7 @@ const isSession = () => {
 const serialize = obj => {
   const str = [];
   for (const p in obj)
-    if (obj.hasOwnProperty(p)) {
+    if (Object.prototype.hasOwnProperty.call(obj, p)) {
       str.push(encodeURIComponent(p) + '=' + encodeURIComponent(obj[p]));
     }
   return str.join('&');
@@ -47,7 +47,7 @@ const apiCall = async (operation, params = {}) => {
     };
 
     if (isSession()) {
-      params.sessionID = sessionID;
+      params.session_id = sessionID;
       params.token = sessionToken;
     }
 
