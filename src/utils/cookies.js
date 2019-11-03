@@ -1,12 +1,30 @@
+/*
+
+     ██████╗ ██████╗  ██████╗ ██╗  ██╗██╗███████╗███████╗
+    ██╔════╝██╔═══██╗██╔═══██╗██║ ██╔╝██║██╔════╝██╔════╝
+    ██║     ██║   ██║██║   ██║█████╔╝ ██║█████╗  ███████╗
+    ██║     ██║   ██║██║   ██║██╔═██╗ ██║██╔══╝  ╚════██║
+    ╚██████╗╚██████╔╝╚██████╔╝██║  ██╗██║███████╗███████║
+     ╚═════╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚═╝╚══════╝╚══════╝                                                   
+    
+    ███ © 2019 Team Alpha █████████████████████████████
+                                          
+*/
+
+/* Delete Cookie */
+const deleteCookie = cname => {
+  setCookie(cname, '', -1);
+};
+
 /* Save a Browser Cookie */
-const setCookie = (cname, cvalue) => {
+const setCookie = (cname, cvalue, ctime = 2592000000) => {
   const d = new Date();
-  d.setTime(d.getTime() + 30 * 24 * 60 * 60 * 1000);
+  d.setTime(d.getTime() + ctime);
   const expires = 'expires=' + d.toUTCString();
   document.cookie = cname + '=' + cvalue + ';' + expires + ';path=/';
 };
 
-/* Clear Browser Cookie */
+/* Get Browser Cookie */
 const getCookie = cname => {
   const name = cname + '=';
   const decodedCookie = decodeURIComponent(document.cookie);
@@ -23,4 +41,4 @@ const getCookie = cname => {
   return '';
 };
 
-export { setCookie, getCookie };
+export { deleteCookie, setCookie, getCookie };

@@ -11,7 +11,7 @@
                                           
 */
 
-import { setCookie, getCookie } from './cookies';
+import { deleteCookie, setCookie, getCookie } from './cookies';
 
 const BACKEND_API_URL = 'https://tucloud.fi/metropolia/peiliapi/';
 
@@ -96,8 +96,8 @@ const logout = async () => {
         sessionToken = '';
         sessionID = 0;
         sessionChecked = true;
-        setCookie('sessionToken', sessionToken);
-        setCookie('sessionID', '0');
+        deleteCookie('sessionToken');
+        deleteCookie('sessionID');
       }
       resolve(r);
     });
