@@ -3,6 +3,14 @@ const translations = {
   username: { en: 'User Name', fi: 'Käyttäjänimi' },
   password: { en: 'Password', fi: 'Salasana' },
   login: { en: 'Login', fi: 'Kirjaudu' },
+  logout: { en: 'Logout', fi: 'Logout' },
+
+  TABS: {
+    home: {en: 'Home', fi: 'Koti'},
+    discover: {en: 'Discover', fi: 'Löydä'},
+    chat: {en: 'Chat', fi: 'Chat'},
+    profile: {en: 'Profile', fi: 'Profiili'},
+  },
 
   LOGIN: {
     message: {
@@ -15,6 +23,14 @@ const translations = {
       fi: 'Täytä puuttuva kenttä',
     },
   },
+
+  PROFILE: {
+    title: {en: 'Profile tab', fi: 'Profiili-tabi'},
+  },
+
+  LOGOUT: {
+    confirm: {en: 'Are you sure you want to log out?', fi: 'Haluatko varmasti kirjautua ulos?'},
+  }
 };
 
 export default translations;
