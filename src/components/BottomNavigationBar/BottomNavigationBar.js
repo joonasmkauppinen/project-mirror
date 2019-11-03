@@ -10,27 +10,29 @@ import { ReactComponent as ProfileIcon } from '../../assets/outlined/profile.svg
 import { ReactComponent as ProfileIconActive } from '../../assets/filled/profile-filled.svg';
 import { NavLink, useRouteMatch } from 'react-router-dom';
 
+import { t } from '../../utils/translate';
+
 const BottomNavigationBar = () => {
   return (
     <div className={styles.bottomNavigationBar}>
-      <ButtonLink label="Home" to="/main">
+      <ButtonLink label={t('TABS.home')} to="/main">
         {!useRouteMatch({ path: '/main', exact: true }) ? (
           <HomeIcon />
         ) : (
           <HomeIconActive />
         )}
       </ButtonLink>
-      <ButtonLink label="Discover" to="/main/discover">
+      <ButtonLink label={t('TABS.discover')} to="/main/discover">
         {!useRouteMatch('/main/discover') ? (
           <DiscoverIcon />
         ) : (
           <DiscoverIconActive />
         )}
       </ButtonLink>
-      <ButtonLink label="Chat" to="/main/chat">
+      <ButtonLink label={t('TABS.chat')} to="/main/chat">
         {!useRouteMatch('/main/chat') ? <ChatIcon /> : <ChatIconActive />}
       </ButtonLink>
-      <ButtonLink label="Profile" to="/main/profile">
+      <ButtonLink label={t('TABS.profile')} to="/main/profile">
         {!useRouteMatch('/main/profile') ? (
           <ProfileIcon />
         ) : (
