@@ -6,6 +6,10 @@ import D from '../../utils/disctionary';
 import { useHistory } from 'react-router-dom';
 
 const LandingPage = () => {
+  const description = t(D.LANDING.hero_section_description);
+  const hint = t(D.LANDING.hero_section_hint);
+  const signupLabel = t(D.LANDING.singup_btn);
+  const loginLabel = t(D.LANDING.login_btn);
   const history = useHistory();
   const handleOnLoginClick = () => history.push('/login');
   const handleOnSignupClick = () =>
@@ -14,14 +18,15 @@ const LandingPage = () => {
     <>
       <section className={styles.heroSection}>
         <h1>Peili</h1>
-        <p>Löydä vahvuutesi tekoälyllä.</p>
+        <p>{description}</p>
+        <p>{hint}</p>
         <Button
           primary
-          label="Luo käyttäjä"
+          label={signupLabel}
           superClass={styles.signupButton}
           onClick={handleOnSignupClick}
         />
-        <Button secondary label="Kirjaudu" onClick={handleOnLoginClick} />
+        <Button secondary label={loginLabel} onClick={handleOnLoginClick} />
       </section>
     </>
   );
