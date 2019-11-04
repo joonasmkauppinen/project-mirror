@@ -6,6 +6,7 @@ import Text from '../../components/Text';
 import { t } from '../../utils/translate';
 import { login } from '../../utils/apicall';
 import Button from '../../components/Button';
+import d from '../../utils/disctionary';
 
 const setButtonStateEnabled = state => {
   let b = document.getElementById('btn');
@@ -30,7 +31,7 @@ const LandingPage = () => (
   <div className={styles.container}>
     <Header>Landing page</Header>
     <Text>Bayern Ipsum Dolor Sit Amet.</Text>
-    <input id="un" type="text" placeholder={t('username')} />
+    <input id="un" type="text" placeholder={t(d.username)} />
     <input id="pw" type="password" placeholder={t('password')} />
     <Button id="btn" handleClick={btnLoginClick} primary label={t('login')} />
   </div>

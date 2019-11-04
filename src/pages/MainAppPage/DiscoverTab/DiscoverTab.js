@@ -5,7 +5,7 @@ import styles from '../../PageContainer.module.scss';
 
 const DiscoverTab = () => (
   <div className={styles.container}>
-    <Header>Discover tab</Header>
+    <Header>Discover</Header>
     <Text>This is the discover tab</Text>
   </div>
 );
