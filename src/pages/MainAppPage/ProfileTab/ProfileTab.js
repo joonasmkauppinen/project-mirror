@@ -5,6 +5,7 @@ import styles from '../../PageContainer.module.scss';
 
 import { t } from '../../../utils/translate';
 import { logout } from '../../../utils/apicall';
+import Button from '../../../components/Button';
 
 const logoutButtonClick = () => {
   if (window.confirm(t('LOGOUT.confirm'))) {
@@ -20,7 +21,14 @@ const ProfileTab = () => (
   <div className={styles.container}>
     <Header>{t('PROFILE.title')}</Header>
     <Text>{t('PROFILE.teaser')}</Text>
-    <button onClick={logoutButtonClick}>{t('logout')}</button>
+    <div style={{ flex: 1, width: '100%' }}>
+      <Button
+        handleClick={logoutButtonClick}
+        secondary
+        label={t('logout')}
+        style={{ margin: 'auto' }}
+      />
+    </div>
   </div>
 );
 
