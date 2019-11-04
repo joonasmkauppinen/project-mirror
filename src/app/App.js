@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 import LandingPage from '../pages/LandingPage';
 import MainAppPage from '../pages/MainAppPage';
+import LoginPage from '../pages/LoginPage';
 
 import { isSession } from '../utils/apicall';
 
@@ -16,6 +17,7 @@ const App = () => {
     <Router basename="/project-mirror">
       <div>
         <Switch>
+          <Route path="/login" render={LoginPage} />
           <Route
             path="/main"
             render={props =>

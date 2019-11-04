@@ -1,40 +1,20 @@
 import React from 'react';
-import styles from '../PageContainer.module.scss';
-import Header from '../../components/Header';
-import Text from '../../components/Text';
+import styles from './styles.module.css';
+import { useHistory } from 'react-router-dom';
 
-import { t } from '../../utils/translate';
-import { login } from '../../utils/apicall';
-
-const setButtonStateEnabled = state => {
-  let b = document.getElementById('btn');
-  b.disabled = !state;
+const LandingPage = () => {
+  const history = useHistory();
+  const handleOnLoginClick = () => history.push('/login');
+  return (
+    <>
+      <section className={styles.heroSection}>
+        <h1>Peili</h1>
+        <p>Löydä vahvuutesi tekoälyllä.</p>
+        <button>Luo käyttäjä</button>
+        <button onClick={handleOnLoginClick}>Kirjaudu sisään</button>
+      </section>
+    </>
+  );
 };
-
-const btnLoginClick = () => {
-  setButtonStateEnabled(false);
-  let un = document.getElementById('un');
-  let pw = document.getElementById('pw');
-  login(un.value, pw.value).then(response => {
-    if (response.success) {
-      window.location.reload(true);
-    } else {
-      alert(response.error);
-      setButtonStateEnabled(true);
-    }
-  });
-};
-
-const LandingPage = () => (
-  <div className={styles.container}>
-    <Header>Landing page</Header>
-    <Text>Bayern Ipsum Dolor Sit Amet.</Text>
-    <input id="un" type="text" placeholder={t('username')} />
-    <input id="pw" type="password" placeholder={t('password')} />
-    <button id="btn" type="button" onClick={btnLoginClick}>
-      {t('login')}
-    </button>
-  </div>
-);
 
 export default LandingPage;
