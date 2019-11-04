@@ -1,0 +1,30 @@
+@import "../../variables";
+
+.button {
+  border-radius: 10px;
+  font-size: $fontSmall;
+  font-family: $font;
+  text-transform: uppercase;
+  font-weight: $bold;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  border: 1px solid $primary-color;
+  height: 48px;
+  line-height: 24px;
+  cursor: pointer;
+  user-select: none;
+  min-width: 80px;
+  max-width: 360px;
+
+  &.primary {
+    background-color: $primary-color;
+    color: $main-bg-color;
+  }
+
+  &.secondary {
+    background-color: $main-bg-color;
+    color: $primary-color;
+  }
+
+}
