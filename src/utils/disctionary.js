@@ -29,7 +29,7 @@ const d = {
       fi: 'Löydä vahvuutesi tekoälyllä.',
     },
     hero_section_hint: {
-      en: 'To begin crate an account or login.',
+      en: 'To begin create an account or login.',
       fi: 'Aloittaaksesi luo käyttäjä tai kirjaudu sisään.',
     },
   },
