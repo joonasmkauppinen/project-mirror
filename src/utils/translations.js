@@ -21,6 +21,19 @@ const translations = {
     profile: { en: 'Profile', fi: 'Profiili' },
   },
 
+  LANDING: {
+    login_btn: { en: 'Login', fi: 'Kirjaudu' },
+    singup_btn: { en: 'Create account', fi: 'Luo käyttäjä' },
+    hero_section_description: {
+      en: 'TODO',
+      fi: 'Löydä vahvuutesi tekoälyllä.',
+    },
+    hero_section_hint: {
+      en: 'To begin crate an account or login.',
+      fi: 'Aloittaaksesi luo käyttäjä tai kirjaudu sisään.',
+    },
+  },
+
   LOGIN: {
     message: {
       en: 'Welcome to peili. Please login with your username and password.',
