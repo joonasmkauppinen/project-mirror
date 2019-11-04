@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './LandingPage.module.scss';
 import Button from '../../components/Button';
-// import T from '../../utils/translations';
-// import { t } from '../../utils/translate';
+import { t } from '../../utils/translate';
+import D from '../../utils/disctionary';
 import { useHistory } from 'react-router-dom';
 
 const LandingPage = () => {

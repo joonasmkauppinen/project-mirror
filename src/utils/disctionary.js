@@ -1,4 +1,4 @@
-const translations = {
+const d = {
   translation_test: { en: 'EN', fi: 'FI' },
   TRANSLATION_TESTS: {
     subelement: { en: 'MD-TEST-1', fi: 'MD-TEST-1' },
@@ -59,4 +59,4 @@ const translations = {
   },
 };
 
-export default translations;
+export default d;

@@ -11,7 +11,7 @@
                                           
 */
 
-import translations from './translations';
+import d from './disctionary';
 import { getCookie, setCookie } from './cookies';
 
 let language = 'en';
@@ -33,6 +33,15 @@ const setLanguage = newLanguage => {
 if (!getLanguages().includes(language)) {
   language = 'en';
 }
+
+const objectTranslate = object => {
+  let element = object[language];
+  if (typeof element !== 'undefined') {
+    return element;
+  } else {
+    return '{?}';
+  }
+};
 
 const getTranslation = (path, data = [], inpath = 0) => {
   let element = data[path[inpath]];
@@ -57,7 +66,10 @@ const getTranslation = (path, data = [], inpath = 0) => {
 };
 
 const t = text => {
-  return getTranslation(text.split('.'), translations, 0);
+  if (typeof text === 'object') {
+    return objectTranslate(text);
+  }
+  return getTranslation(text.split('.'), d, 0);
 };
 
 export { t, setLanguage, getLanguages };
