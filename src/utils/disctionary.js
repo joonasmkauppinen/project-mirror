@@ -25,7 +25,7 @@ const d = {
     login_btn: { en: 'Login', fi: 'Kirjaudu' },
     singup_btn: { en: 'Create account', fi: 'Luo käyttäjä' },
     hero_section_description: {
-      en: 'TODO',
+      en: 'Find your strengths with artificial intelligence.',
       fi: 'Löydä vahvuutesi tekoälyllä.',
     },
     hero_section_hint: {
