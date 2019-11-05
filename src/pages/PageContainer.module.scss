@@ -16,7 +16,6 @@
   flex: 1;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
 
   .subContainer {
     display: grid;
@@ -29,7 +28,7 @@
       grid-row: 1;
       overflow: auto;
       position: relative;
-      height: calc(100vh - (56px)); // -50px if toolbar used
+      height: calc(calc(var(--vh, 1vh) * 100) - 56px); // -106px if toolbar is used
     }
   }
 }
