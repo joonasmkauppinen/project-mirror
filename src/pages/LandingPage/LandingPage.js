@@ -1,6 +1,6 @@
 import React from 'react';
 import { t } from '../../utils/translate';
-import D from '../../utils/disctionary';
+import D from '../../utils/dictionary';
 import { useHistory } from 'react-router-dom';
 import Particles from 'react-particles-js';
 import particlesConfig from '../../config/particles-config';

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { t } from '../../utils/translate';
+import D from '../../utils/dictionary';
 import { login } from '../../utils/apicall';
 import { useHistory } from 'react-router-dom';
 
@@ -14,6 +15,10 @@ const LoginPage = () => {
   const [password, setPassword] = useState('');
   const [passwordError, setPasswordError] = useState();
   const history = useHistory();
+  const emailLabel = t(D.LOGIN.email_lable);
+  const emailPlaceholder = t(D.LOGIN.email_placeholder);
+  const passwordLabel = t(D.LOGIN.password_label);
+  const loginLabel = t(D.LOGIN.login_btn);
   const navigateToMain = () => history.push('/main');
 
   const handleLoginClick = async () => {
@@ -41,15 +46,15 @@ const LoginPage = () => {
       <form className={styles.formSection}>
         <TextInput
           value={email}
-          label="Email"
+          label={emailLabel}
           type="email"
           errorMessage={emailError}
-          placeholder="john.doe@email.com"
+          placeholder={emailPlaceholder}
           onChange={handleEmailChange}
         />
         <TextInput
           value={password}
-          label="Password"
+          label={passwordLabel}
           type="password"
           errorMessage={passwordError}
           placeholder="••••••••"
@@ -57,7 +62,7 @@ const LoginPage = () => {
           style={{ marginTop: '16px' }}
         />
         <Button
-          label="Login"
+          label={loginLabel}
           style={{ margin: '32px 0 64px' }}
           onClick={handleLoginClick}
         />

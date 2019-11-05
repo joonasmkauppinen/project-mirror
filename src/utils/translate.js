@@ -11,7 +11,7 @@
                                           
 */
 
-import d from './disctionary';
+import d from './dictionary';
 import { getCookie, setCookie } from './cookies';
 
 let language = 'en';

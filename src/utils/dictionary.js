@@ -1,4 +1,4 @@
-const d = {
+export default {
   translation_test: { en: 'EN', fi: 'FI' },
   TRANSLATION_TESTS: {
     subelement: { en: 'MD-TEST-1', fi: 'MD-TEST-1' },
@@ -35,14 +35,25 @@ const d = {
   },
 
   LOGIN: {
-    message: {
-      en: 'Welcome to peili. Please login with your username and password.',
-      fi:
-        'Tervetuloa peiliin. Kirjaudu syöttämällä käyttäjänimi sekä salasana.',
-    },
     fill_missing_field: {
       en: 'Please, fill the missing field',
       fi: 'Täytä puuttuva kenttä',
+    },
+    email_lable: {
+      en: 'Email',
+      fi: 'Sähköposti',
+    },
+    email_placeholder: {
+      en: 'john.doe@email.com',
+      fi: 'matti.meikäläinen@email.com',
+    },
+    password_label: {
+      en: 'Password',
+      fi: 'Salasana',
+    },
+    login_btn: {
+      en: 'Login',
+      fi: 'Kirjaudu Sisään',
     },
   },
 
@@ -58,5 +69,3 @@ const d = {
     },
   },
 };
-
-export default d;
