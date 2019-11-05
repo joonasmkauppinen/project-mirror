@@ -7,6 +7,10 @@ $tab-inactive-color: #616366;
 $tab-active-color: #ffef9b;
 $body-text-color: #9da4b2;
 $title-text-color: #ffffff;
+$card-bg-color: #222326;
+$card-detail-color: #45464c;
+$card-placeholder-color: #505259;
+$error-color: #ff273d;
 
 // Fonts
 $font: 'Catamaran', sans-serif;
@@ -19,8 +23,9 @@ $semi-bold: 600;
 $bold: 700;
 
 // Font sizes
-$fontSmall: 14px;
+$font-small: 14px;
 $body-text-size: 18px;
 
 // Dimensions
-$screenMargin: 32px;
+$screen-margin: 32px;
+$radius-10: 10px;

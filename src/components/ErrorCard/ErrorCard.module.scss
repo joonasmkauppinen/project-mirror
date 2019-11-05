@@ -1,0 +1,32 @@
+@import '../../variables.scss';
+
+.container {
+  display: flex;
+  flex-direction: row;
+  background-color: $error-color;
+  border-radius: $radius-10;
+  min-height: 50px;
+  align-items: center;
+  margin-top: 8px;
+
+  .icon {
+    margin-left: 16px;
+    min-width: 16px;
+    max-width: 16px;
+    min-height: 16px;
+    max-height: 16px;
+
+    path {
+      fill: white;
+    }
+  }
+
+  p {
+    margin-left: 8px;
+    margin-right: 16px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-size: 15px;
+    font-weight: $bold;
+  }
+}

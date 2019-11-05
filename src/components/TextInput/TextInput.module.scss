@@ -1,0 +1,32 @@
+@import '../../variables.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+
+  p {
+    color: $title-text-color;
+    font-weight: $medium;
+    font-size: $body-text-size;
+    margin: 0;
+    margin-left: 16px;
+  }
+
+  input {
+    align-self: stretch;
+    background-color: $card-bg-color;
+    border: none;
+    border-radius: $radius-10;
+    font-size: $body-text-size;
+    font-family: $font;
+    color: $title-text-color;
+    outline: none;
+    padding: 0 16px;
+    height: 50px;
+
+    &::placeholder {
+      color: $card-placeholder-color;
+    }
+  }
+}
