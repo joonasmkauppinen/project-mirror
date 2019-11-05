@@ -1,0 +1,23 @@
+@import '../../variables';
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: $tab-bar-color;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  .start,
+  .end,
+  .center {
+    color: $primary-color;
+  }
+  .title {
+    flex: 2;
+    color: #ffffff;
+    font-size: 18px;
+  }
+}
