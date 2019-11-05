@@ -3,9 +3,20 @@ import styles from './TextInput.module.scss';
 import ErrorCard from '../../components/ErrorCard';
 import PropTypes from 'prop-types';
 
-const TextInput = ({ value, label, placeholder, onChange, type }) => {
+const TextInput = ({
+  value,
+  label,
+  placeholder,
+  onChange,
+  type,
+  errorMessage,
+  superClass,
+  style,
+}) => {
+  const classes = [styles.container];
+  superClass && classes.push(superClass);
   return (
-    <div className={styles.container}>
+    <div className={classes.join(' ')} style={style}>
       {label && <p>{label}</p>}
       <input
         value={value}
@@ -13,7 +24,7 @@ const TextInput = ({ value, label, placeholder, onChange, type }) => {
         onChange={onChange}
         type={type}
       />
-      <ErrorCard />
+      {errorMessage && <ErrorCard message={errorMessage} />}
     </div>
   );
 };
@@ -24,6 +35,9 @@ TextInput.propTypes = {
   type: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
+  errorMessage: PropTypes.string,
+  superClass: PropTypes.string,
+  style: PropTypes.object,
 };
 
 export default TextInput;
