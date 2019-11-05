@@ -2,6 +2,8 @@ import React from 'react';
 import { t } from '../../utils/translate';
 import D from '../../utils/disctionary';
 import { useHistory } from 'react-router-dom';
+import Particles from 'react-particles-js';
+import particlesConfig from '../../config/particles-config';
 
 import { ReactComponent as PeiliLogo } from '../../assets/outlined/peili-official-logo-outline_ic.svg';
 import { ReactComponent as ScrollIndicator } from '../../assets/filled/scroll-indicator.svg';
@@ -20,6 +22,10 @@ const LandingPage = () => {
   return (
     <>
       <section className={styles.heroSection}>
+        <Particles
+          canvasClassName={styles.particles}
+          params={particlesConfig}
+        />
         <div className={styles.logoContainer}>
           <PeiliLogo className={styles.logo} />
           <h1 className={styles.appName}>Peili</h1>
