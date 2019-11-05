@@ -9,12 +9,16 @@ const test = () => {
   alert('todo!');
 };
 
+const goBack = () => {
+  window.history.back();
+};
+
 const Toolbar = ({ title, back = true, info = false }) => {
   console.log(back);
   return (
     <div className={styles.toolbar}>
       <div className={styles.start}>
-        {back === true && <IconButton Icon={GoBackIcon} onClick={test} />}
+        {back === true && <IconButton Icon={GoBackIcon} onClick={goBack} />}
       </div>
       <div className={styles.title}>{title}</div>
       <div className={styles.end}>

@@ -9,6 +9,8 @@ import Button from '../../components/Button';
 import TextInput from '../../components/TextInput';
 import { ReactComponent as PeiliLogo } from '../../assets/outlined/peili-official-logo-outline_ic.svg';
 
+import Toolbar from '../../components/Toolbar';
+
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   // TODO: remove disable when validation is implemented
@@ -43,35 +45,40 @@ const LoginPage = () => {
 
   return (
     <div className={styles.container}>
-      <section className={styles.logoContainer}>
-        <PeiliLogo className={styles.logo} />
-        <h1>Peili</h1>
-      </section>
-      <form className={styles.formSection}>
-        <TextInput
-          value={email}
-          label={emailLabel}
-          type="email"
-          errorMessage={emailError}
-          placeholder={emailPlaceholder}
-          onChange={handleEmailChange}
-          focus="true"
-        />
-        <TextInput
-          value={password}
-          label={passwordLabel}
-          type="password"
-          errorMessage={passwordError}
-          placeholder="••••••••"
-          onChange={handlePasswordChange}
-          style={{ marginTop: '16px' }}
-        />
-        <Button
-          label={loginLabel}
-          style={{ margin: '32px 0 64px' }}
-          onClick={handleLoginClick}
-        />
-      </form>
+      <div>
+        <Toolbar />
+      </div>
+      <div className={styles.scrollable}>
+        <section className={styles.logoContainer}>
+          <PeiliLogo className={styles.logo} />
+          <h1>Peili</h1>
+        </section>
+        <form className={styles.formSection}>
+          <TextInput
+            value={email}
+            label={emailLabel}
+            type="email"
+            errorMessage={emailError}
+            placeholder={emailPlaceholder}
+            onChange={handleEmailChange}
+            focus="true"
+          />
+          <TextInput
+            value={password}
+            label={passwordLabel}
+            type="password"
+            errorMessage={passwordError}
+            placeholder="••••••••"
+            onChange={handlePasswordChange}
+            style={{ marginTop: '16px' }}
+          />
+          <Button
+            label={loginLabel}
+            style={{ margin: '32px 0 64px' }}
+            onClick={handleLoginClick}
+          />
+        </form>
+      </div>
     </div>
   );
 };

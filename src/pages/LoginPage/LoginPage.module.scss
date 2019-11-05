@@ -1,13 +1,15 @@
 @import '../../variables.scss';
 
 .container {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  align-items: center;
-  background-color: $main-bg-color;
-  height: 100%;
-  padding: 0 $screen-margin;
+  .scrollable {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
+    background-color: $main-bg-color;
+    height: calc(100vh - 50px);
+    padding: 0 $screen-margin;
+  }
 
   .logoContainer {
     display: flex;
