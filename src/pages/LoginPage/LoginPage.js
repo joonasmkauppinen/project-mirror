@@ -23,7 +23,7 @@ const LoginPage = () => {
   const emailPlaceholder = t(D.LOGIN.email_placeholder);
   const passwordLabel = t(D.LOGIN.password_label);
   const loginLabel = t(D.LOGIN.login_btn);
-  const navigateToMain = () => history.push('/main');
+  const navigateToMain = () => history.replace('/main');
 
   const handleLoginClick = async () => {
     const { success, error } = await login(email, password);
