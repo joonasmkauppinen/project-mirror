@@ -43,6 +43,10 @@ export default {
       en: 'Please, fill the missing field',
       fi: 'Täytä puuttuva kenttä',
     },
+    username_label: {
+      en: 'Username',
+      fi: 'Käyttäjänimi',
+    },
     email_lable: {
       en: 'Email',
       fi: 'Sähköposti',

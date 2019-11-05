@@ -3,6 +3,7 @@ import { t } from '../../utils/translate';
 import D from '../../utils/dictionary';
 import { login } from '../../utils/apicall';
 import { useHistory } from 'react-router-dom';
+import { validateEmail } from '../../utils/validate';
 
 import styles from './LoginPage.module.scss';
 import Button from '../../components/Button';
@@ -28,6 +29,14 @@ const LoginPage = () => {
   const navigateToMain = () => history.replace('/main');
 
   const handleLoginClick = async () => {
+    if (!validateEmail(email)) {
+      // TODO: ERROR MSG
+      return;
+    }
+    if (password.length < 2) {
+      // TODO: ERROR MSG
+      return;
+    }
     const { success, error } = await login(email, password);
     if (success) navigateToMain();
     else alert(error);
