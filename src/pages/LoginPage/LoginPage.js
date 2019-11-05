@@ -55,6 +55,7 @@ const LoginPage = () => {
           errorMessage={emailError}
           placeholder={emailPlaceholder}
           onChange={handleEmailChange}
+          focus="true"
         />
         <TextInput
           value={password}

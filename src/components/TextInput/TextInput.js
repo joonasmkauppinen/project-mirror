@@ -12,6 +12,7 @@ const TextInput = ({
   errorMessage,
   superClass,
   style,
+  focus = false,
 }) => {
   const classes = [styles.container];
   superClass && classes.push(superClass);
@@ -19,6 +20,7 @@ const TextInput = ({
     <div className={classes.join(' ')} style={style}>
       {label && <p>{label}</p>}
       <input
+        autoFocus={focus}
         value={value}
         placeholder={placeholder}
         onChange={onChange}
@@ -38,6 +40,7 @@ TextInput.propTypes = {
   errorMessage: PropTypes.string,
   superClass: PropTypes.string,
   style: PropTypes.object,
+  focus: PropTypes.bool,
 };
 
 export default TextInput;
