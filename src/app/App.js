@@ -17,7 +17,7 @@ const App = () => {
     <Router basename="/project-mirror">
       <div>
         <Switch>
-          <Route path="/login" render={LoginPage} />
+          <Route path="/login" render={() => <LoginPage />} />
           <Route
             path="/main"
             render={props =>
