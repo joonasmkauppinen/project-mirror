@@ -5,7 +5,7 @@
   height: 100vh;
   align-items: stretch;
   flex-direction: column;
-  padding: 0 $screenMargin;
+  padding: 0 $screen-margin;
   color: $title-text-color;
 
   .particles {
@@ -92,7 +92,7 @@
 .featuresSection {
   color: $title-text-color;
   background-color: $landing-bg-color;
-  padding: 0 $screenMargin;
+  padding: 0 $screen-margin;
 
   .feature {
     display: flex;
@@ -121,7 +121,7 @@
   height: 80vh;
   color: $title-text-color;
   background-color: $landing-bg-color;
-  padding: 0 $screenMargin;
+  padding: 0 $screen-margin;
 
   h1 {
     font-weight: $regular;
