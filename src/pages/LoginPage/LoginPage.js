@@ -46,7 +46,7 @@ const LoginPage = () => {
   return (
     <div className={styles.container}>
       <div>
-        <Toolbar />
+        <Toolbar title={t(D.LOGIN.title)} />
       </div>
       <div className={styles.scrollable}>
         <section className={styles.logoContainer}>

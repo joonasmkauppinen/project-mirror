@@ -35,6 +35,10 @@ export default {
   },
 
   LOGIN: {
+    title: {
+      en: 'Login',
+      fi: 'Kirjaudu',
+    },
     fill_missing_field: {
       en: 'Please, fill the missing field',
       fi: 'Täytä puuttuva kenttä',
