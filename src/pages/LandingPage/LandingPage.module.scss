@@ -1,0 +1,145 @@
+@import '../../variables.scss';
+
+.heroSection {
+  display: flex;
+  height: 100vh;
+  align-items: stretch;
+  flex-direction: column;
+  padding: 0 $screenMargin;
+  color: $title-text-color;
+
+  .logoContainer {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 72px;
+
+    .logo {
+      width: 40px;
+      height: 50px;
+
+      path {
+        fill: $primary-color;
+      }
+    }
+
+    .appName {
+      margin: 0;
+      font-weight: $bold;
+      font-size: 30px;
+      letter-spacing: 2px;
+    }
+
+    .description {
+      font-weight: $light;
+      font-size: 21px;
+      text-align: center;
+      margin: 0 32px;
+      margin-top: 8px;
+    }
+  }
+
+  .buttonContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .hint {
+      color: $body-text-color;
+      font-size: 18px;
+      text-align: center;
+    }
+
+    .signupButton {
+      margin-bottom: 24px !important;
+    }
+
+    .scrollIndicatorContainer {
+      display: flex;
+      width: 50px;
+      height: 50px;
+      margin: 16px 0;
+
+      .scrollIndicator {
+        margin: auto;
+        animation: bob 1.5s infinite alternate;
+        @at-root {
+          @keyframes bob {
+            from {
+              transform: translateY(-5px);
+            }
+            to {
+              transform: translateY(5px);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.featuresSection {
+  color: $title-text-color;
+  background-color: $landing-bg-color;
+  padding: 0 $screenMargin;
+
+  .feature {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 50vh;
+
+    h1 {
+      font-weight: $regular;
+      font-size: 34px;
+      margin: 0;
+    }
+
+    p {
+      font-weight: $regular;
+      font-size: $body-text-size;
+      color: $body-text-color;
+    }
+  }
+}
+
+.signupSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 80vh;
+  color: $title-text-color;
+  background-color: $landing-bg-color;
+  padding: 0 $screenMargin;
+
+  h1 {
+    font-weight: $regular;
+    font-size: 34px;
+    margin: 0;
+    margin-bottom: 32px;
+  }
+}
+
+.footerSection {
+  background-color: $main-bg-color;
+  color: #9c9c9c;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  h1 {
+    font-weight: $semi-bold;
+    font-size: 20px;
+    margin: 0;
+  }
+
+  p {
+    font-weight: $regular;
+    font-size: 16px;
+    margin: 0;
+  }
+}

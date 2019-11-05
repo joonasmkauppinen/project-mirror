@@ -1,31 +1,43 @@
-@import "../../variables";
+@import '../../variables';
 
 .button {
-  border-radius: 10px;
-  font-size: $fontSmall;
-  font-family: $font;
-  text-transform: uppercase;
   font-weight: $bold;
-  display: flex;
-  justify-content: center;
+  font-family: $font;
+  font-size: $fontSmall;
   text-align: center;
+  text-transform: uppercase;
+  display: flex;
+  align-self: stretch;
+  justify-content: center;
+  border-radius: 10px;
   border: 1px solid $primary-color;
-  height: 48px;
+  height: 50px;
   line-height: 24px;
   cursor: pointer;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
-  min-width: 80px;
-  max-width: 360px;
-  margin: 16px;
+
+  &:focus {
+    outline-style: none !important;
+  }
+
+  &:active {
+    opacity: 0.5;
+    transition: all 200ms;
+  }
 
   &.primary {
-    background-color: $primary-color;
     color: $main-bg-color;
+    background-color: $primary-color;
   }
 
   &.secondary {
-    background-color: $main-bg-color;
     color: $primary-color;
+    font-weight: $semi-bold;
+    background-color: $main-bg-color;
   }
-
 }
