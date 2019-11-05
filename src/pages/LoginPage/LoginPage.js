@@ -11,8 +11,12 @@ import { ReactComponent as PeiliLogo } from '../../assets/outlined/peili-officia
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
+  // TODO: remove disable when validation is implemented
+  // eslint-disable-next-line no-unused-vars
   const [emailError, setEmailError] = useState();
   const [password, setPassword] = useState('');
+  // TODO: remove disable when validation is implemented
+  // eslint-disable-next-line no-unused-vars
   const [passwordError, setPasswordError] = useState();
   const history = useHistory();
   const emailLabel = t(D.LOGIN.email_lable);
