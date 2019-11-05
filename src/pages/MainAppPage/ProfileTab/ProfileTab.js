@@ -23,7 +23,7 @@ const ProfileTab = () => (
     <Text>{t('PROFILE.teaser')}</Text>
     <div style={{ flex: 1, width: '100%' }}>
       <Button
-        handleClick={logoutButtonClick}
+        onClick={logoutButtonClick}
         secondary
         label={t('logout')}
         style={{ margin: 'auto' }}
