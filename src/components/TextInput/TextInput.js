@@ -4,15 +4,15 @@ import ErrorCard from '../../components/ErrorCard';
 import PropTypes from 'prop-types';
 
 const TextInput = ({
-  value,
-  label,
-  placeholder,
-  onChange,
   type,
-  errorMessage,
-  superClass,
+  label,
+  value,
   style,
-  focus = false,
+  onChange,
+  autoFocus,
+  superClass,
+  placeholder,
+  errorMessage,
 }) => {
   const classes = [styles.container];
   superClass && classes.push(superClass);
@@ -20,11 +20,11 @@ const TextInput = ({
     <div className={classes.join(' ')} style={style}>
       {label && <p>{label}</p>}
       <input
-        autoFocus={focus}
-        value={value}
-        placeholder={placeholder}
-        onChange={onChange}
         type={type}
+        value={value}
+        onChange={onChange}
+        autoFocus={autoFocus}
+        placeholder={placeholder}
       />
       {errorMessage && <ErrorCard message={errorMessage} />}
     </div>
@@ -32,15 +32,23 @@ const TextInput = ({
 };
 
 TextInput.propTypes = {
-  value: PropTypes.string.isRequired,
+  type: PropTypes.oneOf([
+    'tel',
+    'text',
+    'time',
+    'date',
+    'email',
+    'password',
+    'datetime-local',
+  ]).isRequired,
   label: PropTypes.string,
-  type: PropTypes.string.isRequired,
-  placeholder: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-  errorMessage: PropTypes.string,
-  superClass: PropTypes.string,
+  value: PropTypes.string.isRequired,
   style: PropTypes.object,
-  focus: PropTypes.bool,
+  onChange: PropTypes.func.isRequired,
+  autoFocus: PropTypes.bool,
+  superClass: PropTypes.string,
+  placeholder: PropTypes.string.isRequired,
+  errorMessage: PropTypes.string,
 };
 
 export default TextInput;

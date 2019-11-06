@@ -64,22 +64,22 @@ const LoginPage = () => {
         </section>
         <form className={styles.formSection}>
           <TextInput
+            autoFocus
+            type="email"
             value={email}
             label={emailLabel}
-            type="email"
-            errorMessage={emailError}
-            placeholder={emailPlaceholder}
             onChange={handleEmailChange}
-            focus="true"
+            placeholder={emailPlaceholder}
+            errorMessage={emailError}
           />
           <TextInput
+            type="password"
             value={password}
             label={passwordLabel}
-            type="password"
-            errorMessage={passwordError}
-            placeholder="••••••••"
-            onChange={handlePasswordChange}
             style={{ marginTop: '16px' }}
+            onChange={handlePasswordChange}
+            placeholder="••••••••"
+            errorMessage={passwordError}
           />
           <Button
             label={loginLabel}
