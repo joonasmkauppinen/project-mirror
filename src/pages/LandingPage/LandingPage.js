@@ -4,11 +4,9 @@ import D from '../../utils/dictionary';
 import { useHistory } from 'react-router-dom';
 import Particles from 'react-particles-js';
 import particlesConfig from '../../config/particles-config';
-
-import { ReactComponent as PeiliLogo } from '../../assets/svg/peili-official-logo-outline_ic.svg';
-import { ReactComponent as ScrollIndicator } from '../../assets/svg/scroll-indicator.svg';
 import styles from './LandingPage.module.scss';
 import Button from '../../components/Button';
+import Icons from '../../assets/Icons';
 
 const LandingPage = () => {
   const description = t(D.LANDING.hero_section_description);
@@ -27,7 +25,7 @@ const LandingPage = () => {
           params={particlesConfig}
         />
         <div className={styles.logoContainer}>
-          <PeiliLogo className={styles.logo} />
+          <Icons.peili className={styles.logo} />
           <h1 className={styles.appName}>Peili</h1>
           <p className={styles.description}>{description}</p>
         </div>
@@ -41,7 +39,7 @@ const LandingPage = () => {
           />
           <Button secondary label={loginLabel} onClick={handleOnLoginClick} />
           <span className={styles.scrollIndicatorContainer}>
-            <ScrollIndicator className={styles.scrollIndicator} />
+            <Icons.scroll className={styles.scrollIndicator} />
           </span>
         </div>
       </section>
