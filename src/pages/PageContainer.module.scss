@@ -12,24 +12,18 @@
 
 .tabContainer {
   background-color: $main-bg-color;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  align-items: center;
-  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 56px;
+  overflow-y: auto;
 
-  .subContainer {
-    display: grid;
-    width: 100%;
-    .bottom {
-      grid-row: 2;
-    }
+  .content {
+    display: block;
 
-    .content {
-      grid-row: 1;
-      overflow: auto;
-      position: relative;
-      height: calc(calc(var(--vh, 1vh) * 100) - 56px); // -106px if toolbar is used
+    .hidden {
+      display: none;
     }
   }
 }
