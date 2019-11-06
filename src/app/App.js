@@ -8,48 +8,20 @@ import {
 import LandingPage from '../pages/LandingPage';
 import MainAppPage from '../pages/MainAppPage';
 import LoginPage from '../pages/LoginPage';
-
-import { isSession } from '../utils/apicall';
+import { isSession as auth } from '../utils/apicall';
 
 const App = () => {
-  console.log(`session: ${isSession()}`);
+  const login = () => (auth() ? <Redirect to="/main" /> : <LoginPage />);
+  const landing = () => (auth() ? <Redirect to="/main" /> : <LandingPage />);
+  const mainApp = () => (!auth() ? <Redirect to="/" /> : <MainAppPage />);
+
   return (
     <Router basename="/project-mirror">
-      <div>
-        <Switch>
-          <Route path="/login" render={() => <LoginPage />} />
-          <Route
-            path="/main"
-            render={props =>
-              isSession() === true ? (
-                <MainAppPage />
-              ) : (
-                <Redirect
-                  to={{
-                    pathname: '',
-                    state: { from: props.location },
-                  }}
-                />
-              )
-            }
-          />
-          <Route
-            path="/"
-            render={props =>
-              isSession() === false ? (
-                <LandingPage />
-              ) : (
-                <Redirect
-                  to={{
-                    pathname: '/main',
-                    state: { from: props.location },
-                  }}
-                />
-              )
-            }
-          />
-        </Switch>
-      </div>
+      <Switch>
+        <Route path="/main" render={mainApp} />
+        <Route path="/login" render={login} />
+        <Route path="/" render={landing} />
+      </Switch>
     </Router>
   );
 };
