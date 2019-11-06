@@ -21,16 +21,20 @@ const MainAppPage = () => {
           <Toolbar title="" info="true" />
   </div>*/}
         <div className={styles.content}>
-          <div className={hidePage('', match, loc) && styles.hidden}>
+          <div className={hidePage('', match, loc) ? styles.hidden : ''}>
             <HomeTab />
           </div>
-          <div className={hidePage('/discover', match, loc) && styles.hidden}>
+          <div
+            className={hidePage('/discover', match, loc) ? styles.hidden : ''}
+          >
             <DiscoverTab />
           </div>
-          <div className={hidePage('/chat', match, loc) && styles.hidden}>
+          <div className={hidePage('/chat', match, loc) ? styles.hidden : ''}>
             <ChatTab />
           </div>
-          <div className={hidePage('/profile', match, loc) && styles.hidden}>
+          <div
+            className={hidePage('/profile', match, loc) ? styles.hidden : ''}
+          >
             <ProfileTab />
           </div>
         </div>
