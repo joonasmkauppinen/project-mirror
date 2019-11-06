@@ -3,21 +3,18 @@
 .toolbar {
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  background-color: $tab-bar-color;
-  width: 100%;
+  background-color: $main-bg-color;
+  align-self: stretch;
   height: 50px;
-  display: flex;
-  justify-content: space-between;
-  padding: 0;
-  .start,
-  .end,
-  .center {
-    color: $primary-color;
+
+  .toolbarIcon {
+    margin: 0 14px;
   }
+
   .title {
-    flex: 2;
-    color: #ffffff;
-    font-size: 18px;
+    flex: 1;
+    color: $title-text-color;
+    font-weight: $semi-bold;
+    font-size: 20px;
   }
 }
