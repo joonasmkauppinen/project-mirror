@@ -66,6 +66,9 @@ const getTranslation = (path, data = [], inpath = 0) => {
 };
 
 const t = text => {
+  if (typeof text === 'undefined') {
+    return '{undefined}';
+  }
   if (typeof text === 'object') {
     return objectTranslate(text);
   }
