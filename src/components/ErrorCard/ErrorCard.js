@@ -1,11 +1,11 @@
 import React from 'react';
-import { ReactComponent as AlertIcon } from '../../assets/svg/alert_ic.svg';
+import Icons from '../../assets/Icons';
 import PropTypes from 'prop-types';
 import styles from './ErrorCard.module.scss';
 
 const ErrorCard = ({ message }) => (
   <div className={styles.container}>
-    <AlertIcon className={styles.icon} />
+    <Icons.alert.object className={styles.icon} />
     <p>{message}</p>
   </div>
 );

@@ -8,8 +8,8 @@ import { validateEmail } from '../../utils/validate';
 import styles from './LoginPage.module.scss';
 import Button from '../../components/Button';
 import TextInput from '../../components/TextInput';
-import { ReactComponent as PeiliLogo } from '../../assets/svg/peili-official-logo-outline_ic.svg';
 import Toolbar from '../../components/Toolbar';
+import Icons from '../../assets/Icons';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -62,7 +62,7 @@ const LoginPage = () => {
       />
       <div className={styles.container}>
         <section className={styles.logoContainer}>
-          <PeiliLogo className={styles.logo} />
+          <Icons.peili className={styles.logo} />
           <h1>Peili</h1>
         </section>
         <form className={styles.formSection}>
