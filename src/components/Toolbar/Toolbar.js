@@ -33,9 +33,9 @@ const Toolbar = ({
 
 Toolbar.propTypes = {
   title: PropTypes.string,
-  leftIcon: PropTypes.string,
+  leftIcon: PropTypes.string.isRequired,
   rightIcon: PropTypes.string,
-  onLeftIconClick: PropTypes.func,
+  onLeftIconClick: PropTypes.func.isRequired,
   onRightIconClick: PropTypes.func,
 };
 
