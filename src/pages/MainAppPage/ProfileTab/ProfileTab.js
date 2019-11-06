@@ -6,9 +6,21 @@ import { useHistory } from 'react-router-dom';
 import { t } from '../../../utils/translate';
 import { logout } from '../../../utils/apicall';
 import Button from '../../../components/Button';
+import { setCookie } from '../../../utils/cookies';
+import { apiCall } from '../../../utils/apicall';
 
 const ProfileTab = () => {
   const history = useHistory();
+  const changeLanguage = lang => {
+    setCookie('site_language', lang);
+    apiCall('set-language', { language: lang }).then(response => {
+      if (response.success) {
+        window.location.reload(true);
+      } else {
+        alert(response.error);
+      }
+    });
+  };
   const handleLogoutClick = () => {
     if (window.confirm(t('LOGOUT.confirm'))) {
       logout().then(response => {
@@ -27,6 +39,18 @@ const ProfileTab = () => {
           onClick={handleLogoutClick}
           secondary
           label={t('logout')}
+          style={{ margin: 'auto' }}
+        />
+        <Button
+          onClick={() => changeLanguage('en')}
+          secondary
+          label="lang -> en"
+          style={{ margin: 'auto' }}
+        />
+        <Button
+          onClick={() => changeLanguage('fi')}
+          secondary
+          label="lang -> fi"
           style={{ margin: 'auto' }}
         />
       </div>

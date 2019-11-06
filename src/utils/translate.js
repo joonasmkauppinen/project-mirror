@@ -30,7 +30,7 @@ const setLanguage = newLanguage => {
   setCookie('site_language', newLanguage);
 };
 
-if (!getLanguages().includes(language)) {
+if (typeof getLanguages()[language] === 'undefined') {
   language = 'en';
 }
 
