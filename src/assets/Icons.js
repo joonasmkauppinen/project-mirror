@@ -1,4 +1,3 @@
-import React from 'react';
 import { ReactComponent as AlertIcon } from './svg/alert_ic.svg';
 import { ReactComponent as BackIcon } from './svg/back.svg';
 import { ReactComponent as ChatIcon } from './svg/chat - Copy.svg';
@@ -17,22 +16,22 @@ import { ReactComponent as SearchIcon } from './svg/search_ic.svg';
 import { ReactComponent as SettingsIcon } from './svg/settings_ic.svg';
 
 const Icons = {
-  alert: <AlertIcon />,
-  back: <BackIcon />,
-  chat: <ChatIcon />,
-  chatFilled: <FilledChatIcon />,
-  cross: <CrossIcon />,
-  discover: <DiscoverIcon />,
-  discoverFilled: <FilledDiscoverIcon />,
-  home: <HomeIcon />,
-  homeFilled: <FilledHomeIcon />,
-  info: <InfoIcon />,
-  peili: <PeiliIcon />,
-  profile: <ProfileIcon />,
-  profileFilled: <FilledProfileIcon />,
-  scroll: <ScrollIcon />,
-  search: <SearchIcon />,
-  settings: <SettingsIcon />,
+  alert: AlertIcon,
+  back: BackIcon,
+  chat: ChatIcon,
+  chatFilled: FilledChatIcon,
+  cross: CrossIcon,
+  discover: DiscoverIcon,
+  discoverFilled: FilledDiscoverIcon,
+  home: HomeIcon,
+  homeFilled: FilledHomeIcon,
+  info: InfoIcon,
+  peili: PeiliIcon,
+  profile: ProfileIcon,
+  profileFilled: FilledProfileIcon,
+  scroll: ScrollIcon,
+  search: SearchIcon,
+  settings: SettingsIcon,
 };
 
 export default Icons;
