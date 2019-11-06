@@ -7,15 +7,15 @@ const Toolbar = ({
   title,
   leftIcon,
   rightIcon,
-  leftIconClick,
-  rightIconClick,
+  onLeftIconClick,
+  onRightIconClick,
 }) => {
   return (
     <div className={styles.toolbar}>
       {leftIcon && (
         <IconButton
           icon={leftIcon}
-          onClick={leftIconClick}
+          onClick={onLeftIconClick}
           superClass={styles.toolbarIcon}
         />
       )}
@@ -23,7 +23,7 @@ const Toolbar = ({
       {rightIcon && (
         <IconButton
           icon={rightIcon}
-          onClick={rightIconClick}
+          onClick={onRightIconClick}
           superClass={styles.toolbarIcon}
         />
       )}
@@ -35,8 +35,8 @@ Toolbar.propTypes = {
   title: PropTypes.string,
   leftIcon: PropTypes.string,
   rightIcon: PropTypes.string,
-  leftIconClick: PropTypes.func,
-  rightIconClick: PropTypes.func,
+  onLeftIconClick: PropTypes.func,
+  onRightIconClick: PropTypes.func,
 };
 
 export default Toolbar;
