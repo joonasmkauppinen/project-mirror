@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../../../components/Header';
 import Text from '../../../components/Text';
 import styles from '../../PageContainer.module.scss';
-import { ReactComponent as InfoIcon } from '../../../assets/outlined/info.svg';
+import { ReactComponent as InfoIcon } from '../../../assets/svg/info.svg';
 import IconButton from '../../../components/IconButton';
 
 const test = () => {

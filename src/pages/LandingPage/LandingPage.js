@@ -5,8 +5,8 @@ import { useHistory } from 'react-router-dom';
 import Particles from 'react-particles-js';
 import particlesConfig from '../../config/particles-config';
 
-import { ReactComponent as PeiliLogo } from '../../assets/outlined/peili-official-logo-outline_ic.svg';
-import { ReactComponent as ScrollIndicator } from '../../assets/filled/scroll-indicator.svg';
+import { ReactComponent as PeiliLogo } from '../../assets/svg/peili-official-logo-outline_ic.svg';
+import { ReactComponent as ScrollIndicator } from '../../assets/svg/scroll-indicator.svg';
 import styles from './LandingPage.module.scss';
 import Button from '../../components/Button';
 
