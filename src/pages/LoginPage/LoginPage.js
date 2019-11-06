@@ -8,8 +8,7 @@ import { validateEmail } from '../../utils/validate';
 import styles from './LoginPage.module.scss';
 import Button from '../../components/Button';
 import TextInput from '../../components/TextInput';
-import { ReactComponent as PeiliLogo } from '../../assets/outlined/peili-official-logo-outline_ic.svg';
-
+import { ReactComponent as PeiliLogo } from '../../assets/svg/peili-official-logo-outline_ic.svg';
 import Toolbar from '../../components/Toolbar';
 
 const LoginPage = () => {
@@ -52,34 +51,37 @@ const LoginPage = () => {
     setPassword(value);
   };
 
+  const navigateBack = () => history.goBack();
+
   return (
-    <div className={styles.container}>
-      <div>
-        <Toolbar title={t(D.LOGIN.title)} />
-      </div>
-      <div className={styles.scrollable}>
+    <>
+      <Toolbar
+        title={t(D.LOGIN.title)}
+        leftIcon="back"
+        onLeftIconClick={navigateBack}
+      />
+      <div className={styles.container}>
         <section className={styles.logoContainer}>
           <PeiliLogo className={styles.logo} />
           <h1>Peili</h1>
         </section>
         <form className={styles.formSection}>
           <TextInput
+            type="email"
             value={email}
             label={emailLabel}
-            type="email"
-            errorMessage={emailError}
-            placeholder={emailPlaceholder}
             onChange={handleEmailChange}
-            focus="true"
+            placeholder={emailPlaceholder}
+            errorMessage={emailError}
           />
           <TextInput
+            type="password"
             value={password}
             label={passwordLabel}
-            type="password"
-            errorMessage={passwordError}
-            placeholder="••••••••"
-            onChange={handlePasswordChange}
             style={{ marginTop: '16px' }}
+            onChange={handlePasswordChange}
+            placeholder="••••••••"
+            errorMessage={passwordError}
           />
           <Button
             label={loginLabel}
@@ -88,7 +90,7 @@ const LoginPage = () => {
           />
         </form>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ReactComponent as AlertIcon } from '../../assets/filled/alert_ic.svg';
+import { ReactComponent as AlertIcon } from '../../assets/svg/alert_ic.svg';
 import PropTypes from 'prop-types';
 import styles from './ErrorCard.module.scss';
 
