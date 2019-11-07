@@ -17,10 +17,10 @@
 ### Material for Stakeholders (these links will be updated often)
 * [**Daily Scrum Videos List**](https://docs.google.com/document/d/1__l_ZxOBLQp5N3cHHhmThdeDdoR4ktiGyK_YlXbLWb0)
 * [**Material Archive (Documents, Memos, PDF's...)**](https://docs.google.com/document/d/1XZDfn1oCtyAoLhLWbhw6wWXXDRgUCIxYqWpPYfCemtE)
-* Presentations
+* **Presentations**
   * [**Presentation - User Tests on Fri 1.11.2019**](https://docs.google.com/presentation/d/1a22N5Imhh6QRWMUUDyCNE6YRqVG8aO3caJ2yJ8sUSXo)
   * [**Presentation - Project Check - WK3 - on Fri 8.11.2019**](https://docs.google.com/presentation/d/1LnCsnt041IVIhThSBYZj5u7qYYKN7-bmvVbKjN_Zr4Y)
-* User Tests
+* **User Tests**
   * [**First User Test (IN PLANNING)**](https://docs.google.com/document/d/1eK42RC7siufarVYzzGjyVYKj7fI8GW38zV-R2-SLufc)
   
 ## About "Project Mirror" (Peili)
