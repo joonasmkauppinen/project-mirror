@@ -15,8 +15,7 @@ const LandingPage = () => {
   const loginLabel = t(D.LANDING.login_btn);
   const history = useHistory();
   const handleOnLoginClick = () => history.push('/login');
-  const handleOnSignupClick = () =>
-    console.warn('TODO: navigate to signup page.');
+  const handleOnSignupClick = () => history.push('/signup');
   return (
     <>
       <section className={styles.heroSection}>

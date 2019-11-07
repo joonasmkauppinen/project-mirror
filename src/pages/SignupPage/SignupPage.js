@@ -5,6 +5,7 @@ import { t } from '../../utils/translate';
 
 import PageContainer from '../../hoc/PageContainer';
 import Toolbar from '../../components/Toolbar';
+import Text from '../../components/Text';
 
 const SignupPage = () => {
   const history = useHistory();
@@ -17,7 +18,7 @@ const SignupPage = () => {
         leftIcon="back"
         onLeftIconClick={handleLeftIconPress}
       />
-      <div>dis will be signup page</div>
+      <Text>dis will be signup page</Text>
     </PageContainer>
   );
 };
