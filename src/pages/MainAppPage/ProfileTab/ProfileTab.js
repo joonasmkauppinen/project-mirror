@@ -8,6 +8,7 @@ import { logout } from '../../../utils/apicall';
 import Button from '../../../components/Button';
 import { setCookie } from '../../../utils/cookies';
 import { apiCall } from '../../../utils/apicall';
+import { language } from '../../../utils/translate';
 
 const ProfileTab = () => {
   const history = useHistory();
@@ -46,12 +47,14 @@ const ProfileTab = () => {
           secondary
           label="lang -> en"
           style={{ margin: 'auto' }}
+          disabled={language === 'en'}
         />
         <Button
           onClick={() => changeLanguage('fi')}
           secondary
           label="lang -> fi"
           style={{ margin: 'auto' }}
+          disabled={language === 'fi'}
         />
       </div>
     </div>

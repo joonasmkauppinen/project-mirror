@@ -40,4 +40,9 @@
     font-weight: $semi-bold;
     background-color: $main-bg-color;
   }
+
+  &.disabled {
+    opacity: 60%;
+    cursor: default;
+  }
 }
