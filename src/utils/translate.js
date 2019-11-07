@@ -75,4 +75,4 @@ const t = text => {
   return getTranslation(text.split('.'), d, 0);
 };
 
-export { t, setLanguage, getLanguages };
+export { t, setLanguage, getLanguages, language };
