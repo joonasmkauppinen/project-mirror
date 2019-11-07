@@ -1,43 +1,33 @@
 @import '../../variables.scss';
 
-.container {
-  position: absolute;
-  top: 50px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 0 $screen-margin;
-  overflow: scroll;
+.logoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vw;
+  max-height: 310px;
 
-  .logoContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 60vw;
-    max-height: 310px;
-
-    h1 {
-      margin: 0;
-      color: $title-text-color;
-      font-weight: $bold;
-      font-size: 30px;
-      letter-spacing: 2px;
-      margin-bottom: 24px;
-    }
-
-    .logo {
-      min-width: 40px;
-      min-height: 50px;
-      margin-top: 24px;
-
-      path {
-        fill: $primary-color;
-      }
-    }
+  h1 {
+    margin: 0;
+    color: $title-text-color;
+    font-weight: $bold;
+    font-size: 30px;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
   }
 
-  .formSection {
-    align-self: stretch;
+  .logo {
+    min-width: 40px;
+    min-height: 50px;
+    margin-top: 24px;
+
+    path {
+      fill: $primary-color;
+    }
   }
+}
+
+.formSection {
+  align-self: stretch;
 }

@@ -34,6 +34,13 @@ export default {
     },
   },
 
+  SIGNUP: {
+    title: {
+      en: 'Create account',
+      fi: 'Luo käyttäjä',
+    },
+  },
+
   LOGIN: {
     title: {
       en: 'Login',

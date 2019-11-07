@@ -6,6 +6,7 @@ import { useHistory } from 'react-router-dom';
 import { validateEmail } from '../../utils/validate';
 
 import styles from './LoginPage.module.scss';
+import PageContainer from '../../hoc/PageContainer';
 import Button from '../../components/Button';
 import TextInput from '../../components/TextInput';
 import Toolbar from '../../components/Toolbar';
@@ -54,43 +55,41 @@ const LoginPage = () => {
   const navigateBack = () => history.goBack();
 
   return (
-    <>
+    <PageContainer>
       <Toolbar
         title={t(D.LOGIN.title)}
         leftIcon="back"
         onLeftIconClick={navigateBack}
       />
-      <div className={styles.container}>
-        <section className={styles.logoContainer}>
-          <Icons.peili className={styles.logo} />
-          <h1>Peili</h1>
-        </section>
-        <form className={styles.formSection}>
-          <TextInput
-            type="email"
-            value={email}
-            label={emailLabel}
-            onChange={handleEmailChange}
-            placeholder={emailPlaceholder}
-            errorMessage={emailError}
-          />
-          <TextInput
-            type="password"
-            value={password}
-            label={passwordLabel}
-            style={{ marginTop: '16px' }}
-            onChange={handlePasswordChange}
-            placeholder="••••••••"
-            errorMessage={passwordError}
-          />
-          <Button
-            label={loginLabel}
-            style={{ margin: '32px 0 64px' }}
-            onClick={handleLoginClick}
-          />
-        </form>
-      </div>
-    </>
+      <section className={styles.logoContainer}>
+        <Icons.peili className={styles.logo} />
+        <h1>Peili</h1>
+      </section>
+      <form className={styles.formSection}>
+        <TextInput
+          type="email"
+          value={email}
+          label={emailLabel}
+          onChange={handleEmailChange}
+          placeholder={emailPlaceholder}
+          errorMessage={emailError}
+        />
+        <TextInput
+          type="password"
+          value={password}
+          label={passwordLabel}
+          style={{ marginTop: '16px' }}
+          onChange={handlePasswordChange}
+          placeholder="••••••••"
+          errorMessage={passwordError}
+        />
+        <Button
+          label={loginLabel}
+          style={{ margin: '32px 0 64px' }}
+          onClick={handleLoginClick}
+        />
+      </form>
+    </PageContainer>
   );
 };
 
