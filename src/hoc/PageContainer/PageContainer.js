@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 import styles from './PageContainer.module.scss';
 
 const PageContainer = ({ children }) => {
-  return <div className={styles.container}>{children}</div>;
+  const classes = [styles.container];
+  const hasToolbar = children[0].type.name === 'Toolbar';
+  hasToolbar && classes.push(styles.accountForToolbar);
+  return <div className={classes.join(' ')}>{children}</div>;
 };
 
 PageContainer.propTypes = {
