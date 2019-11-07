@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Header from '../../../components/Header';
 import Text from '../../../components/Text';
-import styles from '../../PageContainer.module.scss';
+import TabContainer from '../../../hoc/TabContainer';
 
-const HomeTab = () => (
-  <div className={styles.container}>
+const HomeTab = ({ visible }) => (
+  <TabContainer active={visible}>
     <Header>Home tab</Header>
     <Text>1 This is the home tab</Text>
     <Text>2 This is the home tab</Text>
@@ -42,7 +43,11 @@ const HomeTab = () => (
     <Text>34 This is the home tab</Text>
     <Text>35 This is the home tab</Text>
     <Text>36 This is the home tab</Text>
-  </div>
+  </TabContainer>
 );
+
+HomeTab.propTypes = {
+  visible: PropTypes.bool,
+};
 
 export default HomeTab;

@@ -1,0 +1,9 @@
+@import '../../variables.scss';
+
+.container {
+  padding: 0 $screen-margin;
+}
+
+.accountForToolbar {
+  margin-top: $toolbar-height;
+}

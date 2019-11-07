@@ -1,7 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Header from '../../../components/Header';
 import Text from '../../../components/Text';
-import styles from '../../PageContainer.module.scss';
 import { useHistory } from 'react-router-dom';
 import { t } from '../../../utils/translate';
 import { logout } from '../../../utils/apicall';
@@ -9,8 +9,9 @@ import Button from '../../../components/Button';
 import { setCookie } from '../../../utils/cookies';
 import { apiCall } from '../../../utils/apicall';
 import { language } from '../../../utils/translate';
+import TabContainer from '../../../hoc/TabContainer';
 
-const ProfileTab = () => {
+const ProfileTab = ({ visible }) => {
   const history = useHistory();
   const changeLanguage = lang => {
     setCookie('site_language', lang);
@@ -32,33 +33,35 @@ const ProfileTab = () => {
     }
   };
   return (
-    <div className={styles.container}>
+    <TabContainer active={visible}>
       <Header>{t('PROFILE.title')}</Header>
       <Text>{t('PROFILE.teaser')}</Text>
-      <div style={{ flex: 1, width: '100%' }}>
-        <Button
-          onClick={handleLogoutClick}
-          secondary
-          label={t('logout')}
-          style={{ margin: 'auto' }}
-        />
-        <Button
-          onClick={() => changeLanguage('en')}
-          secondary
-          label="lang -> en"
-          style={{ margin: 'auto' }}
-          disabled={language === 'en'}
-        />
-        <Button
-          onClick={() => changeLanguage('fi')}
-          secondary
-          label="lang -> fi"
-          style={{ margin: 'auto' }}
-          disabled={language === 'fi'}
-        />
-      </div>
-    </div>
+      <Button
+        onClick={handleLogoutClick}
+        secondary
+        label={t('logout')}
+        style={{ margin: 'auto' }}
+      />
+      <Button
+        onClick={() => changeLanguage('en')}
+        secondary
+        label="lang -> en"
+        style={{ margin: 'auto' }}
+        disabled={language === 'en'}
+      />
+      <Button
+        onClick={() => changeLanguage('fi')}
+        secondary
+        label="lang -> fi"
+        style={{ margin: 'auto' }}
+        disabled={language === 'fi'}
+      />
+    </TabContainer>
   );
+};
+
+ProfileTab.propTypes = {
+  visible: PropTypes.bool,
 };
 
 export default ProfileTab;
