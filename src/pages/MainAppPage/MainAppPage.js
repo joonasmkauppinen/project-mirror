@@ -15,7 +15,7 @@ const MainAppPage = () => {
   const match = useRouteMatch();
   const loc = useLocation();
   return (
-    <div>
+    <>
       <div className={styles.tabContainer}>
         {/*<div className={styles.subContainer}>
           <Toolbar title="" info="true" />
@@ -40,7 +40,7 @@ const MainAppPage = () => {
         </div>
       </div>
       <BottomNavigationBar />
-    </div>
+    </>
   );
 };
 
