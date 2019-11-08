@@ -1,5 +1,8 @@
 @import '../../variables.scss';
 
 .tab {
-  margin-bottom: $bottom-nav-height;
+  flex: 1;
+  align-self: stretch;
+  overflow-y: scroll;
+  padding: 0 $screen-margin;
 }

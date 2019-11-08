@@ -1,11 +1,18 @@
-import React from 'react';
-import styles from './TabContainer.module.scss';
+import React, { useRef } from 'react';
+import classes from './TabContainer.module.scss';
 import PropTypes from 'prop-types';
+import handleScroll from '../../utils/scrollHandler';
 
 const TabContainer = ({ active, children }) => {
+  const ref = useRef(null);
   const style = active ? { display: 'block' } : { display: 'none' };
   return (
-    <div className={styles.tab} style={style}>
+    <div
+      ref={ref}
+      onScroll={() => handleScroll(ref)}
+      className={classes.tab}
+      style={style}
+    >
       {children}
     </div>
   );
