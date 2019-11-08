@@ -11,6 +11,7 @@ import Button from '../../components/Button';
 import TextInput from '../../components/TextInput';
 import Toolbar from '../../components/Toolbar';
 import Icons from '../../assets/Icons';
+import ScrollableContent from '../../hoc/ScrollableContent';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -61,34 +62,36 @@ const LoginPage = () => {
         leftIcon="back"
         onLeftIconClick={navigateBack}
       />
-      <section className={styles.logoContainer}>
-        <Icons.peili className={styles.logo} />
-        <h1>Peili</h1>
-      </section>
-      <form className={styles.formSection}>
-        <TextInput
-          type="email"
-          value={email}
-          label={emailLabel}
-          onChange={handleEmailChange}
-          placeholder={emailPlaceholder}
-          errorMessage={emailError}
-        />
-        <TextInput
-          type="password"
-          value={password}
-          label={passwordLabel}
-          style={{ marginTop: '16px' }}
-          onChange={handlePasswordChange}
-          placeholder="••••••••"
-          errorMessage={passwordError}
-        />
-        <Button
-          label={loginLabel}
-          style={{ margin: '32px 0 64px' }}
-          onClick={handleLoginClick}
-        />
-      </form>
+      <ScrollableContent>
+        <section className={styles.logoContainer}>
+          <Icons.peili className={styles.logo} />
+          <h1>Peili</h1>
+        </section>
+        <form className={styles.formSection}>
+          <TextInput
+            type="email"
+            value={email}
+            label={emailLabel}
+            onChange={handleEmailChange}
+            placeholder={emailPlaceholder}
+            errorMessage={emailError}
+          />
+          <TextInput
+            type="password"
+            value={password}
+            label={passwordLabel}
+            style={{ marginTop: '16px' }}
+            onChange={handlePasswordChange}
+            placeholder="••••••••"
+            errorMessage={passwordError}
+          />
+          <Button
+            label={loginLabel}
+            style={{ margin: '32px 0 64px' }}
+            onClick={handleLoginClick}
+          />
+        </form>
+      </ScrollableContent>
     </PageContainer>
   );
 };

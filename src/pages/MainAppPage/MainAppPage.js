@@ -6,6 +6,7 @@ import DiscoverTab from './DiscoverTab';
 import ChatTab from './ChatTab';
 import ProfileTab from './ProfileTab';
 import BottomNavigationBar from '../../components/BottomNavigationBar';
+import Toolbar from '../../components/Toolbar';
 
 const MainAppPage = () => {
   const location = useLocation();
@@ -18,6 +19,7 @@ const MainAppPage = () => {
 
   return (
     <PageContainer>
+      <Toolbar leftIcon="info" title="Test title" />
       <HomeTab visible={homeVisible} />
       <DiscoverTab visible={discoverVisible} />
       <ChatTab visible={chatVisible} />
