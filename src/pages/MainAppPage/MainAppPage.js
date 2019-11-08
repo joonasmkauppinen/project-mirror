@@ -19,7 +19,6 @@ const MainAppPage = () => {
 
   return (
     <PageContainer>
-      <Toolbar leftIcon="info" title="Test title" />
       <HomeTab visible={homeVisible} />
       <DiscoverTab visible={discoverVisible} />
       <ChatTab visible={chatVisible} />
