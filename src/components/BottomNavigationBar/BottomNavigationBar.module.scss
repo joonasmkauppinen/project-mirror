@@ -3,14 +3,10 @@
 .bottomNavigationBar {
   display: flex;
   align-items: center;
+  align-self: stretch;
   justify-content: space-around;
   background-color: $tab-bar-color;
   height: $bottom-nav-height;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 1;
 
   .active {
     p {

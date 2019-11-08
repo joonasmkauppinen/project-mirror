@@ -9,27 +9,25 @@ const Toolbar = ({
   rightIcon,
   onLeftIconClick,
   onRightIconClick,
-}) => {
-  return (
-    <div className={styles.toolbar}>
-      {leftIcon && (
-        <IconButton
-          icon={leftIcon}
-          onClick={onLeftIconClick}
-          superClass={styles.toolbarIcon}
-        />
-      )}
-      <div className={styles.title}>{title}</div>
-      {rightIcon && (
-        <IconButton
-          icon={rightIcon}
-          onClick={onRightIconClick}
-          superClass={styles.toolbarIcon}
-        />
-      )}
-    </div>
-  );
-};
+}) => (
+  <div className={styles.toolbar}>
+    {leftIcon && (
+      <IconButton
+        icon={leftIcon}
+        onClick={onLeftIconClick}
+        superClass={styles.toolbarIcon}
+      />
+    )}
+    <div className={styles.title}>{title}</div>
+    {rightIcon && (
+      <IconButton
+        icon={rightIcon}
+        onClick={onRightIconClick}
+        superClass={styles.toolbarIcon}
+      />
+    )}
+  </div>
+);
 
 Toolbar.propTypes = {
   title: PropTypes.string,
