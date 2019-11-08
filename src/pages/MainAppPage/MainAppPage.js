@@ -6,7 +6,6 @@ import DiscoverTab from './DiscoverTab';
 import ChatTab from './ChatTab';
 import ProfileTab from './ProfileTab';
 import BottomNavigationBar from '../../components/BottomNavigationBar';
-import Toolbar from '../../components/Toolbar';
 
 const MainAppPage = () => {
   const location = useLocation();
