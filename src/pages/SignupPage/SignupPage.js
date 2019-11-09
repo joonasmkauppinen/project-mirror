@@ -4,6 +4,7 @@ import D from '../../utils/dictionary';
 import { t } from '../../utils/translate';
 
 import PageContainer from '../../hoc/PageContainer';
+import ScrollableContent from '../../hoc/ScrollableContent';
 import Toolbar from '../../components/Toolbar';
 import Text from '../../components/Text';
 
@@ -18,7 +19,9 @@ const SignupPage = () => {
         leftIcon="back"
         onLeftIconClick={handleLeftIconPress}
       />
-      <Text>dis will be signup page</Text>
+      <ScrollableContent>
+        <Text>dis will be signup page</Text>
+      </ScrollableContent>
     </PageContainer>
   );
 };

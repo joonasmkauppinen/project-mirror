@@ -1,26 +1,23 @@
 import React, { useRef } from 'react';
-import classes from './TabContainer.module.scss';
 import PropTypes from 'prop-types';
+import style from './ScrollableContent.module.scss';
 import handleScroll from '../../utils/scrollHandler';
 
-const TabContainer = ({ active, children }) => {
+const ScrollableContent = ({ children }) => {
   const ref = useRef(null);
-  const style = active ? { display: 'block' } : { display: 'none' };
   return (
     <div
       ref={ref}
       onScroll={() => handleScroll(ref)}
-      className={classes.tab}
-      style={style}
+      className={style.scrollableContent}
     >
       {children}
     </div>
   );
 };
 
-TabContainer.propTypes = {
-  active: PropTypes.bool,
+ScrollableContent.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default TabContainer;
+export default ScrollableContent;

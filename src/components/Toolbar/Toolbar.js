@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import styles from './Toolbar.module.scss';
 import IconButton from '../IconButton';
 import PropTypes from 'prop-types';
@@ -10,8 +10,14 @@ const Toolbar = ({
   onLeftIconClick,
   onRightIconClick,
 }) => {
+  const toolbar = useRef(null);
+  useEffect(() => {
+    toolbar.current.addEventListener('touchmove', e => {
+      e.preventDefault();
+    });
+  }, []);
   return (
-    <div className={styles.toolbar}>
+    <div className={styles.toolbar} ref={toolbar}>
       {leftIcon && (
         <IconButton
           icon={leftIcon}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import styles from './BottomNavigationBar.module.scss';
 import { NavLink, useRouteMatch } from 'react-router-dom';
 import { t } from '../../utils/translate';
@@ -6,8 +6,14 @@ import Icons from '../../assets/Icons';
 import PropTypes from 'prop-types';
 
 const BottomNavigationBar = () => {
+  const bottomNav = useRef(null);
+  useEffect(() => {
+    bottomNav.current.addEventListener('touchmove', e => {
+      e.preventDefault();
+    });
+  }, []);
   return (
-    <div className={styles.bottomNavigationBar}>
+    <div className={styles.bottomNavigationBar} ref={bottomNav}>
       <ButtonLink label={t('TABS.home')} to="/main">
         {!useRouteMatch({ path: '/main', exact: true }) ? (
           <Icons.home />
