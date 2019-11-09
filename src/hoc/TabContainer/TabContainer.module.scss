@@ -5,4 +5,5 @@
   align-self: stretch;
   overflow-y: scroll;
   padding: 0 $screen-margin;
+  -webkit-overflow-scrolling: touch;
 }
