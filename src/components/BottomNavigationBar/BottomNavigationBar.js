@@ -1,38 +1,46 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import styles from './BottomNavigationBar.module.scss';
 import { NavLink, useRouteMatch } from 'react-router-dom';
 import { t } from '../../utils/translate';
 import Icons from '../../assets/Icons';
 import PropTypes from 'prop-types';
 
-const BottomNavigationBar = () => (
-  <div className={styles.bottomNavigationBar}>
-    <ButtonLink label={t('TABS.home')} to="/main">
-      {!useRouteMatch({ path: '/main', exact: true }) ? (
-        <Icons.home />
-      ) : (
-        <Icons.homeFilled />
-      )}
-    </ButtonLink>
-    <ButtonLink label={t('TABS.discover')} to="/main/discover">
-      {!useRouteMatch('/main/discover') ? (
-        <Icons.discover />
-      ) : (
-        <Icons.discoverFilled />
-      )}
-    </ButtonLink>
-    <ButtonLink label={t('TABS.chat')} to="/main/chat">
-      {!useRouteMatch('/main/chat') ? <Icons.chat /> : <Icons.chatFilled />}
-    </ButtonLink>
-    <ButtonLink label={t('TABS.profile')} to="/main/profile">
-      {!useRouteMatch('/main/profile') ? (
-        <Icons.profile />
-      ) : (
-        <Icons.profileFilled />
-      )}
-    </ButtonLink>
-  </div>
-);
+const BottomNavigationBar = () => {
+  const bottomNav = useRef(null);
+  useEffect(() => {
+    bottomNav.current.addEventListener('touchmove', e => {
+      e.preventDefault();
+    });
+  }, []);
+  return (
+    <div className={styles.bottomNavigationBar} ref={bottomNav}>
+      <ButtonLink label={t('TABS.home')} to="/main">
+        {!useRouteMatch({ path: '/main', exact: true }) ? (
+          <Icons.home />
+        ) : (
+          <Icons.homeFilled />
+        )}
+      </ButtonLink>
+      <ButtonLink label={t('TABS.discover')} to="/main/discover">
+        {!useRouteMatch('/main/discover') ? (
+          <Icons.discover />
+        ) : (
+          <Icons.discoverFilled />
+        )}
+      </ButtonLink>
+      <ButtonLink label={t('TABS.chat')} to="/main/chat">
+        {!useRouteMatch('/main/chat') ? <Icons.chat /> : <Icons.chatFilled />}
+      </ButtonLink>
+      <ButtonLink label={t('TABS.profile')} to="/main/profile">
+        {!useRouteMatch('/main/profile') ? (
+          <Icons.profile />
+        ) : (
+          <Icons.profileFilled />
+        )}
+      </ButtonLink>
+    </div>
+  );
+};
 
 const ButtonLink = ({ label, to, children }) => {
   return (
