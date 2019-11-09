@@ -11,7 +11,6 @@ import ScrollableContent from '../../hoc/ScrollableContent';
 import Toolbar from '../../components/Toolbar';
 import TextInput from '../../components/TextInput';
 import Icons from '../../assets/Icons';
-import Text from '../../components/Text';
 import Button from '../../components/Button';
 
 const SignupPage = () => {
@@ -158,11 +157,11 @@ const SignupPage = () => {
           />
           <TextInput
             type="password"
-            value={password}
+            value={passwordAgain}
             label={t(D.password_repeat)}
             onChange={handlePasswordAgainChange}
             placeholder={t(D.PLACEHOLDERS.password)}
-            errorMessage={passwordError}
+            errorMessage={passwordAgainError}
             style={{ marginTop: '16px' }}
           />
           <Button
