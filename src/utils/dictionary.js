@@ -11,8 +11,14 @@ export default {
 
   username: { en: 'User Name', fi: 'Käyttäjänimi' },
   password: { en: 'Password', fi: 'Salasana' },
+  password_repeat: { en: 'Repeat Password', fi: 'Vahvista salasana' },
+  birthday: { en: 'Birthdate', fi: 'Syntymäpäivä' },
+  firstname: { en: 'Firstname', fi: 'Etunimi' },
+  surename: { en: 'Surename', fi: 'Sukunimi' },
+  email: { en: 'Email', fi: 'Sähköpostiosoite' },
   login: { en: 'Login', fi: 'Kirjaudu' },
   logout: { en: 'Logout', fi: 'Logout' },
+  birthdate: { en: 'Birthdate', fi: 'Syntymäpäivä' },
 
   TABS: {
     home: { en: 'Home', fi: 'Koti' },
@@ -34,10 +40,49 @@ export default {
     },
   },
 
+  PLACEHOLDERS: {
+    password: {
+      en: '••••••••',
+      fi: '••••••••',
+    },
+    email: {
+      en: 'my@email.com',
+      fi: 'minun@osoite.fi',
+    },
+    firstname: {
+      en: 'Firstname',
+      fi: 'Etunimi',
+    },
+    surename: {
+      en: 'Surename',
+      fi: 'Sukunimi',
+    },
+    birthdate: {
+      en: '1.1.2001',
+      fi: '1.1.2001',
+    },
+  },
+
   SIGNUP: {
     title: {
       en: 'Create account',
       fi: 'Luo käyttäjä',
+    },
+    teaser: {
+      en: 'Create your Peili-account by filling the following fields.',
+      fi: 'Luo Peili-käyttäjä täyttämällä alla olevat tiedot.',
+    },
+    incorrect_email: {
+      en: 'Email is invalid.',
+      fi: 'Tarkasta Sähköpostiosoite',
+    },
+    password_tooshort: {
+      en: 'Password needs to be longed.',
+      fi: 'Salasanan tulee olla pitempi',
+    },
+    button_signup: {
+      en: 'Sign Up',
+      fi: 'Rekisteröidy',
     },
   },
 
