@@ -31,7 +31,6 @@ const LoginPage = () => {
 
   const handleLoginClick = async e => {
     e.preventDefault();
-    console.log('hmm');
     if (!validateEmail(email)) {
       // TODO: ERROR MSG
       return;
