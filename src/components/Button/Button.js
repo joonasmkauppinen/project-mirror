@@ -10,6 +10,7 @@ const Button = ({
   style,
   id,
   disabled,
+  type,
 }) => {
   const classes = [styles.button];
   secondary ? classes.push(styles.secondary) : classes.push(styles.primary);
@@ -17,14 +18,16 @@ const Button = ({
   superClass && classes.push(superClass);
 
   return (
-    <div
+    <button
+      onClick={!disabled ? onClick : undefined}
+      disabled={disabled}
       id={id}
       className={classes.join(' ')}
-      onClick={!disabled ? onClick : undefined}
       style={style}
+      type={type ? type : 'button'}
     >
       <p>{label}</p>
-    </div>
+    </button>
   );
 };
 
@@ -36,6 +39,7 @@ Button.propTypes = {
   label: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
   disabled: PropTypes.bool,
+  type: PropTypes.oneOf('button', 'submit'),
 };
 
 export default Button;
