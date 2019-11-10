@@ -72,7 +72,8 @@ const SignupPage = () => {
     setPasswordAgain(value);
   };
 
-  const handleSignupClick = () => {
+  const handleSignupClick = e => {
+    e.preventDefault();
     // TODO: VALIDATIONS
     apiCall('register', {
       firstname: firstname,
@@ -168,6 +169,7 @@ const SignupPage = () => {
             label={t(D.SIGNUP.button_signup)}
             style={{ margin: '32px 0 64px' }}
             onClick={handleSignupClick}
+            type={'submit'}
           />
         </form>
       </ScrollableContent>

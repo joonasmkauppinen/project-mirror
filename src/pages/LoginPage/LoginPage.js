@@ -29,7 +29,9 @@ const LoginPage = () => {
   const loginLabel = t(D.LOGIN.login_btn);
   const navigateToMain = () => history.replace('/main');
 
-  const handleLoginClick = async () => {
+  const handleLoginClick = async e => {
+    e.preventDefault();
+    console.log('hmm');
     if (!validateEmail(email)) {
       // TODO: ERROR MSG
       return;
@@ -89,6 +91,7 @@ const LoginPage = () => {
             label={loginLabel}
             style={{ margin: '32px 0 64px' }}
             onClick={handleLoginClick}
+            type={'submit'}
           />
         </form>
       </ScrollableContent>
