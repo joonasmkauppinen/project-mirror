@@ -166,10 +166,10 @@ const SignupPage = () => {
             style={{ marginTop: '16px' }}
           />
           <Button
+            type="submit"
             label={t(D.SIGNUP.button_signup)}
             style={{ margin: '32px 0 64px' }}
             onClick={handleSignupClick}
-            type={'submit'}
           />
         </form>
       </ScrollableContent>

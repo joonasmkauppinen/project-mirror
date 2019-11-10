@@ -31,10 +31,9 @@ const LandingPage = () => {
         <div className={styles.buttonContainer}>
           <p className={styles.hint}>{hint}</p>
           <Button
-            primary
             label={signupLabel}
-            superClass={styles.signupButton}
             onClick={handleOnSignupClick}
+            superClass={styles.signupButton}
           />
           <Button secondary label={loginLabel} onClick={handleOnLoginClick} />
           <span className={styles.scrollIndicatorContainer}>

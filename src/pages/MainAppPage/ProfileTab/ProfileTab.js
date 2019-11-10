@@ -36,24 +36,17 @@ const ProfileTab = ({ visible }) => {
     <TabContainer active={visible}>
       <Header>{t('PROFILE.title')}</Header>
       <Text>{t('PROFILE.teaser')}</Text>
-      <Button
-        onClick={handleLogoutClick}
-        secondary
-        label={t('logout')}
-        style={{ margin: 'auto' }}
-      />
+      <Button onClick={handleLogoutClick} secondary label={t('logout')} />
       <Button
         onClick={() => changeLanguage('en')}
         secondary
         label="lang -> en"
-        style={{ margin: 'auto' }}
         disabled={language === 'en'}
       />
       <Button
         onClick={() => changeLanguage('fi')}
         secondary
         label="lang -> fi"
-        style={{ margin: 'auto' }}
         disabled={language === 'fi'}
       />
     </TabContainer>

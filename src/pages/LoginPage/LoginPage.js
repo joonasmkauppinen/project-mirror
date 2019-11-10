@@ -87,10 +87,10 @@ const LoginPage = () => {
             errorMessage={passwordError}
           />
           <Button
+            type="submit"
             label={loginLabel}
             style={{ margin: '32px 0 64px' }}
             onClick={handleLoginClick}
-            type={'submit'}
           />
         </form>
       </ScrollableContent>
