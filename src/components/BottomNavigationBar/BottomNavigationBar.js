@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import styles from './BottomNavigationBar.module.scss';
-import { NavLink, useRouteMatch } from 'react-router-dom';
+import { useLocation, useRouteMatch, useHistory } from 'react-router-dom';
 import { t } from '../../utils/translate';
 import Icons from '../../assets/Icons';
 import PropTypes from 'prop-types';
@@ -43,18 +43,15 @@ const BottomNavigationBar = () => {
 };
 
 const ButtonLink = ({ label, to, children }) => {
+  const location = useLocation();
+  const history = useHistory();
+  const classes = [styles.link];
+  location.pathname === to && classes.push(styles.active);
   return (
-    <NavLink
-      exact={true}
-      activeClassName={styles.active}
-      to={to}
-      replace={true}
-    >
-      <div>
-        {children}
-        <p>{label}</p>
-      </div>
-    </NavLink>
+    <div className={classes.join(' ')} onClick={() => history.replace(to)}>
+      {children}
+      <p>{label}</p>
+    </div>
   );
 };
 
