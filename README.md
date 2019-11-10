@@ -23,6 +23,13 @@
 * **User Tests**
   * [**First User Test (IN PLANNING)**](https://docs.google.com/document/d/1eK42RC7siufarVYzzGjyVYKj7fI8GW38zV-R2-SLufc)
   
+## Installation and usage
+
+1. Clone the repository ```git clone https://github.com/joonasmkauppinen/project-mirror.git```
+2. Navigate into the directory ```cd project-mirror```
+3. Install dependencies ```npm i```
+4. Start the Server ```npm run```
+
 ## About "Project Mirror" (Peili)
 
 [**Official info site (FIN)**](https://www.metropolia.fi/tutkimus-kehittaminen-ja-innovaatiot/hankkeet/peili-loydavahvuutesi/)
