@@ -1,8 +1,11 @@
 @import "../../variables";
 
 .header {
-  font-family: 'Catamaran', sans-serif;
-  color: $primary-color;
+  font-family: $font;
+  color: $title-text-color;
   font-weight: $bold;
-  font-size: 1.8em;
+  font-size: $font-large;
+  margin-top: $header-top-margin;
+  margin-bottom: 0;
+  line-height: 100%;
 }
