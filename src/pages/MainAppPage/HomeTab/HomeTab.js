@@ -3,10 +3,16 @@ import PropTypes from 'prop-types';
 import Header from '../../../components/Header';
 import Text from '../../../components/Text';
 import TabContainer from '../../../hoc/TabContainer';
+import { t } from '../../../utils/translate';
+import styles from './HomeTab.module.scss';
 
 const HomeTab = ({ visible }) => (
   <TabContainer active={visible}>
-    <Header>Home tab</Header>
+    <Header>
+      <div className={styles.headerLight}>{t('HOME.title')}</div>
+      {'\n'}
+      User
+    </Header>
     <Text>1 This is the home tab</Text>
     <Text>2 This is the home tab</Text>
     <Text>3 This is the home tab</Text>

@@ -128,4 +128,8 @@ export default {
       fi: 'Haluatko varmasti kirjautua ulos?',
     },
   },
+
+  HOME: {
+    title: { en: 'Hi,', fi: 'Hei,' },
+  },
 };
