@@ -23,12 +23,17 @@
 * **User Tests**
   * [**First User Test (IN PLANNING)**](https://docs.google.com/document/d/1eK42RC7siufarVYzzGjyVYKj7fI8GW38zV-R2-SLufc)
   
-## Installation and usage
+## Installation, usage and testing
 
 1. Clone the repository ```git clone https://github.com/joonasmkauppinen/project-mirror.git```
 2. Navigate into the directory ```cd project-mirror```
 3. Install dependencies ```npm i```
-4. Start the Server ```npm run```
+4. Start the Server ```npm start```
+
+### Testing Locally
+
+1. Navigate into the project directory ```cd project-mirror```
+2. Start Running the Local Tests ```npm run lt```
 
 ## About "Project Mirror" (Peili)
 
