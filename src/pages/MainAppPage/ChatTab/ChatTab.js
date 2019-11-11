@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import Header from '../../../components/Header';
 import Text from '../../../components/Text';
 import TabContainer from '../../../hoc/TabContainer';
+import { t } from '../../../utils/translate';
 
 const ChatTab = ({ visible }) => (
   <TabContainer active={visible}>
-    <Header>Chat tab</Header>
+    <Header>{t('TABS.chat')}</Header>
     <Text>This is the chat tab</Text>
   </TabContainer>
 );

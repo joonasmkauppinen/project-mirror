@@ -23,7 +23,7 @@ export default {
   TABS: {
     home: { en: 'Home', fi: 'Koti' },
     discover: { en: 'Discover', fi: 'Löydä' },
-    chat: { en: 'Chat', fi: 'Chat' },
+    chat: { en: 'Chat', fi: 'Viestit' },
     profile: { en: 'Profile', fi: 'Profiili' },
   },
 

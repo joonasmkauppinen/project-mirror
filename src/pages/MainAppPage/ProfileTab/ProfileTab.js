@@ -34,7 +34,7 @@ const ProfileTab = ({ visible }) => {
   };
   return (
     <TabContainer active={visible}>
-      <Header>{t('PROFILE.title')}</Header>
+      <Header>{t('TABS.profile')}</Header>
       <Text>{t('PROFILE.teaser')}</Text>
       <Button onClick={handleLogoutClick} secondary label={t('logout')} />
       <Button
