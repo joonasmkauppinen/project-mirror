@@ -14,6 +14,7 @@ import { ReactComponent as FilledProfileIcon } from './svg/profile-filled.svg';
 import { ReactComponent as ScrollIcon } from './svg/scroll-indicator.svg';
 import { ReactComponent as SearchIcon } from './svg/search_ic.svg';
 import { ReactComponent as SettingsIcon } from './svg/settings_ic.svg';
+import { ReactComponent as RobotIcon } from './svg/ellis-prototype_ic.svg';
 
 const Icons = {
   alert: AlertIcon,
@@ -29,6 +30,7 @@ const Icons = {
   peili: PeiliIcon,
   profile: ProfileIcon,
   profileFilled: FilledProfileIcon,
+  robot: RobotIcon,
   scroll: ScrollIcon,
   search: SearchIcon,
   settings: SettingsIcon,
