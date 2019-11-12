@@ -5,7 +5,7 @@ import styles from './ErrorCard.module.scss';
 
 const ErrorCard = ({ message }) => (
   <div className={styles.container}>
-    <Icons.alert.object className={styles.icon} />
+    <Icons.alert className={styles.icon} />
     <p>{message}</p>
   </div>
 );
