@@ -49,5 +49,10 @@
     "eslint-plugin-react": "^7.16.0",
     "lodash-es": "^4.17.15",
     "prettier": "^1.18.2"
+  },
+  "jest": {
+    "transformIgnorePatterns": [
+      "/!node_modules\\/lodash-es/"
+    ]
   }
 }
