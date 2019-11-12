@@ -27,20 +27,19 @@ const LoginPage = () => {
   const navigateToMain = () => history.replace('/main');
   const navigateBack = () => history.goBack();
 
-  const handleSubmit = values => {
-    console.log(JSON.stringify(values, null, 2));
-    // const { success, error } = await login(email, password);
-    // if (success) navigateToMain();
-    // else alert(error);
+  const handleSubmit = async ({ username, password }) => {
+    const { success, error } = await login(username, password);
+    if (success) navigateToMain();
+    else alert(error);
   };
 
   const initialValues = {
-    email: '',
+    username: '',
     password: '',
   };
 
   const validationSchema = Yup.object({
-    email: Yup.string()
+    username: Yup.string()
       .email(invalidEmail)
       .required(requiredField),
     password: Yup.string().required(requiredField),
@@ -61,7 +60,7 @@ const LoginPage = () => {
         >
           <Form>
             <TextInput
-              name="email"
+              name="username"
               type="email"
               label={emailLabel}
               placeholder={emailPlaceholder}
