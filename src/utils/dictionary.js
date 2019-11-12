@@ -91,10 +91,6 @@ export default {
       en: 'Login',
       fi: 'Kirjaudu',
     },
-    fill_missing_field: {
-      en: 'Please, fill the missing field',
-      fi: 'Täytä puuttuva kenttä',
-    },
     username_label: {
       en: 'Username',
       fi: 'Käyttäjänimi',
@@ -114,6 +110,14 @@ export default {
     login_btn: {
       en: 'Login',
       fi: 'Kirjaudu Sisään',
+    },
+    required_field: {
+      en: 'Required field.',
+      fi: 'Pakollinen kenttä.',
+    },
+    invalid_email: {
+      en: 'Please enter a valid email address.',
+      fi: 'Syötä validi sähköpostiosoite.',
     },
   },
 
