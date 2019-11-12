@@ -9,6 +9,7 @@ const TextInput = ({ label, style, superClass, ...props }) => {
   const { touched, error } = meta;
   const classes = [styles.container];
   superClass && classes.push(superClass);
+  touched && error && classes.push(styles.error);
   return (
     <div className={classes.join(' ')} style={style}>
       {label && <label htmlFor={props.id || props.name}>{label}</label>}
