@@ -1,0 +1,10 @@
+@import "../../variables";
+
+.tabTitle {
+  display: inline-flex;
+  flex-direction: row;
+  margin-top: $header-top-margin;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
