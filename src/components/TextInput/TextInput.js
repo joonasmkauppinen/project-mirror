@@ -2,36 +2,25 @@ import React from 'react';
 import styles from './TextInput.module.scss';
 import ErrorCard from '../../components/ErrorCard';
 import PropTypes from 'prop-types';
+import { useField } from 'formik';
 
-const TextInput = ({
-  type,
-  label,
-  value,
-  style,
-  onChange,
-  autoFocus,
-  superClass,
-  placeholder,
-  errorMessage,
-}) => {
+const TextInput = ({ label, style, superClass, ...props }) => {
+  const [field, meta] = useField(props);
+  const { touched, error } = meta;
   const classes = [styles.container];
   superClass && classes.push(superClass);
   return (
     <div className={classes.join(' ')} style={style}>
-      {label && <p>{label}</p>}
-      <input
-        type={type}
-        value={value}
-        onChange={onChange}
-        autoFocus={autoFocus}
-        placeholder={placeholder}
-      />
-      {errorMessage && <ErrorCard message={errorMessage} />}
+      {label && <label htmlFor={props.id || props.name}>{label}</label>}
+      <input {...field} {...props} />
+      {touched && error && <ErrorCard message={error} />}
     </div>
   );
 };
 
 TextInput.propTypes = {
+  id: PropTypes.string,
+  name: PropTypes.string,
   type: PropTypes.oneOf([
     'tel',
     'text',
@@ -42,13 +31,12 @@ TextInput.propTypes = {
     'datetime-local',
   ]).isRequired,
   label: PropTypes.string,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.string,
   style: PropTypes.object,
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func,
   autoFocus: PropTypes.bool,
   superClass: PropTypes.string,
   placeholder: PropTypes.string.isRequired,
-  errorMessage: PropTypes.string,
 };
 
 export default TextInput;
