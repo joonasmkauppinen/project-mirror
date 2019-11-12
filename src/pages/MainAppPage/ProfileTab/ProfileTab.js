@@ -10,6 +10,8 @@ import { setCookie } from '../../../utils/cookies';
 import { apiCall } from '../../../utils/apicall';
 import { language } from '../../../utils/translate';
 import TabContainer from '../../../hoc/TabContainer';
+import TabTitle from '../../../components/TabTitle';
+import IconButton from '../../../components/IconButton';
 
 const ProfileTab = ({ visible }) => {
   const history = useHistory();
@@ -34,7 +36,10 @@ const ProfileTab = ({ visible }) => {
   };
   return (
     <TabContainer active={visible}>
-      <Header>{t('TABS.profile')}</Header>
+      <TabTitle>
+        <Header>{t('TABS.profile')}</Header>
+        <IconButton icon={'settings'} onClick={() => {}} />
+      </TabTitle>
       <Text>{t('PROFILE.teaser')}</Text>
       <Button onClick={handleLogoutClick} secondary label={t('logout')} />
       <Button

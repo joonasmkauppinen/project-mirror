@@ -4,10 +4,15 @@ import Header from '../../../components/Header';
 import Text from '../../../components/Text';
 import TabContainer from '../../../hoc/TabContainer';
 import { t } from '../../../utils/translate';
+import TabTitle from '../../../components/TabTitle';
+import IconButton from '../../../components/IconButton';
 
 const ChatTab = ({ visible }) => (
   <TabContainer active={visible}>
-    <Header>{t('TABS.chat')}</Header>
+    <TabTitle>
+      <Header>{t('TABS.chat')}</Header>
+      <IconButton icon={'robot'} onClick={() => {}} />
+    </TabTitle>
     <Text>This is the chat tab</Text>
   </TabContainer>
 );

@@ -5,14 +5,24 @@ import Text from '../../../components/Text';
 import TabContainer from '../../../hoc/TabContainer';
 import { t } from '../../../utils/translate';
 import styles from './HomeTab.module.scss';
+import TabTitle from '../../../components/TabTitle';
+import IconButton from '../../../components/IconButton';
 
 const HomeTab = ({ visible }) => (
   <TabContainer active={visible}>
-    <Header>
-      <div className={styles.headerLight}>{t('HOME.title')}</div>
-      {'\n'}
-      User
-    </Header>
+    <TabTitle>
+      <Header>
+        <div className={styles.headerLight}>{t('HOME.title')}</div>
+        {'\n'}
+        User
+      </Header>
+      <IconButton
+        icon={'info'}
+        onClick={() => {}}
+        style={{ alignSelf: 'flex-start' }}
+      />
+    </TabTitle>
+
     <Text>1 This is the home tab</Text>
     <Text>2 This is the home tab</Text>
     <Text>3 This is the home tab</Text>
