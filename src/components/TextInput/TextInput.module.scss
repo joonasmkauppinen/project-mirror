@@ -5,7 +5,7 @@
   flex-direction: column;
   align-self: stretch;
 
-  p {
+  label {
     color: $title-text-color;
     font-weight: $medium;
     font-size: $body-text-size;
@@ -28,5 +28,14 @@
     &::placeholder {
       color: $card-placeholder-color;
     }
+  }
+}
+
+.error {
+  input {
+    border-width: 2px;
+    border-style: solid;
+    border-color: #b52231;
+    background-color: #451a20;
   }
 }

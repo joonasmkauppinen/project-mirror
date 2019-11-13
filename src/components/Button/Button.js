@@ -37,7 +37,7 @@ Button.propTypes = {
   secondary: PropTypes.bool,
   superClass: PropTypes.string,
   label: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
   disabled: PropTypes.bool,
   type: PropTypes.oneOf(['button', 'submit']),
 };

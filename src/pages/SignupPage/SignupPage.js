@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
 import D from '../../utils/dictionary';
 import { t } from '../../utils/translate';
 import { apiCall, login } from '../../utils/apicall';
+import { Formik, Form } from 'formik';
+import * as Yup from 'yup';
 
 import styles from './SignupPage.module.scss';
-
 import PageContainer from '../../hoc/PageContainer';
 import ScrollableContent from '../../hoc/ScrollableContent';
 import Toolbar from '../../components/Toolbar';
@@ -16,87 +17,57 @@ import Button from '../../components/Button';
 const SignupPage = () => {
   const history = useHistory();
   const title = t(D.SIGNUP.title);
-  const [firstname, setFirstname] = useState('');
-  // TODO: remove when validation is implemented
-  // eslint-disable-next-line no-unused-vars
-  const [firstnameError, setFirstnameError] = useState();
-  const [email, setEmail] = useState('');
-  // TODO: remove when validation is implemented
-  // eslint-disable-next-line no-unused-vars
-  const [emailError, setEmailError] = useState();
-  const [password, setPassword] = useState('');
-  // TODO: remove when validation is implemented
-  // eslint-disable-next-line no-unused-vars
-  const [passwordError, setPasswordError] = useState();
-  const [passwordAgain, setPasswordAgain] = useState('');
-  // TODO: remove when validation is implemented
-  // eslint-disable-next-line no-unused-vars
-  const [passwordAgainError, setPasswordAgainError] = useState();
-  const [surename, setSurename] = useState('');
-  // TODO: remove when validation is implemented
-  // eslint-disable-next-line no-unused-vars
-  const [surenameError, setSurenameError] = useState();
-  const [birthdate, setBirthdate] = useState('');
-  // TODO: remove when validation is implemented
-  // eslint-disable-next-line no-unused-vars
-  const [birthdateError, setBirthdateError] = useState();
   const handleLeftIconPress = () => history.goBack();
+  const navigateToMain = () => history.replace('/main');
 
-  const handleEmailChange = ({ target }) => {
-    const { value } = target;
-    setEmail(value);
-  };
-
-  const handleFirstnameChange = ({ target }) => {
-    const { value } = target;
-    setFirstname(value);
-  };
-
-  const handleSurenameChange = ({ target }) => {
-    const { value } = target;
-    setSurename(value);
-  };
-
-  const handleBirthdateChange = ({ target }) => {
-    const { value } = target;
-    setBirthdate(value);
-  };
-
-  const handlePasswordChange = ({ target }) => {
-    const { value } = target;
-    setPassword(value);
-  };
-
-  const handlePasswordAgainChange = ({ target }) => {
-    const { value } = target;
-    setPasswordAgain(value);
-  };
-
-  const handleSignupClick = e => {
-    e.preventDefault();
-    // TODO: VALIDATIONS
-    apiCall('register', {
+  const handleSubmit = async ({
+    firstname,
+    lastname,
+    email,
+    password,
+    birthdate,
+  }) => {
+    const { success, error } = await apiCall('register', {
       firstname: firstname,
-      surename: surename,
+      surename: lastname,
       birthdate: birthdate,
       username: email,
       email: email,
       password: password,
-    }).then(response => {
-      if (response.success) {
-        alert('TODO: SUCCEEDED !');
-        login(email, password).then(res => {
-          if (res.success) {
-            // TODO: NAVIGATE TO HOME TAB
-          } else {
-            // TODO: LOGIN FAILED? SHOULD NOT FAIL...
-          }
-        });
-      } else {
-        alert(response.error);
-      }
     });
+    if (success) {
+      const { success, error } = await login(email, password);
+      if (success) navigateToMain();
+      if (error) alert(error);
+    } else if (error) alert(error);
   };
+
+  const initialValues = {
+    firstname: '',
+    lastname: '',
+    birthdate: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+  };
+
+  const requiredField = t(D.FORM_ERRORS.required_field);
+  const passTooShort = t(D.FORM_ERRORS.password_too_short);
+  const passDontMatch = t(D.FORM_ERRORS.passwords_dont_match);
+  const validationSchema = Yup.object({
+    firstname: Yup.string().required(requiredField),
+    lastname: Yup.string().required(requiredField),
+    birthdate: Yup.date().required(requiredField),
+    email: Yup.string()
+      .email()
+      .required(requiredField),
+    password: Yup.string()
+      .min(6, passTooShort)
+      .required(requiredField),
+    confirmPassword: Yup.string()
+      .oneOf([Yup.ref('password'), null], passDontMatch)
+      .required(requiredField),
+  });
 
   return (
     <PageContainer>
@@ -111,67 +82,60 @@ const SignupPage = () => {
           <h1>Peili</h1>
           <p>{t(D.SIGNUP.teaser)}</p>
         </section>
-        <form>
-          <TextInput
-            type="firstname"
-            value={firstname}
-            label={t(D.firstname)}
-            onChange={handleFirstnameChange}
-            placeholder={t(D.PLACEHOLDERS.firstname)}
-            errorMessage={firstnameError}
-          />
-          <TextInput
-            type="surename"
-            value={surename}
-            label={t(D.surename)}
-            onChange={handleSurenameChange}
-            placeholder={t(D.PLACEHOLDERS.surename)}
-            errorMessage={surenameError}
-            style={{ marginTop: '16px' }}
-          />
-          <TextInput
-            type="date"
-            value={birthdate}
-            label={t(D.birthdate)}
-            onChange={handleBirthdateChange}
-            placeholder={t(D.PLACEHOLDERS.birthdate)}
-            errorMessage={birthdateError}
-            style={{ marginTop: '16px' }}
-          />
-          <TextInput
-            type="email"
-            value={email}
-            label={t(D.email)}
-            onChange={handleEmailChange}
-            placeholder={t(D.PLACEHOLDERS.email)}
-            errorMessage={emailError}
-            style={{ marginTop: '32px' }}
-          />
-          <TextInput
-            type="password"
-            value={password}
-            label={t(D.password)}
-            onChange={handlePasswordChange}
-            placeholder={t(D.PLACEHOLDERS.password)}
-            errorMessage={passwordError}
-            style={{ marginTop: '16px' }}
-          />
-          <TextInput
-            type="password"
-            value={passwordAgain}
-            label={t(D.password_repeat)}
-            onChange={handlePasswordAgainChange}
-            placeholder={t(D.PLACEHOLDERS.password)}
-            errorMessage={passwordAgainError}
-            style={{ marginTop: '16px' }}
-          />
-          <Button
-            type="submit"
-            label={t(D.SIGNUP.button_signup)}
-            style={{ margin: '32px 0 64px' }}
-            onClick={handleSignupClick}
-          />
-        </form>
+        <Formik
+          onSubmit={handleSubmit}
+          initialValues={initialValues}
+          validationSchema={validationSchema}
+        >
+          <Form>
+            <TextInput
+              name="firstname"
+              type="text"
+              label={t(D.PLACEHOLDERS.firstname)}
+              placeholder={t(D.PLACEHOLDERS.firstname)}
+            />
+            <TextInput
+              name="lastname"
+              type="text"
+              label={t(D.surename)}
+              placeholder={t(D.PLACEHOLDERS.lastname)}
+              style={{ marginTop: '16px' }}
+            />
+            <TextInput
+              name="birthdate"
+              type="date"
+              label={t(D.birthdate)}
+              placeholder={t(D.PLACEHOLDERS.birthdate)}
+              style={{ marginTop: '16px' }}
+            />
+            <TextInput
+              name="email"
+              type="email"
+              label={t(D.email)}
+              placeholder={t(D.PLACEHOLDERS.email)}
+              style={{ marginTop: '56px' }}
+            />
+            <TextInput
+              name="password"
+              type="password"
+              label={t(D.password)}
+              placeholder={t(D.PLACEHOLDERS.password)}
+              style={{ marginTop: '16px' }}
+            />
+            <TextInput
+              name="confirmPassword"
+              type="password"
+              label={t(D.password_repeat)}
+              placeholder={t(D.PLACEHOLDERS.password)}
+              style={{ marginTop: '16px' }}
+            />
+            <Button
+              type="submit"
+              label={t(D.SIGNUP.button_signup)}
+              style={{ margin: '64px 0' }}
+            />
+          </Form>
+        </Formik>
       </ScrollableContent>
     </PageContainer>
   );
