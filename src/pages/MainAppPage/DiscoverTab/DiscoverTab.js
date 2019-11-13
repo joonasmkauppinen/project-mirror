@@ -7,6 +7,7 @@ import Toggle from '../../../components/Toggle';
 import TabTitle from '../../../components/TabTitle';
 import Header from '../../../components/Header';
 import { t } from '../../../utils/translate';
+import OrgsList from '../../../components/OrgsList';
 
 const test = () => {
   console.log('Test');
@@ -23,6 +24,7 @@ const DiscoverTab = ({ visible }) => {
       <Text>This is the discover tab</Text>
       <IconButton onClick={test} icon={'info'} />
       <Toggle isOn={value} handleToggle={() => setValue(!value)} />
+      <OrgsList />
     </TabContainer>
   );
 };

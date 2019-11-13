@@ -10,6 +10,9 @@ import MainAppPage from '../pages/MainAppPage';
 import LoginPage from '../pages/LoginPage';
 import SignupPage from '../pages/SignupPage';
 import { isSession as auth } from '../utils/apicall';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import { store, persistor } from '../store';
 
 const App = () => {
   const signup = () => (auth() ? <Redirect to="/main" /> : <SignupPage />);
@@ -19,12 +22,16 @@ const App = () => {
 
   return (
     <Router basename="/project-mirror">
-      <Switch>
-        <Route path="/main" render={mainApp} />
-        <Route path="/signup" render={signup} />
-        <Route path="/login" render={login} />
-        <Route path="/" render={landing} />
-      </Switch>
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <Switch>
+            <Route path="/main" render={mainApp} />
+            <Route path="/signup" render={signup} />
+            <Route path="/login" render={login} />
+            <Route path="/" render={landing} />
+          </Switch>
+        </PersistGate>
+      </Provider>
     </Router>
   );
 };
