@@ -21,8 +21,8 @@ const LoginPage = () => {
   const emailPlaceholder = t(D.LOGIN.email_placeholder);
   const passwordLabel = t(D.LOGIN.password_label);
   const loginLabel = t(D.LOGIN.login_btn);
-  const invalidEmail = t(D.LOGIN.invalid_email);
-  const requiredField = t(D.LOGIN.required_field);
+  const invalidEmail = t(D.FORM_ERRORS.invalid_email);
+  const requiredField = t(D.FORM_ERRORS.required_field);
 
   const navigateToMain = () => history.replace('/main');
   const navigateBack = () => history.goBack();
@@ -69,7 +69,7 @@ const LoginPage = () => {
               name="password"
               type="password"
               label={passwordLabel}
-              placeholder="••••••••••••"
+              placeholder={t(D.PLACEHOLDERS.password)}
               style={{ marginTop: '16px' }}
             />
             <Button
