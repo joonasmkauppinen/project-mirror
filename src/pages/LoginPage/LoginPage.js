@@ -13,6 +13,7 @@ import TextInput from '../../components/TextInput';
 import Toolbar from '../../components/Toolbar';
 import Icons from '../../assets/Icons';
 import ScrollableContent from '../../hoc/ScrollableContent';
+import LoadingSpinner from '../../components/LoadingSpinner';
 
 const LoginPage = () => {
   const history = useHistory();
@@ -58,26 +59,32 @@ const LoginPage = () => {
           initialValues={initialValues}
           validationSchema={validationSchema}
         >
-          <Form>
-            <TextInput
-              name="username"
-              type="email"
-              label={emailLabel}
-              placeholder={emailPlaceholder}
-            />
-            <TextInput
-              name="password"
-              type="password"
-              label={passwordLabel}
-              placeholder={t(D.PLACEHOLDERS.password)}
-              style={{ marginTop: '16px' }}
-            />
-            <Button
-              type="submit"
-              label={loginLabel}
-              style={{ marginTop: '32px' }}
-            />
-          </Form>
+          {({ isSubmitting }) => (
+            <Form className={styles.loginForm}>
+              <TextInput
+                name="username"
+                type="email"
+                label={emailLabel}
+                placeholder={emailPlaceholder}
+              />
+              <TextInput
+                name="password"
+                type="password"
+                label={passwordLabel}
+                placeholder={t(D.PLACEHOLDERS.password)}
+                style={{ marginTop: '16px' }}
+              />
+              {isSubmitting ? (
+                <LoadingSpinner style={{ margin: '32px auto' }} />
+              ) : (
+                <Button
+                  type="submit"
+                  label={loginLabel}
+                  style={{ marginTop: '32px' }}
+                />
+              )}
+            </Form>
+          )}
         </Formik>
       </ScrollableContent>
     </PageContainer>
