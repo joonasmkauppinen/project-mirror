@@ -13,6 +13,7 @@ import Toolbar from '../../components/Toolbar';
 import TextInput from '../../components/TextInput';
 import Icons from '../../assets/Icons';
 import Button from '../../components/Button';
+import LoadingSpinner from '../../components/LoadingSpinner';
 
 const SignupPage = () => {
   const history = useHistory();
@@ -20,13 +21,10 @@ const SignupPage = () => {
   const handleLeftIconPress = () => history.goBack();
   const navigateToMain = () => history.replace('/main');
 
-  const handleSubmit = async ({
-    firstname,
-    lastname,
-    email,
-    password,
-    birthdate,
-  }) => {
+  const handleSubmit = async (
+    { firstname, lastname, birthdate, email, password },
+    { setSubmitting },
+  ) => {
     const { success, error } = await apiCall('register', {
       firstname: firstname,
       surname: lastname,
@@ -40,6 +38,7 @@ const SignupPage = () => {
       if (success) navigateToMain();
       if (error) alert(error);
     } else if (error) alert(error);
+    setSubmitting(false);
   };
 
   const initialValues = {
@@ -86,55 +85,63 @@ const SignupPage = () => {
           onSubmit={handleSubmit}
           initialValues={initialValues}
           validationSchema={validationSchema}
+          enableReinitialize={false}
         >
-          <Form>
-            <TextInput
-              name="firstname"
-              type="text"
-              label={t(D.PLACEHOLDERS.firstname)}
-              placeholder={t(D.PLACEHOLDERS.firstname)}
-            />
-            <TextInput
-              name="lastname"
-              type="text"
-              label={t(D.surname)}
-              placeholder={t(D.PLACEHOLDERS.lastname)}
-              style={{ marginTop: '16px' }}
-            />
-            <TextInput
-              name="birthdate"
-              type="date"
-              label={t(D.birthdate)}
-              placeholder={t(D.PLACEHOLDERS.birthdate)}
-              style={{ marginTop: '16px' }}
-            />
-            <TextInput
-              name="email"
-              type="email"
-              label={t(D.email)}
-              placeholder={t(D.PLACEHOLDERS.email)}
-              style={{ marginTop: '56px' }}
-            />
-            <TextInput
-              name="password"
-              type="password"
-              label={t(D.password)}
-              placeholder={t(D.PLACEHOLDERS.password)}
-              style={{ marginTop: '16px' }}
-            />
-            <TextInput
-              name="confirmPassword"
-              type="password"
-              label={t(D.password_repeat)}
-              placeholder={t(D.PLACEHOLDERS.password)}
-              style={{ marginTop: '16px' }}
-            />
-            <Button
-              type="submit"
-              label={t(D.SIGNUP.button_signup)}
-              style={{ margin: '64px 0' }}
-            />
-          </Form>
+          {({ isSubmitting }) => (
+            <Form className={styles.signupForm}>
+              <TextInput
+                name="firstname"
+                type="text"
+                label={t(D.PLACEHOLDERS.firstname)}
+                placeholder={t(D.PLACEHOLDERS.firstname)}
+              />
+              <TextInput
+                name="lastname"
+                type="text"
+                label={t(D.surname)}
+                placeholder={t(D.PLACEHOLDERS.lastname)}
+                style={{ marginTop: '16px' }}
+              />
+              <TextInput
+                name="birthdate"
+                type="date"
+                label={t(D.birthdate)}
+                placeholder={t(D.PLACEHOLDERS.birthdate)}
+                style={{ marginTop: '16px' }}
+              />
+              <TextInput
+                name="email"
+                type="email"
+                label={t(D.email)}
+                placeholder={t(D.PLACEHOLDERS.email)}
+                style={{ marginTop: '56px' }}
+              />
+              <TextInput
+                name="password"
+                type="password"
+                label={t(D.password)}
+                placeholder={t(D.PLACEHOLDERS.password)}
+                style={{ marginTop: '16px' }}
+              />
+              <TextInput
+                name="confirmPassword"
+                type="password"
+                label={t(D.password_repeat)}
+                placeholder={t(D.PLACEHOLDERS.password)}
+                style={{ marginTop: '16px' }}
+              />
+              {isSubmitting ? (
+                <LoadingSpinner style={{ margin: '64px auto' }} />
+              ) : (
+                <Button
+                  type="submit"
+                  label={t(D.SIGNUP.button_signup)}
+                  style={{ margin: '64px 0' }}
+                  disabled={isSubmitting}
+                />
+              )}
+            </Form>
+          )}
         </Formik>
       </ScrollableContent>
     </PageContainer>
