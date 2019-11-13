@@ -20,6 +20,25 @@ export default {
   logout: { en: 'Logout', fi: 'Logout' },
   birthdate: { en: 'Birthdate', fi: 'Syntymäpäivä' },
 
+  FORM_ERRORS: {
+    required_field: {
+      en: 'Required field.',
+      fi: 'Pakollinen kenttä.',
+    },
+    invalid_email: {
+      en: 'Please enter a valid email address.',
+      fi: 'Syötä validi sähköpostiosoite.',
+    },
+    password_too_short: {
+      en: 'Password needs to be atleast 6 characters long.',
+      fi: 'Salasanan tulee olla vähintään 6 merkkiä pitkä.',
+    },
+    passwords_dont_match: {
+      en: "Passwords don't match.",
+      fi: 'Salasanat eivät täsmää.',
+    },
+  },
+
   TABS: {
     home: { en: 'Home', fi: 'Koti' },
     discover: { en: 'Discover', fi: 'Löydä' },
@@ -46,15 +65,15 @@ export default {
       fi: '••••••••',
     },
     email: {
-      en: 'my@email.com',
-      fi: 'minun@osoite.fi',
+      en: 'john.doe@email.com',
+      fi: 'matti.meikalainen@email.com',
     },
     firstname: {
       en: 'Firstname',
       fi: 'Etunimi',
     },
-    surename: {
-      en: 'Surename',
+    lastname: {
+      en: 'Lastname',
       fi: 'Sukunimi',
     },
     birthdate: {
@@ -69,10 +88,10 @@ export default {
       fi: 'Luo käyttäjä',
     },
     teaser: {
-      en: 'Create your Peili-account by filling the following fields.',
-      fi: 'Luo Peili-käyttäjä täyttämällä alla olevat tiedot.',
+      en: 'Create your new Peili-account by filling the following fields.',
+      fi: 'Luo itsellesi uusi Peili-käyttäjä täyttämällä alla olevat tiedot.',
     },
-    incorrect_email: {
+    invalid_email: {
       en: 'Email is invalid.',
       fi: 'Tarkasta Sähköpostiosoite',
     },
@@ -110,14 +129,6 @@ export default {
     login_btn: {
       en: 'Login',
       fi: 'Kirjaudu Sisään',
-    },
-    required_field: {
-      en: 'Required field.',
-      fi: 'Pakollinen kenttä.',
-    },
-    invalid_email: {
-      en: 'Please enter a valid email address.',
-      fi: 'Syötä validi sähköpostiosoite.',
     },
   },
 
