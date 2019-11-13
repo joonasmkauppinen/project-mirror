@@ -14,7 +14,7 @@ export default {
   password_repeat: { en: 'Repeat Password', fi: 'Vahvista salasana' },
   birthday: { en: 'Birthdate', fi: 'Syntymäpäivä' },
   firstname: { en: 'Firstname', fi: 'Etunimi' },
-  surename: { en: 'Surename', fi: 'Sukunimi' },
+  surname: { en: 'Lastname', fi: 'Sukunimi' },
   email: { en: 'Email', fi: 'Sähköpostiosoite' },
   login: { en: 'Login', fi: 'Kirjaudu' },
   logout: { en: 'Logout', fi: 'Logout' },

@@ -29,7 +29,7 @@ const SignupPage = () => {
   }) => {
     const { success, error } = await apiCall('register', {
       firstname: firstname,
-      surename: lastname,
+      surname: lastname,
       birthdate: birthdate,
       username: email,
       email: email,
@@ -97,7 +97,7 @@ const SignupPage = () => {
             <TextInput
               name="lastname"
               type="text"
-              label={t(D.surename)}
+              label={t(D.surname)}
               placeholder={t(D.PLACEHOLDERS.lastname)}
               style={{ marginTop: '16px' }}
             />
