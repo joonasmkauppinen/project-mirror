@@ -26,8 +26,10 @@
       fill: $primary-color;
     }
   }
-}
 
-.formSection {
-  align-self: stretch;
+  p {
+    color: $body-text-color;
+    font-size: $body-text-size;
+    font-weight: $regular;
+  }
 }
