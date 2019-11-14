@@ -1,0 +1,92 @@
+@import '../../variables';
+
+.snackbar {
+  visibility: hidden;
+  min-width: 250px;
+  max-width: 600px;
+  margin: auto;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  position: fixed;
+  z-index: 1;
+  left: 32px;
+  right: 32px;
+  bottom: 30px;
+  height: 48px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+
+  .text {
+    // TODO: center properly
+    padding: 12px;
+  }
+  &.show {
+    visibility: visible; /* Show the snackbar */
+    // TODO: figure out how to set the length in code
+    -webkit-animation: 2.5s fadein 0.5s, fadeout 0.5s;
+    animation: 2.5s fadein 0.5s, fadeout 0.5s;
+  }
+
+  // TODO: use correct colors
+  &.error {
+    background-color: red;
+  }
+
+  &.info {
+    background-color: deepskyblue;
+  }
+
+  &.warning {
+    background-color: #ffb310;
+  }
+
+  &.success {
+    background-color: limegreen;
+  }
+
+  /* Animations to fade the snackbar in and out */
+  @-webkit-keyframes fadein {
+    from {
+      bottom: 0;
+      opacity: 0;
+    }
+    to {
+      bottom: 30px;
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadein {
+    from {
+      bottom: 0;
+      opacity: 0;
+    }
+    to {
+      bottom: 30px;
+      opacity: 1;
+    }
+  }
+
+  @-webkit-keyframes fadeout {
+    from {
+      bottom: 30px;
+      opacity: 1;
+    }
+    to {
+      bottom: 0;
+      opacity: 0;
+    }
+  }
+
+  @keyframes fadeout {
+    from {
+      bottom: 30px;
+      opacity: 1;
+    }
+    to {
+      bottom: 0;
+      opacity: 0;
+    }
+  }
+}
