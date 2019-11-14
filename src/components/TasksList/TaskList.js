@@ -22,6 +22,7 @@ const TaskList = ({ tasks, loading, error, loadTasks }) => {
                 onClick={() => {
                   console.log(task.name);
                 }}
+                style={{ width: '80px' }}
               />
             </div>
           </div>

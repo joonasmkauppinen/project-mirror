@@ -15,7 +15,7 @@ export const loadTasks = taskId => async dispatch => {
     }
     dispatch({
       type: LOAD_TASKS,
-      organizations: tasks.tasks,
+      tasks: tasks.tasks,
     });
   } catch (e) {
     dispatch({ type: ERROR_TASKS });
