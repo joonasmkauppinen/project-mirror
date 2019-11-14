@@ -40,7 +40,7 @@ const serialize = obj => {
 
 /* Perform a Backend API Call */
 const apiCall = async (operation, params = {}) => {
-  return new Promise(resolve => {
+  return new Promise((resolve, reject) => {
     const dataParams = {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -63,8 +63,10 @@ const apiCall = async (operation, params = {}) => {
             console.log(
               `[apiCall] WARNING: Call ${operation} failed. Error: ${r.error}`,
             );
+            reject(r.error);
+          } else {
+            resolve(r);
           }
-          resolve(r);
         });
     } catch (e) {
       resolve({ error: e, success: false });
@@ -75,32 +77,40 @@ const apiCall = async (operation, params = {}) => {
 /* Login Backend API Call with Cookie Storing automation */
 const login = async (username, password) => {
   return new Promise(resolve => {
-    apiCall('login', { username: username, password: password }).then(r => {
-      if (r.success) {
-        sessionToken = r.token;
-        sessionID = r.session_id;
-        sessionChecked = true;
-        setCookie('sessionToken', sessionToken);
-        setCookie('sessionID', sessionID.toString());
-      }
-      resolve(r);
-    });
+    apiCall('login', { username: username, password: password })
+      .then(r => {
+        if (r.success) {
+          sessionToken = r.token;
+          sessionID = r.session_id;
+          sessionChecked = true;
+          setCookie('sessionToken', sessionToken);
+          setCookie('sessionID', sessionID.toString());
+        }
+        resolve(r);
+      })
+      .catch(e => {
+        resolve({ error: e, success: false });
+      });
   });
 };
 
 /* Logout Backend API Call with Cookie Clearing automation */
 const logout = async () => {
   return new Promise(resolve => {
-    apiCall('logout').then(r => {
-      if (r.success) {
-        sessionToken = '';
-        sessionID = 0;
-        sessionChecked = true;
-        deleteCookie('sessionToken');
-        deleteCookie('sessionID');
-      }
-      resolve(r);
-    });
+    apiCall('logout')
+      .then(r => {
+        if (r.success) {
+          sessionToken = '';
+          sessionID = 0;
+          sessionChecked = true;
+          deleteCookie('sessionToken');
+          deleteCookie('sessionID');
+        }
+        resolve(r);
+      })
+      .catch(e => {
+        resolve({ error: e, success: false });
+      });
   });
 };
 

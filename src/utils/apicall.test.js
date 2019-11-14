@@ -1,4 +1,4 @@
-import { login } from './apicall';
+import { apiCall, login } from './apicall';
 
 test('login-failure', done => {
   login('username', 'wrong-password').then(response => {
@@ -13,4 +13,16 @@ test('login-success', done => {
     expect(response.error).toBe(undefined);
     done();
   });
+});
+
+test('not-found-this-operation', done => {
+  apiCall('not-found-this-oper')
+    .then(response => {
+      expect(response.success).toBe(false);
+      done();
+    })
+    .catch(() => {
+      expect(true).toBe(true);
+      done();
+    });
 });
