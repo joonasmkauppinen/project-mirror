@@ -1,20 +1,20 @@
 import { apiCall } from '../../utils/apicall';
 
-export const STORE_ORGS = 'STORE_ORGS';
+export const LOAD_ORGS = 'LOAD_ORGS';
 export const LIKE_ORG = 'LIKE_ORG';
-export const START_LOADING = 'START_LOADING';
-export const RECORD_ERROR = 'RECORD_ERROR';
+export const LOADING_ORGS = 'LOADING_ORGS';
+export const ERROR_ORGS = 'ERROR_ORGS';
 
 export const loadOrgs = () => async dispatch => {
-  dispatch({ type: START_LOADING });
+  dispatch({ type: LOADING_ORGS });
   try {
     const orgs = await apiCall('organizations');
     dispatch({
-      type: STORE_ORGS,
+      type: LOAD_ORGS,
       organizations: orgs.organizations,
     });
   } catch (err) {
-    dispatch({ type: RECORD_ERROR });
+    dispatch({ type: ERROR_ORGS });
   }
 };
 

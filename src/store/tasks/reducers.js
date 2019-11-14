@@ -1,12 +1,10 @@
 import { combineReducers } from 'redux';
-import { LIKE_ORG, LOAD_ORGS, LOADING_ORGS, ERROR_ORGS } from './actions';
+import { LOAD_TASKS, LOADING_TASKS, ERROR_TASKS } from './actions';
 
-export function organizations(state = [], action) {
+export function tasks(state = [], action) {
   switch (action.type) {
-    case LIKE_ORG:
-      return state;
-    case LOAD_ORGS:
-      return action.organizations;
+    case LOAD_TASKS:
+      return action.tasks;
     default:
       return state;
   }
@@ -14,10 +12,9 @@ export function organizations(state = [], action) {
 
 export function loading(state = false, action) {
   switch (action.type) {
-    case LOADING_ORGS:
+    case LOADING_TASKS:
       return true;
-    case LOAD_ORGS:
-    case ERROR_ORGS:
+    case ERROR_TASKS:
       return false;
     default:
       return state;
@@ -26,10 +23,9 @@ export function loading(state = false, action) {
 
 export function error(state = false, action) {
   switch (action.type) {
-    case ERROR_ORGS:
+    case ERROR_TASKS:
       return true;
-    case LOADING_ORGS:
-    case LOAD_ORGS:
+    case LOAD_TASKS:
       return false;
     default:
       return state;
@@ -37,7 +33,7 @@ export function error(state = false, action) {
 }
 
 export default combineReducers({
-  organizations,
+  tasks,
   loading,
   error,
 });
