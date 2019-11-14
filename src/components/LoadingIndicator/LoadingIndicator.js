@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Text from '../Text';
+import Snackbar from '../Snackbar';
 
 const LoadingIndicator = ({ loading, error, children }) => {
   return (
@@ -26,11 +27,7 @@ const possibleLoadingMessage = loading => {
 // TODO: Replace with actual error message/toast/snackbar
 const possibleErrorMessage = error => {
   if (error) {
-    return (
-      <div>
-        <Text>ERRRRÖRRRR</Text>
-      </div>
-    );
+    return <Snackbar type="error" length={3000} message={'ERRÖRR'} />;
   }
 };
 
