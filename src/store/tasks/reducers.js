@@ -14,6 +14,7 @@ export function loading(state = false, action) {
   switch (action.type) {
     case LOADING_TASKS:
       return true;
+    case LOAD_TASKS:
     case ERROR_TASKS:
       return false;
     default:
@@ -25,6 +26,7 @@ export function error(state = false, action) {
   switch (action.type) {
     case ERROR_TASKS:
       return true;
+    case LOADING_TASKS:
     case LOAD_TASKS:
       return false;
     default:
