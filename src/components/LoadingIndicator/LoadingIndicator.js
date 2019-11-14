@@ -27,13 +27,13 @@ const possibleLoadingMessage = loading => {
 // TODO: Replace with actual error message/toast/snackbar
 const possibleErrorMessage = error => {
   if (error) {
-    return <Snackbar type="error" length={3000} message={'ERRÖRR'} />;
+    return <Snackbar type="error" length={3000} message={error} />;
   }
 };
 
 LoadingIndicator.propTypes = {
   loading: PropTypes.bool.isRequired,
-  error: PropTypes.bool.isRequired,
+  error: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,

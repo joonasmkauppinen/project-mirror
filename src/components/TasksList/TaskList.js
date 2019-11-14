@@ -35,7 +35,7 @@ const TaskList = ({ tasks, loading, error, loadTasks }) => {
 TaskList.propTypes = {
   tasks: PropTypes.array,
   loading: PropTypes.bool,
-  error: PropTypes.bool,
+  error: PropTypes.string,
   loadTasks: PropTypes.func,
 };
 

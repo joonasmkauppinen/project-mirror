@@ -18,6 +18,10 @@ export const loadTasks = taskId => async dispatch => {
       tasks: tasks.tasks,
     });
   } catch (e) {
-    dispatch({ type: ERROR_TASKS });
+    dispatch({ type: ERROR_TASKS, error: e });
   }
+};
+
+export const clearTaskErrors = () => async dispatch => {
+  dispatch({ type: ERROR_TASKS, error: ''})
 };
