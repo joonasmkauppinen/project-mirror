@@ -34,7 +34,7 @@ const OrgsList = ({ organizations, loading, error, likeOrg, loadOrgs }) => {
 OrgsList.propTypes = {
   organizations: PropTypes.array,
   loading: PropTypes.bool,
-  error: PropTypes.bool,
+  error: PropTypes.string,
   likeOrg: PropTypes.func,
   loadOrgs: PropTypes.func,
 };

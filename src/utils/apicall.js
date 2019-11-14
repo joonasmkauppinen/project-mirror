@@ -69,7 +69,7 @@ const apiCall = async (operation, params = {}) => {
           }
         })
         .catch(e => {
-          reject(e);
+          reject(e.message);
         });
     } catch (e) {
       reject({ error: e, success: false });

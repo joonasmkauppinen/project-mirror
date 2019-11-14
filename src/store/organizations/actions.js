@@ -14,7 +14,7 @@ export const loadOrgs = () => async dispatch => {
       organizations: orgs.organizations,
     });
   } catch (err) {
-    dispatch({ type: ERROR_ORGS });
+    dispatch({ type: ERROR_ORGS, error: err });
   }
 };
 

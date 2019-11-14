@@ -24,13 +24,13 @@ export function loading(state = false, action) {
   }
 }
 
-export function error(state = false, action) {
+export function error(state = '', action) {
   switch (action.type) {
     case ERROR_ORGS:
-      return true;
+      return action.error;
     case LOADING_ORGS:
     case LOAD_ORGS:
-      return false;
+      return '';
     default:
       return state;
   }
