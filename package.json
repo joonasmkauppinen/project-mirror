@@ -49,6 +49,8 @@
     "eslint-config-prettier": "^6.5.0",
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-react": "^7.16.0",
+    "husky": "^3.0.9",
+    "lint-staged": "^10.0.0-beta.3",
     "lodash-es": "^4.17.15",
     "prettier": "^1.18.2"
   },
