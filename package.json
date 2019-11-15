@@ -27,6 +27,18 @@
     "test:coverage": "npm test -- --coverage",
     "eject": "react-scripts eject"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm run lt"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
   "eslintConfig": {
     "extends": "react-app"
   },
