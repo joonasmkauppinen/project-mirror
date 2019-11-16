@@ -25,12 +25,13 @@
     "test": "CI=true react-scripts test --env=jsdom",
     "lt": "react-scripts test --watchAll --env=jsdom",
     "test:coverage": "npm test -- --coverage",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "husky-tests": "react-scripts test --watchAll=false --env=jsdom"
   },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "npm test"
+      "pre-push": "npm run husky-tests"
     }
   },
   "lint-staged": {
