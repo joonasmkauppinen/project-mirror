@@ -24,10 +24,9 @@ const possibleLoadingMessage = loading => {
   }
 };
 
-// TODO: Replace with actual error message/toast/snackbar
 const possibleErrorMessage = error => {
   if (error) {
-    return <Snackbar type="error" length={3000} message={error} />;
+    return <Snackbar type="error" length={3} message={error} />;
   }
 };
 

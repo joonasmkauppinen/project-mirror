@@ -11,82 +11,56 @@
   border-radius: 2px;
   position: fixed;
   z-index: 1;
-  left: 32px;
-  right: 32px;
-  bottom: 30px;
+  left: 24px;
+  right: 24px;
+  bottom: 64px;
   height: 48px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  .icon {
+    margin: 8px;
+    height: 20px;
+    width: 20px;
+    path {
+      fill: white;
+    }
+  }
+
+  .btn {
+    path {
+      fill: white !important;
+    }
+  }
 
   .text {
     // TODO: center properly
-    padding: 12px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: $font-small;
   }
   &.show {
     visibility: visible; /* Show the snackbar */
-    // TODO: figure out how to set the length in code
-    -webkit-animation: 2.5s fadein 0.5s, fadeout 0.5s;
-    animation: 2.5s fadein 0.5s, fadeout 0.5s;
   }
 
   // TODO: use correct colors
   &.error {
-    background-color: red;
+    background-color: $error-color;
   }
 
   &.info {
-    background-color: deepskyblue;
+    background-color: $tab-bar-color;
   }
 
   &.warning {
-    background-color: #ffb310;
+    background-color: $warning-color;
   }
 
   &.success {
-    background-color: limegreen;
+    background-color: $success-color;
   }
 
-  /* Animations to fade the snackbar in and out */
-  @-webkit-keyframes fadein {
-    from {
-      bottom: 0;
-      opacity: 0;
-    }
-    to {
-      bottom: 30px;
-      opacity: 1;
-    }
-  }
-
-  @keyframes fadein {
-    from {
-      bottom: 0;
-      opacity: 0;
-    }
-    to {
-      bottom: 30px;
-      opacity: 1;
-    }
-  }
-
-  @-webkit-keyframes fadeout {
-    from {
-      bottom: 30px;
-      opacity: 1;
-    }
-    to {
-      bottom: 0;
-      opacity: 0;
-    }
-  }
-
-  @keyframes fadeout {
-    from {
-      bottom: 30px;
-      opacity: 1;
-    }
-    to {
-      bottom: 0;
-      opacity: 0;
-    }
-  }
 }
