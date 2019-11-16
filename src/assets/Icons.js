@@ -15,10 +15,15 @@ import { ReactComponent as ScrollIcon } from './svg/scroll-indicator.svg';
 import { ReactComponent as SearchIcon } from './svg/search_ic.svg';
 import { ReactComponent as SettingsIcon } from './svg/settings_ic.svg';
 import { ReactComponent as RobotIcon } from './svg/ellis-prototype_ic.svg';
+import { ReactComponent as CheckIcon } from './svg/check_ic.svg';
+import { ReactComponent as CloseIcon } from './svg/close_ic.svg';
+import { ReactComponent as FilledInfoIcon } from './svg/info-filled.svg';
 
 const Icons = {
   alert: AlertIcon,
   back: BackIcon,
+  check: CheckIcon,
+  close: CloseIcon,
   chat: ChatIcon,
   chatFilled: FilledChatIcon,
   cross: CrossIcon,
@@ -27,6 +32,7 @@ const Icons = {
   home: HomeIcon,
   homeFilled: FilledHomeIcon,
   info: InfoIcon,
+  infoFilled: FilledInfoIcon,
   peili: PeiliIcon,
   profile: ProfileIcon,
   profileFilled: FilledProfileIcon,
