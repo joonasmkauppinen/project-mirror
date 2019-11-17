@@ -7,10 +7,16 @@ import Text from '../../components/Text';
 
 const TaskPage = () => {
   const { goBack } = useHistory();
-
+  const handleRightIconClick = () => alert('TODO: show task info');
   return (
     <PageContainer>
-      <Toolbar leftIcon="back" onLeftIconClick={goBack} title="Task Screen" />
+      <Toolbar
+        title="Task Screen"
+        leftIcon="close"
+        onLeftIconClick={goBack}
+        rightIcon="info"
+        onRightIconClick={handleRightIconClick}
+      />
       <ScrollableContent>
         <Text>test task wip...</Text>
       </ScrollableContent>
