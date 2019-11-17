@@ -35,6 +35,7 @@ const HomeTab = ({ visible }) => {
         onOutsideClick={() => setShowDialog(false)}
         positiveLabel="done"
         negativeLabel="close"
+        onPositiveClicked={() => setShowDialog(false)}
         onNegativeClicked={() => setShowDialog(false)}
       >
         <Text>
