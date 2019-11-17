@@ -14,6 +14,42 @@
   .dialog {
     margin: auto 0;
     align-self: stretch;
-    height: 200px;
+    padding: 16px;
+    padding-bottom: 0;
+
+    .header {
+      color: white;
+      font-size: 20px;
+      font-weight: $semi-bold;
+    }
+
+    .buttonContainer {
+      display: flex;
+      flex-direction: row;
+      margin-left: -16px;
+      margin-right: -16px;
+      overflow: hidden;
+      border-top: #17171a 1px solid;
+
+      .button {
+        display: flex;
+        text-transform: uppercase;
+        flex: 1;
+        height: 50px;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: $bold;
+      }
+
+      .positive {
+        color: $primary-color;
+        border-left: 1px #17171a solid;
+      }
+
+      .negative {
+        color: #bbbbbb;
+      }
+    }
   }
 }
