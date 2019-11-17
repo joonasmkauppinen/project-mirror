@@ -17,9 +17,11 @@ const LandingPage = () => {
   const handleOnLoginClick = () => history.push('/login');
   const handleOnSignupClick = () => history.push('/signup');
   return (
-    <>
+    <div>
       <section className={styles.heroSection}>
         <Particles
+          width="100vw"
+          height="100vh"
           canvasClassName={styles.particles}
           params={particlesConfig}
         />
@@ -78,7 +80,7 @@ const LandingPage = () => {
         <h1>Project Mirror</h1>
         <p>Copyright © 2019 Alphat FIN, LLC. All rights reserved.</p>
       </footer>
-    </>
+    </div>
   );
 };
 

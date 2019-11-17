@@ -1,0 +1,25 @@
+@import '../variables.scss';
+
+.enter {
+  transform: translateY(-100px);
+  z-index: 0;
+}
+
+.enterActive {
+  transform: translateY(0px);
+  z-index: 0;
+  transition: opacity $duration $timing, transform $duration $timing;
+}
+
+.exit {
+  opacity: 1;
+  transform: translateY(0px);
+  z-index: 100;
+}
+
+.exitActive {
+  opacity: 0;
+  transform: translateY($slide-amount);
+  z-index: 100;
+  transition: opacity $duration $timing, transform $duration $timing;
+}
