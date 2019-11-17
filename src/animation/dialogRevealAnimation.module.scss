@@ -2,7 +2,7 @@
 
 .appear {
   opacity: 0;
-  transform: scale(0.9);
+  transform: scale(0.95);
 }
 
 .appearActive {
@@ -19,7 +19,7 @@
 
 .exitActive {
   opacity: 0;
-  transform: scale(0.9);
+  transform: scale(0.95);
   transition: transform $dialog-duration $timing,
     opacity $dialog-duration $timing;
 }
