@@ -1,8 +1,8 @@
-@import "../../variables";
+@import '../../variables';
 
 .text {
-  color: white;
+  color: $body-text-color;
   font-family: 'Catamaran', sans-serif;
   font-weight: $regular;
-  font-size: 16px;
+  font-size: 18px;
 }

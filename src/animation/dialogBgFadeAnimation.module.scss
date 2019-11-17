@@ -1,0 +1,23 @@
+@import '../variables.scss';
+
+.enter {
+  background-color: rgba($color: black, $alpha: 0);
+}
+
+.enterActive {
+  background-color: rgba($color: black, $alpha: $bg-dim);
+  transition: background-color $dialog-duration;
+}
+
+.enterDone {
+  background-color: rgba($color: black, $alpha: $bg-dim);
+}
+
+.exit {
+  background-color: rgba($color: black, $alpha: $bg-dim);
+}
+
+.exitActive {
+  background-color: rgba($color: black, $alpha: 0);
+  transition: background-color $dialog-duration;
+}

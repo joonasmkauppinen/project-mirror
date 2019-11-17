@@ -1,0 +1,25 @@
+@import '../variables.scss';
+
+.appear {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.appearActive {
+  opacity: 1;
+  transform: scale(1);
+  transition: transform $dialog-duration $timing,
+    opacity $dialog-duration $timing;
+}
+
+.exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.exitActive {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: transform $dialog-duration $timing,
+    opacity $dialog-duration $timing;
+}
