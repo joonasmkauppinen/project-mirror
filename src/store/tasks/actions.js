@@ -1,6 +1,6 @@
 import { apiCall } from '../../utils/apicall';
 
-export const LOAD_TASKS = 'STORE_TASKS';
+export const LOAD_TASKS = 'LOAD_TASKS';
 export const LOADING_TASKS = 'LOADING_TASKS';
 export const ERROR_TASKS = 'ERROR_TASKS';
 
@@ -23,5 +23,5 @@ export const loadTasks = taskId => async dispatch => {
 };
 
 export const clearTaskErrors = () => async dispatch => {
-  dispatch({ type: ERROR_TASKS, error: ''})
+  dispatch({ type: ERROR_TASKS, error: '' });
 };

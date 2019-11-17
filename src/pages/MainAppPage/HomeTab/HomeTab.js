@@ -7,6 +7,7 @@ import styles from './HomeTab.module.scss';
 import TabTitle from '../../../components/TabTitle';
 import IconButton from '../../../components/IconButton';
 import TaskList from '../../../components/TasksList';
+import PostList from '../../../components/PostList';
 
 const HomeTab = ({ visible }) => (
   <TabContainer active={visible}>
@@ -23,6 +24,7 @@ const HomeTab = ({ visible }) => (
       />
     </TabTitle>
     <TaskList />
+    <PostList />
   </TabContainer>
 );
 
