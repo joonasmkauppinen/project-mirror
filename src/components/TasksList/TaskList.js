@@ -11,19 +11,21 @@ const TaskList = ({ tasks, loading, error, loadTasks }) => {
   }, [loadTasks]);
   return (
     <>
-      <h1>Tasks</h1>
+      <h1 style={{ color: '#ffffff' }}>Tasks</h1>
       <LoadingIndicator loading={loading} error={error}>
         {tasks.map(task => (
           <div key={task.id}>
             <div className={styles.tasksContainer}>
               <Text>{task.name}</Text>
-              <Button
-                label={'action'}
-                onClick={() => {
-                  console.log(task.name);
-                }}
-                style={{ width: '80px' }}
-              />
+              <div>
+                <Button
+                  label={'action'}
+                  onClick={() => {
+                    console.log(task.name);
+                  }}
+                  style={{ width: '80px' }}
+                />
+              </div>
             </div>
           </div>
         ))}

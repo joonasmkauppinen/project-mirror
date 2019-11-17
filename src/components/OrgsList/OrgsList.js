@@ -11,7 +11,7 @@ const OrgsList = ({ organizations, loading, error, likeOrg, loadOrgs }) => {
   }, [loadOrgs]);
   return (
     <>
-      <h1>Organizations</h1>
+      <h1 style={{ color: '#ffffff' }}>Organizations</h1>
       <LoadingIndicator loading={loading} error={error}>
         {organizations.map(org => (
           <div key={org.id}>

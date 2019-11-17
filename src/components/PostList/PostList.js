@@ -11,20 +11,20 @@ const PostList = ({ posts, loading, error, loadPosts }) => {
   }, [loadPosts]);
   return (
     <>
-      <h1>Posts</h1>
+      <h1 style={{ color: '#ffffff' }}>Posts</h1>
       <LoadingIndicator loading={loading} error={error}>
         {posts.map(post => (
           <div key={post.id}>
             <div className={styles.postsContainer}>
               <Text>{post.teaser}</Text>
-              <div className={styles.postAction}>
+              <div>
                 <Button
                   label={'action'}
                   onClick={() => {
                     console.log(post);
                   }}
                   style={{ width: '80px' }}
-                />{' '}
+                />
               </div>
             </div>
           </div>
