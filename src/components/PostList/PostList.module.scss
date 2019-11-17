@@ -1,0 +1,12 @@
+@import '../../variables';
+
+.postsContainer {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  .postAction {
+    flex: 1;
+  }
+}

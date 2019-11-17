@@ -10,6 +10,7 @@ import TaskList from '../../../components/TasksList';
 import Dialog from '../../../components/Dialog/Dialog';
 import Button from '../../../components/Button';
 import Text from '../../../components/Text';
+import PostList from '../../../components/PostList';
 
 const HomeTab = ({ visible }) => {
   const [showDialog, setShowDialog] = useState(false);
@@ -28,6 +29,7 @@ const HomeTab = ({ visible }) => {
         />
       </TabTitle>
       <TaskList />
+      <PostList />
       <Button label="Show test dialog" onClick={() => setShowDialog(true)} />
       <Dialog
         header="Test dialog"
