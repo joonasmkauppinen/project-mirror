@@ -37,3 +37,8 @@ $radius-10: 10px;
 $bottom-nav-height: 56px;
 $toolbar-height: 56px;
 $header-top-margin: 48px;
+
+// Page transitions
+$duration: 400ms;
+$timing: cubic-bezier(0.4, 0, 0.2, 1);
+$slide-amount: 50vh;
