@@ -5,9 +5,9 @@ import slideDown from '../animation/slideDownAnimation.module.scss';
 const getTransitionParams = action => {
   switch (action) {
     case 'PUSH':
-      return [400, slideUp];
+      return [300, slideUp];
     case 'POP':
-      return [400, slideDown];
+      return [300, slideDown];
     default:
       return [0, {}];
   }
