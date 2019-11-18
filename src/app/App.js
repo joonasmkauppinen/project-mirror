@@ -17,6 +17,7 @@ import MainAppPage from '../pages/MainAppPage';
 import LoginPage from '../pages/LoginPage';
 import SignupPage from '../pages/SignupPage';
 import childFactoryCreator from '../utils/childFactoryCreator';
+import SettingsPage from '../pages/SettingsPage';
 
 const App = () => {
   const location = useLocation();
@@ -26,6 +27,7 @@ const App = () => {
   const login = () => (auth() ? <Redirect to="/main" /> : <LoginPage />);
   const landing = () => (auth() ? <Redirect to="/main" /> : <LandingPage />);
   const mainApp = () => (!auth() ? <Redirect to="/" /> : <MainAppPage />);
+  const settings = () => (!auth() ? <Redirect to="/" /> : <SettingsPage />);
 
   return (
     <Provider store={store}>
@@ -37,6 +39,7 @@ const App = () => {
             classNames={{ ...animation }}
           >
             <Switch location={location}>
+              <Route path="/settings" render={settings} />
               <Route path="/main" render={mainApp} />
               <Route path="/signup" render={signup} />
               <Route path="/login" render={login} />
