@@ -5,13 +5,14 @@ import LoadingIndicator from '../LoadingIndicator';
 import Card from '../Card';
 import Icons from '../../assets/Icons';
 import Gauges from '../Gauges';
+import { isEmpty } from 'lodash-es';
 
 const ProfileCard = ({ user, loading, error, loadUser }) => {
   useEffect(() => {
-    if (!user) {
+    if (isEmpty(user)) {
       loadUser();
     }
-  }, [loadUser]);
+  }, [user, loadUser]);
   return (
     <>
       <LoadingIndicator loading={loading} error={error}>

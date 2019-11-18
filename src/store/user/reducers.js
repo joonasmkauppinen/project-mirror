@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import { LOAD_USER, LOADING_USER, ERROR_USER } from './actions';
 
-export function user(state = [], action) {
+export function user(state = {}, action) {
   switch (action.type) {
     case LOAD_USER:
       return action.user;
