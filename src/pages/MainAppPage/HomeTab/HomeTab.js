@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Header from '../../../components/Header';
 import TabContainer from '../../../hoc/TabContainer';
@@ -12,8 +12,14 @@ import Button from '../../../components/Button';
 import Text from '../../../components/Text';
 import PostList from '../../../components/PostList';
 
-const HomeTab = ({ visible }) => {
+const HomeTab = ({ visible, loadTasks, loadPosts }) => {
   const [showDialog, setShowDialog] = useState(false);
+  useEffect(() => {
+    if (visible) {
+      loadTasks();
+      loadPosts();
+    }
+  }, [visible, loadTasks, loadPosts]);
   return (
     <TabContainer active={visible}>
       <TabTitle>
@@ -51,6 +57,8 @@ const HomeTab = ({ visible }) => {
 
 HomeTab.propTypes = {
   visible: PropTypes.bool,
+  loadTasks: PropTypes.func,
+  loadPosts: PropTypes.func,
 };
 
 export default HomeTab;

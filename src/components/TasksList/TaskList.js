@@ -5,6 +5,7 @@ import Text from '../Text';
 import LoadingIndicator from '../LoadingIndicator';
 import Button from '../Button';
 
+// eslint-disable-next-line no-unused-vars
 const TaskList = ({ tasks, loading, error, loadTasks }) => {
   useEffect(() => {
     loadTasks();
@@ -12,7 +13,7 @@ const TaskList = ({ tasks, loading, error, loadTasks }) => {
   return (
     <>
       <h1 style={{ color: '#ffffff' }}>Tasks</h1>
-      <LoadingIndicator loading={loading} error={error}>
+      <LoadingIndicator loading={false} error={error}>
         {tasks.map(task => (
           <div key={task.id}>
             <div className={styles.tasksContainer}>
