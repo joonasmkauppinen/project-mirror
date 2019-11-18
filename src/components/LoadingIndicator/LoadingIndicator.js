@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Text from '../Text';
 import Snackbar from '../Snackbar';
+import LoadingSpinner from '../LoadingSpinner';
 
 const LoadingIndicator = ({ loading, error, children }) => {
   return (
@@ -13,14 +13,9 @@ const LoadingIndicator = ({ loading, error, children }) => {
   );
 };
 
-// TODO: Replace with loading spinner/something
 const possibleLoadingMessage = loading => {
   if (loading) {
-    return (
-      <div>
-        <Text>LÖÄDING</Text>
-      </div>
-    );
+    return <LoadingSpinner />;
   }
 };
 
