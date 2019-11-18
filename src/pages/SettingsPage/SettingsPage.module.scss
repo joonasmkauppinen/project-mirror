@@ -1,0 +1,54 @@
+@import '../../variables.scss';
+
+.settingsPageContent {
+  margin: 32px;
+
+  .horizontalLine {
+    height: 1px;
+    border-bottom: 1px solid $card-bg-color;
+    left: 0;
+    right: 0;
+    position: absolute;
+  }
+
+  .settingsItem {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    svg {
+      margin-right: 28px;
+      flex-shrink: 0;
+      path {
+        fill: $primary-color;
+        stroke: $primary-color;
+      }
+    }
+
+    .textContainer {
+      display: flex;
+      flex-direction: column;
+
+      .header {
+        font-size: $font-small;
+        text-transform: uppercase;
+        color: $primary-color;
+        font-weight: $semi-bold;
+        margin-bottom: 8px;
+      }
+
+      .title {
+        font-size: $body-text-size;
+        color: $title-text-color;
+        font-weight: $medium;
+      }
+
+      .body {
+        font-size: $font-medium;
+        font-weight: $medium;
+        color: $body-text-color;
+      }
+    }
+  }
+}

@@ -147,4 +147,24 @@ export default {
   HOME: {
     title: { en: 'Hi,', fi: 'Hei,' },
   },
+
+  SETTINGS: {
+    title: { en: 'Settings', fi: 'Asetukset' },
+    notif: {
+      header: { en: 'Notifications', fi: 'Ilmoitukset' },
+      title: { en: 'Allow notifications', fi: 'Salli ilmoitukset' },
+      body: {
+        en: "You'll receive notifications for important things",
+        fi: 'Saat ilmoituksia tärkeistä asioista',
+      },
+    },
+    location: {
+      header: { en: 'Location', fi: 'Sijaintitiedot' },
+      title: { en: 'Allow use of location data', fi: 'Salli sijaintitiedot' },
+      body: {
+        en: 'Location data will help us give you better suggestions',
+        fi: 'Sijainititiedot auttavat tarjoamaan sinulle parempia ehdotuksia.',
+      },
+    },
+  },
 };
