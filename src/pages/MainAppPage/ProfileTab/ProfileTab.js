@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Header from '../../../components/Header';
-import Text from '../../../components/Text';
 import { useHistory } from 'react-router-dom';
 import { t } from '../../../utils/translate';
 import { logout } from '../../../utils/apicall';
@@ -12,6 +11,9 @@ import { language } from '../../../utils/translate';
 import TabContainer from '../../../hoc/TabContainer';
 import TabTitle from '../../../components/TabTitle';
 import IconButton from '../../../components/IconButton';
+import Gauges from '../../../components/Gauges';
+import Card from '../../../components/Card';
+import styles from './ProfileTab.module.css';
 
 const ProfileTab = ({ visible }) => {
   const history = useHistory();
@@ -40,7 +42,9 @@ const ProfileTab = ({ visible }) => {
         <Header>{t('TABS.profile')}</Header>
         <IconButton icon={'settings'} onClick={() => {}} />
       </TabTitle>
-      <Text>{t('PROFILE.teaser')}</Text>
+      <Card superClass={styles.card}>
+        <Gauges />
+      </Card>
       <Button onClick={handleLogoutClick} secondary label={t('logout')} />
       <Button
         onClick={() => changeLanguage('en')}
