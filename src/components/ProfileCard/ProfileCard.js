@@ -1,21 +1,16 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styles from './ProfileCard.module.scss';
 import PropTypes from 'prop-types';
 import LoadingIndicator from '../LoadingIndicator';
 import Card from '../Card';
 import Icons from '../../assets/Icons';
 import Gauges from '../Gauges';
-import { isEmpty } from 'lodash-es';
 
-const ProfileCard = ({ user, loading, error, loadUser }) => {
-  useEffect(() => {
-    if (isEmpty(user)) {
-      loadUser();
-    }
-  }, [user, loadUser]);
+// eslint-disable-next-line no-unused-vars
+const ProfileCard = ({ user, loading, error, gauges }) => {
   return (
     <>
-      <LoadingIndicator loading={loading} error={error}>
+      <LoadingIndicator loading={false} error={error}>
         <Card>
           <div className={styles.cardContent}>
             <div className={styles.profileHeader}>
@@ -24,7 +19,16 @@ const ProfileCard = ({ user, loading, error, loadUser }) => {
                 {user.firstname} {user.surname}
               </div>
             </div>
-            <Gauges />
+            <div className={styles.gaugesContainer}>
+              {gauges.map(
+                gauge =>
+                  gauge.id /* TODO: Remove id check */ && (
+                    <div key={gauge.id}>
+                      <Gauges percentage={gauge.value} title={gauge.name} />
+                    </div>
+                  ),
+              )}
+            </div>
           </div>
         </Card>
       </LoadingIndicator>
@@ -37,6 +41,7 @@ ProfileCard.propTypes = {
   loading: PropTypes.bool,
   error: PropTypes.string,
   loadUser: PropTypes.func,
+  gauges: PropTypes.array,
 };
 
 export default ProfileCard;

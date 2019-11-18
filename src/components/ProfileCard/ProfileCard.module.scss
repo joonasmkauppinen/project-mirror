@@ -3,6 +3,13 @@
 .cardContent {
   padding: 16px;
 
+  .gaugesContainer {
+    display: flex;
+    flex-direction: column;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
   .profileHeader {
     display: flex;
     align-items: center;

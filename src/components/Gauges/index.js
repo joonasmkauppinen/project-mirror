@@ -1,4 +1,4 @@
-import Gauges from './Gauges';
+import Gauge from './Gauge';
 import { connect } from 'react-redux';
 import { pick } from 'lodash-es';
 import { loadGauges } from '../../store/gauges/actions';
@@ -14,4 +14,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Gauges);
+)(Gauge);

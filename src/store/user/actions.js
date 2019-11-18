@@ -8,7 +8,6 @@ export const loadUser = () => async dispatch => {
   dispatch({ type: LOADING_USER });
   try {
     const user = await apiCall('myinfo');
-    console.log(user);
     dispatch({
       type: LOAD_USER,
       user: user,
