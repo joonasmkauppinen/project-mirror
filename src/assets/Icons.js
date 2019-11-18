@@ -18,9 +18,11 @@ import { ReactComponent as RobotIcon } from './svg/ellis-prototype_ic.svg';
 import { ReactComponent as CheckIcon } from './svg/check_ic.svg';
 import { ReactComponent as CloseIcon } from './svg/close_ic.svg';
 import { ReactComponent as FilledInfoIcon } from './svg/info-filled.svg';
+import { ReactComponent as AvatarIcon } from './svg/avatar.svg';
 
 const Icons = {
   alert: AlertIcon,
+  avatar: AvatarIcon,
   back: BackIcon,
   check: CheckIcon,
   close: CloseIcon,
