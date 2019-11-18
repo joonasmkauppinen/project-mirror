@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Text from '../../../components/Text';
 import IconButton from '../../../components/IconButton';
@@ -13,8 +13,13 @@ const test = () => {
   console.log('Test');
 };
 
-const DiscoverTab = ({ visible }) => {
+const DiscoverTab = ({ visible, loadOrgs }) => {
   const [value, setValue] = useState(false);
+  useEffect(() => {
+    if (visible) {
+      loadOrgs();
+    }
+  }, [loadOrgs, visible]);
   return (
     <TabContainer active={visible}>
       <TabTitle>
@@ -31,6 +36,7 @@ const DiscoverTab = ({ visible }) => {
 
 DiscoverTab.propTypes = {
   visible: PropTypes.bool,
+  loadOrgs: PropTypes.func,
 };
 
 export default DiscoverTab;
