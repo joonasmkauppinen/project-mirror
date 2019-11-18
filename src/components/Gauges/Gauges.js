@@ -3,13 +3,14 @@ import styles from './Gauges.module.scss';
 import PropTypes from 'prop-types';
 import LoadingIndicator from '../LoadingIndicator';
 
+// eslint-disable-next-line no-unused-vars
 const Gauges = ({ gauges, loading, error, loadGauges }) => {
   useEffect(() => {
     loadGauges();
   }, [loadGauges]);
   return (
     <>
-      <LoadingIndicator loading={loading} error={error}>
+      <LoadingIndicator loading={false} error={error}>
         <div className={styles.gaugesContainer}>
           {gauges.map(
             gauge =>
