@@ -19,6 +19,8 @@ import { ReactComponent as CheckIcon } from './svg/check_ic.svg';
 import { ReactComponent as CloseIcon } from './svg/close_ic.svg';
 import { ReactComponent as FilledInfoIcon } from './svg/info-filled.svg';
 import { ReactComponent as AvatarIcon } from './svg/avatar.svg';
+import { ReactComponent as LocationIcon } from './svg/location_ic.svg';
+import { ReactComponent as NotificationIcon } from './svg/notification_ic.svg';
 
 const Icons = {
   alert: AlertIcon,
@@ -35,6 +37,8 @@ const Icons = {
   homeFilled: FilledHomeIcon,
   info: InfoIcon,
   infoFilled: FilledInfoIcon,
+  location: LocationIcon,
+  notification: NotificationIcon,
   peili: PeiliIcon,
   profile: ProfileIcon,
   profileFilled: FilledProfileIcon,
