@@ -1,0 +1,18 @@
+@import '../../variables';
+
+.cardContent {
+  padding: 16px;
+
+  .profileHeader {
+    display: flex;
+    align-items: center;
+
+    .username {
+      margin-left: 16px;
+      font-size: 22px;
+      color: $title-text-color;
+      text-align: center;
+      font-weight: $bold;
+    }
+  }
+}

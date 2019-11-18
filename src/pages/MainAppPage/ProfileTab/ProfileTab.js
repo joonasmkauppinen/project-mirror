@@ -11,9 +11,7 @@ import { language } from '../../../utils/translate';
 import TabContainer from '../../../hoc/TabContainer';
 import TabTitle from '../../../components/TabTitle';
 import IconButton from '../../../components/IconButton';
-import Gauges from '../../../components/Gauges';
-import Card from '../../../components/Card';
-import styles from './ProfileTab.module.css';
+import ProfileCard from '../../../components/ProfileCard';
 
 const ProfileTab = ({ visible }) => {
   const history = useHistory();
@@ -42,9 +40,9 @@ const ProfileTab = ({ visible }) => {
         <Header>{t('TABS.profile')}</Header>
         <IconButton icon={'settings'} onClick={() => {}} />
       </TabTitle>
-      <Card superClass={styles.card}>
-        <Gauges />
-      </Card>
+      <div style={{ padding: '16px 0' }}>
+        <ProfileCard />
+      </div>
       <Button onClick={handleLogoutClick} secondary label={t('logout')} />
       <Button
         onClick={() => changeLanguage('en')}
