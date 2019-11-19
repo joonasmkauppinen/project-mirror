@@ -4,12 +4,13 @@ import PropTypes from 'prop-types';
 import Text from '../Text';
 import IconButton from '../IconButton';
 import LoadingIndicator from '../LoadingIndicator';
+import Subheader from '../Subheader';
 
 // eslint-disable-next-line no-unused-vars
 const OrgsList = ({ organizations, loading, error, likeOrg }) => {
   return (
     <>
-      <h1 style={{ color: '#ffffff' }}>Organizations</h1>
+      <Subheader>Organizations</Subheader>
       <LoadingIndicator loading={false} error={error}>
         {organizations.map(org => (
           <div key={org.id}>

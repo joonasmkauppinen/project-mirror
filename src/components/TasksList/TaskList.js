@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Text from '../Text';
 import LoadingIndicator from '../LoadingIndicator';
 import Button from '../Button';
+import Subheader from '../Subheader';
 
 // eslint-disable-next-line no-unused-vars
 const TaskList = ({ tasks, loading, error, loadTasks }) => {
@@ -12,7 +13,7 @@ const TaskList = ({ tasks, loading, error, loadTasks }) => {
   }, [loadTasks]);
   return (
     <>
-      <h1 style={{ color: '#ffffff' }}>Tasks</h1>
+      <Subheader>Tasks</Subheader>
       <LoadingIndicator loading={false} error={error}>
         {tasks.map(task => (
           <div key={task.id}>
