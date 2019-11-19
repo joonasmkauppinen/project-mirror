@@ -1,0 +1,11 @@
+@import "../../variables";
+
+.header {
+  font-family: $font;
+  color: $title-text-color;
+  font-weight: $semi-bold;
+  font-size: $font-subheader;
+  line-height: 43px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
