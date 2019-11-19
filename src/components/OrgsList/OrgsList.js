@@ -7,9 +7,17 @@ import Card from '../Card';
 import Icons from '../../assets/Icons';
 import D from '../../utils/dictionary';
 import { t } from '../../utils/translate';
+import { useHistory } from 'react-router-dom';
 
 // eslint-disable-next-line no-unused-vars
 const OrgsList = ({ organizations, loading, error, likeOrg }) => {
+  const history = useHistory();
+  const handleOrgClick = org => {
+    history.push({
+      pathname: `/orgs/${org.id}`,
+      state: org,
+    });
+  };
   // TODO: use organization image
   return (
     <>
@@ -17,7 +25,11 @@ const OrgsList = ({ organizations, loading, error, likeOrg }) => {
       <LoadingIndicator loading={false} error={error}>
         <div className={styles.orgsContainer}>
           {organizations.map(org => (
-            <div key={org.id} className={styles.org}>
+            <div
+              key={org.id}
+              className={styles.org}
+              onClick={() => handleOrgClick(org)}
+            >
               <Card superClass={styles.orgCard}>
                 <div className={styles.cardContent}>
                   <Icons.peili />
