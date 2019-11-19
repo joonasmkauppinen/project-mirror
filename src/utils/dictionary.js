@@ -167,4 +167,8 @@ export default {
       },
     },
   },
+
+  DISCOVER: {
+    organizations: { en: 'Organizations', fi: 'Organisaatiot' },
+  },
 };

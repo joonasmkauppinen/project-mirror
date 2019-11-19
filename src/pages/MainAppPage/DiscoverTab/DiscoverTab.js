@@ -26,10 +26,10 @@ const DiscoverTab = ({ visible, loadOrgs }) => {
         <Header>{t('TABS.discover')}</Header>
         <IconButton icon={'search'} onClick={test} />
       </TabTitle>
+      <OrgsList />
       <Text>This is the discover tab</Text>
       <IconButton onClick={test} icon={'info'} />
       <Toggle isOn={value} handleToggle={() => setValue(!value)} />
-      <OrgsList />
     </TabContainer>
   );
 };

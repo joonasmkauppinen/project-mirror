@@ -1,30 +1,32 @@
 import React from 'react';
 import styles from './OrgsList.module.scss';
 import PropTypes from 'prop-types';
-import Text from '../Text';
-import IconButton from '../IconButton';
 import LoadingIndicator from '../LoadingIndicator';
 import Subheader from '../Subheader';
+import Card from '../Card';
+import Icons from '../../assets/Icons';
+import D from '../../utils/dictionary';
+import { t } from '../../utils/translate';
 
 // eslint-disable-next-line no-unused-vars
 const OrgsList = ({ organizations, loading, error, likeOrg }) => {
+  // TODO: use organization image
   return (
     <>
-      <Subheader>Organizations</Subheader>
+      <Subheader>{t(D.DISCOVER.organizations)}</Subheader>
       <LoadingIndicator loading={false} error={error}>
-        {organizations.map(org => (
-          <div key={org.id}>
-            <div className={styles.orgsContainer}>
-              <Text>{org.name}</Text>
-              <IconButton
-                onClick={() => {
-                  likeOrg(org);
-                }}
-                icon={'info'}
-              />
+        <div className={styles.orgsContainer}>
+          {organizations.map(org => (
+            <div key={org.id} className={styles.org}>
+              <Card superClass={styles.orgCard}>
+                <div className={styles.cardContent}>
+                  <Icons.peili />
+                  <p className={styles.cardText}>{org.name}</p>
+                </div>
+              </Card>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </LoadingIndicator>
     </>
   );
