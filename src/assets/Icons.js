@@ -22,6 +22,8 @@ import { ReactComponent as AvatarIcon } from './svg/avatar.svg';
 import { ReactComponent as LocationIcon } from './svg/location_ic.svg';
 import { ReactComponent as NotificationIcon } from './svg/notification_ic.svg';
 import { ReactComponent as FilledPeiliIcon } from './svg/peili-official-logo_ic.svg';
+import { ReactComponent as LocationPinIcon } from './svg/location-pin-outline_ic.svg';
+import { ReactComponent as FilledLocationPinIcon } from './svg/location-pin-filled_ic.svg';
 
 const Icons = {
   alert: AlertIcon,
@@ -39,6 +41,8 @@ const Icons = {
   info: InfoIcon,
   infoFilled: FilledInfoIcon,
   location: LocationIcon,
+  locationPin: LocationPinIcon,
+  locationPinFilled: FilledLocationPinIcon,
   notification: NotificationIcon,
   peili: PeiliIcon,
   peiliFilled: FilledPeiliIcon,
