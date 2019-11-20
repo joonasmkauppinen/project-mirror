@@ -22,7 +22,8 @@
   * [**Presentation - Project Check - WK3 - on Fri 8.11.2019**](https://docs.google.com/presentation/d/1LnCsnt041IVIhThSBYZj5u7qYYKN7-bmvVbKjN_Zr4Y)
   * [**Presentation - User Tests on Fri 1.11.2019**](https://docs.google.com/presentation/d/1a22N5Imhh6QRWMUUDyCNE6YRqVG8aO3caJ2yJ8sUSXo) 
 * **User Tests**
-  * [**First User Test (IN PLANNING)**](https://docs.google.com/document/d/1eK42RC7siufarVYzzGjyVYKj7fI8GW38zV-R2-SLufc)
+  * [**First User Tests**](https://docs.google.com/document/d/1eK42RC7siufarVYzzGjyVYKj7fI8GW38zV-R2-SLufc)
+  * [**Second User Tests* (IN PLANNING)*](https://docs.google.com/document/d/1e0jndisBY9xZ0aReL6z-gFsISFlzoJtqX5VUw9h05Z8)
   
 ## Installation, usage and testing
 
