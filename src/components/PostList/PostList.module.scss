@@ -1,0 +1,55 @@
+@import '../../variables';
+
+.postsContainer {
+  .post {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    cursor: pointer;
+  }
+  .postHeader {
+    padding: 10px 16px 8px 16px;
+  }
+  .postTitle {
+    font-size: $font-tiny;
+    font-weight: $bold;
+    color: $title-text-color;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    p {
+      margin: 0 0 0 10px;
+      flex: 1;
+    }
+
+    // TODO: replace with image from org
+    svg {
+      height: 20px;
+      width: 20px;
+      path {
+        fill: $primary-color;
+      }
+    }
+  }
+
+  .postImage {
+    max-height: 347px;
+    width: 100%;
+  }
+
+  .time {
+    font-size: $font-medium;
+    font-weight: $bold;
+    color: $title-text-color;
+  }
+
+  .teaser {
+    font-size: $font-medium;
+    color: $body-text-color;
+  }
+
+  .postContent {
+    padding: 0 16px 10px 16px;
+  }
+}

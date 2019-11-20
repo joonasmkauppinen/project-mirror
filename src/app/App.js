@@ -18,6 +18,8 @@ import LoginPage from '../pages/LoginPage';
 import SignupPage from '../pages/SignupPage';
 import childFactoryCreator from '../utils/childFactoryCreator';
 import TaskPage from '../pages/TaskPage';
+import SettingsPage from '../pages/SettingsPage';
+import OrgDetailPage from '../pages/OrgDetailPage';
 
 const App = () => {
   const location = useLocation();
@@ -28,6 +30,8 @@ const App = () => {
   const landing = () => (auth() ? <Redirect to="/main" /> : <LandingPage />);
   const mainApp = () => (!auth() ? <Redirect to="/" /> : <MainAppPage />);
   const task = () => (!auth() ? <Redirect to="/" /> : <TaskPage />);
+  const settings = () => (!auth() ? <Redirect to="/" /> : <SettingsPage />);
+  const orgDetail = () => (!auth() ? <Redirect to="/" /> : <OrgDetailPage />);
 
   return (
     <Provider store={store}>
@@ -40,6 +44,8 @@ const App = () => {
           >
             <Switch location={location}>
               <Route path="/task" render={task} />
+              <Route path="/orgs/:id" render={orgDetail} />
+              <Route path="/settings" render={settings} />
               <Route path="/main" render={mainApp} />
               <Route path="/signup" render={signup} />
               <Route path="/login" render={login} />

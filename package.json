@@ -5,6 +5,7 @@
   "homepage": "https://joonasmkauppinen.github.io/project-mirror/",
   "dependencies": {
     "formik": "^2.0.3",
+    "mathjs": "^6.2.3",
     "node-sass": "^4.13.0",
     "prop-types": "^15.7.2",
     "react": "^16.11.0",

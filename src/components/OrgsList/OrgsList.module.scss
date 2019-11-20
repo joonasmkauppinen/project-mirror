@@ -1,8 +1,62 @@
 @import '../../variables';
 
 .orgsContainer {
-  display: inline-flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin-left: -24px;
+  margin-right: -24px;
+
+  .org {
+    margin-right: 16px;
+    height: 180px;
+    cursor: pointer;
+
+    &:first-child {
+      margin-left: 24px;
+    }
+
+    &:last-child {
+      margin-right: 24px;
+    }
+
+    .orgCard {
+      width: 170px;
+      height: 170px;
+    }
+
+    .cardContent {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      padding: 16px 16px 0 16px;
+      text-align: center;
+
+      // TODO: remove when backend support for organization image
+      svg {
+        height: 80px;
+        width: 80px;
+        border-radius: 40px;
+        path {
+          fill: $primary-color;
+        }
+      }
+    }
+
+    .cardText {
+      font-size: $font-medium;
+      color: $title-text-color;
+      font-weight: $semi-bold;
+      margin-top: 8px;
+    }
+
+    .orgImage {
+      height: 80px;
+      width: 80px;
+      border-radius: 40px;
+    }
+  }
+  ::-webkit-scrollbar {
+    display: none;
+  }
 }

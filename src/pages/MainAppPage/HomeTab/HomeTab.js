@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Header from '../../../components/Header';
@@ -11,11 +11,18 @@ import TaskList from '../../../components/TasksList';
 import Button from '../../../components/Button';
 import Dialog from '../../../components/Dialog/Dialog';
 import Text from '../../../components/Text';
+import PostList from '../../../components/PostList';
 
-const HomeTab = ({ visible }) => {
+const HomeTab = ({ visible, loadTasks, loadPosts }) => {
   const [showDialog, setShowDialog] = useState(false);
   const { push } = useHistory();
   const navigateToTask = () => push('/task');
+  useEffect(() => {
+    if (visible) {
+      loadTasks();
+      loadPosts();
+    }
+  }, [visible, loadTasks, loadPosts]);
   return (
     <TabContainer active={visible}>
       <TabTitle>
@@ -31,6 +38,7 @@ const HomeTab = ({ visible }) => {
         />
       </TabTitle>
       <TaskList />
+      <PostList />
       <Button
         label="Test task"
         onClick={navigateToTask}
@@ -57,6 +65,8 @@ const HomeTab = ({ visible }) => {
 
 HomeTab.propTypes = {
   visible: PropTypes.bool,
+  loadTasks: PropTypes.func,
+  loadPosts: PropTypes.func,
 };
 
 export default HomeTab;

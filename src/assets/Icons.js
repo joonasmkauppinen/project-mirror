@@ -18,9 +18,14 @@ import { ReactComponent as RobotIcon } from './svg/ellis-prototype_ic.svg';
 import { ReactComponent as CheckIcon } from './svg/check_ic.svg';
 import { ReactComponent as CloseIcon } from './svg/close_ic.svg';
 import { ReactComponent as FilledInfoIcon } from './svg/info-filled.svg';
+import { ReactComponent as AvatarIcon } from './svg/avatar.svg';
+import { ReactComponent as LocationIcon } from './svg/location_ic.svg';
+import { ReactComponent as NotificationIcon } from './svg/notification_ic.svg';
+import { ReactComponent as FilledPeiliIcon } from './svg/peili-official-logo_ic.svg';
 
 const Icons = {
   alert: AlertIcon,
+  avatar: AvatarIcon,
   back: BackIcon,
   check: CheckIcon,
   close: CloseIcon,
@@ -33,7 +38,10 @@ const Icons = {
   homeFilled: FilledHomeIcon,
   info: InfoIcon,
   infoFilled: FilledInfoIcon,
+  location: LocationIcon,
+  notification: NotificationIcon,
   peili: PeiliIcon,
+  peiliFilled: FilledPeiliIcon,
   profile: ProfileIcon,
   profileFilled: FilledProfileIcon,
   robot: RobotIcon,

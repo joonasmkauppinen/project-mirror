@@ -1,31 +1,44 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styles from './OrgsList.module.scss';
 import PropTypes from 'prop-types';
-import Text from '../Text';
-import IconButton from '../IconButton';
 import LoadingIndicator from '../LoadingIndicator';
+import Subheader from '../Subheader';
+import Card from '../Card';
+import Icons from '../../assets/Icons';
+import D from '../../utils/dictionary';
+import { t } from '../../utils/translate';
+import { useHistory } from 'react-router-dom';
 
-const OrgsList = ({ organizations, loading, error, likeOrg, loadOrgs }) => {
-  useEffect(() => {
-    loadOrgs();
-  }, [loadOrgs]);
+// eslint-disable-next-line no-unused-vars
+const OrgsList = ({ organizations, loading, error, likeOrg }) => {
+  const history = useHistory();
+  const handleOrgClick = org => {
+    history.push({
+      pathname: `/orgs/${org.id}`,
+      state: org,
+    });
+  };
+  // TODO: use organization image
   return (
     <>
-      <h1>Organizations</h1>
-      <LoadingIndicator loading={loading} error={error}>
-        {organizations.map(org => (
-          <div key={org.id}>
-            <div className={styles.orgsContainer}>
-              <Text>{org.name}</Text>
-              <IconButton
-                onClick={() => {
-                  likeOrg(org);
-                }}
-                icon={'info'}
-              />
+      <Subheader>{t(D.DISCOVER.organizations)}</Subheader>
+      <LoadingIndicator loading={false} error={error}>
+        <div className={styles.orgsContainer}>
+          {organizations.map(org => (
+            <div
+              key={org.id}
+              className={styles.org}
+              onClick={() => handleOrgClick(org)}
+            >
+              <Card superClass={styles.orgCard}>
+                <div className={styles.cardContent}>
+                  <Icons.peili />
+                  <p className={styles.cardText}>{org.name}</p>
+                </div>
+              </Card>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </LoadingIndicator>
     </>
   );
@@ -36,7 +49,6 @@ OrgsList.propTypes = {
   loading: PropTypes.bool,
   error: PropTypes.string,
   likeOrg: PropTypes.func,
-  loadOrgs: PropTypes.func,
 };
 
 export default OrgsList;

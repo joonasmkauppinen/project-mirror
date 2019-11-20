@@ -1,65 +1,56 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Header from '../../../components/Header';
-import Text from '../../../components/Text';
 import { useHistory } from 'react-router-dom';
 import { t } from '../../../utils/translate';
-import { logout } from '../../../utils/apicall';
-import Button from '../../../components/Button';
-import { setCookie } from '../../../utils/cookies';
-import { apiCall } from '../../../utils/apicall';
-import { language } from '../../../utils/translate';
 import TabContainer from '../../../hoc/TabContainer';
 import TabTitle from '../../../components/TabTitle';
 import IconButton from '../../../components/IconButton';
+import ProfileCard from '../../../components/ProfileCard';
 
-const ProfileTab = ({ visible }) => {
+const ProfileTab = ({
+  visible,
+  user,
+  loadUser,
+  gauges,
+  loadGauges,
+  error,
+  loading,
+}) => {
   const history = useHistory();
-  const changeLanguage = lang => {
-    setCookie('site_language', lang);
-    apiCall('set-language', { language: lang }).then(response => {
-      if (response.success) {
-        window.location.reload(true);
-      } else {
-        alert(response.error);
-      }
-    });
-  };
-  const handleLogoutClick = () => {
-    if (window.confirm(t('LOGOUT.confirm'))) {
-      logout().then(response => {
-        if (response.success) {
-          history.replace('/');
-        }
-      });
+  useEffect(() => {
+    if (visible) {
+      loadUser();
+      loadGauges();
     }
-  };
+  }, [visible, loadGauges, loadUser]);
+  const handleSettingsClick = () => history.push('/settings');
   return (
     <TabContainer active={visible}>
       <TabTitle>
         <Header>{t('TABS.profile')}</Header>
-        <IconButton icon={'settings'} onClick={() => {}} />
+        <IconButton icon={'settings'} onClick={handleSettingsClick} />
       </TabTitle>
-      <Text>{t('PROFILE.teaser')}</Text>
-      <Button onClick={handleLogoutClick} secondary label={t('logout')} />
-      <Button
-        onClick={() => changeLanguage('en')}
-        secondary
-        label="lang -> en"
-        disabled={language === 'en'}
-      />
-      <Button
-        onClick={() => changeLanguage('fi')}
-        secondary
-        label="lang -> fi"
-        disabled={language === 'fi'}
-      />
+      <div style={{ padding: '16px 0' }}>
+        <ProfileCard
+          user={user}
+          gauges={gauges}
+          error={error}
+          loading={loading}
+        />
+      </div>
     </TabContainer>
   );
 };
 
 ProfileTab.propTypes = {
   visible: PropTypes.bool,
+  user: PropTypes.object,
+  loadUser: PropTypes.func,
+  gauges: PropTypes.array,
+  loadGauges: PropTypes.func,
+  error: PropTypes.string,
+  loading: PropTypes.bool,
 };
 
 export default ProfileTab;
