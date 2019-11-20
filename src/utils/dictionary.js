@@ -170,5 +170,6 @@ export default {
 
   DISCOVER: {
     organizations: { en: 'Organizations', fi: 'Organisaatiot' },
+    events: { en: 'New events', fi: 'Uudet tapahtumat' },
   },
 };
