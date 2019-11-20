@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styles from './TaskList.module.scss';
 import PropTypes from 'prop-types';
 import Text from '../Text';
@@ -7,10 +7,7 @@ import Button from '../Button';
 import Subheader from '../Subheader';
 
 // eslint-disable-next-line no-unused-vars
-const TaskList = ({ tasks, loading, error, loadTasks }) => {
-  useEffect(() => {
-    loadTasks();
-  }, [loadTasks]);
+const TaskList = ({ tasks, loading, error }) => {
   return (
     <>
       <Subheader>Tasks</Subheader>
@@ -40,7 +37,6 @@ TaskList.propTypes = {
   tasks: PropTypes.array,
   loading: PropTypes.bool,
   error: PropTypes.string,
-  loadTasks: PropTypes.func,
 };
 
 export default TaskList;

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styles from './PostList.module.scss';
 import PropTypes from 'prop-types';
 import Text from '../Text';
@@ -7,10 +7,7 @@ import Button from '../Button';
 import Subheader from '../Subheader';
 
 // eslint-disable-next-line no-unused-vars
-const PostList = ({ posts, loading, error, loadPosts }) => {
-  useEffect(() => {
-    loadPosts();
-  }, [loadPosts]);
+const PostList = ({ posts, loading, error }) => {
   return (
     <>
       <Subheader>Posts</Subheader>
@@ -40,7 +37,6 @@ PostList.propTypes = {
   posts: PropTypes.array,
   loading: PropTypes.bool,
   error: PropTypes.string,
-  loadPosts: PropTypes.func,
 };
 
 export default PostList;
