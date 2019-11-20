@@ -4,6 +4,7 @@ import tasks from './tasks/reducers';
 import posts from './posts/reducers';
 import gauges from './gauges/reducers';
 import user from './user/reducers';
+import events from './events/reducers';
 
 export default combineReducers({
   organizations,
@@ -11,4 +12,5 @@ export default combineReducers({
   posts,
   gauges,
   user,
+  events,
 });
