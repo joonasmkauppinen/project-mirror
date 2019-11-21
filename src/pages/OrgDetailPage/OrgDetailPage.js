@@ -18,6 +18,9 @@ const OrgDetailPage = () => {
         leftIcon={'back'}
         title={org.name}
       />
+      {org.image && (
+        <img src={org.image} alt="organization" className={styles.orgImage} />
+      )}
       <div className={styles.orgPageContent}>
         <Subheader>Telephone: {org.tel}</Subheader>
         <Subheader>
