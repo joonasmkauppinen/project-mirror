@@ -18,6 +18,7 @@
 * [**Daily Scrum Videos List**](https://docs.google.com/document/d/1__l_ZxOBLQp5N3cHHhmThdeDdoR4ktiGyK_YlXbLWb0)
 * [**Material Archive (Documents, Memos, PDF's...)**](https://docs.google.com/document/d/1XZDfn1oCtyAoLhLWbhw6wWXXDRgUCIxYqWpPYfCemtE)
 * **Presentations**
+  * [**Presentation - Project Check - WK5 - on Fri 22.11.2019**](https://docs.google.com/presentation/d/10qJk6J2UMkelV0zwKXfANgFEViHc8XmD4J9rjWqAzm0)
   * [**Presentation - Project Check - WK4 - on Fri 15.11.2019**](https://docs.google.com/presentation/d/1LPR6yWBT9_1xdeXMbgRW2wfukDsYo7PUACB6dZO0qZ8)
   * [**Presentation - Project Check - WK3 - on Fri 8.11.2019**](https://docs.google.com/presentation/d/1LnCsnt041IVIhThSBYZj5u7qYYKN7-bmvVbKjN_Zr4Y)
   * [**Presentation - User Tests on Fri 1.11.2019**](https://docs.google.com/presentation/d/1a22N5Imhh6QRWMUUDyCNE6YRqVG8aO3caJ2yJ8sUSXo) 
