@@ -1,16 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from './OrgDetailPage.module.scss';
 import Toolbar from '../../components/Toolbar';
 import PageContainer from '../../hoc/PageContainer';
 import Subheader from '../../components/Subheader';
+import EventList from '../../components/EventList';
 
-const OrgDetailPage = () => {
+const OrgDetailPage = ({ loadEvents, events }) => {
   const history = useHistory();
   const location = useLocation();
   const handleOnBackClick = () => history.goBack();
   const org = location.state;
+  const orgEvents = events.filter(event => event.organization_id === org.id);
+
+  useEffect(() => {
+    loadEvents(org.id);
+  }, [loadEvents, org.id]);
+
   return (
     <PageContainer>
       <Toolbar
@@ -26,13 +33,15 @@ const OrgDetailPage = () => {
         <Subheader>
           <a href={org.www}>Link</a>
         </Subheader>
+        <EventList events={orgEvents} />
       </div>
     </PageContainer>
   );
 };
 
 OrgDetailPage.propTypes = {
-  org: PropTypes.object,
+  loadEvents: PropTypes.func,
+  events: PropTypes.array,
 };
 
 export default OrgDetailPage;

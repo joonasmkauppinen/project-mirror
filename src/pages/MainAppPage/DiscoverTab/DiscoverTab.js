@@ -14,7 +14,7 @@ const test = () => {
   console.log('Test');
 };
 
-const DiscoverTab = ({ visible, loadOrgs, loadEvents }) => {
+const DiscoverTab = ({ visible, loadOrgs, loadEvents, events }) => {
   const [value, setValue] = useState(false);
   useEffect(() => {
     if (visible) {
@@ -29,7 +29,7 @@ const DiscoverTab = ({ visible, loadOrgs, loadEvents }) => {
         <IconButton icon={'search'} onClick={test} />
       </TabTitle>
       <OrgsList />
-      <EventList />
+      <EventList events={events} />
       <Text>This is the discover tab</Text>
       <IconButton onClick={test} icon={'info'} />
       <Toggle isOn={value} handleToggle={() => setValue(!value)} />
@@ -41,6 +41,7 @@ DiscoverTab.propTypes = {
   visible: PropTypes.bool,
   loadOrgs: PropTypes.func,
   loadEvents: PropTypes.func,
+  events: PropTypes.array,
 };
 
 export default DiscoverTab;
