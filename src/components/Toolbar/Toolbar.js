@@ -18,6 +18,7 @@ const Toolbar = ({
       e.preventDefault();
     });
   }, []);
+
   return (
     <div className={styles.toolbar} ref={toolbar}>
       {leftIcon && (
@@ -27,7 +28,7 @@ const Toolbar = ({
           superClass={styles.toolbarIcon}
         />
       )}
-      {taskProgress && (
+      {taskProgress !== undefined && (
         <Gauge percentage={taskProgress} gaugeBackground="#323338" />
       )}
       {title && <div className={styles.title}>{title}</div>}
