@@ -18,7 +18,6 @@ const OrgsList = ({ organizations, loading, error, likeOrg }) => {
       state: org,
     });
   };
-  // TODO: use organization image
   return (
     <>
       <Subheader>{t(D.DISCOVER.organizations)}</Subheader>

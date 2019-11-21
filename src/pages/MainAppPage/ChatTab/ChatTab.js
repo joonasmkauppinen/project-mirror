@@ -24,13 +24,18 @@ const ChatTab = ({ visible }) => {
   });
 
   const ref = () => {
-    document.getElementById('q1').innerHTML = taskGetCurrentQuestionIndex() + 1;
-    document.getElementById('q2').innerHTML = taskGetTaskQuestionsCount();
-    document.getElementById('perc').innerHTML = taskGetPercentageProgress();
-    const qData = taskGetCurrentQuestionData();
-    document.getElementById('qq').innerHTML = qData.prompt;
-    console.log('Current Question:');
-    console.log(taskGetCurrentQuestionData());
+    try {
+      document.getElementById('q1').innerHTML =
+        taskGetCurrentQuestionIndex() + 1;
+      document.getElementById('q2').innerHTML = taskGetTaskQuestionsCount();
+      document.getElementById('perc').innerHTML = taskGetPercentageProgress();
+      const qData = taskGetCurrentQuestionData();
+      document.getElementById('qq').innerHTML = qData.prompt;
+      console.log('Current Question:');
+      console.log(taskGetCurrentQuestionData());
+    } catch (e) {
+      //
+    }
   };
 
   const gonext = () => {
