@@ -5,6 +5,7 @@ import LoadingIndicator from '../LoadingIndicator';
 import Subheader from '../Subheader';
 import Card from '../Card';
 import Icons from '../../assets/Icons';
+import moment from 'moment';
 
 // eslint-disable-next-line no-unused-vars
 const PostList = ({ posts, loading, error, orgs }) => {
@@ -37,7 +38,9 @@ const PostList = ({ posts, loading, error, orgs }) => {
                   />
                 )}
                 <div className={styles.postContent}>
-                  <div className={styles.time}>7 Years ago</div>
+                  <div className={styles.time}>
+                    {moment(post.published).fromNow()}
+                  </div>
                   <div className={styles.teaser}>{post.teaser}</div>
                 </div>
               </Card>
