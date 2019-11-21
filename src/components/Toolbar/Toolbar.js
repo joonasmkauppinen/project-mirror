@@ -2,11 +2,13 @@ import React, { useRef, useEffect } from 'react';
 import styles from './Toolbar.module.scss';
 import IconButton from '../IconButton';
 import PropTypes from 'prop-types';
+import Gauge from '../Gauges';
 
 const Toolbar = ({
   title,
   leftIcon,
   rightIcon,
+  taskProgress,
   onLeftIconClick,
   onRightIconClick,
 }) => {
@@ -25,7 +27,10 @@ const Toolbar = ({
           superClass={styles.toolbarIcon}
         />
       )}
-      <div className={styles.title}>{title}</div>
+      {taskProgress && (
+        <Gauge percentage={taskProgress} gaugeBackground="#323338" />
+      )}
+      {title && <div className={styles.title}>{title}</div>}
       {rightIcon && (
         <IconButton
           icon={rightIcon}
@@ -41,6 +46,7 @@ Toolbar.propTypes = {
   title: PropTypes.string,
   leftIcon: PropTypes.string.isRequired,
   rightIcon: PropTypes.string,
+  taskProgress: PropTypes.number,
   onLeftIconClick: PropTypes.func.isRequired,
   onRightIconClick: PropTypes.func,
 };
