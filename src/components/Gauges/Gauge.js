@@ -22,7 +22,7 @@ const Gauge = ({ percentage, title, gaugeBackground }) => {
 Gauge.propTypes = {
   percentage: PropTypes.number,
   gaugeBackground: PropTypes.string,
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
 };
 
 export default Gauge;
