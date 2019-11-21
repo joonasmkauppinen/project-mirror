@@ -1,7 +1,7 @@
 @import '../../variables';
 
-.eventsContainer {
-  .event {
+.postsContainer {
+  .post {
     margin-top: 16px;
     margin-bottom: 16px;
     cursor: pointer;
@@ -33,12 +33,12 @@
     }
   }
 
-  .eventImage {
+  .postImage {
     max-height: 347px;
     width: 100%;
   }
 
-  .date {
+  .time {
     font-size: $font-medium;
     font-weight: $bold;
     color: $title-text-color;
@@ -49,7 +49,7 @@
     color: $body-text-color;
   }
 
-  .eventContent {
+  .postContent {
     padding: 0 16px 10px 16px;
   }
 }
