@@ -23,7 +23,7 @@
     height: 100%;
     border-radius: inherit;
     min-width: 37px;
-    transition: width 200ms ease-in-out;
+    transition: width 400ms $timing;
   }
 
   .gaugeValue {
