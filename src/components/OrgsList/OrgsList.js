@@ -32,7 +32,15 @@ const OrgsList = ({ organizations, loading, error, likeOrg }) => {
             >
               <Card superClass={styles.orgCard}>
                 <div className={styles.cardContent}>
-                  <Icons.peili />
+                  {org.image ? (
+                    <img
+                      src={org.image}
+                      alt="organization"
+                      className={styles.orgImage}
+                    />
+                  ) : (
+                    <Icons.peili />
+                  )}
                   <p className={styles.cardText}>{org.name}</p>
                 </div>
               </Card>
