@@ -23,13 +23,18 @@
       flex: 1;
     }
 
-    // TODO: replace with image from org
     svg {
       height: 20px;
       width: 20px;
       path {
         fill: $primary-color;
       }
+    }
+
+    .orgImage {
+      width: 35px;
+      height: 35px;
+      border-radius: 18px;
     }
   }
 

@@ -7,8 +7,7 @@ import Card from '../Card';
 import Icons from '../../assets/Icons';
 
 // eslint-disable-next-line no-unused-vars
-const PostList = ({ posts, loading, error }) => {
-  console.log(posts);
+const PostList = ({ posts, loading, error, orgs }) => {
   return (
     <>
       <Subheader>Posts</Subheader>
@@ -25,7 +24,7 @@ const PostList = ({ posts, loading, error }) => {
               <Card>
                 <div className={styles.postHeader}>
                   <div className={styles.postTitle}>
-                    <Icons.peili />
+                    <OrgImage orgs={orgs} post={post} />
                     <p>{post.organization}</p>
                     <Icons.peiliFilled />
                   </div>
@@ -54,6 +53,24 @@ PostList.propTypes = {
   posts: PropTypes.array,
   loading: PropTypes.bool,
   error: PropTypes.string,
+  orgs: PropTypes.array,
+};
+
+const OrgImage = ({ orgs, post }) => {
+  const org = orgs.find(x => x.id === post.organization_id);
+  if (org.image) {
+    return (
+      <img src={org.image} alt="organization" className={styles.orgImage} />
+    );
+  } else {
+    // TODO: replace with placeholder icon
+    return <Icons.peili className={styles.orgImage} />;
+  }
+};
+
+OrgImage.propTypes = {
+  orgs: PropTypes.array,
+  post: PropTypes.object,
 };
 
 export default PostList;
