@@ -7,6 +7,7 @@ import Card from '../Card';
 import Icons from '../../assets/Icons';
 import D from '../../utils/dictionary';
 import { t } from '../../utils/translate';
+import moment from 'moment';
 
 // eslint-disable-next-line no-unused-vars
 const EventList = ({ events, loading, error }) => {
@@ -46,10 +47,12 @@ const EventList = ({ events, loading, error }) => {
                     1234 testikatu, Helskinki 00100
                   </div>
                   <div className={styles.dateContainer}>
-                    <div className={styles.day}>Torstai</div>
+                    <div className={styles.day}>
+                      {moment(event.start_time).format('dddd')}
+                    </div>
                     <div className={styles.date}>
-                      <div>MAR</div>
-                      <div>21.</div>
+                      <div>{moment(event.start_time).format('MMM')}</div>
+                      <div>{moment(event.start_time).date()}</div>
                     </div>
                   </div>
                 </div>
