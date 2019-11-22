@@ -10,6 +10,7 @@ import { apiCall, logout } from '../../utils/apicall';
 import Button from '../../components/Button';
 import PageContainer from '../../hoc/PageContainer';
 import Toggle from '../../components/Toggle';
+import ScrollableContent from '../../hoc/ScrollableContent';
 
 const SettingsPage = () => {
   const history = useHistory();
@@ -42,43 +43,50 @@ const SettingsPage = () => {
         leftIcon={'back'}
         title={t(D.SETTINGS.title)}
       />
-      <div className={styles.settingsPageContent}>
-        <div className={styles.settingsItem}>
-          <Icons.notification />
-          <div className={styles.textContainer}>
-            <div className={styles.header}>{t(D.SETTINGS.notif.header)}</div>
-            <div className={styles.title}>{t(D.SETTINGS.notif.title)}</div>
-            <div className={styles.body}>{t(D.SETTINGS.notif.body)}</div>
+      <ScrollableContent>
+        <div className={styles.settingsPageContent}>
+          <div className={styles.settingsItem}>
+            <Icons.notification />
+            <div className={styles.textContainer}>
+              <div className={styles.header}>{t(D.SETTINGS.notif.header)}</div>
+              <div className={styles.title}>{t(D.SETTINGS.notif.title)}</div>
+              <div className={styles.body}>{t(D.SETTINGS.notif.body)}</div>
+            </div>
+            <Toggle
+              isOn={notifValue}
+              handleToggle={() => setNotifValue(!notifValue)}
+            />
           </div>
-          <Toggle
-            isOn={notifValue}
-            handleToggle={() => setNotifValue(!notifValue)}
+          <div className={styles.horizontalLine} />
+          <div className={styles.settingsItem}>
+            <Icons.location />
+            <div className={styles.textContainer}>
+              <div className={styles.header}>
+                {t(D.SETTINGS.location.header)}
+              </div>
+              <div className={styles.title}>{t(D.SETTINGS.location.title)}</div>
+              <div className={styles.body}>{t(D.SETTINGS.location.body)}</div>
+            </div>
+            <Toggle
+              isOn={locValue}
+              handleToggle={() => setLocValue(!locValue)}
+            />
+          </div>
+          <Button onClick={handleLogoutClick} secondary label={t(D.logout)} />
+          <Button
+            onClick={() => changeLanguage('en')}
+            secondary
+            label="lang -> en"
+            disabled={language === 'en'}
+          />
+          <Button
+            onClick={() => changeLanguage('fi')}
+            secondary
+            label="lang -> fi"
+            disabled={language === 'fi'}
           />
         </div>
-        <div className={styles.horizontalLine} />
-        <div className={styles.settingsItem}>
-          <Icons.location />
-          <div className={styles.textContainer}>
-            <div className={styles.header}>{t(D.SETTINGS.location.header)}</div>
-            <div className={styles.title}>{t(D.SETTINGS.location.title)}</div>
-            <div className={styles.body}>{t(D.SETTINGS.location.body)}</div>
-          </div>
-          <Toggle isOn={locValue} handleToggle={() => setLocValue(!locValue)} />
-        </div>
-        <Button onClick={handleLogoutClick} secondary label={t(D.logout)} />
-        <Button
-          onClick={() => changeLanguage('en')}
-          secondary
-          label="lang -> en"
-          disabled={language === 'en'}
-        />
-        <Button
-          onClick={() => changeLanguage('fi')}
-          secondary
-          label="lang -> fi"
-          disabled={language === 'fi'}
-        />
-      </div>
+      </ScrollableContent>
     </PageContainer>
   );
 };

@@ -6,6 +6,7 @@ import Toolbar from '../../components/Toolbar';
 import PageContainer from '../../hoc/PageContainer';
 import Subheader from '../../components/Subheader';
 import EventList from '../../components/EventList';
+import ScrollableContent from '../../hoc/ScrollableContent';
 
 const OrgDetailPage = ({ loadEvents, events }) => {
   const history = useHistory();
@@ -25,16 +26,18 @@ const OrgDetailPage = ({ loadEvents, events }) => {
         leftIcon={'back'}
         title={org.name}
       />
-      {org.image && (
-        <img src={org.image} alt="organization" className={styles.orgImage} />
-      )}
-      <div className={styles.orgPageContent}>
-        <Subheader>Telephone: {org.tel}</Subheader>
-        <Subheader>
-          <a href={org.www}>Link</a>
-        </Subheader>
-        <EventList events={orgEvents} />
-      </div>
+      <ScrollableContent>
+        {org.image && (
+          <img src={org.image} alt="organization" className={styles.orgImage} />
+        )}
+        <div className={styles.orgPageContent}>
+          <Subheader>Telephone: {org.tel}</Subheader>
+          <Subheader>
+            <a href={org.www}>Link</a>
+          </Subheader>
+          <EventList events={orgEvents} />
+        </div>
+      </ScrollableContent>
     </PageContainer>
   );
 };
