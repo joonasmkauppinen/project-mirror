@@ -61,7 +61,7 @@ PostList.propTypes = {
 
 const OrgImage = ({ orgs, post }) => {
   const org = orgs.find(x => x.id === post.organization_id);
-  if (org.image) {
+  if (org && org.image) {
     return (
       <img src={org.image} alt="organization" className={styles.orgImage} />
     );
