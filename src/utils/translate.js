@@ -13,6 +13,7 @@
 
 import d from './dictionary';
 import { getCookie, setCookie } from './cookies';
+import moment from 'moment';
 
 let language = 'en';
 
@@ -32,6 +33,12 @@ const setLanguage = newLanguage => {
 
 if (typeof getLanguages()[language] === 'undefined') {
   language = 'en';
+}
+
+if (language === 'fi') {
+  moment.locale('fi', d.DATE_FINNISH);
+} else {
+  moment.locale('en');
 }
 
 const objectTranslate = object => {
