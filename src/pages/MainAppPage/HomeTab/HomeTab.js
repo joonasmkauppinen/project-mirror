@@ -13,7 +13,14 @@ import Dialog from '../../../components/Dialog/Dialog';
 import Text from '../../../components/Text';
 import PostList from '../../../components/PostList';
 
-const HomeTab = ({ visible, loadTasks, loadPosts }) => {
+const HomeTab = ({
+  visible,
+  loadTasks,
+  loadPosts,
+  loadOrgs,
+  loadUser,
+  user,
+}) => {
   const [showDialog, setShowDialog] = useState(false);
   const { push } = useHistory();
   const navigateToTask = () => push('/task');
@@ -21,15 +28,17 @@ const HomeTab = ({ visible, loadTasks, loadPosts }) => {
     if (visible) {
       loadTasks();
       loadPosts();
+      loadOrgs();
+      loadUser();
     }
-  }, [visible, loadTasks, loadPosts]);
+  }, [visible, loadTasks, loadPosts, loadOrgs, loadUser]);
   return (
     <TabContainer active={visible}>
       <TabTitle>
         <Header>
           <div className={styles.headerLight}>{t('HOME.title')}</div>
           {'\n'}
-          User
+          {user.firstname}
         </Header>
         <IconButton
           icon={'info'}
@@ -67,6 +76,9 @@ HomeTab.propTypes = {
   visible: PropTypes.bool,
   loadTasks: PropTypes.func,
   loadPosts: PropTypes.func,
+  loadOrgs: PropTypes.func,
+  loadUser: PropTypes.func,
+  user: PropTypes.object,
 };
 
 export default HomeTab;

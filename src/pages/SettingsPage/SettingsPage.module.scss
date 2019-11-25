@@ -1,7 +1,7 @@
 @import '../../variables.scss';
 
 .settingsPageContent {
-  margin: 32px;
+  margin: 12px 24px;
 
   .horizontalLine {
     height: 1px;
@@ -29,7 +29,7 @@
     .textContainer {
       display: flex;
       flex-direction: column;
-
+      width: 100%;
       .header {
         font-size: $font-small;
         text-transform: uppercase;

@@ -1,0 +1,73 @@
+@import '../../variables';
+
+.eventsContainer {
+  .event {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    cursor: pointer;
+  }
+
+  .eventImage {
+    max-height: 320px;
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+    object-fit: contain;
+  }
+
+  .dateContainer {
+    height: 50px;
+    display: inline-flex;
+    background-color: $primary-color;
+    font-size: $font-medium;
+    font-weight: $bold;
+    align-items: center;
+    border-radius: 8px;
+
+    .day {
+      color: $main-bg-color;
+      text-align: center;
+      margin: 0 16px;
+    }
+
+    .date {
+      border-radius: 8px;
+      height: 48px;
+      width: 48px;
+      border: 1px solid $primary-color;
+      background-color: $main-bg-color;
+      color: $primary-color;
+      text-align: center;
+      font-size: $font-tiny;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-transform: uppercase;
+    }
+  }
+
+  .eventText {
+    font-size: $body-text-color;
+    color: $body-text-color;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    svg {
+      height: 16px;
+      width: 16px;
+      margin-right: 12px;
+      path {
+        fill: $primary-color;
+      }
+    }
+  }
+
+  .eventTitle {
+    font-size: 20px;
+    color: $title-text-color;
+    font-weight: $semi-bold;
+  }
+
+  .eventContent {
+    padding: 0 16px 24px 16px;
+  }
+}
