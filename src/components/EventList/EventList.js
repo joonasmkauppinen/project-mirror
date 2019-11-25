@@ -25,26 +25,27 @@ const EventList = ({ events, loading, error }) => {
               }}
             >
               <Card>
-                {/*{event.image && (
+                {event.image ? (
                   <img
                     className={styles.postImage}
                     src={event.image}
                     alt="event"
                   />
-                )}*/}
-                <img
-                  className={styles.eventImage}
-                  src={
-                    'https://cdn.discordapp.com/attachments/638315718206816257/646754696496939031/asia_kunnossa.jpg'
-                  }
-                  alt="asia kunnossa"
-                />
+                ) : (
+                  <img
+                    className={styles.eventImage}
+                    src={
+                      'https://cdn.discordapp.com/attachments/638315718206816257/646754696496939031/asia_kunnossa.jpg'
+                    }
+                    alt="asia kunnossa"
+                  />
+                )}
                 <div className={styles.eventContent}>
                   <div className={styles.eventTitle}>{event.title}</div>
                   <div className={styles.eventText}>{event.teaser}</div>
                   <div className={styles.eventText}>
                     <Icons.locationPinFilled />
-                    1234 testikatu, Helskinki 00100
+                    {event.location}
                   </div>
                   <div className={styles.dateContainer}>
                     <div className={styles.day}>
