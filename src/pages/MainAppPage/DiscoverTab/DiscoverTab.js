@@ -26,7 +26,11 @@ const DiscoverTab = ({ visible, loadOrgs, loadEvents, events }) => {
     <TabContainer active={visible}>
       <TabTitle>
         <Header>{t('TABS.discover')}</Header>
-        <IconButton icon={'search'} onClick={test} />
+        <IconButton
+          icon={'search'}
+          onClick={test}
+          style={{ marginRight: '-16px' }}
+        />
       </TabTitle>
       <OrgsList />
       <EventList events={events} />

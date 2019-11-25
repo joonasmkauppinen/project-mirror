@@ -12,7 +12,11 @@ const ChatTab = ({ visible }) => {
     <TabContainer active={visible}>
       <TabTitle>
         <Header>{t('TABS.chat')}</Header>
-        <IconButton icon={'robot'} onClick={() => {}} />
+        <IconButton
+          icon={'robot'}
+          onClick={() => {}}
+          style={{ marginRight: '-16px' }}
+        />
       </TabTitle>
       <Text>This is the chat tab</Text>
     </TabContainer>
