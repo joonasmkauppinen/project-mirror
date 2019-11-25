@@ -9,6 +9,9 @@
                                         
     ███ © 2019 Team Alpha ███████████████████████████████████████████████
                                           
+    Perform Mathematical Evalauations (Calculations) or Logical Condition 
+    Checks helper module. Currently uses MATH.JS for calculations.
+
 */
 
 import { create, all } from '../../node_modules/mathjs';
