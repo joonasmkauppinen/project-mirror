@@ -43,7 +43,7 @@ const App = () => {
             classNames={{ ...animation }}
           >
             <Switch location={location}>
-              <Route path="/task" render={task} />
+              <Route path="/task/:id" render={task} />
               <Route path="/orgs/:id" render={orgDetail} />
               <Route path="/settings" render={settings} />
               <Route path="/main" render={mainApp} />

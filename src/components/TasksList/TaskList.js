@@ -5,9 +5,11 @@ import Text from '../Text';
 import LoadingIndicator from '../LoadingIndicator';
 import Button from '../Button';
 import Subheader from '../Subheader';
+import { useHistory } from 'react-router-dom';
 
 // eslint-disable-next-line no-unused-vars
 const TaskList = ({ tasks, loading, error }) => {
+  const { push } = useHistory();
   return (
     <>
       <Subheader>Tasks</Subheader>
@@ -20,7 +22,7 @@ const TaskList = ({ tasks, loading, error }) => {
                 <Button
                   label={'action'}
                   onClick={() => {
-                    console.log(task.name);
+                    push(`/task/${task.id}`);
                   }}
                   style={{ width: '80px' }}
                 />

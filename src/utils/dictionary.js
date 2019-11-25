@@ -171,4 +171,8 @@ export default {
   DISCOVER: {
     organizations: { en: 'Organizations', fi: 'Organisaatiot' },
   },
+
+  QUESTIONNAIRE: {
+    start: { en: 'Start', fi: 'Aloita' },
+  },
 };
