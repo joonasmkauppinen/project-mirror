@@ -259,6 +259,12 @@ export default {
         fi: 'Sijainititiedot auttavat tarjoamaan sinulle parempia ehdotuksia.',
       },
     },
+    logout: { en: 'Logout', fi: 'Kirjaudu ulos' },
+    cancel: { en: 'Cancel', fi: 'Peruuta' },
+    confirm: {
+      en: 'Are you sure you want to log out?',
+      fi: 'Haluatko varmasti kirjautua ulos?',
+    },
   },
 
   DISCOVER: {

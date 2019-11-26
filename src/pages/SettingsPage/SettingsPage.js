@@ -11,12 +11,15 @@ import Button from '../../components/Button';
 import PageContainer from '../../hoc/PageContainer';
 import Toggle from '../../components/Toggle';
 import ScrollableContent from '../../hoc/ScrollableContent';
+import Dialog from '../../components/Dialog';
+import Text from '../../components/Text';
 
 const SettingsPage = () => {
   const history = useHistory();
   const handleOnBackClick = () => history.goBack();
   const [notifValue, setNotifValue] = useState(false);
   const [locValue, setLocValue] = useState(false);
+  const [showDialog, setShowDialog] = useState(false);
   const changeLanguage = lang => {
     setCookie('site_language', lang);
     apiCall('set-language', { language: lang }).then(response => {
@@ -28,13 +31,11 @@ const SettingsPage = () => {
     });
   };
   const handleLogoutClick = () => {
-    if (window.confirm(t('LOGOUT.confirm'))) {
-      logout().then(response => {
-        if (response.success) {
-          history.replace('/');
-        }
-      });
-    }
+    logout().then(response => {
+      if (response.success) {
+        history.replace('/');
+      }
+    });
   };
   return (
     <PageContainer>
@@ -72,7 +73,22 @@ const SettingsPage = () => {
               handleToggle={() => setLocValue(!locValue)}
             />
           </div>
-          <Button onClick={handleLogoutClick} secondary label={t(D.logout)} />
+          <Button
+            onClick={() => setShowDialog(true)}
+            secondary
+            label={t(D.logout)}
+          />
+          <Dialog
+            header={t(D.SETTINGS.logout)}
+            visible={showDialog}
+            onOutsideClick={() => setShowDialog(false)}
+            positiveLabel={t(D.SETTINGS.logout)}
+            negativeLabel={t(D.SETTINGS.cancel)}
+            onPositiveClicked={handleLogoutClick}
+            onNegativeClicked={() => setShowDialog(false)}
+          >
+            <Text>{t(D.SETTINGS.confirm)}</Text>
+          </Dialog>
           <Button
             onClick={() => changeLanguage('en')}
             secondary
