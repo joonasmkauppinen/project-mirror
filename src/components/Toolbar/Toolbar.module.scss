@@ -8,6 +8,9 @@
   height: $toolbar-height;
 
   .toolbarIcon {
+    @media (max-width: 360px)  {
+      margin: 0;
+    }
     margin: 0 14px;
   }
 
@@ -16,5 +19,8 @@
     color: $title-text-color;
     font-weight: $semi-bold;
     font-size: 20px;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+    white-space: nowrap;
   }
 }
