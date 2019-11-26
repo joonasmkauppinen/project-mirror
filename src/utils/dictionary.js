@@ -266,5 +266,10 @@ export default {
     events: { en: 'New events', fi: 'Uudet tapahtumat' },
   },
 
+  ORG_DETAILS: {
+    description: { en: 'Description', fi: 'Kuvaus' },
+    website: { en: 'Organization website', fi: 'Organisaation nettisivut' },
+  },
+
   DATE_FINNISH: setDateFormatToFinnish(),
 };

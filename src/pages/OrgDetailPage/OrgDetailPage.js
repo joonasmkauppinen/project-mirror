@@ -4,9 +4,11 @@ import PropTypes from 'prop-types';
 import styles from './OrgDetailPage.module.scss';
 import Toolbar from '../../components/Toolbar';
 import PageContainer from '../../hoc/PageContainer';
-import Subheader from '../../components/Subheader';
 import EventList from '../../components/EventList';
 import ScrollableContent from '../../hoc/ScrollableContent';
+import { t } from '../../utils/translate';
+import D from '../../utils/dictionary';
+import Icons from '../../assets/Icons';
 
 const OrgDetailPage = ({ loadEvents, events }) => {
   const history = useHistory();
@@ -14,7 +16,22 @@ const OrgDetailPage = ({ loadEvents, events }) => {
   const handleOnBackClick = () => history.goBack();
   const org = location.state;
   const orgEvents = events.filter(event => event.organization_id === org.id);
-
+  let address,
+    tel,
+    website = null;
+  if (org.address) {
+    address = <div className={styles.body}>{org.address}</div>;
+  }
+  if (org.tel) {
+    tel = <div className={styles.body}>{org.tel}</div>;
+  }
+  if (org.www) {
+    website = (
+      <a className={styles.link} href={org.www}>
+        {t(D.ORG_DETAILS.website)}
+      </a>
+    );
+  }
   useEffect(() => {
     loadEvents(org.id);
   }, [loadEvents, org.id]);
@@ -31,10 +48,50 @@ const OrgDetailPage = ({ loadEvents, events }) => {
           <img src={org.image} alt="organization" className={styles.orgImage} />
         )}
         <div className={styles.orgPageContent}>
-          <Subheader>Telephone: {org.tel}</Subheader>
-          <Subheader>
-            <a href={org.www}>Link</a>
-          </Subheader>
+          <div className={styles.orgItem}>
+            <div className={styles.orgTextContainer}>
+              <div className={styles.header}>
+                {t(D.ORG_DETAILS.description)}
+              </div>
+              <div className={styles.body + ' ' + styles.description}>
+                {org.description}
+              </div>
+            </div>
+          </div>
+          <hr className={styles.divider} />
+          {address && (
+            <>
+              <div className={styles.orgItem}>
+                <Icons.locationPinFilled className={styles.filled} />
+                <div className={styles.orgTextContainer + ' ' + styles.info}>
+                  {address}
+                </div>
+              </div>
+              <hr className={styles.divider} />
+            </>
+          )}
+          {website && (
+            <>
+              <div className={styles.orgItem}>
+                <Icons.language className={styles.filled} />
+                <div className={styles.orgTextContainer + ' ' + styles.info}>
+                  {website}
+                </div>
+              </div>
+              <hr className={styles.divider} />
+            </>
+          )}
+          {tel && (
+            <>
+              <div className={styles.orgItem}>
+                <Icons.phone className={styles.outlined} />
+                <div className={styles.orgTextContainer + ' ' + styles.info}>
+                  {tel}
+                </div>
+              </div>
+              <hr className={styles.divider} />
+            </>
+          )}
           <EventList events={orgEvents} />
         </div>
       </ScrollableContent>
