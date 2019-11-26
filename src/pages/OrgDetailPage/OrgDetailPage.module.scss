@@ -68,8 +68,8 @@
   }
   .divider {
     margin: 0 -32px;
-    height: 1px;
     color: $card-bg-color;
-    width: 100vw;
+    border: 0;
+    border-bottom: 1px solid $card-bg-color;
   }
 }
