@@ -8,8 +8,8 @@ import ScrollableContent from '../../hoc/ScrollableContent';
 import styles from './TaskPage.module.scss';
 import Text from '../../components/Text';
 import Header from '../../components/QuestionHeader';
-import Button from '../../components/Button';
 import { taskInit, taskGetAllQuestionsData } from '../../utils/task';
+import NextButton from '../../components/QuestionNextButton';
 
 const TaskPage = () => {
   const [progress] = useState(0);
@@ -18,13 +18,12 @@ const TaskPage = () => {
   const { goBack } = useHistory();
 
   useEffect(() => {
-    const fetchTask = async () => {
+    (async () => {
       const response = await taskInit(id);
       console.log(response);
       console.log(taskGetAllQuestionsData());
-    };
-    fetchTask();
-  }, []);
+    })();
+  }, [id]);
 
   const handleRightIconClick = () => alert('TODO: show task info');
   const buttonClick = () => {
@@ -48,7 +47,7 @@ const TaskPage = () => {
                 <Header>{prompt}</Header>
                 <Text>{JSON.stringify(options, null, 2)}</Text>
               </ScrollableContent>
-              <Button label="this will the next button" onClick={buttonClick} />
+              <NextButton label="seuraava" onClick={buttonClick} />
             </section>
           );
         })}

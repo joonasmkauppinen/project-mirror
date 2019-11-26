@@ -24,6 +24,7 @@ import { ReactComponent as NotificationIcon } from './svg/notification_ic.svg';
 import { ReactComponent as FilledPeiliIcon } from './svg/peili-official-logo_ic.svg';
 import { ReactComponent as LocationPinIcon } from './svg/location-pin-outline_ic.svg';
 import { ReactComponent as FilledLocationPinIcon } from './svg/location-pin-filled_ic.svg';
+import { ReactComponent as ArrowLongRight } from './svg/arrow-long-right.svg';
 
 const Icons = {
   alert: AlertIcon,
@@ -52,6 +53,7 @@ const Icons = {
   scroll: ScrollIcon,
   search: SearchIcon,
   settings: SettingsIcon,
+  arrowLongRight: ArrowLongRight,
 };
 
 export default Icons;
