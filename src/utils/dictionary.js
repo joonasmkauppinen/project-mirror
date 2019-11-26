@@ -269,6 +269,8 @@ export default {
   ORG_DETAILS: {
     description: { en: 'Description', fi: 'Kuvaus' },
     website: { en: 'Organization website', fi: 'Organisaation nettisivut' },
+    follow: { en: 'Follow', fi: 'Seuraa' },
+    unfollow: { en: 'Unfollow', fi: 'Älä seuraa' },
   },
 
   DATE_FINNISH: setDateFormatToFinnish(),

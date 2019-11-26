@@ -9,8 +9,9 @@ import ScrollableContent from '../../hoc/ScrollableContent';
 import { t } from '../../utils/translate';
 import D from '../../utils/dictionary';
 import Icons from '../../assets/Icons';
+import Button from '../../components/Button';
 
-const OrgDetailPage = ({ loadEvents, events }) => {
+const OrgDetailPage = ({ loadEvents, events, likeOrg }) => {
   const history = useHistory();
   const location = useLocation();
   const handleOnBackClick = () => history.goBack();
@@ -32,6 +33,13 @@ const OrgDetailPage = ({ loadEvents, events }) => {
       </a>
     );
   }
+
+  const followOrg = () => {
+    const following = org.following;
+    likeOrg(org, following);
+    org.following = !org.following;
+  };
+
   useEffect(() => {
     loadEvents(org.id);
   }, [loadEvents, org.id]);
@@ -92,6 +100,21 @@ const OrgDetailPage = ({ loadEvents, events }) => {
               <hr className={styles.divider} />
             </>
           )}
+          <div className={styles.actions}>
+            {org.following ? (
+              <Button
+                label={t(D.ORG_DETAILS.unfollow)}
+                onClick={followOrg}
+                secondary
+              />
+            ) : (
+              <Button
+                label={t(D.ORG_DETAILS.follow)}
+                onClick={followOrg}
+                secondary
+              />
+            )}
+          </div>
           <EventList events={orgEvents} />
         </div>
       </ScrollableContent>
@@ -102,6 +125,7 @@ const OrgDetailPage = ({ loadEvents, events }) => {
 OrgDetailPage.propTypes = {
   loadEvents: PropTypes.func,
   events: PropTypes.array,
+  likeOrg: PropTypes.func,
 };
 
 export default OrgDetailPage;
