@@ -63,7 +63,9 @@ const OrgImage = ({ orgs, post }) => {
   const org = orgs.find(x => x.id === post.organization_id);
   if (org && org.image) {
     return (
-      <img src={org.image} alt="organization" className={styles.orgImage} />
+      <div className={styles.orgImageContainer}>
+        <img src={org.image} alt="organization" className={styles.orgImage} />
+      </div>
     );
   } else {
     // TODO: replace with placeholder icon
