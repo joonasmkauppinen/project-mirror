@@ -50,12 +50,20 @@
       margin-top: 8px;
     }
 
-    .orgImage {
+    .imageContainer {
+      background-color: $tab-bar-color;
       height: 80px;
       width: 80px;
       border-radius: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .orgImage {
+      height: 72px;
+      width: 72px;
       object-fit: contain;
-      background-color: $tab-bar-color;
     }
   }
   ::-webkit-scrollbar {
