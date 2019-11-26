@@ -115,7 +115,7 @@ const OrgDetailPage = ({ loadEvents, events, likeOrg }) => {
               />
             )}
           </div>
-          <EventList events={orgEvents} />
+          {orgEvents.length > 0 && <EventList events={orgEvents} />}
         </div>
       </ScrollableContent>
     </PageContainer>
