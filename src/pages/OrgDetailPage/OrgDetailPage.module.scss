@@ -1,10 +1,12 @@
 @import '../../variables.scss';
 
 .orgPageContent {
-  margin: 32px;
+  margin-top: 12px;
 }
 
 .orgImage {
+  margin-top: 12px;
   object-fit: contain;
   flex: 0;
+  max-height: 20%;
 }
