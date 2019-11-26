@@ -43,7 +43,7 @@ const HomeTab = ({
         <IconButton
           icon={'info'}
           onClick={() => {}}
-          style={{ alignSelf: 'flex-start' }}
+          style={{ alignSelf: 'flex-start', marginRight: '-16px' }}
         />
       </TabTitle>
       <TaskList />

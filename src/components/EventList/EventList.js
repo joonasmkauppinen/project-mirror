@@ -27,7 +27,7 @@ const EventList = ({ events, loading, error }) => {
               <Card>
                 {event.image ? (
                   <img
-                    className={styles.postImage}
+                    className={styles.eventImage}
                     src={event.image}
                     alt="event"
                   />

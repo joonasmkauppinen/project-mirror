@@ -19,6 +19,7 @@ let language = 'en';
 
 language = getCookie('site_language');
 
+/* Get available languages */
 const getLanguages = () => {
   let lang = [];
   lang['en'] = 'English';
@@ -26,6 +27,7 @@ const getLanguages = () => {
   return lang;
 };
 
+/* Set Current Language */
 const setLanguage = newLanguage => {
   language = newLanguage;
   setCookie('site_language', newLanguage);
@@ -41,6 +43,7 @@ if (language === 'fi') {
   moment.locale('en');
 }
 
+/* Translate Object value */
 const objectTranslate = object => {
   let element = object[language];
   if (typeof element !== 'undefined') {
@@ -50,6 +53,7 @@ const objectTranslate = object => {
   }
 };
 
+/* Get translation from JSON Dictionary Structure */
 const getTranslation = (path, data = [], inpath = 0) => {
   let element = data[path[inpath]];
   if (typeof element === 'undefined') {
@@ -72,6 +76,7 @@ const getTranslation = (path, data = [], inpath = 0) => {
   }
 };
 
+/* Translate "t" function - performs any translation by any kind of input data value */
 const t = text => {
   if (typeof text === 'undefined') {
     return '{undefined}';

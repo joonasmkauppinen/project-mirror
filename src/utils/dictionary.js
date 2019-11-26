@@ -1,3 +1,21 @@
+/*
+
+    ██████╗ ██╗ ██████╗████████╗██╗ ██████╗ ███╗   ██╗ █████╗ ██████╗ ██╗   ██╗
+    ██╔══██╗██║██╔════╝╚══██╔══╝██║██╔═══██╗████╗  ██║██╔══██╗██╔══██╗╚██╗ ██╔╝
+    ██║  ██║██║██║        ██║   ██║██║   ██║██╔██╗ ██║███████║██████╔╝ ╚████╔╝ 
+    ██║  ██║██║██║        ██║   ██║██║   ██║██║╚██╗██║██╔══██║██╔══██╗  ╚██╔╝  
+    ██████╔╝██║╚██████╗   ██║   ██║╚██████╔╝██║ ╚████║██║  ██║██║  ██║   ██║   
+    ╚═════╝ ╚═╝ ╚═════╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝   
+                                                                                                                      
+    
+    ███ © 2019 Team Alpha ████████████████████████████████████████████████████
+
+
+    All the Frontend App Translations are found here!
+    Currenlty implemented Finnish and English.
+                                          
+*/
+
 import moment from 'moment';
 
 const setDateFormatToFinnish = () => {
@@ -251,5 +269,10 @@ export default {
   QUESTIONNAIRE: {
     start: { en: 'Start', fi: 'Aloita' },
   },
+  ORG_DETAILS: {
+    description: { en: 'Description', fi: 'Kuvaus' },
+    website: { en: 'Organization website', fi: 'Organisaation nettisivut' },
+  },
+
   DATE_FINNISH: setDateFormatToFinnish(),
 };

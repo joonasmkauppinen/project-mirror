@@ -29,7 +29,11 @@ const ProfileTab = ({
     <TabContainer active={visible}>
       <TabTitle>
         <Header>{t('TABS.profile')}</Header>
-        <IconButton icon={'settings'} onClick={handleSettingsClick} />
+        <IconButton
+          icon={'settings'}
+          onClick={handleSettingsClick}
+          style={{ marginRight: '-16px' }}
+        />
       </TabTitle>
       <div style={{ padding: '16px 0' }}>
         <ProfileCard

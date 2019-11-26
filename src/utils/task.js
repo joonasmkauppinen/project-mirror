@@ -25,6 +25,7 @@ let taskQuestionAnswers = [];
 let taskLatestError = '';
 let taskVariables = [];
 
+/* Go to next question */
 const taskGoNext = () => {
   if (!taskInitialized) {
     taskLatestError = 'Cannot go next, task is not initialized.';
@@ -47,6 +48,7 @@ const taskGoNext = () => {
   return true;
 };
 
+/* Go to Previous Question */
 const taskGoBack = () => {
   if (!taskInitialized) {
     taskLatestError = 'Cannot go back, task is not initialized.';
@@ -60,14 +62,17 @@ const taskGoBack = () => {
   return true;
 };
 
+/* Get all questions data as JSON object */
 const taskGetAllQuestionsData = () => {
   return taskQuestions;
 };
 
+/* Get Latest Error Description */
 const taskGetLatestError = () => {
   return taskLatestError;
 };
 
+/* Answer to Current Question */
 const taskAnswerToCurrent = answer => {
   if (taskCurrentQuestion > taskGetTaskQuestionsCount() - 1) {
     taskLatestError = 'No questions left - cannot answer to NULL question.'; // TODO translation
@@ -76,6 +81,7 @@ const taskAnswerToCurrent = answer => {
   return taskAnswerToQuestionByIndex(taskGetCurrentQuestionIndex(), answer);
 };
 
+/* Answer to Specified Question by Question Index */
 const taskAnswerToQuestionByIndex = (index, answer) => {
   let mathValue = 0;
   if (taskQuestions[index].type === 'select') {
@@ -91,14 +97,17 @@ const taskAnswerToQuestionByIndex = (index, answer) => {
   return true;
 };
 
+/* Get Loaded Tasks ID */
 const taskGetTaskID = () => {
   return taskID;
 };
 
+/* Get Boolean value of is Task Initialized */
 const taskGetTaskInitialized = () => {
   return taskInitialized;
 };
 
+/* Execute/Calculate Locigal Operation Formula */
 const taskExecLogicalOper = formula => {
   if (taskVariables.length > 0) {
     taskVariables.forEach(i => {
@@ -116,6 +125,7 @@ const taskExecLogicalOper = formula => {
   return false;
 };
 
+/* Generate Variables based on Answers */
 const taskGenerateVariables = () => {
   taskVariables = [];
   if (!taskInitialized || taskQuestions.length === 0) return false;
@@ -126,7 +136,6 @@ const taskGenerateVariables = () => {
         value: taskQuestionAnswers[i].mathValue,
       });
     }
-    //console.log(`${taskQuestions[i].iid} => ${output}`);
     if (!('logicalPolarity' in taskQuestions[i])) {
       taskQuestions[i].logicalPolarity = true;
     }
@@ -134,12 +143,14 @@ const taskGenerateVariables = () => {
   return true;
 };
 
+/* Perform Task Question Iteration Operations */
 const taskIterate = () => {
   taskGenerateVariables();
   taskIterateLogicalOperations();
   console.log(taskQuestions);
 };
 
+/* Iterate through the questions and perform Logical Operations */
 const taskIterateLogicalOperations = (parent = 0, logicalPolarity = true) => {
   if (!taskInitialized || taskQuestions.length === 0) return false;
   for (let i = 0; i < taskQuestions.length; i++) {
@@ -153,6 +164,7 @@ const taskIterateLogicalOperations = (parent = 0, logicalPolarity = true) => {
   }
 };
 
+/* Initialize Task (load task questions and data from Backend Server) */
 const taskInit = async initTaskID => {
   return new Promise((resolve, reject) => {
     apiCall('tasks', { task_id: initTaskID })
@@ -173,16 +185,19 @@ const taskInit = async initTaskID => {
   });
 };
 
+/* Get number of Questions in Loaded Task */
 const taskGetTaskQuestionsCount = () => {
   return taskQuestions.length;
 };
 
+/* Get Current Question Index */
 const taskGetCurrentQuestionIndex = () => {
   return taskCurrentQuestion;
 };
 
+/* Get JSON Data of Current Question */
 const taskGetCurrentQuestionData = () => {
-  if (taskCurrentQuestion === taskQuestions.length) {
+  if (taskIsFinished()) {
     return {
       prompt: 'Thank you! Form is ready for submitting...',
       finished: true,
@@ -192,14 +207,22 @@ const taskGetCurrentQuestionData = () => {
   }
 };
 
+/* Get Boolean value is task question answering reached the end. */
 const taskIsFinished = () => {
-  return false; // TODO!
+  if (!taskInitialized) return false;
+  if (taskQuestions.length === 0) return false;
+  if (taskCurrentQuestion === taskQuestions.length) {
+    return true;
+  }
+  return false;
 };
 
+/* Submit task Answer Data to the Backend Server */
 const taskSubmitData = () => {
   return { success: false, error: 'TODO' }; // TODO!
 };
 
+/* Get Task Answer Status in Percents (0-100) */
 const taskGetPercentageProgress = () => {
   if (taskGetTaskQuestionsCount() === 0) {
     return 0;

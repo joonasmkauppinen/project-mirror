@@ -5,5 +5,8 @@
   align-self: stretch;
   overflow-y: scroll;
   padding: 0 $screen-margin;
+  @media (max-width: 360px)  {
+    padding: 0 20px;
+  }
   -webkit-overflow-scrolling: touch;
 }

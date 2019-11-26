@@ -19,7 +19,7 @@ let sessionChecked = false;
 let sessionToken = '';
 let sessionID = 0;
 
-/* Get isSession value Boolean */
+/* Get isSession value Boolean (from cookies) */
 const isSession = () => {
   if (!sessionChecked) {
     sessionID = parseInt(getCookie('sessionID'), 10);
@@ -38,7 +38,7 @@ const serialize = obj => {
   return str.join('&');
 };
 
-/* Perform a Backend API Call */
+/* Perform a Backend API Call and return response in a Promise */
 const apiCall = async (operation, params = {}) => {
   return new Promise((resolve, reject) => {
     const dataParams = {
