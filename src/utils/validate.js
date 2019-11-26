@@ -10,7 +10,7 @@
     ███ © 2019 Team Alpha ██████████████████████████████
 
     Input Validation Module
-                                          
+
 */
 
 // Validate Email Addresses
