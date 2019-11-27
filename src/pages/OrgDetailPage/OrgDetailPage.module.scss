@@ -67,6 +67,9 @@
     }
   }
   .divider {
+    @media (max-width: 360px)  {
+      margin: 0 -16px;
+    }
     margin: 0 -32px;
     color: $card-bg-color;
     border: 0;
