@@ -16,7 +16,7 @@ const EventList = ({ events, loading, error }) => {
   const handleEventClick = event => {
     history.push({
       pathname: `/events/${event.id}`,
-      state: events,
+      state: event,
     });
   };
   return (
