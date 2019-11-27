@@ -7,6 +7,7 @@ import Icons from '../../assets/Icons';
 import Gauges from '../Gauges';
 import { t } from '../../utils/translate';
 import D from '../../utils/dictionary';
+import { isEmpty } from 'lodash-es';
 
 // eslint-disable-next-line no-unused-vars
 const ProfileCard = ({ user, loading, error, gauges }) => {
@@ -23,10 +24,10 @@ const ProfileCard = ({ user, loading, error, gauges }) => {
             </div>
             <div className={styles.levelsContainer}>
               <div className={styles.level}>
-                {t(D.PROFILE.points)} {user.gamification.xp}
+                {t(D.PROFILE.points)} {!isEmpty(user) && user.gamification.xp}
               </div>
               <div className={styles.level}>
-                {t(D.PROFILE.level)} {user.gamification.level}
+                {t(D.PROFILE.level)} {!isEmpty(user) && user.gamification.level}
               </div>
             </div>
             <div className={styles.gaugesContainer}>
