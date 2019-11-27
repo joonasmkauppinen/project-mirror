@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from './OrgDetailPage.module.scss';
@@ -17,6 +17,7 @@ const OrgDetailPage = ({ loadEvents, events, likeOrg }) => {
   const handleOnBackClick = () => history.goBack();
   const org = location.state;
   const orgEvents = events.filter(event => event.organization_id === org.id);
+  const [liked, setLiked] = useState(org.liked);
   let address,
     tel,
     website = null;
@@ -35,9 +36,9 @@ const OrgDetailPage = ({ loadEvents, events, likeOrg }) => {
   }
 
   const followOrg = () => {
-    const following = org.following;
+    const following = org.liked;
     likeOrg(org, following);
-    org.following = !org.following;
+    setLiked(!liked);
   };
 
   useEffect(() => {
@@ -101,7 +102,7 @@ const OrgDetailPage = ({ loadEvents, events, likeOrg }) => {
             </>
           )}
           <div className={styles.actions}>
-            {org.following ? (
+            {liked ? (
               <Button
                 label={t(D.ORG_DETAILS.unfollow)}
                 onClick={followOrg}
@@ -111,7 +112,7 @@ const OrgDetailPage = ({ loadEvents, events, likeOrg }) => {
               <Button
                 label={t(D.ORG_DETAILS.follow)}
                 onClick={followOrg}
-                secondary
+                primary
               />
             )}
           </div>
