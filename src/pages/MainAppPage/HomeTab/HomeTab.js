@@ -11,6 +11,7 @@ import Button from '../../../components/Button';
 import Text from '../../../components/Text';
 import PostList from '../../../components/PostList';
 import { isEmpty } from 'lodash-es';
+import LevelGauge from '../../../components/LevelGauge';
 
 const HomeTab = ({
   visible,
@@ -21,7 +22,7 @@ const HomeTab = ({
   user,
 }) => {
   const [showDialog, setShowDialog] = useState(false);
-  console.log(user);
+
   useEffect(() => {
     if (visible) {
       loadTasks();
@@ -42,6 +43,8 @@ const HomeTab = ({
           {!isEmpty(user) && user.gamification.level}
         </div>
       </TabTitle>
+      {!isEmpty(user) && <LevelGauge user={user} />}
+
       <TaskList />
       <PostList />
       <Button label="Show test dialog" onClick={() => setShowDialog(true)} />
