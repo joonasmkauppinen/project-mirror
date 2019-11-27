@@ -6,9 +6,17 @@ import Subheader from '../Subheader';
 import Card from '../Card';
 import Icons from '../../assets/Icons';
 import moment from 'moment';
+import { useHistory } from 'react-router-dom';
 
 // eslint-disable-next-line no-unused-vars
 const PostList = ({ posts, loading, error, orgs }) => {
+  const history = useHistory();
+  const handlePostClick = event => {
+    history.push({
+      pathname: `/posts/${event.id}`,
+      state: event,
+    });
+  };
   return (
     <>
       <Subheader>Posts</Subheader>
@@ -19,7 +27,7 @@ const PostList = ({ posts, loading, error, orgs }) => {
               key={post.id}
               className={styles.post}
               onClick={() => {
-                console.log('clicc');
+                handlePostClick(post);
               }}
             >
               <Card>

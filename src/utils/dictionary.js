@@ -290,5 +290,11 @@ export default {
     arranged_by: { en: 'Arranged By', fi: 'Järjestävä Organisaatio' },
   },
 
+  POST_DETAILS: {
+    full_text: { en: 'Full Post', fi: 'Koko teksti' },
+    by_organization: { en: 'Posted By', fi: 'Lähettäjä' },
+    in_short: { en: 'In short', fi: 'Lyhyesti' },
+  },
+
   DATE_FINNISH: setDateFormatToFinnish(),
 };

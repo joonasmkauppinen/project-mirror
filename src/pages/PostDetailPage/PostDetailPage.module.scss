@@ -1,0 +1,78 @@
+@import '../../variables.scss';
+
+.postImage {
+  margin-top: 12px;
+  object-fit: contain;
+  flex: 0;
+  max-height: 20%;
+}
+
+.postPageContent {
+  margin-top: 12px;
+
+  .postItem {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    svg {
+      margin-right: 16px;
+      flex-shrink: 0;
+      height: 20px;
+      width: 20px;
+      &.filled {
+        path {
+          fill: $primary-color;
+        }
+      }
+
+      &.outlined {
+        path {
+          stroke: $primary-color;
+        }
+      }
+    }
+
+    .postTextContainer {
+      display: flex;
+      flex-direction: column;
+      .header {
+        font-size: $font-small;
+        color: $primary-color;
+        font-weight: $semi-bold;
+      }
+
+      .body {
+        font-size: $font-medium;
+        font-weight: $medium;
+        color: $body-text-color;
+        line-height: 22px;
+      }
+
+      .link {
+        font-size: $font-medium;
+        font-weight: $medium;
+        color: $primary-color;
+        line-height: 22px;
+        text-decoration: underline;
+      }
+
+      .description {
+        margin: 16px 0;
+      }
+
+      &.info {
+        margin: 28px 0;
+      }
+    }
+  }
+  .divider {
+    margin: 0 -32px;
+    color: $card-bg-color;
+    border: 0;
+    border-bottom: 1px solid $card-bg-color;
+  }
+  .actions {
+    margin: 16px 0;
+  }
+}
