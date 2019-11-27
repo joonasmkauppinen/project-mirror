@@ -31,12 +31,21 @@
       }
     }
 
-    .orgImage {
+    .orgImageContainer{
       width: 35px;
       height: 35px;
       border-radius: 18px;
-      object-fit: contain;
+      background-color: $tab-bar-color;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .orgImage {
+        height: 32px;
+        width: 32px;
+        object-fit: contain;
+      }
     }
+
   }
 
   .postImage {

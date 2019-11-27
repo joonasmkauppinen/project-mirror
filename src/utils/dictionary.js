@@ -259,6 +259,12 @@ export default {
         fi: 'Sijainititiedot auttavat tarjoamaan sinulle parempia ehdotuksia.',
       },
     },
+    logout: { en: 'Logout', fi: 'Kirjaudu ulos' },
+    cancel: { en: 'Cancel', fi: 'Peruuta' },
+    confirm: {
+      en: 'Are you sure you want to log out?',
+      fi: 'Haluatko varmasti kirjautua ulos?',
+    },
   },
 
   DISCOVER: {
@@ -272,6 +278,17 @@ export default {
   ORG_DETAILS: {
     description: { en: 'Description', fi: 'Kuvaus' },
     website: { en: 'Organization website', fi: 'Organisaation nettisivut' },
+    follow: { en: 'Follow', fi: 'Seuraa' },
+    unfollow: { en: 'Unfollow', fi: 'Älä seuraa' },
+  },
+
+  EVENT_DETAILS: {
+    in_short: { en: 'In Short', fi: 'Lyhyesti' },
+    date_when: { en: 'When', fi: 'Ajankohta' },
+    starts: { en: 'Starts', fi: 'Alkaa' },
+    ends: { en: 'Ends', fi: 'Päättyy' },
+    full_description: { en: 'Full Description', fi: 'Tapahtumakuvaus' },
+    arranged_by: { en: 'Arranged By', fi: 'Järjestävä Organisaatio' },
   },
 
   DATE_FINNISH: setDateFormatToFinnish(),

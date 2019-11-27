@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from './OrgDetailPage.module.scss';
@@ -9,13 +9,15 @@ import ScrollableContent from '../../hoc/ScrollableContent';
 import { t } from '../../utils/translate';
 import D from '../../utils/dictionary';
 import Icons from '../../assets/Icons';
+import Button from '../../components/Button';
 
-const OrgDetailPage = ({ loadEvents, events }) => {
+const OrgDetailPage = ({ loadEvents, events, likeOrg }) => {
   const history = useHistory();
   const location = useLocation();
   const handleOnBackClick = () => history.goBack();
   const org = location.state;
   const orgEvents = events.filter(event => event.organization_id === org.id);
+  const [liked, setLiked] = useState(org.liked);
   let address,
     tel,
     website = null;
@@ -32,6 +34,13 @@ const OrgDetailPage = ({ loadEvents, events }) => {
       </a>
     );
   }
+
+  const followOrg = () => {
+    const following = org.liked;
+    likeOrg(org, following);
+    setLiked(!liked);
+  };
+
   useEffect(() => {
     loadEvents(org.id);
   }, [loadEvents, org.id]);
@@ -92,7 +101,22 @@ const OrgDetailPage = ({ loadEvents, events }) => {
               <hr className={styles.divider} />
             </>
           )}
-          <EventList events={orgEvents} />
+          <div className={styles.actions}>
+            {liked ? (
+              <Button
+                label={t(D.ORG_DETAILS.unfollow)}
+                onClick={followOrg}
+                secondary
+              />
+            ) : (
+              <Button
+                label={t(D.ORG_DETAILS.follow)}
+                onClick={followOrg}
+                primary
+              />
+            )}
+          </div>
+          {orgEvents.length > 0 && <EventList events={orgEvents} />}
         </div>
       </ScrollableContent>
     </PageContainer>
@@ -102,6 +126,7 @@ const OrgDetailPage = ({ loadEvents, events }) => {
 OrgDetailPage.propTypes = {
   loadEvents: PropTypes.func,
   events: PropTypes.array,
+  likeOrg: PropTypes.func,
 };
 
 export default OrgDetailPage;

@@ -1,16 +1,16 @@
 @import '../../variables.scss';
 
-.orgImage {
+.eventImage {
   margin-top: 12px;
   object-fit: contain;
   flex: 0;
   max-height: 20%;
 }
 
-.orgPageContent {
+.eventPageContent {
   margin-top: 12px;
 
-  .orgItem {
+  .eventItem {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -33,7 +33,7 @@
       }
     }
 
-    .orgTextContainer {
+    .eventTextContainer {
       display: flex;
       flex-direction: column;
       .header {
