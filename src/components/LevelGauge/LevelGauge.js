@@ -25,11 +25,13 @@ const LevelGauge = ({ user }) => {
       </div>
       <div className={styles.levelBar}>
         <div className={styles.level}>
+          <hr className={styles.startLine} />
           {progress > 20 && <div className={styles.startLevel}>{startXp}</div>}
           <div className={styles.filler} style={{ width: `${progress}%` }}>
             <div className={styles.levelValue}>{xp}</div>
           </div>
           {progress < 90 && <div className={styles.endLevel}>{endXp}</div>}
+          <hr className={styles.endLine} />
         </div>
       </div>
     </div>
