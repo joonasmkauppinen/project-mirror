@@ -279,5 +279,14 @@ export default {
     unfollow: { en: 'Unfollow', fi: 'Älä seuraa' },
   },
 
+  EVENT_DETAILS: {
+    in_short: { en: 'In Short', fi: 'Lyhyesti' },
+    date_when: { en: 'When', fi: 'Ajankohta' },
+    starts: { en: 'Starts', fi: 'Alkaa' },
+    ends: { en: 'Ends', fi: 'Päättyy' },
+    full_description: { en: 'Full Description', fi: 'Tapahtumakuvaus' },
+    arranged_by: { en: 'Arranged By', fi: 'Järjestävä Organisaatio' },
+  },
+
   DATE_FINNISH: setDateFormatToFinnish(),
 };

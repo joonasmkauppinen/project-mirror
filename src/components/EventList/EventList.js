@@ -8,9 +8,17 @@ import Icons from '../../assets/Icons';
 import D from '../../utils/dictionary';
 import { t } from '../../utils/translate';
 import moment from 'moment';
+import { useHistory } from 'react-router-dom';
 
 // eslint-disable-next-line no-unused-vars
 const EventList = ({ events, loading, error }) => {
+  const history = useHistory();
+  const handleEventClick = event => {
+    history.push({
+      pathname: `/events/${event.id}`,
+      state: events,
+    });
+  };
   return (
     <>
       <Subheader>{t(D.DISCOVER.events)}</Subheader>
@@ -21,7 +29,7 @@ const EventList = ({ events, loading, error }) => {
               key={event.id}
               className={styles.event}
               onClick={() => {
-                console.log('clicc');
+                handleEventClick(event);
               }}
             >
               <Card>

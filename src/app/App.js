@@ -19,6 +19,7 @@ import SignupPage from '../pages/SignupPage';
 import childFactoryCreator from '../utils/childFactoryCreator';
 import SettingsPage from '../pages/SettingsPage';
 import OrgDetailPage from '../pages/OrgDetailPage';
+import EventDetailPage from '../pages/EventDetailPage';
 
 const App = () => {
   const location = useLocation();
@@ -30,6 +31,7 @@ const App = () => {
   const mainApp = () => (!auth() ? <Redirect to="/" /> : <MainAppPage />);
   const settings = () => (!auth() ? <Redirect to="/" /> : <SettingsPage />);
   const orgDetail = () => (!auth() ? <Redirect to="/" /> : <OrgDetailPage />);
+  const evtDetail = () => (!auth() ? <Redirect to="/" /> : <EventDetailPage />);
 
   return (
     <Provider store={store}>
@@ -41,6 +43,7 @@ const App = () => {
             classNames={{ ...animation }}
           >
             <Switch location={location}>
+              <Route path="/events/:id" render={evtDetail} />
               <Route path="/orgs/:id" render={orgDetail} />
               <Route path="/settings" render={settings} />
               <Route path="/main" render={mainApp} />
