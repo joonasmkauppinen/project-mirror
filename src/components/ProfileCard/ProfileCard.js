@@ -5,6 +5,8 @@ import LoadingIndicator from '../LoadingIndicator';
 import Card from '../Card';
 import Icons from '../../assets/Icons';
 import Gauges from '../Gauges';
+import { t } from '../../utils/translate';
+import D from '../../utils/dictionary';
 
 // eslint-disable-next-line no-unused-vars
 const ProfileCard = ({ user, loading, error, gauges }) => {
@@ -17,6 +19,14 @@ const ProfileCard = ({ user, loading, error, gauges }) => {
               <Icons.avatar />
               <div className={styles.username}>
                 {user.firstname} {user.surname}
+              </div>
+            </div>
+            <div className={styles.levelsContainer}>
+              <div className={styles.level}>
+                {t(D.PROFILE.points)} {user.gamification.xp}
+              </div>
+              <div className={styles.level}>
+                {t(D.PROFILE.level)} {user.gamification.level}
               </div>
             </div>
             <div className={styles.gaugesContainer}>

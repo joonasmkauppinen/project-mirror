@@ -228,6 +228,8 @@ export default {
   PROFILE: {
     title: { en: 'Profile tab', fi: 'Profiili-tabi' },
     teaser: { en: 'This is the Profile Tab', fi: 'Tää on Profiili-tabi' },
+    points: { en: 'points', fi: 'pisteet' },
+    level: { en: 'level', fi: 'taso' },
   },
 
   LOGOUT: {
