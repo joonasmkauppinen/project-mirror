@@ -228,6 +228,8 @@ export default {
   PROFILE: {
     title: { en: 'Profile tab', fi: 'Profiili-tabi' },
     teaser: { en: 'This is the Profile Tab', fi: 'Tää on Profiili-tabi' },
+    points: { en: 'points', fi: 'pisteet' },
+    level: { en: 'level', fi: 'taso' },
   },
 
   LOGOUT: {
@@ -289,6 +291,12 @@ export default {
     ends: { en: 'Ends', fi: 'Päättyy' },
     full_description: { en: 'Full Description', fi: 'Tapahtumakuvaus' },
     arranged_by: { en: 'Arranged By', fi: 'Järjestävä Organisaatio' },
+  },
+
+  POST_DETAILS: {
+    full_text: { en: 'Full Post', fi: 'Koko teksti' },
+    by_organization: { en: 'Posted By', fi: 'Lähettäjä' },
+    in_short: { en: 'In short', fi: 'Lyhyesti' },
   },
 
   DATE_FINNISH: setDateFormatToFinnish(),

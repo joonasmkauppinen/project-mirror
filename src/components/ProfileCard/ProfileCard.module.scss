@@ -3,11 +3,34 @@
 .cardContent {
   padding: 16px;
 
+  .levelsContainer {
+    display: flex;
+    flex-direction: row;
+    margin-top: 16px;
+    margin-bottom: 4px;
+
+    .level {
+      font-size: 20px;
+      font-weight: $thicc;
+      height: 40px;
+      background-color: $primary-color;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 38px;
+      padding: 0 16px;
+
+      &:first-child {
+        margin-right: 16px;
+      }
+    }
+  }
+
   .gaugesContainer {
     display: flex;
     flex-direction: column;
     padding-top: 12px;
-    padding-bottom: 12px;
   }
 
   .profileHeader {

@@ -6,12 +6,13 @@ import TabContainer from '../../../hoc/TabContainer';
 import { t } from '../../../utils/translate';
 import styles from './HomeTab.module.scss';
 import TabTitle from '../../../components/TabTitle';
-import IconButton from '../../../components/IconButton';
 import TaskList from '../../../components/TasksList';
 import Button from '../../../components/Button';
 import Dialog from '../../../components/Dialog/Dialog';
 import Text from '../../../components/Text';
 import PostList from '../../../components/PostList';
+import { isEmpty } from 'lodash-es';
+import LevelGauge from '../../../components/LevelGauge';
 
 const HomeTab = ({
   visible,
@@ -40,12 +41,12 @@ const HomeTab = ({
           {'\n'}
           {user.firstname}
         </Header>
-        <IconButton
-          icon={'info'}
-          onClick={() => {}}
-          style={{ alignSelf: 'flex-start', marginRight: '-16px' }}
-        />
+        <div className={styles.level}>
+          {!isEmpty(user) && user.gamification.level}
+        </div>
       </TabTitle>
+      {!isEmpty(user) && <LevelGauge user={user} />}
+
       <TaskList />
       <PostList />
       <Button

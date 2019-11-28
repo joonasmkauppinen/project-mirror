@@ -1,0 +1,112 @@
+@import '../../variables';
+
+.levelContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 36px;
+  margin-top: 16px;
+  .levelBar {
+    .level {
+      background-color: rgba(255, 239, 155, 0.5);
+      border-radius: 14px;
+      height: 40px;
+      position: relative;
+      display: flex;
+      flex-direction: row;
+
+      .filler {
+        background-color: $primary-color;
+        height: 100%;
+        border-radius: 14px;
+        min-width: 37px;
+        max-width: 100%;
+      }
+
+      .startLevel {
+        align-self: flex-start;
+        text-align: center;
+        font-size: 20px;
+        font-weight: $bold;
+        color: $main-bg-color;
+        height: 40px;
+        width: 40px;
+        line-height: 40px;
+        position: absolute;
+        left: 0;
+      }
+
+      .endLevel {
+        color: rgba(255, 239, 155, 0.5);
+        height: 36px;
+        width: 36px;
+        border: 2px solid rgba(255, 239, 155, 0.5);
+        border-radius: 14px;
+        font-size: 20px;
+        font-weight: $bold;
+        background-color: $main-bg-color;
+        align-self: flex-end;
+        text-align: center;
+        line-height: 36px;
+        position: absolute;
+        right: 0;
+      }
+
+      .levelValue {
+        width: 40px;
+        height: 40px;
+        background-color: $primary-color;
+        position: relative;
+        color: $main-bg-color;
+        font-size: 20px;
+        font-weight: $bold;
+        border-radius: 14px;
+        text-align: center;
+        line-height: 40px;
+        float: right;
+      }
+    }
+  }
+
+  .levelLabel {
+    font-size: $body-text-size;
+    color: $body-text-color;
+    font-weight: $semi-bold;
+    line-height: 14px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin: 0 15px 6px 15px;
+  }
+
+  .startLine {
+    @media (max-width: 360px) {
+      margin: 0 -20px;
+      width: 20px;
+    }
+    width: 32px;
+    margin: 0 -32px;
+    color: $primary-color;
+    border: 0;
+    border-bottom: 2px solid $primary-color;
+    position: absolute;
+    top:20px;
+    left: 0;
+    z-index: 20;
+  }
+
+  .endLine {
+    @media (max-width: 360px) {
+      margin: 0 -20px;
+      width: 20px;
+    }
+    margin: 0 -32px;
+    width: 32px;
+    color: rgba(255, 239, 155, 0.5);
+    border: 0;
+    border-bottom: 2px solid rgba(255, 239, 155, 0.5);
+    position: absolute;
+    top: 20px;
+    right: 0;
+  }
+}

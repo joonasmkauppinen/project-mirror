@@ -21,6 +21,7 @@ import TaskPage from '../pages/TaskPage';
 import SettingsPage from '../pages/SettingsPage';
 import OrgDetailPage from '../pages/OrgDetailPage';
 import EventDetailPage from '../pages/EventDetailPage';
+import PostDetailPage from '../pages/PostDetailPage';
 
 const App = () => {
   const location = useLocation();
@@ -34,6 +35,7 @@ const App = () => {
   const settings = () => (!auth() ? <Redirect to="/" /> : <SettingsPage />);
   const orgDetail = () => (!auth() ? <Redirect to="/" /> : <OrgDetailPage />);
   const evtDetail = () => (!auth() ? <Redirect to="/" /> : <EventDetailPage />);
+  const pstDetail = () => (!auth() ? <Redirect to="/" /> : <PostDetailPage />);
 
   return (
     <Provider store={store}>
@@ -46,6 +48,7 @@ const App = () => {
           >
             <Switch location={location}>
               <Route path="/task/:id" render={task} />
+              <Route path="/posts/:id" render={pstDetail} />
               <Route path="/events/:id" render={evtDetail} />
               <Route path="/orgs/:id" render={orgDetail} />
               <Route path="/settings" render={settings} />

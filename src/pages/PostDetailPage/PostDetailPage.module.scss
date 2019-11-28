@@ -1,16 +1,16 @@
 @import '../../variables.scss';
 
-.orgImage {
+.postImage {
   margin-top: 12px;
   object-fit: contain;
   flex: 0;
   max-height: 20%;
 }
 
-.orgPageContent {
+.postPageContent {
   margin-top: 12px;
 
-  .orgItem {
+  .postItem {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -33,7 +33,7 @@
       }
     }
 
-    .orgTextContainer {
+    .postTextContainer {
       display: flex;
       flex-direction: column;
       .header {
@@ -67,9 +67,6 @@
     }
   }
   .divider {
-    @media (max-width: 360px)  {
-      margin: 0 -16px;
-    }
     margin: 0 -32px;
     color: $card-bg-color;
     border: 0;
