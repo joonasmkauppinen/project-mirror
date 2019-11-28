@@ -6,6 +6,7 @@ import TabContainer from '../../../hoc/TabContainer';
 import { t } from '../../../utils/translate';
 import TabTitle from '../../../components/TabTitle';
 import IconButton from '../../../components/IconButton';
+import MessageList from '../../../components/MessageList';
 
 const ChatTab = ({ visible }) => {
   return (
@@ -19,6 +20,7 @@ const ChatTab = ({ visible }) => {
         />
       </TabTitle>
       <Text>This is the chat tab</Text>
+      <MessageList />
     </TabContainer>
   );
 };
