@@ -23,7 +23,6 @@ const TaskPage = () => {
   const [loadingTask, setLoadingTask] = useState(true);
   const [progress, setProgress] = useState(0);
   const [allQuestions, setAllQuestions] = useState([]);
-  const [refresh, setRefresh] = useState(false);
   const { id } = useParams();
   const { goBack } = useHistory();
 
@@ -41,21 +40,22 @@ const TaskPage = () => {
     taskGoNext();
     const nro = taskGetCurrentQuestionIndex();
     console.log(`Nyt pitäs siirtyy kysymykseen numero (indexi): ${nro}`);
+    const nextQuestionElement = document.getElementById(`question-${nro}`);
+    nextQuestionElement.scrollIntoView({ behavior: 'smooth' });
     updateProgress();
   };
 
   const updateProgress = () => {
-    setProgress(taskGetPercentageProgress);
+    const newPropgress = taskGetPercentageProgress();
+    console.log('New progress: ', newPropgress);
+    setProgress(newPropgress);
   };
 
   const handleOptionChange = (_event, index, value) => {
+    console.log(value);
     taskAnswerToQuestionByIndex(index, value);
     setAllQuestions(taskGetAllQuestionsData());
-    console.log(allQuestions);
-    const newProgress = taskGetPercentageProgress();
-    console.log('new progress: ', newProgress);
     updateProgress();
-    setRefresh(!refresh);
   };
 
   return (
@@ -75,6 +75,7 @@ const TaskPage = () => {
             const values = Object.values(options);
             return (
               <section
+                id={`question-${qIndex}`}
                 key={id}
                 className={styles.fillScreen}
                 style={{
@@ -84,7 +85,6 @@ const TaskPage = () => {
                 }}
               >
                 <ScrollableContent>
-                  <Text style={{ display: 'none' }}>{refresh}</Text>
                   <Header>{prompt}</Header>
                   {values.map(({ value, id }, oIndex) => {
                     return (
@@ -98,7 +98,6 @@ const TaskPage = () => {
                           value={value}
                         />
                         <Text style={{ display: 'inline-block' }}>{value}</Text>
-                        <br />
                       </label>
                     );
                   })}
