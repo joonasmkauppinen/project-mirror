@@ -10,7 +10,7 @@ const LevelGauge = ({ user }) => {
   const endXp = level * 25;
   const endLevel = level + 1;
   const startLevel = level;
-  const progress = Math.round((xp / endXp) * 100);
+  const progress = Math.round(((xp - startXp) / (endXp - startXp)) * 100);
   return (
     <div className={styles.levelContainer}>
       <div>
