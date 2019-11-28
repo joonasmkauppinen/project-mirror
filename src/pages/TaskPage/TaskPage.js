@@ -23,7 +23,7 @@ const TaskPage = () => {
   const [loadingTask, setLoadingTask] = useState(true);
   const [progress, setProgress] = useState(0);
   const [allQuestions, setAllQuestions] = useState([]);
-  const [rnd, setRnd] = useState(0);
+  const [refresh, setRefresh] = useState(false);
   const { id } = useParams();
   const { goBack } = useHistory();
 
@@ -43,22 +43,21 @@ const TaskPage = () => {
     console.log(`Nyt pitäs siirtyy kysymykseen numero (indexi): ${nro}`);
     updateProgress();
   };
-  const refreshStateVisibilities = () => {
-    setAllQuestions(taskGetAllQuestionsData());
-  };
+
   const updateProgress = () => {
     setProgress(taskGetPercentageProgress);
   };
+
   const handleOptionChange = (_event, index, value) => {
     taskAnswerToQuestionByIndex(index, value);
-    refreshStateVisibilities();
+    setAllQuestions(taskGetAllQuestionsData());
     console.log(allQuestions);
     const newProgress = taskGetPercentageProgress();
     console.log('new progress: ', newProgress);
     updateProgress();
-    setRnd(Math.random() * 1000000);
+    setRefresh(!refresh);
   };
-  console.log('Päivitetään...');
+
   return (
     <PageContainer>
       <Toolbar
@@ -85,7 +84,7 @@ const TaskPage = () => {
                 }}
               >
                 <ScrollableContent>
-                  <Text style={{ display: 'none' }}>{rnd}</Text>
+                  <Text style={{ display: 'none' }}>{refresh}</Text>
                   <Header>{prompt}</Header>
                   {values.map(({ value, id }, oIndex) => {
                     return (

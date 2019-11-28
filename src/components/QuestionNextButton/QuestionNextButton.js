@@ -5,7 +5,7 @@ import styles from './QuestionNextButton.module.scss';
 
 const QuestionNextButton = ({ label, onClick }) => (
   <div onClick={onClick} className={styles.container}>
-    <text className={styles.text}>{label}</text>
+    <div className={styles.text}>{label}</div>
     <Icons.arrowLongRight className={styles.arrow} />
   </div>
 );
