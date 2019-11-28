@@ -14,6 +14,8 @@ import {
   taskGetAllQuestionsData,
   taskGetPercentageProgress,
   taskAnswerToQuestionByIndex,
+  taskGoNext,
+  taskGetCurrentQuestionIndex,
 } from '../../utils/task';
 import NextButton from '../../components/QuestionNextButton';
 
@@ -35,9 +37,17 @@ const TaskPage = () => {
   }, [id]);
 
   const handleRightIconClick = () => alert('TODO: show task info');
-  const buttonClick = () => {};
+  const buttonClick = () => {
+    taskGoNext();
+    const nro = taskGetCurrentQuestionIndex();
+    console.log(`Nyt pitäs siirtyy kysymykseen numero (indexi): ${nro}`);
+    updateProgress();
+  };
   const refreshStateVisibilities = () => {
     setAllQuestions(taskGetAllQuestionsData());
+  };
+  const updateProgress = () => {
+    setProgress(taskGetPercentageProgress);
   };
   const handleOptionChange = (_event, index, value) => {
     taskAnswerToQuestionByIndex(index, value);
@@ -45,7 +55,7 @@ const TaskPage = () => {
     console.log(allQuestions);
     const newProgress = taskGetPercentageProgress();
     console.log('new progress: ', newProgress);
-    setProgress(taskGetPercentageProgress);
+    updateProgress();
     setRnd(Math.random() * 1000000);
   };
   console.log('Päivitetään...');
