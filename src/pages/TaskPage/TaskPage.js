@@ -38,11 +38,11 @@ const TaskPage = () => {
 
   const handleRightIconClick = () => alert('TODO: show task info');
   const buttonClick = () => {
+    taskGoNext();
     const nro = taskGetCurrentQuestionIndex();
     console.log(`Nyt pitäs siirtyy kysymykseen numero (indexi): ${nro}`);
     const nextQuestionElement = document.getElementById(`question-${nro}`);
     nextQuestionElement.scrollIntoView({ behavior: 'smooth' });
-    taskGoNext();
     updateProgress();
   };
 
