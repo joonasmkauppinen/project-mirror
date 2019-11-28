@@ -23,6 +23,7 @@ const TaskPage = () => {
   const [loadingTask, setLoadingTask] = useState(true);
   const [progress, setProgress] = useState(0);
   const [allQuestions, setAllQuestions] = useState([]);
+  const [refresh, setRefresh] = useState(false);
   const { id } = useParams();
   const { goBack } = useHistory();
 
@@ -37,11 +38,11 @@ const TaskPage = () => {
 
   const handleRightIconClick = () => alert('TODO: show task info');
   const buttonClick = () => {
-    taskGoNext();
     const nro = taskGetCurrentQuestionIndex();
     console.log(`Nyt pitäs siirtyy kysymykseen numero (indexi): ${nro}`);
     const nextQuestionElement = document.getElementById(`question-${nro}`);
     nextQuestionElement.scrollIntoView({ behavior: 'smooth' });
+    taskGoNext();
     updateProgress();
   };
 
@@ -56,6 +57,7 @@ const TaskPage = () => {
     taskAnswerToQuestionByIndex(index, value);
     setAllQuestions(taskGetAllQuestionsData());
     updateProgress();
+    setRefresh(!refresh);
   };
 
   return (
@@ -85,6 +87,7 @@ const TaskPage = () => {
                 }}
               >
                 <ScrollableContent>
+                  <div style={{ display: 'none' }}>{refresh}</div>
                   <Header>{prompt}</Header>
                   {values.map(({ value, id }, oIndex) => {
                     return (
