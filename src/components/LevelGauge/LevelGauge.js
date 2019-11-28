@@ -16,11 +16,11 @@ const LevelGauge = ({ user }) => {
       <div>
         <div className={styles.levelLabel} style={{ float: 'left' }}>
           <div>{startLevel}</div>
-          <div>⃓</div>
+          <div className={styles.pipe} />
         </div>
         <div className={styles.levelLabel} style={{ float: 'right' }}>
           <div>{endLevel}</div>
-          <div>⃓</div>
+          <div className={styles.pipe} />
         </div>
       </div>
       <div className={styles.levelBar}>
