@@ -72,11 +72,19 @@
     font-size: $body-text-size;
     color: $body-text-color;
     font-weight: $semi-bold;
-    line-height: 14px;
+    line-height: 18px;
     text-align: center;
     display: flex;
     flex-direction: column;
     margin: 0 15px 6px 15px;
+    justify-content: center;
+
+    .pipe {
+      height: 6px;
+      width: 2px;
+      background-color: $body-text-color;
+      align-self: center;
+    }
   }
 
   .startLine {

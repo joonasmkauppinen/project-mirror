@@ -1,0 +1,70 @@
+@import "../../variables";
+.messagesContainer {
+
+  .message {
+    height: 50px;
+    margin: 20px 0;
+    display: flex;
+    width: 100%;
+    align-items: center;
+
+    .icon {
+      height: 50px;
+      width: 50px;
+      border-radius: 25px;
+      background-color: $card-bg-color;
+      color: $primary-color;
+      text-transform: uppercase;
+      font-size: 23px;
+      font-weight: $bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 16px;
+      flex-shrink: 0;
+    }
+
+    .text {
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+
+      .messageTitle {
+        font-size: 20px;
+        color: $title-text-color;
+        font-weight: $semi-bold;
+        text-overflow: ellipsis;
+        overflow-x: hidden;
+        white-space: nowrap;
+        line-height: 20px;
+      }
+
+      .messageContent {
+        font-size: $body-text-size;
+        color: $body-text-color;
+        line-height: 30px;
+        text-overflow: ellipsis;
+        overflow-x: hidden;
+        white-space: nowrap;
+      }
+    }
+
+    .endIcon {
+      height: 50px;
+      width: 50px;
+      flex-shrink: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      svg {
+        transform: matrix(-1, 0, 0, 1, 0, 0);
+        height: 20px;
+        width: 10px;
+        path {
+          fill: $card-detail-color;
+        }
+      }
+    }
+
+  }
+}

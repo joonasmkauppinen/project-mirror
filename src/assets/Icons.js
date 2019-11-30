@@ -27,23 +27,30 @@ import { ReactComponent as FilledLocationPinIcon } from './svg/location-pin-fill
 import { ReactComponent as ArrowLongRight } from './svg/arrow-long-right.svg';
 import { ReactComponent as LanguageIcon } from './svg/language_ic.svg';
 import { ReactComponent as PhoneIcon } from './svg/phone_ic.svg';
+import { ReactComponent as CircleCheckIcon } from './svg/circle_check_ic.svg';
+import { ReactComponent as DoubleNextIcon } from './svg/double_next.svg';
+import { ReactComponent as TrophyIcon } from './svg/trophy.svg';
+import { ReactComponent as LevelUpIcon } from './svg/level-up.svg';
 
 const Icons = {
   alert: AlertIcon,
   avatar: AvatarIcon,
   back: BackIcon,
   check: CheckIcon,
+  checkCircle: CircleCheckIcon,
   close: CloseIcon,
   chat: ChatIcon,
   chatFilled: FilledChatIcon,
   cross: CrossIcon,
   discover: DiscoverIcon,
   discoverFilled: FilledDiscoverIcon,
+  doubleNext: DoubleNextIcon,
   home: HomeIcon,
   homeFilled: FilledHomeIcon,
   info: InfoIcon,
   infoFilled: FilledInfoIcon,
   language: LanguageIcon,
+  levelUp: LevelUpIcon,
   location: LocationIcon,
   locationPin: LocationPinIcon,
   locationPinFilled: FilledLocationPinIcon,
@@ -58,6 +65,7 @@ const Icons = {
   search: SearchIcon,
   settings: SettingsIcon,
   arrowLongRight: ArrowLongRight,
+  trophy: TrophyIcon,
 };
 
 export default Icons;
