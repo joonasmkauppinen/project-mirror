@@ -1,31 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import style from './ScrollableContent.module.scss';
-// import handleScroll from '../../utils/scrollHandler';
+import styles from './ScrollableContent.module.scss';
 
-const ScrollableContent = ({ children }) => {
-  // const ref = useRef(null);
-
-  // useEffect(() => {
-  //   ref.current.addEventListener('touchstart', () => {
-  //     console.log('handleScroll()');
-  //     handleScroll(ref);
-  //   });
-  // }, []);
-
-  return (
-    <div
-      // ref={ref}
-      // onScroll={() => handleScroll(ref)}
-      className={style.scrollableContent}
-    >
-      {children}
-    </div>
-  );
+const ScrollableContent = ({ children, superClass }) => {
+  const classes = [styles.scrollableContent];
+  superClass && classes.push(superClass);
+  return <div className={classes.join(' ')}>{children}</div>;
 };
 
 ScrollableContent.propTypes = {
   children: PropTypes.node.isRequired,
+  superClass: PropTypes.string,
 };
 
 export default ScrollableContent;

@@ -25,6 +25,28 @@ let taskQuestionAnswers = [];
 let taskLatestError = '';
 let taskVariables = [];
 
+/* Go to question by index */
+const taskGoToQuestion = index => {
+  if (!taskInitialized) {
+    taskLatestError = 'Cannot GoToQuestion, task is not initialized.';
+    return false;
+  }
+  if (index > taskQuestions.length) {
+    taskLatestError =
+      'Index out of the bounds (higher than maximum value passed).';
+    return false;
+  }
+  if (index < 0) {
+    taskLatestError = 'Index out of the bounds (lower than zero value passed).';
+    return false;
+  }
+  if (!taskQuestions[index].logicalPolarity) {
+    taskLatestError = 'This question is not open (logicalPolarity is false).';
+    return false;
+  }
+  return true;
+};
+
 /* Go to next question */
 const taskGoNext = () => {
   if (!taskInitialized) {
@@ -93,7 +115,6 @@ const taskAnswerToQuestionByIndex = (index, answer) => {
   }
   taskQuestionAnswers[index] = { answer: answer, mathValue: mathValue };
   taskIterate();
-  taskGoNext();
   return true;
 };
 
@@ -240,6 +261,7 @@ export {
   taskAnswerToQuestionByIndex,
   taskGoBack,
   taskGoNext,
+  taskGoToQuestion,
   taskIsFinished,
   taskSubmitData,
   taskGetTaskInitialized,

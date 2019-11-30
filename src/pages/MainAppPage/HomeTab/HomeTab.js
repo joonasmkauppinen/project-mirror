@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Header from '../../../components/Header';
 import TabContainer from '../../../hoc/TabContainer';
@@ -6,8 +7,8 @@ import { t } from '../../../utils/translate';
 import styles from './HomeTab.module.scss';
 import TabTitle from '../../../components/TabTitle';
 import TaskList from '../../../components/TasksList';
-import Dialog from '../../../components/Dialog/Dialog';
 import Button from '../../../components/Button';
+import Dialog from '../../../components/Dialog/Dialog';
 import Text from '../../../components/Text';
 import PostList from '../../../components/PostList';
 import { isEmpty } from 'lodash-es';
@@ -22,7 +23,8 @@ const HomeTab = ({
   user,
 }) => {
   const [showDialog, setShowDialog] = useState(false);
-
+  const { push } = useHistory();
+  const navigateToTask = () => push('/task');
   useEffect(() => {
     if (visible) {
       loadTasks();
@@ -47,6 +49,11 @@ const HomeTab = ({
 
       <TaskList />
       <PostList />
+      <Button
+        label="Test task"
+        onClick={navigateToTask}
+        style={{ marginBottom: '24px' }}
+      />
       <Button label="Show test dialog" onClick={() => setShowDialog(true)} />
       <Dialog
         header="Test dialog"

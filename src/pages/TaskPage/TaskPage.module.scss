@@ -1,0 +1,27 @@
+.root {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+
+  .hided {
+    background: #face00;
+    display: none !important;
+  }
+
+  .fillScreen {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 auto;
+    width: 100vw;
+    align-self: stretch;
+    scroll-snap-align: center;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}

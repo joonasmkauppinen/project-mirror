@@ -275,6 +275,9 @@ export default {
     events: { en: 'New events', fi: 'Uudet tapahtumat' },
   },
 
+  QUESTIONNAIRE: {
+    start: { en: 'Start', fi: 'Aloita' },
+  },
   ORG_DETAILS: {
     description: { en: 'Description', fi: 'Kuvaus' },
     website: { en: 'Organization website', fi: 'Organisaation nettisivut' },
