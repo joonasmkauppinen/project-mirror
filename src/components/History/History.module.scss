@@ -1,0 +1,46 @@
+@import '../../variables';
+
+.historyContainer {
+  .historyItem {
+    display: flex;
+    flex-direction: row;
+    overflow-x: hidden;
+    .title {
+      font-weight: $bold;
+      font-size: $body-text-size;
+      color: $title-text-color;
+      line-height: 24px;
+    }
+
+    .teaser {
+      font-size: $font-medium;
+      color: $body-text-color;
+      line-height: 22px;
+    }
+
+    .level {
+      height: 57px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .trophy {
+      height: 64px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+    .content {
+      margin: 13px 0 13px 8px;
+    }
+  }
+  .verticalLine {
+    width: 100%;
+    height: 24px;
+    border-left: 1px solid $primary-color;
+    margin-left: 28px;
+  }
+}
