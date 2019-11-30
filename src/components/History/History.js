@@ -30,6 +30,7 @@ const History = ({ history, loading, error }) => {
                     points={item.xp}
                     title={item.title}
                     description={item.subtitle}
+                    onClick={() => console.log('Öpen task result screen')}
                   />
                 );
                 break;
@@ -42,6 +43,8 @@ const History = ({ history, loading, error }) => {
                 element = (
                   <Level description={item.description} title={item.title} />
                 );
+                break;
+              default:
                 break;
             }
             return (
@@ -81,6 +84,7 @@ Level.propTypes = {
 };
 
 const Trophy = ({ title, subtitle }) => {
+  // TODO: Add onClick that opens image in dialog component
   return (
     <div className={styles.trophy}>
       <Icons.trophy />

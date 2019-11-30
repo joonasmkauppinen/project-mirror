@@ -53,6 +53,7 @@ const ProfileTab = ({
         title={'Test'}
         points={100}
         completed
+        onClick={() => console.log('Öpen task result screen')}
       />
       <History history={userHistory} />
     </TabContainer>

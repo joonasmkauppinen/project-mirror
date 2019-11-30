@@ -3,7 +3,7 @@ import styles from './Task.module.scss';
 import PropTypes from 'prop-types';
 import Icons from '../../assets/Icons';
 
-const Task = ({ title, description, completed, points }) => {
+const Task = ({ title, description, completed, points, onClick }) => {
   const classes = [styles.task];
   let icon = <Icons.doubleNext />;
 
@@ -14,7 +14,7 @@ const Task = ({ title, description, completed, points }) => {
   return (
     <div className={classes.join(' ')}>
       <div className={styles.completedIndicator} />
-      <div className={styles.content}>
+      <div className={styles.content} onClick={onClick}>
         <div className={styles.textContainer}>
           <div className={styles.title}>{title}</div>
           <div className={styles.teaser}>{description}</div>
@@ -33,6 +33,7 @@ Task.propTypes = {
   description: PropTypes.string,
   completed: PropTypes.bool,
   points: PropTypes.number,
+  onClick: PropTypes.func,
 };
 
 export default Task;
