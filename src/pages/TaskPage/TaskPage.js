@@ -24,8 +24,8 @@ const TaskPage = () => {
   const [loadingTask, setLoadingTask] = useState(true);
   const [progress, setProgress] = useState(0);
   const [allQuestions, setAllQuestions] = useState([]);
-  const [nextQuestionIndex, setNextQuestionIndex] = useState();
-  const [previousQuestionIndex, setPreviousQuestionIndex] = useState();
+  // const [nextQuestionIndex, setNextQuestionIndex] = useState();
+  // const [previousQuestionIndex, setPreviousQuestionIndex] = useState();
   const [inViewQuestionIndex, setInViewQuestionIndex] = useState();
   const [refresh, setRefresh] = useState(false);
   const { id } = useParams();
@@ -40,28 +40,26 @@ const TaskPage = () => {
   }, [id]);
 
   useEffect(() => {
-    checkNextQuestionIndex();
-    checkPreviousQuestionIndex();
     console.log('in view question index: ', inViewQuestionIndex);
-    console.log('next question index: ', nextQuestionIndex);
-    console.log('previous question index: ', previousQuestionIndex);
-  }, [inViewQuestionIndex, nextQuestionIndex, previousQuestionIndex]);
+    // console.log('next question index: ', nextQuestionIndex);
+    // console.log('previous question index: ', previousQuestionIndex);
+  }, [inViewQuestionIndex]);
 
-  const checkNextQuestionIndex = () => {
-    const next = allQuestions.findIndex(
-      ({ logicalPolarity }, index) =>
-        index > inViewQuestionIndex && logicalPolarity,
-    );
-    setNextQuestionIndex(next);
-  };
+  // const checkNextQuestionIndex = () => {
+  //   const next = allQuestions.findIndex(
+  //     ({ logicalPolarity }, index) =>
+  //       index > inViewQuestionIndex && logicalPolarity,
+  //   );
+  //   setNextQuestionIndex(next);
+  // };
 
-  const checkPreviousQuestionIndex = () => {
-    const previous = allQuestions.findIndex(
-      ({ logicalPolarity }, index) =>
-        index < inViewQuestionIndex && logicalPolarity,
-    );
-    setPreviousQuestionIndex(previous);
-  };
+  // const checkPreviousQuestionIndex = () => {
+  //   const previous = allQuestions.findIndex(
+  //     ({ logicalPolarity }, index) =>
+  //       index < inViewQuestionIndex && logicalPolarity,
+  //   );
+  //   setPreviousQuestionIndex(previous);
+  // };
 
   const handleRightIconClick = () => alert('TODO: show task info');
   const buttonClick = () => {
