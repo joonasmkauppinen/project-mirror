@@ -18,23 +18,50 @@ import {
   taskGetCurrentQuestionIndex,
 } from '../../utils/task';
 import NextButton from '../../components/QuestionNextButton';
+import { InView } from 'react-intersection-observer';
 
 const TaskPage = () => {
   const [loadingTask, setLoadingTask] = useState(true);
   const [progress, setProgress] = useState(0);
   const [allQuestions, setAllQuestions] = useState([]);
+  const [nextQuestionIndex, setNextQuestionIndex] = useState();
+  const [previousQuestionIndex, setPreviousQuestionIndex] = useState();
+  const [inViewQuestionIndex, setInViewQuestionIndex] = useState();
   const [refresh, setRefresh] = useState(false);
   const { id } = useParams();
   const { goBack } = useHistory();
 
   useEffect(() => {
     (async () => {
-      const response = await taskInit(id);
+      await taskInit(id);
       setAllQuestions(taskGetAllQuestionsData());
       setLoadingTask(false);
-      console.log(response);
     })();
   }, [id]);
+
+  useEffect(() => {
+    checkNextQuestionIndex();
+    checkPreviousQuestionIndex();
+    console.log('in view question index: ', inViewQuestionIndex);
+    console.log('next question index: ', nextQuestionIndex);
+    console.log('previous question index: ', previousQuestionIndex);
+  }, [inViewQuestionIndex]);
+
+  const checkNextQuestionIndex = () => {
+    const next = allQuestions.findIndex(
+      ({ logicalPolarity }, index) =>
+        index > inViewQuestionIndex && logicalPolarity,
+    );
+    setNextQuestionIndex(next);
+  };
+
+  const checkPreviousQuestionIndex = () => {
+    const previous = allQuestions.findIndex(
+      ({ logicalPolarity }, index) =>
+        index < inViewQuestionIndex && logicalPolarity,
+    );
+    setPreviousQuestionIndex(previous);
+  };
 
   const handleRightIconClick = () => alert('TODO: show task info');
   const buttonClick = () => {
@@ -52,12 +79,18 @@ const TaskPage = () => {
     setProgress(newPropgress);
   };
 
-  const handleOptionChange = (_event, index, value) => {
-    console.log(value);
+  const handleOptionChange = (index, value) => {
     taskAnswerToQuestionByIndex(index, value);
     setAllQuestions(taskGetAllQuestionsData());
     updateProgress();
     setRefresh(!refresh);
+  };
+
+  const handleInViewChange = (inView, entry) => {
+    if (inView) {
+      const index = entry.target.dataset.questionIndex;
+      setInViewQuestionIndex(index);
+    }
   };
 
   return (
@@ -76,7 +109,11 @@ const TaskPage = () => {
           {allQuestions.map(({ id, prompt, options }, qIndex) => {
             const values = Object.values(options);
             return (
-              <section
+              <InView
+                as="section"
+                onChange={handleInViewChange}
+                threshold={0.75}
+                data-question-index={qIndex}
                 id={`question-${qIndex}`}
                 key={id}
                 className={styles.fillScreen}
@@ -93,9 +130,7 @@ const TaskPage = () => {
                     return (
                       <label key={`q${qIndex}-${oIndex}`}>
                         <input
-                          onChange={event =>
-                            handleOptionChange(event, qIndex, id)
-                          }
+                          onChange={() => handleOptionChange(qIndex, id)}
                           type="radio"
                           name={`q${qIndex}`}
                           value={value}
@@ -106,7 +141,7 @@ const TaskPage = () => {
                   })}
                 </ScrollableContent>
                 <NextButton label="seuraava" onClick={buttonClick} />
-              </section>
+              </InView>
             );
           })}
         </div>
