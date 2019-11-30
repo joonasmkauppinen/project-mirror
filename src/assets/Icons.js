@@ -28,6 +28,8 @@ import { ReactComponent as LanguageIcon } from './svg/language_ic.svg';
 import { ReactComponent as PhoneIcon } from './svg/phone_ic.svg';
 import { ReactComponent as CircleCheckIcon } from './svg/circle_check_ic.svg';
 import { ReactComponent as DoubleNextIcon } from './svg/double_next.svg';
+import { ReactComponent as TrophyIcon } from './svg/trophy.svg';
+import { ReactComponent as LevelUpIcon } from './svg/level-up.svg';
 
 const Icons = {
   alert: AlertIcon,
@@ -47,6 +49,7 @@ const Icons = {
   info: InfoIcon,
   infoFilled: FilledInfoIcon,
   language: LanguageIcon,
+  levelUp: LevelUpIcon,
   location: LocationIcon,
   locationPin: LocationPinIcon,
   locationPinFilled: FilledLocationPinIcon,
@@ -60,6 +63,7 @@ const Icons = {
   scroll: ScrollIcon,
   search: SearchIcon,
   settings: SettingsIcon,
+  trophy: TrophyIcon,
 };
 
 export default Icons;

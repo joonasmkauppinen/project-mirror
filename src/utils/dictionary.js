@@ -230,6 +230,7 @@ export default {
     teaser: { en: 'This is the Profile Tab', fi: 'Tää on Profiili-tabi' },
     points: { en: 'points', fi: 'pisteet' },
     level: { en: 'level', fi: 'taso' },
+    history: { en: 'My history', fi: 'Oma historia' },
   },
 
   LOGOUT: {
