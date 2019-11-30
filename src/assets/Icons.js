@@ -26,18 +26,22 @@ import { ReactComponent as LocationPinIcon } from './svg/location-pin-outline_ic
 import { ReactComponent as FilledLocationPinIcon } from './svg/location-pin-filled_ic.svg';
 import { ReactComponent as LanguageIcon } from './svg/language_ic.svg';
 import { ReactComponent as PhoneIcon } from './svg/phone_ic.svg';
+import { ReactComponent as CircleCheckIcon } from './svg/circle_check_ic.svg';
+import { ReactComponent as DoubleNextIcon } from './svg/double_next.svg';
 
 const Icons = {
   alert: AlertIcon,
   avatar: AvatarIcon,
   back: BackIcon,
   check: CheckIcon,
+  checkCircle: CircleCheckIcon,
   close: CloseIcon,
   chat: ChatIcon,
   chatFilled: FilledChatIcon,
   cross: CrossIcon,
   discover: DiscoverIcon,
   discoverFilled: FilledDiscoverIcon,
+  doubleNext: DoubleNextIcon,
   home: HomeIcon,
   homeFilled: FilledHomeIcon,
   info: InfoIcon,
