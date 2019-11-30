@@ -3,11 +3,14 @@ import styles from './Gauge.module.scss';
 import PropTypes from 'prop-types';
 
 // eslint-disable-next-line no-unused-vars
-const Gauge = ({ percentage, title }) => {
+const Gauge = ({ percentage, title, gaugeBackground }) => {
   return (
     <div className={styles.gaugeContainer}>
       {title && <div className={styles.gaugeTitle}>{title}</div>}
-      <div className={styles.gauge}>
+      <div
+        className={styles.gauge}
+        style={{ backgroundColor: gaugeBackground }}
+      >
         <div className={styles.filler} style={{ width: `${percentage}%` }}>
           <div className={styles.gaugeValue}>{percentage}%</div>
         </div>
@@ -18,7 +21,8 @@ const Gauge = ({ percentage, title }) => {
 
 Gauge.propTypes = {
   percentage: PropTypes.number,
-  title: PropTypes.string.isRequired,
+  gaugeBackground: PropTypes.string,
+  title: PropTypes.string,
 };
 
 export default Gauge;

@@ -22,32 +22,50 @@ import { ReactComponent as AvatarIcon } from './svg/avatar.svg';
 import { ReactComponent as LocationIcon } from './svg/location_ic.svg';
 import { ReactComponent as NotificationIcon } from './svg/notification_ic.svg';
 import { ReactComponent as FilledPeiliIcon } from './svg/peili-official-logo_ic.svg';
+import { ReactComponent as LocationPinIcon } from './svg/location-pin-outline_ic.svg';
+import { ReactComponent as FilledLocationPinIcon } from './svg/location-pin-filled_ic.svg';
+import { ReactComponent as ArrowLongRight } from './svg/arrow-long-right.svg';
+import { ReactComponent as LanguageIcon } from './svg/language_ic.svg';
+import { ReactComponent as PhoneIcon } from './svg/phone_ic.svg';
+import { ReactComponent as CircleCheckIcon } from './svg/circle_check_ic.svg';
+import { ReactComponent as DoubleNextIcon } from './svg/double_next.svg';
+import { ReactComponent as TrophyIcon } from './svg/trophy.svg';
+import { ReactComponent as LevelUpIcon } from './svg/level-up.svg';
 
 const Icons = {
   alert: AlertIcon,
   avatar: AvatarIcon,
   back: BackIcon,
   check: CheckIcon,
+  checkCircle: CircleCheckIcon,
   close: CloseIcon,
   chat: ChatIcon,
   chatFilled: FilledChatIcon,
   cross: CrossIcon,
   discover: DiscoverIcon,
   discoverFilled: FilledDiscoverIcon,
+  doubleNext: DoubleNextIcon,
   home: HomeIcon,
   homeFilled: FilledHomeIcon,
   info: InfoIcon,
   infoFilled: FilledInfoIcon,
+  language: LanguageIcon,
+  levelUp: LevelUpIcon,
   location: LocationIcon,
+  locationPin: LocationPinIcon,
+  locationPinFilled: FilledLocationPinIcon,
   notification: NotificationIcon,
   peili: PeiliIcon,
   peiliFilled: FilledPeiliIcon,
+  phone: PhoneIcon,
   profile: ProfileIcon,
   profileFilled: FilledProfileIcon,
   robot: RobotIcon,
   scroll: ScrollIcon,
   search: SearchIcon,
   settings: SettingsIcon,
+  arrowLongRight: ArrowLongRight,
+  trophy: TrophyIcon,
 };
 
 export default Icons;

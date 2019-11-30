@@ -7,6 +7,8 @@ import TabContainer from '../../../hoc/TabContainer';
 import TabTitle from '../../../components/TabTitle';
 import IconButton from '../../../components/IconButton';
 import ProfileCard from '../../../components/ProfileCard';
+import History from '../../../components/History';
+import Task from '../../../components/Task';
 
 const ProfileTab = ({
   visible,
@@ -16,20 +18,27 @@ const ProfileTab = ({
   loadGauges,
   error,
   loading,
+  loadHistory,
+  userHistory,
 }) => {
   const history = useHistory();
   useEffect(() => {
     if (visible) {
       loadUser();
       loadGauges();
+      loadHistory();
     }
-  }, [visible, loadGauges, loadUser]);
+  }, [visible, loadGauges, loadUser, loadHistory]);
   const handleSettingsClick = () => history.push('/settings');
   return (
     <TabContainer active={visible}>
       <TabTitle>
         <Header>{t('TABS.profile')}</Header>
-        <IconButton icon={'settings'} onClick={handleSettingsClick} />
+        <IconButton
+          icon={'settings'}
+          onClick={handleSettingsClick}
+          style={{ marginRight: '-16px' }}
+        />
       </TabTitle>
       <div style={{ padding: '16px 0' }}>
         <ProfileCard
@@ -39,6 +48,14 @@ const ProfileTab = ({
           loading={loading}
         />
       </div>
+      <Task
+        description={'This is some overly long line of text that will overflow'}
+        title={'Test'}
+        points={100}
+        completed
+        onClick={() => console.log('Öpen task result screen')}
+      />
+      <History history={userHistory} />
     </TabContainer>
   );
 };
@@ -51,6 +68,8 @@ ProfileTab.propTypes = {
   loadGauges: PropTypes.func,
   error: PropTypes.string,
   loading: PropTypes.bool,
+  loadHistory: PropTypes.func,
+  userHistory: PropTypes.array,
 };
 
 export default ProfileTab;

@@ -6,31 +6,21 @@ import TabContainer from '../../../hoc/TabContainer';
 import { t } from '../../../utils/translate';
 import TabTitle from '../../../components/TabTitle';
 import IconButton from '../../../components/IconButton';
-
-import {
-  taskInit,
-  taskGetTaskQuestionsCount,
-  taskGetCurrentQuestionData,
-} from '../../../utils/task';
+import MessageList from '../../../components/MessageList';
 
 const ChatTab = ({ visible }) => {
-  taskInit(2).then(response => {
-    console.log('Task is initialized');
-    console.log(response);
-    console.log(`Task has Number of questions: ${taskGetTaskQuestionsCount()}`);
-    console.log('Current Question:');
-    console.log(taskGetCurrentQuestionData());
-  });
-
   return (
     <TabContainer active={visible}>
       <TabTitle>
         <Header>{t('TABS.chat')}</Header>
-        <IconButton icon={'robot'} onClick={() => {}} />
+        <IconButton
+          icon={'robot'}
+          onClick={() => {}}
+          style={{ marginRight: '-16px' }}
+        />
       </TabTitle>
       <Text>This is the chat tab</Text>
-      <Text>Question: #/#</Text>
-      <Text>Percent: #</Text>
+      <MessageList />
     </TabContainer>
   );
 };

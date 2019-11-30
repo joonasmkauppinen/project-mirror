@@ -1,7 +1,7 @@
 @import '../../variables';
 
 .gaugeContainer {
-  width: 100%;
+  flex: 1;
   margin-bottom: 12px;
   margin-top: 12px;
 
@@ -23,6 +23,7 @@
     height: 100%;
     border-radius: inherit;
     min-width: 37px;
+    transition: width 400ms $timing;
   }
 
   .gaugeValue {

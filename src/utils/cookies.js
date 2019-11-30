@@ -11,7 +11,7 @@
                                           
 */
 
-/* Delete Cookie */
+/* Delete Stored Cookie */
 const deleteCookie = cname => {
   setCookie(cname, '', -1);
 };
@@ -24,7 +24,7 @@ const setCookie = (cname, cvalue, ctime = 2592000000) => {
   document.cookie = cname + '=' + cvalue + ';' + expires + ';path=/';
 };
 
-/* Get Browser Cookie */
+/* Get a Stored Browser Cookie */
 const getCookie = cname => {
   const name = cname + '=';
   const decodedCookie = decodeURIComponent(document.cookie);

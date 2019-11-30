@@ -23,7 +23,6 @@
       flex: 1;
     }
 
-    // TODO: replace with image from org
     svg {
       height: 20px;
       width: 20px;
@@ -31,11 +30,27 @@
         fill: $primary-color;
       }
     }
+
+    .orgImageContainer {
+      width: 35px;
+      height: 35px;
+      border-radius: 18px;
+      background-color: $tab-bar-color;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .orgImage {
+        height: 32px;
+        width: 32px;
+        object-fit: contain;
+      }
+    }
   }
 
   .postImage {
-    max-height: 347px;
+    max-height: 320px;
     width: 100%;
+    object-fit: contain;
   }
 
   .time {

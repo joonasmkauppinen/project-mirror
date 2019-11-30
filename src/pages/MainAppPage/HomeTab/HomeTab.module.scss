@@ -3,3 +3,16 @@
   color: $body-text-color;
   font-weight: $medium;
 }
+
+.level {
+  align-self: flex-start;
+  height: 36px;
+  width: 36px;
+  font-weight: $thicc;
+  font-size: 20px;
+  background-color: $primary-color;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

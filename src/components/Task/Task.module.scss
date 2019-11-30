@@ -1,0 +1,86 @@
+@import '../../variables';
+
+.task {
+  border-radius: 4px 10px 10px 4px;
+  height: 88px;
+  background-color: $card-bg-color;
+  display: flex;
+  flex-direction: row;
+
+  .content {
+    margin: 16px 16px 16px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    min-width: 0;
+    cursor: pointer;
+  }
+
+  .textContainer {
+    flex: 1;
+    max-width: 90%;
+  }
+
+  .title {
+    font-weight: $bold;
+    font-size: $body-text-size;
+    color: $title-text-color;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .teaser {
+    font-size: $font-medium;
+    color: $body-text-color;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .endContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 8px;
+  }
+
+  .points {
+    font-weight: $bold;
+    font-size: 11px;
+    color: $primary-color;
+    margin-top: 8px;
+  }
+
+  svg path {
+    stroke: $primary-color;
+  }
+
+  .completedIndicator {
+    background-color: #44464D;
+    border-radius: 4px 0 0 4px;
+    width: 5px;
+    height: 100%;
+    flex-shrink: 0;
+  }
+
+  &.completed {
+    svg {
+      path {
+        stroke: $success-color;
+      }
+      circle {
+        stroke: $success-color;
+      }
+    }
+
+    .completedIndicator {
+      background-color: $success-color;
+    }
+    .points {
+      color: $card-placeholder-color;
+    }
+  }
+}

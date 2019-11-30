@@ -18,8 +18,11 @@ export const loadOrgs = () => async dispatch => {
   }
 };
 
-export const likeOrganization = org => async dispatch => {
+export const likeOrganization = (org, following) => async dispatch => {
   const params = { organization_id: org.id };
+  if (following) {
+    params.unlike = true;
+  }
   const res = await apiCall('organizations-like', params);
   console.log(res);
   dispatch({

@@ -1,8 +1,6 @@
 @import '../../variables.scss';
 
 .settingsPageContent {
-  margin: 32px;
-
   .horizontalLine {
     height: 1px;
     border-bottom: 1px solid $card-bg-color;
@@ -29,7 +27,7 @@
     .textContainer {
       display: flex;
       flex-direction: column;
-
+      width: 100%;
       .header {
         font-size: $font-small;
         text-transform: uppercase;

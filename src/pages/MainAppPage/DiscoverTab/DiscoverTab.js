@@ -8,25 +8,32 @@ import TabTitle from '../../../components/TabTitle';
 import Header from '../../../components/Header';
 import { t } from '../../../utils/translate';
 import OrgsList from '../../../components/OrgsList';
+import EventList from '../../../components/EventList';
 
 const test = () => {
   console.log('Test');
 };
 
-const DiscoverTab = ({ visible, loadOrgs }) => {
+const DiscoverTab = ({ visible, loadOrgs, loadEvents, events }) => {
   const [value, setValue] = useState(false);
   useEffect(() => {
     if (visible) {
       loadOrgs();
+      loadEvents();
     }
-  }, [loadOrgs, visible]);
+  }, [loadOrgs, loadEvents, visible]);
   return (
     <TabContainer active={visible}>
       <TabTitle>
         <Header>{t('TABS.discover')}</Header>
-        <IconButton icon={'search'} onClick={test} />
+        <IconButton
+          icon={'search'}
+          onClick={test}
+          style={{ marginRight: '-16px' }}
+        />
       </TabTitle>
       <OrgsList />
+      <EventList events={events} />
       <Text>This is the discover tab</Text>
       <IconButton onClick={test} icon={'info'} />
       <Toggle isOn={value} handleToggle={() => setValue(!value)} />
@@ -37,6 +44,8 @@ const DiscoverTab = ({ visible, loadOrgs }) => {
 DiscoverTab.propTypes = {
   visible: PropTypes.bool,
   loadOrgs: PropTypes.func,
+  loadEvents: PropTypes.func,
+  events: PropTypes.array,
 };
 
 export default DiscoverTab;

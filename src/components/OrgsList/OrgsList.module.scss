@@ -7,6 +7,11 @@
   margin-left: -24px;
   margin-right: -24px;
 
+  @media (max-width: 360px)  {
+    margin-left: -16px;
+    margin-right: -16px;
+  }
+
   .org {
     margin-right: 16px;
     height: 180px;
@@ -17,7 +22,7 @@
     }
 
     &:last-child {
-      margin-right: 24px;
+      padding-right: 24px;
     }
 
     .orgCard {
@@ -50,10 +55,20 @@
       margin-top: 8px;
     }
 
-    .orgImage {
+    .imageContainer {
+      background-color: $tab-bar-color;
       height: 80px;
       width: 80px;
       border-radius: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .orgImage {
+      height: 72px;
+      width: 72px;
+      object-fit: contain;
     }
   }
   ::-webkit-scrollbar {

@@ -18,7 +18,6 @@ const OrgsList = ({ organizations, loading, error, likeOrg }) => {
       state: org,
     });
   };
-  // TODO: use organization image
   return (
     <>
       <Subheader>{t(D.DISCOVER.organizations)}</Subheader>
@@ -32,7 +31,17 @@ const OrgsList = ({ organizations, loading, error, likeOrg }) => {
             >
               <Card superClass={styles.orgCard}>
                 <div className={styles.cardContent}>
-                  <Icons.peili />
+                  <div className={styles.imageContainer}>
+                    {org.image ? (
+                      <img
+                        src={org.image}
+                        alt="organization"
+                        className={styles.orgImage}
+                      />
+                    ) : (
+                      <Icons.peili />
+                    )}
+                  </div>
                   <p className={styles.cardText}>{org.name}</p>
                 </div>
               </Card>

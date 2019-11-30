@@ -1,17 +1,11 @@
 import PostList from './PostList';
 import { connect } from 'react-redux';
 import { pick } from 'lodash-es';
-import { loadPosts } from '../../store/posts/actions';
 
 function mapStateToProps(state) {
-  return pick(state.posts, ['posts', 'loading', 'error']);
+  const newState = pick(state.posts, ['posts', 'loading', 'error']);
+  newState.orgs = state.organizations.organizations;
+  return newState;
 }
 
-const mapDispatchToProps = {
-  loadPosts,
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(PostList);
+export default connect(mapStateToProps)(PostList);
