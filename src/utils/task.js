@@ -113,6 +113,9 @@ const taskAnswerToQuestionByIndex = (index, answer) => {
     }
     mathValue = taskQuestions[index].options[answer].mathValue;
   }
+  taskQuestions[index].answered = true;
+  taskQuestions[index].answer.value = answer;
+  taskQuestions[index].answer.mathValue = mathValue;
   taskQuestionAnswers[index] = { answer: answer, mathValue: mathValue };
   taskIterate();
   return true;
@@ -159,6 +162,9 @@ const taskGenerateVariables = () => {
     }
     if (!('logicalPolarity' in taskQuestions[i])) {
       taskQuestions[i].logicalPolarity = true;
+    }
+    if (!('answer' in taskQuestions[i])) {
+      taskQuestions[i].answer = { value: null, mathValue: 0 };
     }
   }
   return true;
