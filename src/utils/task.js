@@ -24,6 +24,7 @@ let taskQuestions = [];
 let taskQuestionAnswers = [];
 let taskLatestError = '';
 let taskVariables = [];
+let taskDescriptionValue = '';
 
 /* Go to question by index */
 const taskGoToQuestion = index => {
@@ -199,6 +200,7 @@ const taskInit = async initTaskID => {
         if (response.success) {
           taskInitialized = true;
           taskID = initTaskID;
+          taskDescriptionValue = response.description;
           taskQuestions = response.tasks[0].questions;
           taskIterate();
           resolve({ success: true });
@@ -290,6 +292,10 @@ const taskReset = () => {
   taskVariables = [];
 };
 
+const taskDescription = () => {
+  return taskDescriptionValue;
+};
+
 export {
   taskInit,
   taskAnswerToCurrent,
@@ -308,4 +314,5 @@ export {
   taskGetPercentageProgress,
   taskGetLatestError,
   taskReset,
+  taskDescription,
 };
