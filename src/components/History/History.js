@@ -7,6 +7,7 @@ import Icons from '../../assets/Icons';
 import D from '../../utils/dictionary';
 import { t } from '../../utils/translate';
 import Task from '../Task';
+import moment from 'moment';
 
 // eslint-disable-next-line no-unused-vars
 const History = ({ history, loading, error }) => {
@@ -52,6 +53,14 @@ const History = ({ history, loading, error }) => {
               <div key={item.u_time}>
                 {index !== 0 && <div className={styles.verticalLine} />}
                 <div className={styles.historyItem}>{element}</div>
+                {index !== history.length && (
+                  <>
+                    <div className={styles.smallVerticalLine} />
+                    <div className={styles.date}>
+                      {moment(item.time).format('DD.MM.YYYY')}
+                    </div>
+                  </>
+                )}
               </div>
             );
           })}
