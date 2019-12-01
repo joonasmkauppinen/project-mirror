@@ -12,9 +12,9 @@ import Task from '../Task';
 const History = ({ history, loading, error }) => {
   return (
     <>
-      <Subheader>{t(D.PROFILE.history)}</Subheader>
-      <LoadingIndicator loading={false} error={error}>
-        <div className={styles.historyContainer}>
+      <div className={styles.historyContainer}>
+        <Subheader>{t(D.PROFILE.history)}</Subheader>
+        <LoadingIndicator loading={false} error={error}>
           {history.map((item, index) => {
             let element = <></>;
 
@@ -31,6 +31,7 @@ const History = ({ history, loading, error }) => {
                     title={item.title}
                     description={item.subtitle}
                     onClick={() => console.log('Öpen task result screen')}
+                    completed
                   />
                 );
                 break;
@@ -54,8 +55,8 @@ const History = ({ history, loading, error }) => {
               </div>
             );
           })}
-        </div>
-      </LoadingIndicator>
+        </LoadingIndicator>
+      </div>
     </>
   );
 };
