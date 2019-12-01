@@ -7,13 +7,12 @@
   overflow-y: hidden;
   scroll-snap-type: x mandatory;
 
-  .hided {
-    background: #face00;
-    display: none !important;
+  .visible {
+    display: flex !important;
   }
 
   .fillScreen {
-    display: flex;
+    display: none;
     flex-direction: column;
     flex: 0 0 auto;
     width: 100vw;

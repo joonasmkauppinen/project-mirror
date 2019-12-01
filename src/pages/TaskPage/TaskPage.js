@@ -1,3 +1,4 @@
+/*eslint-disable eqeqeq*/
 import React, { useState, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 // import D from '../../utils/dictionary';
@@ -24,8 +25,8 @@ const TaskPage = () => {
   const [loadingTask, setLoadingTask] = useState(true);
   const [progress, setProgress] = useState(0);
   const [allQuestions, setAllQuestions] = useState([]);
-  // const [nextQuestionIndex, setNextQuestionIndex] = useState();
-  // const [previousQuestionIndex, setPreviousQuestionIndex] = useState();
+  const [nextQuestionIndex, setNextQuestionIndex] = useState(0);
+  const [previousQuestionIndex, setPreviousQuestionIndex] = useState();
   const [inViewQuestionIndex, setInViewQuestionIndex] = useState();
   const [refresh, setRefresh] = useState(false);
   const { id } = useParams();
@@ -40,35 +41,59 @@ const TaskPage = () => {
   }, [id]);
 
   useEffect(() => {
+    console.log('previous question index: ', previousQuestionIndex);
     console.log('in view question index: ', inViewQuestionIndex);
-    // console.log('next question index: ', nextQuestionIndex);
-    // console.log('previous question index: ', previousQuestionIndex);
-  }, [inViewQuestionIndex]);
+    console.log('next question index: ', nextQuestionIndex);
+  }, [inViewQuestionIndex, nextQuestionIndex, previousQuestionIndex]);
 
-  // const checkNextQuestionIndex = () => {
-  //   const next = allQuestions.findIndex(
-  //     ({ logicalPolarity }, index) =>
-  //       index > inViewQuestionIndex && logicalPolarity,
-  //   );
-  //   setNextQuestionIndex(next);
-  // };
+  useEffect(() => {
+    if (nextQuestionIndex > inViewQuestionIndex) {
+      document
+        .getElementById(`question-${nextQuestionIndex}`)
+        .classList.add(styles.visible);
+    }
+  }, [nextQuestionIndex, inViewQuestionIndex]);
 
-  // const checkPreviousQuestionIndex = () => {
-  //   const previous = allQuestions.findIndex(
-  //     ({ logicalPolarity }, index) =>
-  //       index < inViewQuestionIndex && logicalPolarity,
-  //   );
-  //   setPreviousQuestionIndex(previous);
-  // };
+  const checkNextQuestionIndex = () => {
+    const next = allQuestions.findIndex(
+      ({ logicalPolarity }, index) =>
+        index > inViewQuestionIndex && logicalPolarity,
+    );
+    setNextQuestionIndex(next);
+  };
+
+  const checkPreviousQuestionIndex = () => {
+    const previous = allQuestions.reduce((prevIndex, question, index) => {
+      if (index < inViewQuestionIndex && question.logicalPolarity) return index;
+      return prevIndex;
+    }, 0);
+
+    setPreviousQuestionIndex(previous);
+  };
 
   const handleRightIconClick = () => alert('TODO: show task info');
-  const buttonClick = () => {
-    taskGoNext();
-    const nro = taskGetCurrentQuestionIndex();
-    console.log(`Nyt pitäs siirtyy kysymykseen numero (indexi): ${nro}`);
-    const nextQuestionElement = document.getElementById(`question-${nro}`);
-    nextQuestionElement.scrollIntoView({ behavior: 'smooth' });
-    updateProgress();
+
+  const handleOnNextPress = () => {
+    if (inViewQuestionIndex == nextQuestionIndex) {
+      console.log('Question not answered yet!');
+      return;
+    }
+
+    if (inViewQuestionIndex < nextQuestionIndex) {
+      const nextQuestionElement = document.getElementById(
+        `question-${nextQuestionIndex}`,
+      );
+      nextQuestionElement.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    if (inViewQuestionIndex == taskGetCurrentQuestionIndex()) {
+      taskGoNext();
+      const nro = taskGetCurrentQuestionIndex();
+      console.log(`Nyt pitäs siirtyy kysymykseen numero (indexi): ${nro}`);
+      const nextQuestionElement = document.getElementById(`question-${nro}`);
+      nextQuestionElement.scrollIntoView({ behavior: 'smooth' });
+      updateProgress();
+    }
   };
 
   const updateProgress = () => {
@@ -80,6 +105,8 @@ const TaskPage = () => {
   const handleOptionChange = (index, value) => {
     taskAnswerToQuestionByIndex(index, value);
     setAllQuestions(taskGetAllQuestionsData());
+    checkNextQuestionIndex();
+    checkPreviousQuestionIndex();
     updateProgress();
     setRefresh(!refresh);
   };
@@ -106,6 +133,8 @@ const TaskPage = () => {
         <div className={styles.root}>
           {allQuestions.map(({ id, prompt, options }, qIndex) => {
             const values = Object.values(options);
+            const classes = [styles.fillScreen];
+            qIndex === 0 && classes.push(styles.visible);
             return (
               <InView
                 as="section"
@@ -114,12 +143,7 @@ const TaskPage = () => {
                 data-question-index={qIndex}
                 id={`question-${qIndex}`}
                 key={id}
-                className={styles.fillScreen}
-                style={{
-                  display: allQuestions[qIndex].logicalPolarity
-                    ? 'flex'
-                    : 'none',
-                }}
+                className={classes.join(' ')}
               >
                 <ScrollableContent>
                   <div style={{ display: 'none' }}>{refresh}</div>
@@ -138,7 +162,7 @@ const TaskPage = () => {
                     );
                   })}
                 </ScrollableContent>
-                <NextButton label="seuraava" onClick={buttonClick} />
+                <NextButton label="seuraava" onClick={handleOnNextPress} />
               </InView>
             );
           })}
