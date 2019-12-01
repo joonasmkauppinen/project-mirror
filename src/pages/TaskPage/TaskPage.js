@@ -17,6 +17,7 @@ import {
   taskAnswerToQuestionByIndex,
   taskGoNext,
   taskGetCurrentQuestionIndex,
+  taskSubmitData,
 } from '../../utils/task';
 import NextButton from '../../components/QuestionNextButton';
 import { InView } from 'react-intersection-observer';
@@ -118,6 +119,16 @@ const TaskPage = () => {
     }
   };
 
+  const submitData = () => {
+    taskSubmitData()
+      .then(() => {
+        console.log('ok! ');
+      })
+      .catch(e => {
+        console.log('Error: ' + e);
+      });
+  };
+
   return (
     <PageContainer>
       <Toolbar
@@ -162,6 +173,7 @@ const TaskPage = () => {
                     );
                   })}
                 </ScrollableContent>
+                <NextButton label="Submit-testi" onClick={submitData} />
                 <NextButton label="seuraava" onClick={handleOnNextPress} />
               </InView>
             );

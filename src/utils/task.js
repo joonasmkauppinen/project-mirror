@@ -245,8 +245,27 @@ const taskIsFinished = () => {
 };
 
 /* Submit task Answer Data to the Backend Server */
-const taskSubmitData = () => {
-  return { success: false, error: 'TODO' }; // TODO!
+const taskSubmitData = async () => {
+  return new Promise((resolve, reject) => {
+    let params = { id: taskID };
+    taskQuestions.forEach(q => {
+      if (q.answered) {
+        params[q.iid] = q.answer.value + '';
+      }
+    });
+    console.log(params);
+    apiCall('tasks-answer', params)
+      .then(response => {
+        if (response.success) {
+          resolve({ success: true });
+        } else {
+          reject(response.error);
+        }
+      })
+      .catch(e => {
+        reject(e);
+      });
+  });
 };
 
 /* Get Task Answer Status in Percents (0-100) */
