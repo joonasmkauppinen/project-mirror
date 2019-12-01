@@ -280,6 +280,16 @@ const taskGetPercentageProgress = () => {
   }
 };
 
+const taskReset = () => {
+  taskInitialized = false;
+  taskID = 0;
+  taskCurrentQuestion = 0;
+  taskQuestions = [];
+  taskQuestionAnswers = [];
+  taskLatestError = '';
+  taskVariables = [];
+};
+
 export {
   taskInit,
   taskAnswerToCurrent,
@@ -297,4 +307,5 @@ export {
   taskGetAllQuestionsData,
   taskGetPercentageProgress,
   taskGetLatestError,
+  taskReset,
 };
