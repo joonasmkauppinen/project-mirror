@@ -6,7 +6,7 @@ import TabContainer from '../../../hoc/TabContainer';
 import { t } from '../../../utils/translate';
 import styles from './HomeTab.module.scss';
 import TabTitle from '../../../components/TabTitle';
-import TaskList from '../../../components/TasksList';
+import TaskList from '../../../components/TaskList';
 import Button from '../../../components/Button';
 import Dialog from '../../../components/Dialog/Dialog';
 import Text from '../../../components/Text';

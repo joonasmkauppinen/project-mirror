@@ -1,32 +1,32 @@
 import React from 'react';
 import styles from './TaskList.module.scss';
 import PropTypes from 'prop-types';
-import Text from '../Text';
 import LoadingIndicator from '../LoadingIndicator';
-import Button from '../Button';
 import Subheader from '../Subheader';
 import { useHistory } from 'react-router-dom';
+import Task from '../Task';
+import { t } from '../../utils/translate';
+import D from '../../utils/dictionary';
 
 // eslint-disable-next-line no-unused-vars
 const TaskList = ({ tasks, loading, error }) => {
   const { push } = useHistory();
   return (
     <>
-      <Subheader>Tasks</Subheader>
+      <Subheader>{t(D.HOME.tasks)}</Subheader>
       <LoadingIndicator loading={false} error={error}>
         {tasks.map(task => (
           <div key={task.id}>
             <div className={styles.tasksContainer}>
-              <Text>{task.name}</Text>
-              <div>
-                <Button
-                  label={'action'}
-                  onClick={() => {
-                    push(`/task/${task.id}`);
-                  }}
-                  style={{ width: '80px' }}
-                />
-              </div>
+              <Task
+                onClick={() => {
+                  push(`/task/${task.id}`);
+                }}
+                title={task.name}
+                description={task.description}
+                points={task.xp}
+                completed={task.answered}
+              />
             </div>
           </div>
         ))}

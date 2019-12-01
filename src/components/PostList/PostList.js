@@ -7,6 +7,8 @@ import Card from '../Card';
 import Icons from '../../assets/Icons';
 import moment from 'moment';
 import { useHistory } from 'react-router-dom';
+import { t } from '../../utils/translate';
+import D from '../../utils/dictionary';
 
 // eslint-disable-next-line no-unused-vars
 const PostList = ({ posts, loading, error, orgs }) => {
@@ -19,7 +21,7 @@ const PostList = ({ posts, loading, error, orgs }) => {
   };
   return (
     <>
-      <Subheader>Posts</Subheader>
+      <Subheader>{t(D.HOME.posts)}</Subheader>
       <LoadingIndicator loading={false} error={error}>
         <div className={styles.postsContainer}>
           {posts.map(post => (

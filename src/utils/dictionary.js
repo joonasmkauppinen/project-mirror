@@ -242,6 +242,8 @@ export default {
 
   HOME: {
     title: { en: 'Hi,', fi: 'Hei,' },
+    tasks: { en: 'Tasks', fi: 'Tehtävät' },
+    posts: { en: 'Posts', fi: 'Seuraamasi' },
   },
 
   SETTINGS: {
