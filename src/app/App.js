@@ -22,6 +22,7 @@ import SettingsPage from '../pages/SettingsPage';
 import OrgDetailPage from '../pages/OrgDetailPage';
 import EventDetailPage from '../pages/EventDetailPage';
 import PostDetailPage from '../pages/PostDetailPage';
+import ChatPage from '../pages/ChatPage';
 
 const App = () => {
   const location = useLocation();
@@ -36,6 +37,7 @@ const App = () => {
   const orgDetail = () => (!auth() ? <Redirect to="/" /> : <OrgDetailPage />);
   const evtDetail = () => (!auth() ? <Redirect to="/" /> : <EventDetailPage />);
   const pstDetail = () => (!auth() ? <Redirect to="/" /> : <PostDetailPage />);
+  const chat = () => (!auth() ? <Redirect to="/" /> : <ChatPage />);
 
   return (
     <Provider store={store}>
@@ -47,6 +49,7 @@ const App = () => {
             classNames={{ ...animation }}
           >
             <Switch location={location}>
+              <Route path="/chatbot" render={chat} />
               <Route path="/task/:id" render={task} />
               <Route path="/posts/:id" render={pstDetail} />
               <Route path="/events/:id" render={evtDetail} />

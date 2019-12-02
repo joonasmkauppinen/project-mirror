@@ -306,5 +306,9 @@ export default {
     close: { en: 'close', fi: 'Sulje' },
   },
 
+  CHAT: {
+    title: { en: 'Ellis-robot', fi: 'Ellis-robotti' },
+  },
+
   DATE_FINNISH: setDateFormatToFinnish(),
 };
