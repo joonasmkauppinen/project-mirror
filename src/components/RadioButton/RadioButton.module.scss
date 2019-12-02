@@ -1,0 +1,48 @@
+@import '../../variables.scss';
+
+.container {
+  background-color: $card-bg-color;
+  display: inline-flex;
+  align-items: center;
+  height: 50px;
+  margin-bottom: 16px;
+  border-radius: 10px;
+
+  input[type='radio'] {
+    display: none;
+  }
+
+  .circle {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    margin: 0 16px;
+    border-radius: 50%;
+    border: 2px solid $card-detail-color;
+    box-sizing: border-box;
+    display: block;
+  }
+
+  input[type='radio'] + .circle::after {
+    content: '';
+    background-color: $primary-color;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    position: absolute;
+    top: calc(50% - 4px);
+    left: calc(50% - 4px);
+    transform: scale(0);
+    transition: transform 200ms $timing;
+  }
+
+  input[type='radio']:checked + .circle::after {
+    transform: scale(1);
+  }
+
+  .text {
+    font-size: 16px;
+    color: white;
+    font-weight: $medium;
+  }
+}
