@@ -246,6 +246,15 @@ const taskIsFinished = () => {
   return false;
 };
 
+/* Get Boolean value is task question answering reached the end by Index. */
+const taskIsFinishedByIndex = index => {
+  console.log('TODO: by index ' + index);
+  if (index >= taskQuestions.length - 1) {
+    return true; // TODO FOR TESTING
+  }
+  return false; //TODO
+};
+
 /* Submit task Answer Data to the Backend Server */
 const taskSubmitData = async () => {
   return new Promise((resolve, reject) => {
@@ -315,4 +324,5 @@ export {
   taskGetLatestError,
   taskReset,
   taskDescription,
+  taskIsFinishedByIndex,
 };
