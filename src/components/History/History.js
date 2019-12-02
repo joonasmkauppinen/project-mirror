@@ -55,7 +55,7 @@ const History = ({ history, loading, error }) => {
                 break;
             }
             return (
-              <div key={item.u_time}>
+              <div key={index}>
                 {index !== 0 && <div className={styles.verticalLine} />}
                 <div className={styles.historyItem}>{element}</div>
                 {index !== history.length && (
