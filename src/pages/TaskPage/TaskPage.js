@@ -7,9 +7,6 @@ import PageContainer from '../../hoc/PageContainer';
 import Toolbar from '../../components/Toolbar';
 import ScrollableContent from '../../hoc/ScrollableContent';
 import styles from './TaskPage.module.scss';
-import Text from '../../components/Text';
-import Header from '../../components/QuestionHeader';
-import LoadingSpinner from '../../components/LoadingSpinner';
 import {
   taskInit,
   taskGetAllQuestionsData,
@@ -19,8 +16,11 @@ import {
   taskGetCurrentQuestionIndex,
   taskSubmitData,
 } from '../../utils/task';
+import Header from '../../components/QuestionHeader';
+import LoadingSpinner from '../../components/LoadingSpinner';
 import NextButton from '../../components/QuestionNextButton';
 import { InView } from 'react-intersection-observer';
+import RadioButton from '../../components/RadioButton';
 
 const TaskPage = () => {
   const [loadingTask, setLoadingTask] = useState(true);
@@ -158,18 +158,16 @@ const TaskPage = () => {
               >
                 <ScrollableContent>
                   <div style={{ display: 'none' }}>{refresh}</div>
-                  <Header>{prompt}</Header>
+                  <Header style={{ flex: 1 }}>{prompt}</Header>
                   {values.map(({ value, id }, oIndex) => {
                     return (
-                      <label key={`q${qIndex}-${oIndex}`}>
-                        <input
-                          onChange={() => handleOptionChange(qIndex, id)}
-                          type="radio"
-                          name={`q${qIndex}`}
-                          value={value}
-                        />
-                        <Text style={{ display: 'inline-block' }}>{value}</Text>
-                      </label>
+                      <RadioButton
+                        key={`q${qIndex}-${oIndex}`}
+                        id={`q${qIndex}-${oIndex}`}
+                        value={value}
+                        name={`q${qIndex}`}
+                        onChange={() => handleOptionChange(qIndex, id)}
+                      />
                     );
                   })}
                 </ScrollableContent>
