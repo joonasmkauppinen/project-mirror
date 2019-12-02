@@ -15,6 +15,7 @@ import {
   taskGoNext,
   taskGetCurrentQuestionIndex,
   taskSubmitData,
+  taskIsFinishedByIndex,
 } from '../../utils/task';
 import Header from '../../components/QuestionHeader';
 import LoadingSpinner from '../../components/LoadingSpinner';
@@ -143,6 +144,7 @@ const TaskPage = () => {
       ) : (
         <div className={styles.root}>
           {allQuestions.map(({ id, prompt, options }, qIndex) => {
+            const lastQuestion = taskIsFinishedByIndex(qIndex);
             const values = Object.values(options);
             const classes = [styles.fillScreen];
             qIndex === 0 && classes.push(styles.visible);
@@ -171,8 +173,11 @@ const TaskPage = () => {
                     );
                   })}
                 </ScrollableContent>
-                <NextButton label="Submit-testi" onClick={submitData} />
-                <NextButton label="seuraava" onClick={handleOnNextPress} />
+                {lastQuestion ? (
+                  <NextButton label="valmis" onClick={submitData} />
+                ) : (
+                  <NextButton label="seuraava" onClick={handleOnNextPress} />
+                )}
               </InView>
             );
           })}
