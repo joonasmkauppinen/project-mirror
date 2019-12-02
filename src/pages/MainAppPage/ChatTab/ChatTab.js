@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Header from '../../../components/Header';
-import Text from '../../../components/Text';
 import TabContainer from '../../../hoc/TabContainer';
 import { t } from '../../../utils/translate';
 import TabTitle from '../../../components/TabTitle';
@@ -19,7 +18,6 @@ const ChatTab = ({ visible }) => {
           style={{ marginRight: '-16px' }}
         />
       </TabTitle>
-      <Text>This is the chat tab</Text>
       <MessageList />
     </TabContainer>
   );
