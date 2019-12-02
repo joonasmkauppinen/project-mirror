@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './History.module.scss';
 import PropTypes from 'prop-types';
 import LoadingIndicator from '../LoadingIndicator';
@@ -8,6 +8,7 @@ import D from '../../utils/dictionary';
 import { t } from '../../utils/translate';
 import Task from '../Task';
 import moment from 'moment';
+import Dialog from '../Dialog';
 
 // eslint-disable-next-line no-unused-vars
 const History = ({ history, loading, error }) => {
@@ -22,7 +23,11 @@ const History = ({ history, loading, error }) => {
             switch (item.type) {
               case 'trophy':
                 element = (
-                  <Trophy title={item.title} subtitle={item.subtitle} />
+                  <Trophy
+                    title={item.title}
+                    subtitle={item.subtitle}
+                    image={item.image}
+                  />
                 );
                 break;
               case 'task':
@@ -93,22 +98,34 @@ Level.propTypes = {
   description: PropTypes.string,
 };
 
-const Trophy = ({ title, subtitle }) => {
-  // TODO: Add onClick that opens image in dialog component
+const Trophy = ({ title, subtitle, image }) => {
+  const [showDialog, setShowDialog] = useState(false);
   return (
-    <div className={styles.trophy}>
-      <Icons.trophy />
-      <div className={styles.content}>
-        <div className={styles.title}>{title}</div>
-        <div className={styles.teaser}>{subtitle}</div>
+    <>
+      <div className={styles.trophy} onClick={() => setShowDialog(true)}>
+        <Icons.trophy />
+        <div className={styles.content}>
+          <div className={styles.title}>{title}</div>
+          <div className={styles.teaser}>{subtitle}</div>
+        </div>
       </div>
-    </div>
+      <Dialog
+        header={subtitle}
+        visible={showDialog}
+        onOutsideClick={() => setShowDialog(false)}
+        negativeLabel={t(D.DIALOG.close)}
+        onNegativeClicked={() => setShowDialog(false)}
+      >
+        <img src={image} alt="trophy" />
+      </Dialog>
+    </>
   );
 };
 
 Trophy.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
+  image: PropTypes.string,
 };
 
 export default History;

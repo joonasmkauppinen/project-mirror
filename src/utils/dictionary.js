@@ -302,5 +302,9 @@ export default {
     in_short: { en: 'In short', fi: 'Lyhyesti' },
   },
 
+  DIALOG: {
+    close: { en: 'close', fi: 'Sulje' },
+  },
+
   DATE_FINNISH: setDateFormatToFinnish(),
 };
