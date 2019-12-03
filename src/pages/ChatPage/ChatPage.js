@@ -10,6 +10,7 @@ import TextInput from '../../components/TextInput';
 import { Formik, Form } from 'formik';
 import Button from '../../components/Button';
 import { apiCall } from '../../utils/apicall';
+import { uniqueId } from 'lodash-es';
 
 const ChatPage = () => {
   const history = useHistory();
@@ -21,16 +22,22 @@ const ChatPage = () => {
     const msg = {
       text: chat,
       mine: true,
+      id: uniqueId(),
     };
     resetForm({ chat: '' });
     setMessages([...messages, msg]);
+    const message = document.getElementById(msg.id);
+    message.scrollIntoView({ behavior: 'smooth' });
     apiCall('message-send-chatbot', { chat_id: 1, message: chat })
       .then(res => {
         const response = {
           text: res.answer,
           mine: false,
+          id: uniqueId(),
         };
         setMessages([...messages, msg, response]);
+        const message = document.getElementById(response.id);
+        message.scrollIntoView({ behavior: 'smooth' });
       })
       .catch(err => console.log(err));
   };
@@ -43,8 +50,8 @@ const ChatPage = () => {
       />
       <ScrollableContent>
         <div className={styles.chatPageContent}>
-          {messages.map((message, index) => (
-            <div key={index}>
+          {messages.map(message => (
+            <div key={message.id} id={message.id}>
               {message.mine ? (
                 <div className={styles.chatItem + ' ' + styles.right}>
                   <div className={styles.chatBubble + ' ' + styles.mine}>
@@ -60,26 +67,25 @@ const ChatPage = () => {
               )}
             </div>
           ))}
-
-          <div className={styles.bottomInput}>
-            <Formik
-              onSubmit={handleSubmit}
-              initialValues={{ chat: '' }}
-              enableReinitialize={false}
-            >
-              <Form>
-                <TextInput
-                  type={'text'}
-                  placeholder={t(D.CHAT.send)}
-                  autoFocus={true}
-                  name={'chat'}
-                />
-                <Button superClass={styles.hide} type="submit" label={''} />
-              </Form>
-            </Formik>
-          </div>
         </div>
       </ScrollableContent>
+      <div className={styles.bottomInput}>
+        <Formik
+          onSubmit={handleSubmit}
+          initialValues={{ chat: '' }}
+          enableReinitialize={false}
+        >
+          <Form>
+            <TextInput
+              type={'text'}
+              placeholder={t(D.CHAT.send)}
+              autoFocus={true}
+              name={'chat'}
+            />
+            <Button superClass={styles.hide} type="submit" label={''} />
+          </Form>
+        </Formik>
+      </div>
     </PageContainer>
   );
 };

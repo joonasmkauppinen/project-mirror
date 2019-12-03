@@ -3,6 +3,7 @@
 .chatPageContent {
   display: flex;
   flex-direction: column;
+  padding-bottom: 24px;
   .chatItem {
     display: flex;
     flex: 1;
@@ -26,7 +27,7 @@
     align-items: center;
     justify-content: flex-start;
     padding: 4px 12px;
-
+    word-break: break-word;
     &.mine {
       justify-content: flex-end;
     }
@@ -37,15 +38,12 @@
       border-radius: 10px 10px 10px 0;
     }
   }
+}
 
-  .bottomInput {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-  }
+.bottomInput {
+  width: 100%;
+}
 
-  .hide {
-    display: none;
-  }
+.hide {
+  display: none;
 }
