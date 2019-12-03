@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import styles from './ChatPage.module.scss';
 import Toolbar from '../../components/Toolbar';
@@ -6,11 +6,34 @@ import { t } from '../../utils/translate';
 import D from '../../utils/dictionary';
 import PageContainer from '../../hoc/PageContainer';
 import ScrollableContent from '../../hoc/ScrollableContent';
+import TextInput from '../../components/TextInput';
+import { Formik, Form } from 'formik';
+import Button from '../../components/Button';
+import { apiCall } from '../../utils/apicall';
 
 const ChatPage = () => {
   const history = useHistory();
-  const handleOnBackClick = () => history.goBack();
+  const [messages, setMessages] = useState([]);
 
+  const handleOnBackClick = () => history.goBack();
+  const handleSubmit = ({ chat }, { resetForm }) => {
+    if (chat === '') return;
+    const msg = {
+      text: chat,
+      mine: true,
+    };
+    resetForm({ chat: '' });
+    setMessages([...messages, msg]);
+    apiCall('message-send-chatbot', { chat_id: 1, message: chat })
+      .then(res => {
+        const response = {
+          text: res.answer,
+          mine: false,
+        };
+        setMessages([...messages, msg, response]);
+      })
+      .catch(err => console.log(err));
+  };
   return (
     <PageContainer>
       <Toolbar
@@ -19,7 +42,43 @@ const ChatPage = () => {
         title={t(D.CHAT.title)}
       />
       <ScrollableContent>
-        <div className={styles.chatPageContent}>TEEEST</div>
+        <div className={styles.chatPageContent}>
+          {messages.map((message, index) => (
+            <div key={index}>
+              {message.mine ? (
+                <div className={styles.chatItem + ' ' + styles.right}>
+                  <div className={styles.chatBubble + ' ' + styles.mine}>
+                    {message.text}
+                  </div>
+                </div>
+              ) : (
+                <div className={styles.chatItem + ' ' + styles.left}>
+                  <div className={styles.chatBubble + ' ' + styles.theirs}>
+                    {message.text}
+                  </div>
+                </div>
+              )}
+            </div>
+          ))}
+
+          <div className={styles.bottomInput}>
+            <Formik
+              onSubmit={handleSubmit}
+              initialValues={{ chat: '' }}
+              enableReinitialize={false}
+            >
+              <Form>
+                <TextInput
+                  type={'text'}
+                  placeholder={t(D.CHAT.send)}
+                  autoFocus={true}
+                  name={'chat'}
+                />
+                <Button superClass={styles.hide} type="submit" label={''} />
+              </Form>
+            </Formik>
+          </div>
+        </div>
       </ScrollableContent>
     </PageContainer>
   );

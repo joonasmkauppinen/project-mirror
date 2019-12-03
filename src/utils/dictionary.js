@@ -308,6 +308,7 @@ export default {
 
   CHAT: {
     title: { en: 'Ellis-robot', fi: 'Ellis-robotti' },
+    send: { en: 'Send message', fi: 'Lähetä viesti' },
   },
 
   DATE_FINNISH: setDateFormatToFinnish(),
