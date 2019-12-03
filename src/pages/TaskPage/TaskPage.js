@@ -17,6 +17,7 @@ import {
   taskSubmitData,
   taskIsFinishedByIndex,
   taskReset,
+  taskSetCurrentquestion,
 } from '../../utils/task';
 import Header from '../../components/QuestionHeader';
 import LoadingSpinner from '../../components/LoadingSpinner';
@@ -124,8 +125,15 @@ const TaskPage = () => {
 
   const handleInViewChange = (inView, entry) => {
     if (inView) {
-      const index = entry.target.dataset.questionIndex;
+      const index = parseInt(entry.target.dataset.questionIndex);
       setInViewQuestionIndex(index);
+      if (allQuestions[index]) {
+        if (!allQuestions[index].answer.value) {
+          taskSetCurrentquestion(index);
+        } else {
+          setLastQuestion(taskIsFinishedByIndex(index));
+        }
+      }
     }
   };
 

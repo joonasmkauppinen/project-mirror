@@ -298,6 +298,10 @@ const taskGetPercentageProgress = () => {
   }
 };
 
+const taskSetCurrentquestion = index => {
+  taskCurrentQuestion = index;
+};
+
 const taskReset = () => {
   taskInitialized = false;
   taskID = 0;
@@ -332,4 +336,5 @@ export {
   taskReset,
   taskDescription,
   taskIsFinishedByIndex,
+  taskSetCurrentquestion,
 };
