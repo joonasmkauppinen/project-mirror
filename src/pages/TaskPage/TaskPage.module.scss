@@ -1,3 +1,5 @@
+@import '../../variables.scss';
+
 .root {
   display: flex;
   flex: 1;
@@ -18,6 +20,48 @@
     width: 100vw;
     align-self: stretch;
     scroll-snap-align: center;
+  }
+
+  .resultScreen {
+    display: none;
+    flex-direction: column;
+    flex: 0 0 auto;
+    width: 100vw;
+    align-self: stretch;
+    scroll-snap-align: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 32px;
+
+    .upperSection {
+      display: flex;
+      flex-direction: column;
+      flex: 2;
+      align-self: stretch;
+      align-items: center;
+      justify-content: center;
+
+      .resultHeader {
+        color: white;
+        font-size: 28px;
+        font-weight: $bold;
+        margin-top: 32px;
+      }
+
+      .resultText {
+        color: white;
+        font-size: 18px;
+        font-weight: $medium;
+      }
+    }
+
+    .lowerSection {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      align-self: stretch;
+      justify-content: center;
+    }
   }
 
   ::-webkit-scrollbar {

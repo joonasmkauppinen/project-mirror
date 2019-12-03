@@ -8,7 +8,6 @@ import TabTitle from '../../../components/TabTitle';
 import IconButton from '../../../components/IconButton';
 import ProfileCard from '../../../components/ProfileCard';
 import History from '../../../components/History';
-import Task from '../../../components/Task';
 
 const ProfileTab = ({
   visible,
@@ -48,13 +47,6 @@ const ProfileTab = ({
           loading={loading}
         />
       </div>
-      <Task
-        description={'This is some overly long line of text that will overflow'}
-        title={'Test'}
-        points={100}
-        completed
-        onClick={() => console.log('Öpen task result screen')}
-      />
       <History history={userHistory} />
     </TabContainer>
   );

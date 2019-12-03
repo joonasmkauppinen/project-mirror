@@ -31,6 +31,7 @@ import { ReactComponent as CircleCheckIcon } from './svg/circle_check_ic.svg';
 import { ReactComponent as DoubleNextIcon } from './svg/double_next.svg';
 import { ReactComponent as TrophyIcon } from './svg/trophy.svg';
 import { ReactComponent as LevelUpIcon } from './svg/level-up.svg';
+import { ReactComponent as ResultCheckmark } from './svg/resultCheckmark.svg';
 
 const Icons = {
   alert: AlertIcon,
@@ -66,6 +67,7 @@ const Icons = {
   settings: SettingsIcon,
   arrowLongRight: ArrowLongRight,
   trophy: TrophyIcon,
+  resultCheckmark: ResultCheckmark,
 };
 
 export default Icons;
