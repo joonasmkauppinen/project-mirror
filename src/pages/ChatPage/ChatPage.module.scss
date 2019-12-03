@@ -1,0 +1,51 @@
+@import '../../variables.scss';
+
+.chatPageContent {
+  display: flex;
+  flex-direction: column;
+  .chatItem {
+    display: flex;
+    flex: 1;
+    margin: 4px 0;
+    &.left {
+      justify-content: flex-start;
+    }
+
+    &.right {
+      justify-content: flex-end;
+    }
+  }
+  .chatBubble {
+    background-color: $card-placeholder-color;
+    color: $title-text-color;
+    font-size: $body-text-size;
+    min-height: 36px;
+    max-width: 45%;
+    border-radius: 10px 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 4px 12px;
+
+    &.mine {
+      justify-content: flex-end;
+    }
+
+    &.theirs {
+      background-color: $card-bg-color;
+      color: $primary-color;
+      border-radius: 10px 10px 10px 0;
+    }
+  }
+
+  .bottomInput {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .hide {
+    display: none;
+  }
+}
