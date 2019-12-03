@@ -248,11 +248,15 @@ const taskIsFinished = () => {
 
 /* Get Boolean value is task question answering reached the end by Index. */
 const taskIsFinishedByIndex = index => {
-  console.log('TODO: by index ' + index);
-  if (index >= taskQuestions.length - 1) {
-    return true; // TODO FOR TESTING
+  console.log('taskIsFinishedByIndex');
+  if (index <= taskQuestions.length - 1) {
+    for (let i = index + 1; i <= taskQuestions.length - 1; i++) {
+      if (taskQuestions[i].logicalPolarity) {
+        return false;
+      }
+    }
   }
-  return false; //TODO
+  return true;
 };
 
 /* Submit task Answer Data to the Backend Server */

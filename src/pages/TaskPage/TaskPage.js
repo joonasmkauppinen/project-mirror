@@ -37,6 +37,7 @@ const TaskPage = () => {
   const [inViewQuestionIndex, setInViewQuestionIndex] = useState();
   const [submittingTask, setSubmittingTask] = useState(false);
   const [showDialog, setShowDialog] = useState(false);
+  const [lastQuestion, setLastQuestion] = useState(false);
   const root = useRef(null);
   const { id } = useParams();
   const { goBack } = useHistory();
@@ -116,6 +117,8 @@ const TaskPage = () => {
     setAllQuestions(taskGetAllQuestionsData());
     checkNextQuestionIndex();
     checkPreviousQuestionIndex();
+    setLastQuestion(taskIsFinishedByIndex(index));
+    console.log('lastQuestion = ' + lastQuestion);
     updateProgress();
   };
 
@@ -135,6 +138,7 @@ const TaskPage = () => {
   const submitData = () => {
     setSubmittingTask(true);
     const resultScreen = document.getElementById('result-screen');
+    setProgress(100);
     resultScreen.classList.add(styles.visible);
     resultScreen.scrollIntoView({ behavior: 'smooth' });
     taskSubmitData()
@@ -167,7 +171,7 @@ const TaskPage = () => {
       ) : (
         <div ref={root} className={styles.root}>
           {allQuestions.map(({ id, prompt, options }, qIndex) => {
-            const lastQuestion = taskIsFinishedByIndex(qIndex);
+            //const lastQuestion = taskIsFinishedByIndex(qIndex);
             const values = Object.values(options);
             const classes = [styles.fillScreen];
             qIndex === 0 && classes.push(styles.visible);
