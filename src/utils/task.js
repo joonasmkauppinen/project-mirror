@@ -185,11 +185,14 @@ const taskIterateLogicalOperations = (parent = 0, logicalPolarity = true) => {
     if (taskQuestions[i].parent === parent) {
       if (logicalPolarity && 'formula' in taskQuestions[i]) {
         logicalPolarity = taskExecLogicalOper(taskQuestions[i].formula);
+      } else {
+        logicalPolarity = false;
       }
       taskQuestions[i].logicalPolarity = logicalPolarity;
       taskIterateLogicalOperations(taskQuestions[i].id);
     }
   }
+  return true;
 };
 
 /* Initialize Task (load task questions and data from Backend Server) */
