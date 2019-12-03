@@ -116,7 +116,9 @@ const Trophy = ({ title, subtitle, image }) => {
         negativeLabel={t(D.DIALOG.close)}
         onNegativeClicked={() => setShowDialog(false)}
       >
-        <img src={image} alt="trophy" />
+        <div className={styles.imgContainer}>
+          <img src={image} alt="trophy" className={styles.trophyImage} />
+        </div>
       </Dialog>
     </>
   );

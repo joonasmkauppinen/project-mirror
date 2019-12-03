@@ -59,4 +59,15 @@
     font-weight: $bold;
     line-height: 22px;
   }
+
+  .imgContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .trophyImage {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+
 }
