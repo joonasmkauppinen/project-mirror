@@ -1,5 +1,5 @@
 /*eslint-disable eqeqeq*/
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 // import D from '../../utils/dictionary';
 // import { t } from '../../utils/translate';
@@ -16,12 +16,17 @@ import {
   taskGetCurrentQuestionIndex,
   taskSubmitData,
   taskIsFinishedByIndex,
+  taskReset,
 } from '../../utils/task';
 import Header from '../../components/QuestionHeader';
 import LoadingSpinner from '../../components/LoadingSpinner';
 import NextButton from '../../components/QuestionNextButton';
 import { InView } from 'react-intersection-observer';
 import RadioButton from '../../components/RadioButton';
+import Icons from '../../assets/Icons';
+import Button from '../../components/Button';
+import Dialog from '../../components/Dialog';
+import Text from '../../components/Text';
 
 const TaskPage = () => {
   const [loadingTask, setLoadingTask] = useState(true);
@@ -30,7 +35,9 @@ const TaskPage = () => {
   const [nextQuestionIndex, setNextQuestionIndex] = useState(0);
   const [previousQuestionIndex, setPreviousQuestionIndex] = useState();
   const [inViewQuestionIndex, setInViewQuestionIndex] = useState();
-  const [refresh, setRefresh] = useState(false);
+  const [submittingTask, setSubmittingTask] = useState(false);
+  const [showDialog, setShowDialog] = useState(false);
+  const root = useRef(null);
   const { id } = useParams();
   const { goBack } = useHistory();
 
@@ -110,7 +117,6 @@ const TaskPage = () => {
     checkNextQuestionIndex();
     checkPreviousQuestionIndex();
     updateProgress();
-    setRefresh(!refresh);
   };
 
   const handleInViewChange = (inView, entry) => {
@@ -120,14 +126,31 @@ const TaskPage = () => {
     }
   };
 
+  const handleResultScreenInView = inView => {
+    if (inView) {
+      root.current.setAttribute('style', 'overflow-x: hidden;');
+    }
+  };
+
   const submitData = () => {
+    setSubmittingTask(true);
+    const resultScreen = document.getElementById('result-screen');
+    resultScreen.classList.add(styles.visible);
+    resultScreen.scrollIntoView({ behavior: 'smooth' });
     taskSubmitData()
       .then(() => {
         console.log('ok! ');
+        setSubmittingTask(false);
       })
       .catch(e => {
         console.log('Error: ' + e);
+        setSubmittingTask(false);
       });
+  };
+
+  const endTask = () => {
+    taskReset();
+    goBack();
   };
 
   return (
@@ -135,14 +158,14 @@ const TaskPage = () => {
       <Toolbar
         taskProgress={progress}
         leftIcon="close"
-        onLeftIconClick={goBack}
+        onLeftIconClick={() => setShowDialog(true)}
         rightIcon="info"
         onRightIconClick={handleRightIconClick}
       />
       {loadingTask ? (
         <LoadingSpinner />
       ) : (
-        <div className={styles.root}>
+        <div ref={root} className={styles.root}>
           {allQuestions.map(({ id, prompt, options }, qIndex) => {
             const lastQuestion = taskIsFinishedByIndex(qIndex);
             const values = Object.values(options);
@@ -159,8 +182,7 @@ const TaskPage = () => {
                 className={classes.join(' ')}
               >
                 <ScrollableContent>
-                  <div style={{ display: 'none' }}>{refresh}</div>
-                  <Header style={{ flex: 1 }}>{prompt}</Header>
+                  <Header>{prompt}</Header>
                   {values.map(({ value, id }, oIndex) => {
                     return (
                       <RadioButton
@@ -181,8 +203,43 @@ const TaskPage = () => {
               </InView>
             );
           })}
+          <InView
+            as="section"
+            id="result-screen"
+            className={styles.resultScreen}
+            threshold={1}
+            onChange={handleResultScreenInView}
+          >
+            {submittingTask ? (
+              <LoadingSpinner />
+            ) : (
+              <>
+                <div className={styles.upperSection}>
+                  <Icons.resultCheckmark />
+                  <div className={styles.resultHeader}>Hienoa!</div>
+                  <div className={styles.resultText}>
+                    Verbaalinen tehtävän tulos.
+                  </div>
+                </div>
+                <div className={styles.lowerSection}>
+                  <Button label="valmis" onClick={endTask} />
+                </div>
+              </>
+            )}
+          </InView>
         </div>
       )}
+      <Dialog
+        header="Lopeta tehtävä?"
+        visible={showDialog}
+        onOutsideClick={() => setShowDialog(false)}
+        positiveLabel="lopeta"
+        negativeLabel="peruuta"
+        onPositiveClicked={endTask}
+        onNegativeClicked={() => setShowDialog(false)}
+      >
+        <Text>Jos jätät tehtävän kesken menetät vastauksesi.</Text>
+      </Dialog>
     </PageContainer>
   );
 };
