@@ -73,11 +73,6 @@ const SettingsPage = () => {
               handleToggle={() => setLocValue(!locValue)}
             />
           </div>
-          <Button
-            onClick={() => setShowDialog(true)}
-            secondary
-            label={t(D.logout)}
-          />
           <Dialog
             header={t(D.SETTINGS.logout)}
             visible={showDialog}
@@ -89,17 +84,37 @@ const SettingsPage = () => {
           >
             <Text>{t(D.SETTINGS.confirm)}</Text>
           </Dialog>
+          <div className={styles.settingsItem}>
+            <Icons.notification />
+            <div className={styles.textContainer}>
+              <div className={styles.header}>Localization</div>
+              <div className={styles.title}>System Language</div>
+              <div className={styles.body}>
+                Change your OS language.
+                <br />
+                <br />
+              </div>
+              <div className={styles.body}>
+                <Button
+                  onClick={() => changeLanguage('en')}
+                  secondary
+                  label="English"
+                  disabled={language === 'en'}
+                />
+                <Button
+                  onClick={() => changeLanguage('fi')}
+                  secondary
+                  label="Suomi (Finnish)"
+                  disabled={language === 'fi'}
+                />
+              </div>
+            </div>
+          </div>
+          <br />
           <Button
-            onClick={() => changeLanguage('en')}
+            onClick={() => setShowDialog(true)}
             secondary
-            label="lang -> en"
-            disabled={language === 'en'}
-          />
-          <Button
-            onClick={() => changeLanguage('fi')}
-            secondary
-            label="lang -> fi"
-            disabled={language === 'fi'}
+            label={t(D.logout)}
           />
         </div>
       </ScrollableContent>
