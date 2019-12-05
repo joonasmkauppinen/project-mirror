@@ -116,6 +116,8 @@ const SettingsPage = () => {
             secondary
             label={t(D.logout)}
           />
+          <br />
+          <br />
         </div>
       </ScrollableContent>
     </PageContainer>
