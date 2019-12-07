@@ -47,3 +47,46 @@
 .hide {
   display: none;
 }
+
+.lds {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  display: block;
+  position: relative;
+  width: 24px;
+  height: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.lds div {
+  display: inline-block;
+  position: absolute;
+  left: 8px;
+  width: 16px;
+  background: #fff;
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  animation: lds 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+.lds div:nth-child(1) {
+  left: 8px;
+  animation-delay: -0.24s;
+}
+.lds div:nth-child(2) {
+  left: 18px;
+  animation-delay: -0.12s;
+}
+.lds div:nth-child(3) {
+  left: 28px;
+  animation-delay: 0;
+}
+@keyframes lds {
+  0% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0.2;
+  }
+}

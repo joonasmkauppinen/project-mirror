@@ -15,6 +15,7 @@ import { uniqueId } from 'lodash-es';
 const ChatPage = () => {
   const history = useHistory();
   const [messages, setMessages] = useState([]);
+  const [typingSpinner, setTypingSpinner] = useState(false);
 
   const handleOnBackClick = () => history.goBack();
   const handleSubmit = ({ chat }, { resetForm }) => {
@@ -27,6 +28,7 @@ const ChatPage = () => {
     resetForm({ chat: '' });
     setMessages([...messages, msg]);
     const message = document.getElementById(msg.id);
+
     message.scrollIntoView({ behavior: 'smooth' });
     apiCall('message-send-chatbot', { chat_id: 1, message: chat })
       .then(res => {
@@ -35,9 +37,14 @@ const ChatPage = () => {
           mine: false,
           id: uniqueId(),
         };
-        setMessages([...messages, msg, response]);
-        const message = document.getElementById(response.id);
+        setTypingSpinner(true);
         message.scrollIntoView({ behavior: 'smooth' });
+        setTimeout(() => {
+          setTypingSpinner(false);
+          const message = document.getElementById(msg.id);
+          setMessages([...messages, msg, response]);
+          message.scrollIntoView({ behavior: 'smooth' });
+        }, Math.random() * 3000 + 1);
       })
       .catch(err => console.log(err));
   };
@@ -68,6 +75,13 @@ const ChatPage = () => {
             </div>
           ))}
         </div>
+        {typingSpinner && (
+          <div className={styles.lds}>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        )}
       </ScrollableContent>
       <div className={styles.bottomInput}>
         <Formik
