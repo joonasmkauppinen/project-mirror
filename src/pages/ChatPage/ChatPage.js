@@ -96,7 +96,12 @@ const ChatPage = () => {
               autoFocus={true}
               name={'chat'}
             />
-            <Button superClass={styles.hide} type="submit" label={''} />
+            <Button
+              superClass={styles.hide}
+              type="submit"
+              label={''}
+              disabled={typingSpinner}
+            />
           </Form>
         </Formik>
       </div>
