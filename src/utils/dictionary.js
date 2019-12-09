@@ -327,7 +327,7 @@ export default {
     cancel: { en: 'Cancel', fi: 'Peruuta' },
     dialogTitle: { en: 'End task?', fi: 'Lopeta tehtävä?' },
     next: { en: 'Next', fi: 'Seuraava' },
-    ok: { en: 'Ok', fi: 'Valmis' },
+    ok: { en: 'Close', fi: 'Valmis' },
     send: { en: 'Send', fi: 'Valmis' },
     resultHeader: { en: 'Fantastic!', fi: 'Hienoa!' },
     resultText: { en: 'Thank you for answering!', fi: 'Kiitos vastauksesta!' },

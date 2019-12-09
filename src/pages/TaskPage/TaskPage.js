@@ -213,7 +213,7 @@ const TaskPage = () => {
                   })}
                 </ScrollableContent>
                 {lastQuestion ? (
-                  <NextButton label={t(D.TASK.ok)} onClick={submitData} />
+                  <NextButton label={t(D.TASK.send)} onClick={submitData} />
                 ) : (
                   <NextButton
                     label={t(D.TASK.next)}
