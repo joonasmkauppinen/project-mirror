@@ -318,5 +318,7 @@ export default {
     confirm: { en: 'OK', fi: 'Selvä' },
   },
 
+  TASK: {},
+
   DATE_FINNISH: setDateFormatToFinnish(),
 };

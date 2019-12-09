@@ -18,6 +18,8 @@ import {
   taskIsFinishedByIndex,
   taskReset,
   taskSetCurrentquestion,
+  taskDescription,
+  taskTitle,
 } from '../../utils/task';
 import Header from '../../components/QuestionHeader';
 import LoadingSpinner from '../../components/LoadingSpinner';
@@ -28,6 +30,8 @@ import Icons from '../../assets/Icons';
 import Button from '../../components/Button';
 import Dialog from '../../components/Dialog';
 import Text from '../../components/Text';
+import { t } from '../../utils/translate';
+import D from '../../utils/dictionary';
 
 const TaskPage = () => {
   const [loadingTask, setLoadingTask] = useState(true);
@@ -38,6 +42,7 @@ const TaskPage = () => {
   const [inViewQuestionIndex, setInViewQuestionIndex] = useState();
   const [submittingTask, setSubmittingTask] = useState(false);
   const [showDialog, setShowDialog] = useState(false);
+  const [showDescription, setShowDescription] = useState(false);
   const [lastQuestion, setLastQuestion] = useState(false);
   const root = useRef(null);
   const { id } = useParams();
@@ -82,7 +87,7 @@ const TaskPage = () => {
     setPreviousQuestionIndex(previous);
   };
 
-  const handleRightIconClick = () => alert('TODO: show task info');
+  const handleRightIconClick = () => setShowDescription(true);
 
   const handleOnNextPress = () => {
     if (inViewQuestionIndex == nextQuestionIndex) {
@@ -251,6 +256,15 @@ const TaskPage = () => {
         onNegativeClicked={() => setShowDialog(false)}
       >
         <Text>Jos jätät tehtävän kesken menetät vastauksesi.</Text>
+      </Dialog>
+      <Dialog
+        header={taskTitle()}
+        visible={showDescription}
+        onOutsideClick={() => setShowDescription(false)}
+        negativeLabel={t(D.DIALOG.close)}
+        onNegativeClicked={() => setShowDescription(false)}
+      >
+        <Text>{taskDescription()}</Text>
       </Dialog>
     </PageContainer>
   );

@@ -25,6 +25,7 @@ let taskQuestionAnswers = [];
 let taskLatestError = '';
 let taskVariables = [];
 let taskDescriptionValue = '';
+let taskTitleValue = '';
 
 /* Go to question by index */
 const taskGoToQuestion = index => {
@@ -203,8 +204,9 @@ const taskInit = async initTaskID => {
         if (response.success) {
           taskInitialized = true;
           taskID = initTaskID;
-          taskDescriptionValue = response.description;
+          taskDescriptionValue = response.tasks[0].description;
           taskQuestions = response.tasks[0].questions;
+          taskTitleValue = response.tasks[0].name;
           taskIterate();
           resolve({ success: true });
         } else {
@@ -316,6 +318,10 @@ const taskDescription = () => {
   return taskDescriptionValue;
 };
 
+const taskTitle = () => {
+  return taskTitleValue;
+};
+
 export {
   taskInit,
   taskAnswerToCurrent,
@@ -337,4 +343,5 @@ export {
   taskDescription,
   taskIsFinishedByIndex,
   taskSetCurrentquestion,
+  taskTitle,
 };
