@@ -309,6 +309,13 @@ export default {
   CHAT: {
     title: { en: 'Ellis-robot', fi: 'Ellis-robotti' },
     send: { en: 'Send message', fi: 'Lähetä viesti' },
+    info: {
+      en:
+        'Hi! Im Ellis-chatbot. You can always find me in this corner when you need me.',
+      fi:
+        'Hei! Olen Ellis robotti. Löydät minut täältä kulmasta aina kun tarvitset apua.',
+    },
+    confirm: { en: 'OK', fi: 'Selvä' },
   },
 
   DATE_FINNISH: setDateFormatToFinnish(),

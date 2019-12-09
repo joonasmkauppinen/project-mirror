@@ -1,0 +1,34 @@
+@import "../../../variables";
+
+.infoBox {
+  border: 1px solid $primary-color;
+  border-radius: 10px 0 10px 10px;
+  display: flex;
+  .content {
+    font-size: $body-text-size;
+    color: $title-text-color;
+    margin: 16px 16px 8px 16px;
+  }
+
+  .confirm{
+    font-size: $font-tiny;
+    color: $primary-color;
+    text-transform: uppercase;
+    font-weight: $bold;
+    float: right;
+    margin-top: 4px;
+    margin-bottom: 8px;
+  }
+}
+
+.visible {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 500ms linear;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 500ms, opacity 500ms linear;
+}
