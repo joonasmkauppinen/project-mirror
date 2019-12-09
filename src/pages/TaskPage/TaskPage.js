@@ -213,9 +213,12 @@ const TaskPage = () => {
                   })}
                 </ScrollableContent>
                 {lastQuestion ? (
-                  <NextButton label="valmis" onClick={submitData} />
+                  <NextButton label={t(D.TASK.ok)} onClick={submitData} />
                 ) : (
-                  <NextButton label="seuraava" onClick={handleOnNextPress} />
+                  <NextButton
+                    label={t(D.TASK.next)}
+                    onClick={handleOnNextPress}
+                  />
                 )}
               </InView>
             );
@@ -233,13 +236,15 @@ const TaskPage = () => {
               <>
                 <div className={styles.upperSection}>
                   <Icons.resultCheckmark />
-                  <div className={styles.resultHeader}>Hienoa!</div>
+                  <div className={styles.resultHeader}>
+                    {t(D.TASK.resultHeader)}
+                  </div>
                   <div className={styles.resultText}>
-                    Verbaalinen tehtävän tulos.
+                    {t(D.TASK.resultText)}
                   </div>
                 </div>
                 <div className={styles.lowerSection}>
-                  <Button label="valmis" onClick={endTask} />
+                  <Button label={t(D.TASK.ok)} onClick={endTask} />
                 </div>
               </>
             )}
@@ -247,15 +252,15 @@ const TaskPage = () => {
         </div>
       )}
       <Dialog
-        header="Lopeta tehtävä?"
+        header={t(D.TASK.dialogTitle)}
         visible={showDialog}
         onOutsideClick={() => setShowDialog(false)}
-        positiveLabel="lopeta"
-        negativeLabel="peruuta"
+        positiveLabel={t(D.TASK.confirm)}
+        negativeLabel={t(D.TASK.cancel)}
         onPositiveClicked={endTask}
         onNegativeClicked={() => setShowDialog(false)}
       >
-        <Text>Jos jätät tehtävän kesken menetät vastauksesi.</Text>
+        <Text>{t(D.TASK.dialogText)}</Text>
       </Dialog>
       <Dialog
         header={taskTitle()}

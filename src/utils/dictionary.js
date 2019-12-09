@@ -318,7 +318,20 @@ export default {
     confirm: { en: 'OK', fi: 'Selvä' },
   },
 
-  TASK: {},
+  TASK: {
+    dialogText: {
+      en: 'You will lose all progress if you leave',
+      fi: 'Jos jätät tehtävän kesken menetät vastauksesi.',
+    },
+    confirm: { en: 'Leave', fi: 'Lopeta' },
+    cancel: { en: 'Cancel', fi: 'Peruuta' },
+    dialogTitle: { en: 'End task?', fi: 'Lopeta tehtävä?' },
+    next: { en: 'Next', fi: 'Seuraava' },
+    ok: { en: 'Ok', fi: 'Valmis' },
+    send: { en: 'Send', fi: 'Valmis' },
+    resultHeader: { en: 'Fantastic!', fi: 'Hienoa!' },
+    resultText: { en: 'Thank you for answering!', fi: 'Kiitos vastauksesta!' },
+  },
 
   DATE_FINNISH: setDateFormatToFinnish(),
 };
