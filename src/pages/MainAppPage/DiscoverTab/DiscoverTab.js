@@ -1,16 +1,11 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import IconButton from '../../../components/IconButton';
 import TabContainer from '../../../hoc/TabContainer';
 import TabTitle from '../../../components/TabTitle';
 import Header from '../../../components/Header';
 import { t } from '../../../utils/translate';
 import OrgsList from '../../../components/OrgsList';
 import EventList from '../../../components/EventList';
-
-const test = () => {
-  console.log('Test');
-};
 
 const DiscoverTab = ({ visible, loadOrgs, loadEvents, events }) => {
   useEffect(() => {
@@ -23,11 +18,6 @@ const DiscoverTab = ({ visible, loadOrgs, loadEvents, events }) => {
     <TabContainer active={visible}>
       <TabTitle>
         <Header>{t('TABS.discover')}</Header>
-        <IconButton
-          icon={'search'}
-          onClick={test}
-          style={{ marginRight: '-16px' }}
-        />
       </TabTitle>
       <OrgsList />
       <EventList events={events} />
