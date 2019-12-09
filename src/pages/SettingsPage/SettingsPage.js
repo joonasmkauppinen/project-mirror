@@ -47,7 +47,9 @@ const SettingsPage = () => {
       <ScrollableContent>
         <div className={styles.settingsPageContent}>
           <div className={styles.settingsItem}>
-            <Icons.notification />
+            <div className={styles.otherIcon}>
+              <Icons.notification />
+            </div>
             <div className={styles.textContainer}>
               <div className={styles.header}>{t(D.SETTINGS.notif.header)}</div>
               <div className={styles.title}>{t(D.SETTINGS.notif.title)}</div>
@@ -60,7 +62,9 @@ const SettingsPage = () => {
           </div>
           <div className={styles.horizontalLine} />
           <div className={styles.settingsItem}>
-            <Icons.location />
+            <div className={styles.otherIcon}>
+              <Icons.location />
+            </div>
             <div className={styles.textContainer}>
               <div className={styles.header}>
                 {t(D.SETTINGS.location.header)}
@@ -84,28 +88,29 @@ const SettingsPage = () => {
           >
             <Text>{t(D.SETTINGS.confirm)}</Text>
           </Dialog>
+          <div className={styles.horizontalLine} />
           <div className={styles.settingsItem}>
-            <Icons.notification />
+            <div className={styles.languageIcon}>
+              <Icons.language />
+            </div>
             <div className={styles.textContainer}>
               <div className={styles.header}>Localization</div>
               <div className={styles.title}>System Language</div>
-              <div className={styles.body}>
-                Change your OS language.
-                <br />
-                <br />
-              </div>
-              <div className={styles.body}>
+              <div className={styles.body}>Change your OS language.</div>
+              <div className={styles.body + ' ' + styles.actions}>
                 <Button
                   onClick={() => changeLanguage('en')}
                   secondary
                   label="English"
                   disabled={language === 'en'}
+                  style={{ marginRight: '4px' }}
                 />
                 <Button
                   onClick={() => changeLanguage('fi')}
                   secondary
-                  label="Suomi (Finnish)"
+                  label="Suomi"
                   disabled={language === 'fi'}
+                  style={{ marginLeft: '4px' }}
                 />
               </div>
             </div>

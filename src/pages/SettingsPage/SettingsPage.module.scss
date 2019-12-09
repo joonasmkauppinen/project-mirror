@@ -6,7 +6,11 @@
     border-bottom: 1px solid $card-bg-color;
     left: 0;
     right: 0;
-    position: absolute;
+    position: sticky;
+    margin: 0 -32px;
+    @media (max-width: 360px)  {
+      margin: 0 -16px;
+    }
   }
 
   .settingsItem {
@@ -15,12 +19,30 @@
     align-items: center;
     padding-top: 16px;
     padding-bottom: 16px;
-    svg {
-      margin-right: 28px;
-      flex-shrink: 0;
-      path {
-        fill: $primary-color;
-        stroke: $primary-color;
+    .languageIcon {
+      svg {
+        margin-right: 28px;
+        @media (max-width: 360px)  {
+          margin-right: 16px;
+        }
+        flex-shrink: 0;
+        path {
+          fill: $primary-color;
+        }
+      }
+    }
+
+    .otherIcon {
+      svg {
+        margin-right: 28px;
+        @media (max-width: 360px)  {
+          margin-right: 16px;
+        }
+        flex-shrink: 0;
+        path {
+          fill: $primary-color;
+          stroke: $primary-color;
+        }
       }
     }
 
@@ -46,6 +68,11 @@
         font-size: $font-medium;
         font-weight: $medium;
         color: $body-text-color;
+        &.actions {
+          margin-top: 12px;
+          display: flex;
+          flex-direction: row;
+        }
       }
     }
   }
