@@ -58,9 +58,10 @@ const PostDetailPage = ({ loadPosts, posts }) => {
               <div className={styles.header}>
                 {t(D.EVENT_DETAILS.full_description)}
               </div>
-              <div className={styles.body + ' ' + styles.description}>
-                {post.text}
-              </div>
+              <div
+                className={styles.body + ' ' + styles.description}
+                dangerouslySetInnerHTML={{ __html: post.text }}
+              />
             </div>
           </div>
         </div>
