@@ -45,35 +45,24 @@ const LandingPage = () => {
       </section>
       <section className={styles.featuresSection}>
         <div className={styles.feature}>
-          <h1>Mikä Peili?</h1>
-          <p>
-            Tässä kerrotaan peilin tarkoitus ja tavoitteet lyhyesti ja
-            ytimekkäästi. Mitä se sitten on, niin pitää kysyä tarkemmin
-            asiakkaalta.
-          </p>
+          <h1>{t(D.LANDING.peili_idea_header)}</h1>
+          <p>{t(D.LANDING.peili_idea)}</p>
         </div>
         <div className={styles.feature}>
-          <h1>Löydä organisaatioita</h1>
-          <p>
-            Peili auttaa sinua löytämään organisaatioita jotka parhaiten
-            auttavat sinua elämässä. (Asiakas taas osaa varmaan kertoa paremman
-            kuvauksen...)
-          </p>
+          <h1>{t(D.LANDING.peili_organizations_header)}</h1>
+          <p>{t(D.LANDING.peili_organizations)}</p>
         </div>
         <div className={styles.feature}>
-          <h1>Tapahtumia</h1>
-          <p>Coming soon...</p>
+          <h1>{t(D.LANDING.peili_events_header)}</h1>
+          <p>{t(D.LANDING.peili_events)}</p>
         </div>
         <div className={styles.feature}>
-          <h1>Chat</h1>
-          <p>
-            Peilin kautta voit olla suoraan yhteydessä organisaatioiden
-            yhteyshenkilöihin.
-          </p>
+          <h1>{t(D.LANDING.peili_chat_header)}</h1>
+          <p>{t(D.LANDING.peili_chat)}</p>
         </div>
       </section>
       <section className={styles.signupSection}>
-        <h1>Löydä vahvuutesi luomalla käyttäjä!</h1>
+        <h1>{t(D.LANDING.peili_signup_header)}</h1>
         <Button label={signupLabel} onClick={handleOnSignupClick} />
       </section>
       <footer className={styles.footerSection}>
