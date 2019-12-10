@@ -27,6 +27,7 @@
     .text {
       display: flex;
       flex-direction: column;
+      justify-content: center;
       overflow-x: hidden;
 
       .messageTitle {
@@ -34,17 +35,17 @@
         color: $title-text-color;
         font-weight: $semi-bold;
         text-overflow: ellipsis;
-        overflow-x: hidden;
+        overflow: hidden;
         white-space: nowrap;
-        line-height: 20px;
+        line-height: 25px;
       }
 
       .messageContent {
         font-size: $body-text-size;
         color: $body-text-color;
-        line-height: 30px;
+        line-height: 25px;
         text-overflow: ellipsis;
-        overflow-x: hidden;
+        overflow: hidden;
         white-space: nowrap;
       }
     }
@@ -54,8 +55,13 @@
       width: 50px;
       flex-shrink: 0;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      justify-content: space-evenly;
       align-items: center;
+      font-size: $font-small;
+      color: $body-text-color;
+      font-weight: $semi-bold;
+      text-transform: capitalize;
       svg {
         transform: matrix(-1, 0, 0, 1, 0, 0);
         height: 20px;
@@ -66,5 +72,12 @@
       }
     }
 
+  }
+
+  .noMessages {
+    margin-top: 24px;
+    font-weight: $bold;
+    font-size: $body-text-size;
+    color: $title-text-color;
   }
 }

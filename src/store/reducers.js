@@ -6,6 +6,7 @@ import gauges from './gauges/reducers';
 import user from './user/reducers';
 import events from './events/reducers';
 import history from './history/reducers';
+import messages from './messages/reducers';
 
 export default combineReducers({
   organizations,
@@ -15,4 +16,5 @@ export default combineReducers({
   user,
   events,
   history,
+  messages,
 });
