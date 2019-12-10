@@ -150,6 +150,50 @@ export default {
       en: 'To begin create an account or login.',
       fi: 'Aloittaaksesi luo käyttäjä tai kirjaudu sisään.',
     },
+    peili_idea_header: {
+      en: 'What is project Peili?',
+      fi: 'Mikä on Peili?',
+    },
+    peili_idea: {
+      en:
+        'The goal of the Peili project is to help young people find their strengths and targets of interest.',
+      fi:
+        'Peili projektin tarkoitus on auttaa nuoria löytämään omat vahvuutensa ja kiinnostuksen kohteensa.',
+    },
+    peili_organizations_header: {
+      en: 'Find organizations',
+      fi: 'Löydä organisaatioita',
+    },
+    peili_organizations: {
+      en:
+        'Peili will help you find interesting organizations that provide meanigful activities.',
+      fi:
+        'Peili auttaa sinua löytämään mielenkiintoisia organisaatioita jotka tarjoavat mielekästä tekemistä.',
+    },
+    peili_events_header: {
+      en: 'Events',
+      fi: 'Tapahtumia',
+    },
+    peili_events: {
+      en:
+        'Find interesting events that help you network and find new paths to your life.',
+      fi:
+        'Löydä kiinnostavia tapahtumia jotka auttavat sinua verkostoitumaan ja löytämään uusia polkuja.',
+    },
+    peili_chat_header: {
+      en: 'Chat',
+      fi: 'Chat',
+    },
+    peili_chat: {
+      en:
+        'Through Peili you can directly message the organization contact persons. You can also chat with the interactive Ellis-robot.',
+      fi:
+        'Peilin kautta voit olla suoraan yhteydessä organisaatioiden yhteyshenkilöihin. Voit myös jutella interaktiivisen Ellis-robotin kanssa.',
+    },
+    peili_signup_header: {
+      en: 'Find your strengths by creating an account!',
+      fi: 'Löydä vahvuutesi luomalla käyttäjä!',
+    },
   },
 
   PLACEHOLDERS: {
