@@ -3,6 +3,17 @@
 
 ![Download banner (1)](https://user-images.githubusercontent.com/28673805/67844721-f2006b00-fb06-11e9-8715-e4d96de62fdf.png)
 
+### Final Material For Stakeholders (Oma Task Requirements)
+* [**Product**](http://joonasmkauppinen.github.io/project-mirror/) - Working PWA application Online URL
+* [**Frontend Code**](https://github.com/joonasmkauppinen/project-mirror) - React, Redux, JavaScript
+* [**Backend Code**](http://tucloud.fi/metropolia/peiliapi/backend-code-browser.php) - PHP, MySQL
+* [**Project Management**](https://github.com/joonasmkauppinen/project-mirror/projects/1) - GitHub GanBang
+* [**ReadMe**](https://docs.google.com/document/d/1X1aw3axpFyhZuXBMTQDiQwqXAzP-uxBQqZUHHrDsUMY) - also read this page, please!!!
+* [**Client Meetings**](https://drive.google.com/drive/u/1/folders/1vkZWRH55mQbDjN3DZ9VMh_CcdCb1m_my) - Google Drive Folder
+* [**Video Presentations for the Client**](https://drive.google.com/drive/u/1/folders/1vkZWRH55mQbDjN3DZ9VMh_CcdCb1) - Videos for the Client (In Finnish)
+* [**Scrums**](https://docs.google.com/document/d/1__l_ZxOBLQp5N3cHHhmThdeDdoR4ktiGyK_YlXbLWb0) - Video List Here
+* [**Poster**](https://github.com/joonasmkauppinen/project-mirror/blob/master/Peili_Alpja_Poster_A3.pdf) - A3 PDF Poster
+
 ### Quick links
 * [**Latest passing build release**](http://joonasmkauppinen.github.io/project-mirror/)
 * [**Kanban**](https://github.com/joonasmkauppinen/project-mirror/projects/1?fullscreen=true)
