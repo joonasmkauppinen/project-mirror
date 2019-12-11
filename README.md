@@ -8,9 +8,9 @@
 * [**Frontend Code**](https://github.com/joonasmkauppinen/project-mirror) - React, Redux, JavaScript
 * [**Backend Code**](http://tucloud.fi/metropolia/peiliapi/backend-code-browser.php) - PHP, MySQL
 * [**Project Management**](https://github.com/joonasmkauppinen/project-mirror/projects/1) - GitHub Kanban board
-* [**Executive Summary**](https://docs.google.com/document/d/1X1aw3axpFyhZuXBMTQDiQwqXAzP-uxBQqZUHHrDsUMY) - also read this page, please!!!
+* [**Project Report**](https://docs.google.com/document/d/1X1aw3axpFyhZuXBMTQDiQwqXAzP-uxBQqZUHHrDsUMY) - also read this page, please!!!
 * [**Client Meetings**](https://drive.google.com/drive/u/1/folders/1vkZWRH55mQbDjN3DZ9VMh_CcdCb1m_my) - Google Drive Folder
-* [**Video Presentations for the Client**](https://drive.google.com/drive/u/1/folders/1vkZWRH55mQbDjN3DZ9VMh_CcdCb1) - Videos for the Client (In Finnish)
+* [**Material Requested By Client**](https://docs.google.com/document/d/1RZfhKidAX-Khxb5Mc0kJPyOxbWYFkkLy7QEvbsMir-o/edit) - Project Outcomes & Videos for the Client (In Finnish)
 * [**Scrums**](https://docs.google.com/document/d/1__l_ZxOBLQp5N3cHHhmThdeDdoR4ktiGyK_YlXbLWb0) - Video List Here
 * [**Poster**](https://github.com/joonasmkauppinen/project-mirror/blob/master/Peili_Alpja_Poster_A3.pdf) - A3 PDF Poster
 
